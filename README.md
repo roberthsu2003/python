@@ -1,5 +1,5 @@
-### python
-Python內建資料型別
+# python
+### Python內建資料型別  
 • booleans (True or False)  
 • integers (42 and 100000000)  
 • floats (3.14159）  
@@ -29,3 +29,19 @@ type('abc')
 <class 'str'>
 
 ```
+
+### 合法命名  
+
+•a  
+•a1  
+•a_b_c___95
+• _abc
+•_1a
+
+### 不合法命名
+
+•1 
+•1a
+•1_
+
+
