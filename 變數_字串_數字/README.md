@@ -76,6 +76,99 @@ type('abc')
 ^
 SyntaxError: invalid token #python的語法錯誤
 
+
+#正整數
+>>> 123
+    123
+>>> +123
+    123
+    
+#負整數
+>>> -123 
+-123
+
+#整數運算
+>>>5+9 
+   14 
+>>>100-7 
+   93 
+>>>4-10 
+   -6
+   
+#多個數值運算
+>>>5+9+3
+17 
+>>>4+3-2-1+6 
+	 10
+	 
+#乘法運算
+>>>6*7
+42
+>>>7*6
+42 
+>>>6*7*2*3 
+   252
+   
+#浮點數除法
+>>>9/5 
+   1.8
+
+#整數除法
+>>>9//5 
+   1
+#除數不可以為零
+>>>5/0
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module> ZeroDivisionError: division by zero >>>7//0
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module> ZeroDivisionError: integer division or modulo by z
+
+
+#變數可以運算
+>>>a=95 
+>>> a
+95 
+>>>a-3 
+   92
+
+#將變數自已的內容減3   
+>>>a=a-3 
+>>> a
+92
+
+>>>a=95 
+>>>temp=a-3 
+>>>a=temp
+
+#上面敘述式，可以使用下面這行替代
+>>>a=a-3
 ```
+
+### 2,8,16進位
+表示 | 進位
+--- | ---
+0b 0B | 2進位
+0o 0O | 8進位
+0x 0X | 16進位
+
+```python
+#10進位
+>>> 10 
+10
+
+#2進位
+>>> 0b10
+2
+
+#8進位
+>>> 0o10
+8
+
+#16進位
+>>> 0x10
+16
+
+```
+
 
 
