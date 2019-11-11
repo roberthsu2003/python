@@ -6,15 +6,15 @@
 • string  
 
 ```python
-//下面2行，將7給變數a, 並且輸出變數a的內容
+#下面2行，將7給變數a, 並且輸出變數a的內容
 a=7
 print(a)
 
-//將a的參考給b,並且輸出變數b的內容
+#將a的參考給b,並且輸出變數b的內容
 b=a
 print(b)
 
-//使用type function輸出目前的資料型別
+#使用type function輸出目前的資料型別
 type(a) 
 <class 'int'>
 
@@ -69,12 +69,12 @@ type('abc')
 >>> 0
 0
 
-//數字前不可以加0
+#數字前不可以加0
 >>> 05
       File "<stdin>", line 1
 05
 ^
-SyntaxError: invalid token //python的語法錯誤
+SyntaxError: invalid token #python的語法錯誤
 
 ```
 
