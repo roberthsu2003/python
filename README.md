@@ -1,5 +1,5 @@
 # python
-* 變數_字串_數字
+* 變數 字串 數字
 * List Tuples Dictionaries Sets
 
 
