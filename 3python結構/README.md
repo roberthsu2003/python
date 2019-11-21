@@ -279,6 +279,8 @@ This is not much of a cheese shop, is it?
 ```
 ### Iterate Multiple Sequences with zip()
 
+
+
 ```python
 >>> days = ['Monday', 'Tuesday', 'Wednesday']
 >>> fruits = ['banana', 'orange', 'peach']
