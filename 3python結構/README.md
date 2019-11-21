@@ -664,7 +664,19 @@ echo returns its input argument
 ```
 ### Functions Are First-Class Citizens
 ```python
+>>> def answer(): 
+		print(42)
 
+>>> answer()
+42
+
+==========================================
+
+>>> def run_something(func): 
+		func()
+
+>>> run_something(answer) 
+42
 ```
 
 
