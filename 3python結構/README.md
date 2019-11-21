@@ -673,7 +673,7 @@ echo returns its input argument
 ==========================================
 
 >>> def run_something(func): 
-		func()
+	func()
 
 >>> run_something(answer) 
 42
