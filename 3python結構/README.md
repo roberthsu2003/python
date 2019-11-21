@@ -682,5 +682,3 @@ echo returns its input argument
 ```
 
 
-
-
