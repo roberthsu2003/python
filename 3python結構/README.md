@@ -749,6 +749,321 @@ def knights2(saying):
 >>> type(a) <class 'function'> 
 >>> type(b) <class 'function'>
 
+>>> a
+<function knights2.<locals>.inner2 at 0x10193e158> 
+>>> b
+<function knights2.<locals>.inner2 at 0x10193e1e0>
+
+>>> a()
+"We are the knights who say: 'Duck'"
+>>> b()
+"We are the knights who say: 'Hasenpfeffer'"
+```
+
+### Anonymous Functions: the lambda() Function
+```python
+def edit_story(words, func):
+	for word in words:
+		print(func(word))
+
+
+>>> stairs = ['thud', 'meow', 'thud', 'hiss']
+
+
+def enliven(word): # give that prose more punch 
+	return word.capitalize() + '!'
+	
+>>> edit_story(stairs, enliven) 
+Thud!
+Meow!
+Thud!
+Hiss!
+
+
+>>> edit_story(stairs, lambda word: word.capitalize() + '!') 
+Thud!
+Meow!
+Thud!
+Hiss!
+```
+
+### Generators
+
+```python
+>>> sum(range(1, 101))
+5050
+
+
+def my_range(first=0, last=10, step=1):
+	number = first
+	while number < last:
+		yield number
+		number += step
+
+>>> my_range
+<function my_range at 0x10193e268>
+
+>>> ranger = my_range(1, 5)
+>>> ranger
+<generator object my_range at 0x101a0a168>
+
+for x in ranger: 
+	print(x)
+
+1
+2 
+3 
+4
+```
+
+### Decorators
+```python
+def document_it(func):
+	def new_function(*args, **kwargs):
+		print('Running function:', func.__name__) 
+		print('Positional arguments:', args) 
+		print('Keyword arguments:', kwargs) 
+		result = func(*args, **kwargs) 
+		print('Result:', result)
+		return result
+	return new_function
+
+
+
+def add_ints(a, b): 
+returna+b
+
+>>> add_ints(3, 5)
+8
+
+>>> cooler_add_ints = document_it(add_ints) # manual decorator assignment
+>>> cooler_add_ints(3, 5) 
+Running function: add_ints
+Positional arguments: (3, 5)
+Keyword arguments: {}
+Result: 8
+8
+
+
+@document_it
+def add_ints(a, b):
+	returna+b
+
+>>> add_ints(3, 5)
+Start function add_ints
+Positional arguments: (3, 5)
+Keyword arguments: {}
+Result: 8
+8
+
+
+
+def square_it(func):
+	def new_function(*args, **kwargs):
+        result = func(*args, **kwargs)
+		return result * result
+	return new_function
+
+
+@document_it
+@square_it
+def add_ints(a, b):
+	return a+b
+
+>>> add_ints(3, 5)
+Running function: new_function
+Positional arguments: (3, 5)
+Keyword arguments: {}
+Result: 64
+64
+
+
+@square_it
+@document_it
+def add_ints(a, b):
+return a+b 
+
+>>> add_ints(3, 5) 
+Running function: add_ints
+Positional arguments: (3, 5)
+Keyword arguments: {}
+Result: 8
+64
+
+```
+
+### Namespaces and Scope
+
+```python
+>>> animal = 'fruitbat'
+def print_global():
+	print('inside print_global:', animal)
+	
+	
+>>> print('at the top level:', animal)
+at the top level: fruitbat
+>>> print_global()
+inside print_global: fruitbat
+
+
+
+def change_and_print_global():
+	print('inside change_and_print_global:', animal)
+	animal = 'wombat'
+	print('after the change:', animal)
+
+
+>>> change_and_print_global()
+Traceback (most recent call last):
+	File "<stdin>", line 1, in <module>
+	File "<stdin>", line 2, in change_and_report_it
+UnboundLocalError: local variable 'animal' referenced before assignment
+
+
+
+def change_local():
+	animal = 'wombat'
+	print('inside change_local:', animal, id(animal))
+
+
+>>> change_local()
+inside change_local: wombat 4330406160 
+>>> animal
+'fruitbat'
+
+>>> id(animal)
+4330390832
+
+
+>>> animal = 'fruitbat'
+
+
+def change_and_print_global():
+	global animal
+	animal = 'wombat'
+	print('inside change_and_print_global',animal)
+	
+>>> animal
+'fruitbat'
+>>> change_and_print_global()
+inside change_and_print_global: wombat 
+>>> animal
+'wombat'
+
+
+>>> animal = 'fruitbat'
+	def change_and_print_global():
+	animal = 'wombat'
+	print('locals:',locals())
+	
+>>> animal
+'fruitbat'
+>>> change_local()
+locals: {'animal': 'wombat'}
+
+>>> print('globals',globals()) # reformatted a little for presentation
+globals: {'animal': 'fruitbat',
+'__doc__': None,
+'change_local': <function change_it at 0x1006c0170>,
+'__package__': None,
+'__name__': '__main__',
+'__loader__': <class '_frozen_importlib.BuiltinImporter'>,
+ '__builtins__': <module 'builtins'>}
+>>> animal
+'fruitbat'
+
+```
+
+### Uses of _ and __ in Names
+
+```python
+
+def amazing():
+	'''This is the amazing function.
+	Want to see it again?'''
+	print('This function is named:', amazing.__name__)
+	print('And its docstring is:', amazing.__doc__)
+	
+>>> amazing()
+This function is named: amazing
+And its docstring is: This is the amazing function.
+Want to see it again?
+```
+
+### Handle Errors with try and except
+
+```python
+>>> short_list = [1, 2, 3]
+>>> position = 5
+>>> short_list[position] 
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+
+
+
+short_list = [1, 2, 3] 
+position = 5
+try:
+	short_list[position] 
+except:
+	print('Need a position between 0 and', len(short_list)-1, ' but got',position)
+	
+	
+Need a position between 0 and 2 but got 5
+
+
+
+short_list = [1, 2, 3] 
+	while True:
+		value = input('Position [q to quit]? ')
+		if value == 'q':
+			break 
+		try:
+			position = int(value)
+			print(short_list[position]) 
+		except IndexError as err:
+			print('Bad index:', position) 
+		except Exception as other:
+			print('Something else broke:', other)
+
+Position [q to quit]? 1
+2
+Position [q to quit]? 0
+1
+Position [q to quit]? 2
+3
+Position [q to quit]? 3
+Bad index: 3
+Position [q to quit]? 2
+3
+Position [q to quit]? two
+Something else broke: invalid literal for int() with base 10: 'two'
+Position [q to quit]? q
+```
+
+### Make Your Own Exceptions
+
+```python
+class UppercaseException(Exception): 
+	pass
+
+>>> words = ['eeenie', 'meenie', 'miny', 'MO'] 
+for word in words:
+	if word.isupper():
+		raise UppercaseException(word)
+	
+Traceback (most recent call last):
+File "<stdin>", line 3, in <module>
+__main__.UppercaseException: MO
+
+
+
+try:
+	raise OopsException('panic')
+except OopsException as exc:
+	print(exc)
+
 
 ```
 
