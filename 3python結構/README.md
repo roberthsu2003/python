@@ -682,3 +682,73 @@ echo returns its input argument
 ```
 
 
+```python
+def add_args(arg1, arg2): 
+	print(arg1 + arg2)
+	
+
+>>> type(add_args)
+<class 'function'>
+
+
+def run_something_with_args(func, arg1, arg2):
+	func(arg1, arg2)
+	
+
+>>> run_something_with_args(add_args, 5, 9) 
+14
+
+```
+
+```python
+def sum_args(*args): 
+	return sum(args)
+	
+
+def run_with_positional_args(func, *args):
+	return func(*args)
+
+
+>>> run_with_positional_args(sum_args, 1, 2, 3, 4)
+10	
+```
+
+### Inner Functions
+
+```python
+def outer(a, b):
+	def inner(c, d): 
+		returnc+d
+	return inner(a, b)
+
+
+>>> outer(4, 7)
+11
+
+
+def knights(saying):
+	def inner(quote):	
+		return "We are the knights who say: '%s'" % quote
+	return inner(saying)
+	
+	
+>>> knights('Ni!')
+    "We are the knights who say: 'Ni!'"
+```
+
+### Closures
+```python
+def knights2(saying):
+	def inner2():
+		return "We are the knights who say: '%s'" % saying
+	return inner2
+
+>>> a = knights2('Duck')
+>>> b = knights2('Hasenpfeffer')
+
+>>> type(a) <class 'function'> 
+>>> type(b) <class 'function'>
+
+
+```
+
