@@ -413,28 +413,28 @@ True
 False
 ```
 
-Table 6-1. Magic methods for comparison
-__eq__(self, other) self==other 
-__ne__(self, other) self!=other 
-__lt__(self, other) self<other 
-__gt__(self, other) self>other 
-__le__(self, other) self<=other 
-__ge__(self, other) self>=other
+Table 6-1. Magic methods for comparison  
+__eq__(self, other) self==other  
+__ne__(self, other) self!=other  
+__lt__(self, other) self<other  
+__gt__(self, other) self>other  
+__le__(self, other) self<=other  
+__ge__(self, other) self>=other  
 
 
-Table 6-2. Magic methods for math
-__add__(self, other) 
-__sub__(self, other) 
-__mul__(self, other) 
-__floordiv__(self, other) 
-__truediv__(self, other) 
-__mod__(self, other) 
-__pow__(self, other)
+Table 6-2. Magic methods for math  
+__add__(self, other)  
+__sub__(self, other)   
+__mul__(self, other)   
+__floordiv__(self, other)   
+__truediv__(self, other)  
+__mod__(self, other)  
+__pow__(self, other)  
 
-Table 6-3. Other, miscellaneous magic methods
-__str__(self) str(self) 
-__repr__(self) repr(self) 
-__len__(self) len(self)
+Table 6-3. Other, miscellaneous magic methods  
+__str__(self) str(self)  
+__repr__(self) repr(self)  
+__len__(self) len(self)  
 
 ```python
 >>> first = Word('ha')
