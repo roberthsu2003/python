@@ -413,6 +413,7 @@ True
 False
 ```
 
+```python
 Table 6-1. Magic methods for comparison  
 __eq__(self, other) self==other  
 __ne__(self, other) self!=other  
@@ -435,6 +436,7 @@ Table 6-3. Other, miscellaneous magic methods
 __str__(self) str(self)  
 __repr__(self) repr(self)  
 __len__(self) len(self)  
+``
 
 ```python
 >>> first = Word('ha')
