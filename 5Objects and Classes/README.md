@@ -436,7 +436,7 @@ Table 6-3. Other, miscellaneous magic methods
 __str__(self) str(self)  
 __repr__(self) repr(self)  
 __len__(self) len(self)  
-``
+```
 
 ```python
 >>> first = Word('ha')
