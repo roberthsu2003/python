@@ -1,8 +1,4 @@
 # python基礎 
-## 安裝Anacoda
-[安裝Anacoda](https://www.anaconda.com/)  
-
-
 ## 安裝pycharm 
 [安裝pycharm community](https://www.jetbrains.com/pycharm/)  
 
