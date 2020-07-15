@@ -38,5 +38,4 @@ for i in range(total):
     while tmp != 0:
         sum_digit += tmp % 10
         tmp //= 10
-
-print("sum of all digits of %d is %d" % (num, sum_digit))
+    print("sum of all digits of %d is %d" % (num, sum_digit))t
