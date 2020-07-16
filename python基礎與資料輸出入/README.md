@@ -1,6 +1,16 @@
 # python基礎 
-## 安裝pycharm 
+
+## Microsoft Azure noteboot(雲端編輯器)
+[Azure notebook](https://notebooks.azure.com/)
+
+## Google Colab(雲端編輯器)
+[Google Colab](https://colab.research.google.com/notebooks/intro.ipynb)
+
+## 安裝pycharm (本地端編輯器)
 [安裝pycharm community](https://www.jetbrains.com/pycharm/)  
+
+## anaConda(本地虛擬環境編輯器)
+[本地編輯器](https://www.anaconda.com/)
 
 ## python 編譯器語言
 python是編譯器語言,由上而下,一次只執行一行程式  
@@ -69,6 +79,7 @@ $jupyter notebook
 ```
 
 ![jupyter notebookt畫面](./images/pic1.png)
+
 ### 使用pycharm建立並執行xxx.py檔執行python
 
 ```python
