@@ -567,14 +567,14 @@ furry = True
 small = True 
 if furry:
 	if small:
-		print("It's a cat.")
+		print("它是貓")
 	else:
-		print("It's a bear!")
+		print("它是熊!")
 else:
 	if small:
-		print("It's a skink!")
+		print("它是小蜥蜴")
 	else:
-		print("It's a human. Or a hairless bear.")
+		print("它是人類或是沒毛的熊")
 
 It's a cat.
 
