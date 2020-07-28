@@ -567,7 +567,7 @@ furry = True
 small = True 
 if furry:
 	if small:
-		print("它是貓")
+		print("它是貓!")
 	else:
 		print("它是熊!")
 else:
