@@ -1385,6 +1385,42 @@ print('b' in dict1.keys( ))
  
 
 ---
+### keys(),values(),items(),copy()
+
+```python
+
+>>> signals = {'green': 'go', 'yellow': 'go faster', 'red': 'smile for the camera'} 
+>>> signals.keys()
+dict_keys(['green', 'red', 'yellow'])
+
+
+>>> list( signals.values() )
+['go', 'smile for the camera', 'go faster']
+
+
+>>> list( signals.items() )
+[('green', 'go'), ('red', 'smile for the camera'), ('yellow', 'go faster')]
+
+
+>>> signals = {'green': 'go', 'yellow': 'go faster', 'red': 'smile for the camera'} 
+>>> save_signals = signals
+>>> signals['blue'] = 'confuse everyone'
+>>> save_signals
+    {'blue': 'confuse everyone', 'green': 'go',
+    'red': 'smile for the camera', 'yellow': 'go faster'}
+
+
+>>> signals = {'green': 'go', 'yellow': 'go faster', 'red': 'smile for the camera'} >>> original_signals = signals.copy()
+>>> signals['blue'] = 'confuse everyone'
+>>> signals
+{'blue': 'confuse everyone', 'green': 'go',
+'red': 'smile for the camera', 'yellow': 'go faster'}
+>>> original_signals
+{'green': 'go', 'red': 'smile for the camera', 'yellow': 'go faster'}
+```
+
+---
+
 
 ### for in
 
@@ -1460,42 +1496,6 @@ False
 //============================================================
 ```
 [解題](sequential1.py)
-
----
-
-### keys(),values(),items(),copy()
-
-```python
-
->>> signals = {'green': 'go', 'yellow': 'go faster', 'red': 'smile for the camera'} 
->>> signals.keys()
-dict_keys(['green', 'red', 'yellow'])
-
-
->>> list( signals.values() )
-['go', 'smile for the camera', 'go faster']
-
-
->>> list( signals.items() )
-[('green', 'go'), ('red', 'smile for the camera'), ('yellow', 'go faster')]
-
-
->>> signals = {'green': 'go', 'yellow': 'go faster', 'red': 'smile for the camera'} 
->>> save_signals = signals
->>> signals['blue'] = 'confuse everyone'
->>> save_signals
-    {'blue': 'confuse everyone', 'green': 'go',
-    'red': 'smile for the camera', 'yellow': 'go faster'}
-
-
->>> signals = {'green': 'go', 'yellow': 'go faster', 'red': 'smile for the camera'} >>> original_signals = signals.copy()
->>> signals['blue'] = 'confuse everyone'
->>> signals
-{'blue': 'confuse everyone', 'green': 'go',
-'red': 'smile for the camera', 'yellow': 'go faster'}
->>> original_signals
-{'green': 'go', 'red': 'smile for the camera', 'yellow': 'go faster'}
-```
 
 ---
 
