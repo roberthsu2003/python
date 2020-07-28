@@ -510,7 +510,7 @@ else:
 
 ```python
 # if3-2.py
-
+#有問題的設計
 a=21
 if a>12:
 	print("大於12")
