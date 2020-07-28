@@ -23,7 +23,7 @@
 		- 省略 return( )
 		- 寫成 return
 
-### 自訂函數沒接收沒傳回
+### 自訂函數沒接收參數也沒有傳回值
 
 ```python
 def func_sum():

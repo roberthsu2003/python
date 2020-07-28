@@ -1,7 +1,8 @@
 # 暱名函數與套件的使用
-### Functions Are First-Class Citizens
+### 函數 Are First-Class Citizens
 
 ```python
+#定義和呼叫function
 >>> def answer(): 
 		print(42)
 
@@ -10,7 +11,7 @@
 ```
 
 ```python
-
+#將function當作參數
 >>> def run_something(func): 
 		func()
 
@@ -20,6 +21,7 @@
 
 
 ```python
+#有引數的參數
 def add_args(arg1, arg2): 
 	print(arg1 + arg2)
 	
@@ -38,6 +40,7 @@ def run_something_with_args(func, arg1, arg2):
 ```
 
 ```python
+#沒有限定參數的數量
 def sum_args(*args): 
 	return sum(args)
 	
