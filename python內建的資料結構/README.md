@@ -952,7 +952,7 @@ print (list2)
 >>> c
 'Harpo'
 
-
+#內容交換
 >>> password = 'swordfish'
 >>> icecream = 'tuttifrutti'
 >>> password, icecream = icecream, password
