@@ -587,10 +587,10 @@ if color == "紅色":
     print("It's a 蕃茄")
 elif color == "green":
     print("It's a 青椒")
-elif color == "bee purple":
-    print("I don't know what it is, but only bees can see it")
+elif color == "蜂密青":
+    print("我不知道蜂密青, 我只知道蜂密")
 else:
-    print("I've never heard of the color", color)
+    print("我沒有聽過這個顏色", color)
 
 
 I've never heard of the color puce
