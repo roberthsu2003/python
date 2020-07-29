@@ -235,20 +235,9 @@ print(z)
 
 ###  函數傳回多值
 - Python 的函數可以傳回多值。
-- 傳回多值的做法是將傳回值轉為 tuple 型態，接收後再一一分配。
+- 傳回多值的做法是將傳回值轉為 tuple 型態，接收後再拆解給變數。
 
-#### 操作範例 :請動手操作，並留意輸出結果
-```python
-#fun6.py
-
-def func_a( ): 
-	return 1, 2, 3, 4
-	
-temp = func_a( ) 
-print(type(temp))
-```
-
-####  Question:請問執行後的結果哪一個是對的?(選擇題)
+#### Question:請問執行後的結果哪一個是對的?(選擇題)
 ```python
 def manyvalue(a, b): 
 	c=a*b
@@ -261,6 +250,18 @@ print(y)
 (2) 15   
 (3) 1   
 (4) 20   
+
+#### 操作範例 :請動手操作，並留意輸出結果
+
+```python
+#fun6.py
+
+def func_a( ): 
+	return 1, 2, 3, 4
+	
+temp = func_a( ) 
+print(type(temp))
+```
 
 ---
 
