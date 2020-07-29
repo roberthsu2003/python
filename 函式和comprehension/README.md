@@ -211,8 +211,8 @@ print(z)
 ```python
 #Name        : function3.py
 #輸入攝氏溫度，求華氏溫度
-#function 的原型宣告
-#加上do...while()
+#建立自訂的function
+#while()
 
 #=============================
 
