@@ -269,8 +269,8 @@ print(z)
 >>> menu('白酒', '牛排', '蛋糕')
 {'wine': '白酒', 'entree': '牛排', 'dessert': '蛋糕'}
 
->> menu('beef', 'bagel', 'bordeaux')
-{'dessert': 'bordeaux', 'wine': 'beef', 'entree': 'bagel'}
+>> menu('紅酒', '雞排', '冰淇淋')
+{'wine': '紅酒', 'entree': '雞排', 'dessert': '冰淇淋'}
 
 ```
 
