@@ -22,9 +22,9 @@
 ```python
 # 使用中括號 [] or list()
 
->>> empty_list = [] #使用[]建立list
->>> weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] 
->>> big_birds = ['emu', 'ostrich', 'cassowary']
+>>> empty_list = [] #使用[]建立空的list
+>>> weekdays = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'] 
+>>> big_birds = ['emu', 'ostrich', 'cassowary'] 
 >>> first_names = ['Graham', 'John', 'Terry', 'Terry', 'Michael']
 
 
