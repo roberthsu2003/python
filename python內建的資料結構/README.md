@@ -271,21 +271,21 @@ print(list1[-1])
 
 ```python
 #slice
->>> marxes = ['Groucho', 'Chico,' 'Harpo']
->>> marxes[0:2]
-['Groucho', 'Chico']
+>>> citys = ['台北', '台中', '高雄']
+>>> citys[0:2]
+['台北', '台中']
 
 
->>> marxes[::2]
-['Groucho', 'Harpo']
+>>> citys[::2]
+['台北', '高雄']
 
 
->>> marxes[::-2] 
-['Harpo', 'Groucho']
+>>> citys[::-2] 
+['高雄', '台北']
 
 
->>> marxes[::-1]
-['Harpo', 'Chico', 'Groucho']
+>>> citys[::-1]
+['高雄', '台中', '台北']
 
 ```
 
