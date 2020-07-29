@@ -296,15 +296,19 @@ print(z)
 ### 指定預設參數的值
 
 ```python
->>> def menu(wine, entree, dessert='pudding'):
-return {'wine': wine, 'entree': entree, 'dessert': dessert}
+>>> def menu(wine, entree, dessert='奶昔'):
+	    return {'wine': wine, 'entree':entree, 'dessert': dessert}
 
->>> menu('chardonnay', 'chicken')
-{'dessert': 'pudding', 'wine': 'chardonnay', 'entree': 'chicken'}
+#呼叫時,可省略有預設參數的值
+>>> menu('紅酒','雞排')
+{'wine': '紅酒', 'entree': '雞排', 'dessert': '奶昔'}
 
->>> menu('dunkelfelder', 'duck', 'doughnut')
-{'dessert': 'doughnut', 'wine': 'dunkelfelder', 'entree': 'duck'}
+#呼叫時,不省略預設的參數值
+>>> menu('紅酒','雞排','蛋糕')
+{'wine': '紅酒', 'entree': '雞排', 'dessert': '蛋糕'}
 
+>>> menu('紅酒','雞排',dessert='蛋糕')
+{'wine': '紅酒', 'entree': '雞排', 'dessert': '蛋糕'}
 ```
 
 ```python
