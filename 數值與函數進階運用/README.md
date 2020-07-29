@@ -277,11 +277,19 @@ print(z)
 ### 引數名稱名稱呼叫
 
 ```python
->>> menu(entree='beef', dessert='bagel', wine='bordeaux')
+#引數名稱呼叫
+#可以不依照順序
+>>> menu(entree='牛排', dessert='冰淇淋', wine='白酒')
 {'dessert': 'bagel', 'wine': 'bordeaux', 'entree': 'beef'}
+```
 
->>> menu('frontenac', dessert='flan', entree='fish')
-{'entree': 'fish', 'dessert': 'flan', 'wine': 'frontenac'}
+### 引數位置和引數名稱混合呼叫  
+```
+#前面一定先用引數位置,後面使用引數名稱
+#使用引數名稱後,就不可以再使用引數位置
+
+>>> menu('紅酒', dessert='蛋糕', entree='雞排')
+{'wine': '紅酒', 'entree': '雞排', 'dessert': '蛋糕'}
 
 ```
 
