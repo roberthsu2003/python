@@ -10,5 +10,6 @@ from tkinter import *
 if __name__ == '__main__':
     window = Tk()
     window.title("BMI應用程式")
+    window.geometry("300x200")
     window.mainloop()
 
