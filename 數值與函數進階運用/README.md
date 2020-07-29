@@ -264,10 +264,10 @@ print(z)
 
 ```python
 >>> def menu(wine, entree, dessert):
-		return {'wine': wine, 'entree': entree, 'dessert': dessert} 
-...
->>> menu('chardonnay', 'chicken', 'cake')
-{'dessert': 'cake', 'wine': 'chardonnay', 'entree': 'chicken'}
+    return {'wine': wine, 'entree':entree, 'dessert': dessert}
+
+>>> menu('白酒', '牛排', '蛋糕')
+{'wine': '白酒', 'entree': '牛排', 'dessert': '蛋糕'}
 
 >> menu('beef', 'bagel', 'bordeaux')
 {'dessert': 'bordeaux', 'wine': 'beef', 'entree': 'bagel'}
