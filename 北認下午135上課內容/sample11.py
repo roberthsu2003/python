@@ -5,6 +5,9 @@ Created on Wed Jul 29 14:50:09 2020
 
 @author: roberthsu2003
 """
+from tkinter import *
 
-print("Hello! python3")
+if __name__ == '__main__':
+    root = Tk()
+    root.mainloop()
 
