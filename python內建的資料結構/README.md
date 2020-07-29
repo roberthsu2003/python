@@ -77,20 +77,20 @@
 ```python
 #使用索引編號取出內容
 
->>> marxes = ['Groucho', 'Chico', 'Harpo']
->>> marxes[0]
-    'Groucho'
->>> marxes[1]
-	'Chico'
->>> marxes[2]
-	'Harpo'
+>>> citys = ['台北', '台中', '高雄']
+>>> citys[0]
+    '台北'
+>>> citys[1]
+	'台中'
+>>> citys[2]
+	'高雄'
 
->>> marxes[-1] 
-'Harpo'
->>> marxes[-2] 
-'Chico'
->>> marxes[-3] 
-'Groucho'
+>>> citys[-1] 
+'高雄'
+>>> citys[-2] 
+'台中'
+>>> citys[-3] 
+'台北'
 
 
 >>> marxes = ['Groucho', 'Chico', 'Harpo'] 
