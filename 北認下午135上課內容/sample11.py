@@ -7,6 +7,9 @@ Created on Wed Jul 29 14:50:09 2020
 """
 from tkinter import *
 
+def calculate():
+    print("使用者按下按鈕")
+
 if __name__ == '__main__':
     window = Tk()
     window.title("BMI應用程式")
@@ -30,7 +33,13 @@ if __name__ == '__main__':
     weight_entry.pack(side=LEFT)
     weight_frame.pack(side=TOP)
     subFrame.pack(expand=YES, fill=BOTH, padx=5, pady=20)
-    
+
+    result_label = Label(subFrame,text="建議")
+    result_label.pack();
+
+    calculate_btn = Button(subFrame,text='馬上計算',command=calculate)
+    calculate_btn.pack()
+
     mainFrame.pack(expand=YES, fill=BOTH)
     window.mainloop()
 
