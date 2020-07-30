@@ -86,21 +86,19 @@ while a > 0:
 #使用時機,不明確知道要執行幾次迴圈
 #配合條件式if,並使用break停止迴圈
 
-#使用break跳出迴圈
-#不知道要執行幾次
-
 while(True):
     stuff = input("請輸入小寫英文字[按q會離開]:")
     if stuff == 'q':
         break
     print(stuff.capitalize())
 print("程式結束")
+
+
 結果:=================================
 請輸入小寫英文字[按q會離開]:taipei
 Taipei
 請輸入小寫英文字[按q會離開]:q
 程式結束
-
 ```
 
 ```python
