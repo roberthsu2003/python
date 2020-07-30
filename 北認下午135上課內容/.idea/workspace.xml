@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e704ac1f-6e11-4962-bd28-b7059beaaac7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -19,7 +44,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager">
     <configuration name="sample11" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -62,10 +87,37 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="28" y="105" width="1252" height="712" key="SettingsEditor" timestamp="1596091347101">
+    <state width="1255" height="245" key="GridCell.Tab.0.bottom" timestamp="1596094289804">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="28" y="105" width="1252" height="712" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1596091347101" />
+    <state width="1255" height="245" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1596094289804" />
+    <state width="1255" height="245" key="GridCell.Tab.0.center" timestamp="1596094289804">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1255" height="245" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1596094289804" />
+    <state width="1255" height="245" key="GridCell.Tab.0.left" timestamp="1596094289804">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1255" height="245" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1596094289804" />
+    <state width="1255" height="245" key="GridCell.Tab.0.right" timestamp="1596094289804">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1255" height="245" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1596094289804" />
+    <state x="0" y="0" width="1280" height="984" key="SettingsEditor" timestamp="1596091905309">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="0" y="0" width="1280" height="984" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1596091905309" />
   </component>
 </project>
