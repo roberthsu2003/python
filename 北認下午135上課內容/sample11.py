@@ -8,7 +8,12 @@ Created on Wed Jul 29 14:50:09 2020
 from tkinter import *
 
 def calculate():
-    print("使用者按下按鈕")
+    height = float(height_entry.get())
+    weight = float(weight_entry.get())
+    result = weight / ((height/100) ** 2)
+    result_str = "您的BMI:%.2f" % result
+    result_label.configure(text=result_str)
+
 
 if __name__ == '__main__':
     window = Tk()
