@@ -11,8 +11,16 @@ def calculate():
     height = float(height_entry.get())
     weight = float(weight_entry.get())
     result = weight / ((height/100) ** 2)
-    result_str = "您的BMI:%.2f" % result
+    result_str = "您的BMI:%.2f,%s" % (result,get_bmi_status_description(result))
     result_label.configure(text=result_str)
+
+def get_bmi_status_description(bmi_value):
+    if bmi_value < 18.5:
+        return "體重過輕囉，多吃點！"
+    elif bmi_value >=18.5 and bmi_value < 24:
+        return '體重剛剛好，繼續保持！'
+    elif bmi_value >=24:
+        return '體重有點過重囉，少吃多運動！'
 
 
 if __name__ == '__main__':
