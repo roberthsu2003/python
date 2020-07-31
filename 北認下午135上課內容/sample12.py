@@ -2,6 +2,14 @@
 """
 這個範例是下載網路資料，政府開放平台
 """
-
+no = 1
+scores = dict()
 if __name__ == "__main__":
-    print("可以執行")
+    while True:
+        score = int(input('請輸入第'+str(no)+'號的成績:(-1結束輸入)'))
+        if score == -1:
+            break
+        scores[no] = score
+        no += 1
+
+    print(scores)
