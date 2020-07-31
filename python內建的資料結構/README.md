@@ -641,14 +641,14 @@ print(list1)
 ['Groucho', 'Chico', 'Harpo', 'Gummo', 'Zeppo']
 
 
->>> marxes = ['Groucho', 'Chico', 'Harpo', 'Gummo', 'Zeppo'] 
->>> marxes[2]
-'Harpo'
->>> del marxes[2]
->>> marxes
-['Groucho', 'Chico', 'Gummo', 'Zeppo']
->>> marxes[2]
-'Gummo'
+>>> citys = ['台北', '台中', '高雄', '台南', '花蓮'] 
+>>> citys[2]
+'高雄'
+>>> del citys[2]
+>>> citys
+['台北', '台中', '台南', '花蓮']
+>>>citys[2]
+'台南'
 
 
 >>> marxes = ['Groucho', 'Chico', 'Harpo', 'Gummo', 'Zeppo'] 
@@ -675,17 +675,17 @@ print(list1)
 ```python
 #index(value)- 取出value索引編號
 #in - 測試是否有值
-#count(value) - value的數量
+#v - value的數量
 
->>> marxes = ['Groucho', 'Chico', 'Harpo', 'Zeppo'] 
->>> marxes.index('Chico')
+>>> citys = ['台北', '台中', '高雄', '台南', '花蓮'] 
+>>> citys.index('台中')
 1
 
 
->>> marxes = ['Groucho', 'Chico', 'Harpo', 'Zeppo'] 
->>> 'Groucho' in marxes
+>>> citys = ['台北', '台中', '高雄', '台南', '花蓮']  
+>>> '高雄' in citys
 True
->>> 'Bob' in marxes
+>>> '新竹' in citys
 False
 
 
