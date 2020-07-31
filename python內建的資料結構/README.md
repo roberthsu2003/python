@@ -549,7 +549,7 @@ print(list1)
 
 ---
 ###  list.pop
-- list t。
+- list 可透過 pop 方式移除指定位置資料。
 	- 如果 pop( ) 內沒有參數，則移除最後一筆資料。
 	- pop( ) 內若有參數，則移除指定位置的資料。
 
@@ -635,8 +635,9 @@ print(list1)
 ```python
 #del
 #pop()
->>> del marxes[-1]
->>> marxes
+>>> citys = ['台北', '台中', '高雄', '台南', '花蓮']
+>>> del citys[-1]
+>>> citys
 ['Groucho', 'Chico', 'Harpo', 'Gummo', 'Zeppo']
 
 
