@@ -931,29 +931,29 @@ print (list2)
 ()
 
 
->>> one_marx = 'Groucho', 
->>> one_marx 
-('Groucho',)
+>>> one_city = '台北', 
+>>> one_city 
+('台北',)
 
 
->>> marx_tuple = 'Groucho', 'Chico', 'Harpo' 
->>> marx_tuple
-('Groucho', 'Chico', 'Harpo')
+>>> citys = '台北', '台中', '高雄', '台南', '花蓮' 
+>>> citys
+('台北', '台中', '高雄', '台南', '花蓮')
 
 
->>> marx_tuple = ('Groucho', 'Chico', 'Harpo') 
->>> marx_tuple
-('Groucho', 'Chico', 'Harpo')
+>>> citys = ('台北', '台中', '高雄', '台南', '花蓮') 
+>>> citys
+('台北', '台中', '高雄', '台南', '花蓮')
 
 
->>> marx_tuple = ('Groucho', 'Chico', 'Harpo') 
->>> a, b, c = marx_tuple
+>>> citys = ('台北', '台中', '高雄') 
+>>> a, b, c = citys
 >>> a
-'Groucho'
+'台北'
 >>> b
-'Chico'
+'台中'
 >>> c
-'Harpo'
+'高雄'
 
 #內容交換
 >>> password = 'swordfish'
