@@ -86,21 +86,19 @@ while a > 0:
 #使用時機,不明確知道要執行幾次迴圈
 #配合條件式if,並使用break停止迴圈
 
-#使用break跳出迴圈
-#不知道要執行幾次
-
 while(True):
     stuff = input("請輸入小寫英文字[按q會離開]:")
     if stuff == 'q':
         break
     print(stuff.capitalize())
 print("程式結束")
+
+
 結果:=================================
 請輸入小寫英文字[按q會離開]:taipei
 Taipei
 請輸入小寫英文字[按q會離開]:q
 程式結束
-
 ```
 
 ```python
@@ -149,11 +147,11 @@ Name        : loop2.py
 
 [解題](loop2.py)
 
-### 使用continue,中止迴圈,跳至下一輪迴圈,重頭執行
+### 使用continue,中止現在迴圈,跳至下一輪迴圈,重頭執行
 
 ```python
 while True:
-	value = input("整數, 輸入 [q]離開: ") 
+	value = input("請輸入整數,輸入[q]離開: ") 
 	if value == 'q': # quit
 		break
 	number = int(value)
@@ -161,17 +159,20 @@ while True:
 		continue
 	print(number, "平方是", number*number)
 		
-		
-整數, 輸入 [q]離開: 1
-1 平方是 1
-整數, 輸入 [q]離開: 2
-整數, 輸入 [q]離開: 3
-3 平方是 9
-整數, 輸入 [q]離開: 4
-整數, 輸入 [q]離開: 5
-5 平方是 25
-整數, 輸入 [q]離開: q
->>>
+顯示:
+奇數輸出平方
+偶數不做任何動作
+'q'要離開
+==============================		
+請輸入整數,輸入[q]離開:3
+3的平方是9
+請輸入整數,輸入[q]離開:5
+5的平方是25
+請輸入整數,輸入[q]離開:4
+請輸入整數,輸入[q]離開:6
+請輸入整數,輸入[q]離開:q
+程式結束
+
 
 ```
 
@@ -254,7 +255,7 @@ while(True):
         print("請輸入提示範圍內的數字")
 ```
 
-### while break else語法:
+### while ... else語法:
 - 在while迴圈內,如果沒有使用到break跳出迴圈,則迴圈結束後要執行else的程式區塊
 
 ```python
