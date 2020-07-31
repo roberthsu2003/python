@@ -447,32 +447,31 @@ print(list1[3])
 ['台北', '台中', '高雄', '台南']
 
 
->>> marxes = ['Groucho', 'Chico', 'Harpo', 'Zeppo'] 
->>> others = ['Gummo', 'Karl']
->>> marxes.extend(others)
->>> marxes
-['Groucho', 'Chico', 'Harpo', 'Zeppo', 'Gummo', 'Karl']
+>>> citys = ['台北', '台中', '高雄', '台南'] 
+>>> others = ['花蓮', '台東']
+>>> citys.extend(others)
+>>> citys
+['台北', '台中', '高雄', '台南', '花蓮']
 
 
->>> marxes = ['Groucho', 'Chico', 'Harpo', 'Zeppo']
->>> others = ['Gummo', 'Karl']
->>> marxes += others
->>> marxes
-['Groucho', 'Chico', 'Harpo', 'Zeppo', 'Gummo', 'Karl']
+>>> citys = ['台北', '台中', '高雄', '台南', '花蓮']
+>>> others = ['宜蘭', '新竹']
+>>> citys += others
+>>> citys
+['台北', '台中', '高雄', '台南', '花蓮', '台東', '宜蘭', '新竹']
 
 
->>> marxes = ['Groucho', 'Chico', 'Harpo', 'Zeppo'] 
->>> others = ['Gummo', 'Karl']
->>> marxes.append(others)
->>> marxes
-['Groucho', 'Chico', 'Harpo', 'Zeppo', ['Gummo', 'Karl']]
-
+>>> citys = ['台北', '台中', '高雄', '台南', '花蓮'] 
+>>> others = ['宜蘭', '新竹']
+>>> citys.append(others)
+>>> citys
+['台北', '台中', '高雄', '台南', '花蓮', ['宜蘭', '新竹']]
 ```
 ---
 
 ### list 項目插入新資料
 - list 可使用 insert 方式插入新的資料:
-	- list.insert(索引值，插入的資料)。
+	- list.insert(索引值,插入的資料)。
 
 ```python
 #操作範例:請動手操作，並留意輸出結果
@@ -504,14 +503,15 @@ print(list1[3])
  
  ```python
  #insert
->>>marxes.insert(3, 'Gummo') 
->>> marxes
-['Groucho', 'Chico', 'Harpo', 'Gummo', 'Zeppo']
+>>> citys = ['台北', '台中', '高雄']
+>>> citys.insert(3, '台南') 
+>>> citys
+['台北', '台中', '高雄', '台南']
 
 
->>> marxes.insert(10, 'Karl')
->>> marxes
-['Groucho', 'Chico', 'Harpo', 'Gummo', 'Zeppo', 'Karl']
+>>> citys.insert(10, '花蓮')
+>>> citys
+['台北', '台中', '高雄', '台南', '花蓮']
 
  ```
  ---
@@ -549,7 +549,7 @@ print(list1)
 
 ---
 ###  list.pop
-- list 可透過 pop 方式移除指定位置資料。
+- list t。
 	- 如果 pop( ) 內沒有參數，則移除最後一筆資料。
 	- pop( ) 內若有參數，則移除指定位置的資料。
 
