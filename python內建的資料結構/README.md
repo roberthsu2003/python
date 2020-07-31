@@ -675,7 +675,7 @@ print(list1)
 ```python
 #index(value)- 取出value索引編號
 #in - 測試是否有值
-#v - value的數量
+#count(value) - value的數量
 
 >>> citys = ['台北', '台中', '高雄', '台南', '花蓮'] 
 >>> citys.index('台中')
