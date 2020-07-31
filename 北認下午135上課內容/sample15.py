@@ -6,9 +6,16 @@ from tkinter import *
 import urllib3
 import certifi
 import json
-
+urlPath = "https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/O-A0001-001?Authorization=rdec-key-123-45678-011121314&format=JSON"
 def display_message():
     print("讀取氣象觀測資料")
+    http = urllib3.PoolManager(cert_reqs='CERT_REQUIRED',ca_certs=certifi.where())
+    response = http.request('GET',urlPath)
+    if response.status == 200:
+        print("下載成功")
+        print(response.data.decode('utf-8'))
+    else:
+        print("下載失敗")
 
 if __name__ == '__main__':
     window = Tk()
