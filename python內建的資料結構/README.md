@@ -932,7 +932,8 @@ print (list2)
 
 
 >>> one_marx = 'Groucho', 
->>> one_marx ('Groucho',)
+>>> one_marx 
+('Groucho',)
 
 
 >>> marx_tuple = 'Groucho', 'Chico', 'Harpo' 
