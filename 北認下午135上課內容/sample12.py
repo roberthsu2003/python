@@ -12,4 +12,6 @@ if __name__ == "__main__":
         scores[no] = score
         no += 1
 
-    print(scores)
+    file=open('scores.txt', 'w', encoding='utf-8')
+    file.write(str(scores))
+    file.close()
