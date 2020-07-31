@@ -13,9 +13,26 @@ def display_message():
     response = http.request('GET',urlPath)
     if response.status == 200:
         print("下載成功")
-        print(response.data.decode('utf-8'))
+        downloadData = json.loads(response.data.decode('utf-8'))
+
     else:
         print("下載失敗")
+
+    # 轉換成要使用的資料
+    usefulData = [];
+    opendata = downloadData['cwbopendata']['location']
+
+    for location in opendata:
+        oneLocation = {}
+        oneLocation['縣市']=location['parameter'][0]['parameterValue']
+        oneLocation['區域'] = location['parameter'][2]['parameterValue']
+        oneLocation['時間'] = location['time']['obsTime']
+        oneLocation['溫度'] = float(location['weatherElement'][3]['elementValue']['value'])
+        usefulData.append(oneLocation)
+
+    for loc in usefulData:
+        print(loc['縣市'],'\t',loc['區域'],'\t',loc['時間'],'\t',loc['溫度'])
+
 
 if __name__ == '__main__':
     window = Tk()
