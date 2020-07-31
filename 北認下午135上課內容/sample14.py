@@ -3,8 +3,12 @@
 讀取txt文件檔案
 '''
 from tkinter import *
+
 def display_message():
-    print("Display")
+    file = open('news.txt', 'r', encoding='UTF-8')
+    content = file.read()
+    print(content)
+    file.close()
 
 if __name__ == '__main__':
     window = Tk()
