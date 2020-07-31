@@ -441,9 +441,10 @@ print(list1[3])
 
 ```python
 #使用extend()或+=
->>> marxes.append('Zeppo')
->>> marxes
-['Groucho', 'Chico', 'Harpo', 'Zeppo']
+>>> citys = ['台北', '台中', '高雄']
+>>> citys.append('台南')
+>>> citys
+['台北', '台中', '高雄', '台南']
 
 
 >>> marxes = ['Groucho', 'Chico', 'Harpo', 'Zeppo'] 
