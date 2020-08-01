@@ -78,24 +78,35 @@ print("字串2:", str4)
 >>> """Eek!"""
     'Eek!'
     
->>> poem = '''There was a Young Lady of Norway, ... Who casually sat in a doorway;
-... When the door squeezed her flat,
-... She exclaimed, "What of that?"
-... This courageous Young Lady of Norway.'''
+>>> words = """美國認定字節跳動旗下的TikTok對國家構成資安威脅，
+...總統川普稍早也向記者表示，最快能在明（美國時間1日）禁止平台
+...在美國營運，不過根據最新消息，微軟正在洽談收購TikTok的相關事宜
+...，若能順利買下，就可能扭轉局勢，讓全美手機用戶都能繼續使用TikTok。
+...綜合外媒報導，川普稍早在空軍一號上向記
+...者說：「就TikTok而言，我們將會禁止它在美國營運。」他也
+...表示，自己有權利動用行政命令，最快能在週六禁止這家中資公司在美國運作。"""
+>>> print(words)
+
+美國認定字節跳動旗下的TikTok對國家構成資安威脅，
+總統川普稍早也向記者表示，最快能在明（美國時間1日）禁止平台
+在美國營運，不過根據最新消息，微軟正在洽談收購TikTok的相關事宜
+，若能順利買下，就可能扭轉局勢，讓全美手機用戶都能繼續使用TikTok。
+綜合外媒報導，川普稍早在空軍一號上向記
+者說：「就TikTok而言，我們將會禁止它在美國營運。」他也
+表示，自己有權利動用行政命令，最快能在週六禁止這家中資公司在美國運作。
 
 
+#連結文字(一行文字)
+>>> line = "美國認定字節跳動旗下的TikTok對國家構成資安威脅，\
+...總統川普稍早也向記者表示，最快能在明（美國時間1日）禁止平台\
+...在美國營運，不過根據最新消息，微軟正在洽談收購TikTok的相關事宜\
+...，若能順利買下，就可能扭轉局勢，讓全美手機用戶都能繼續使用TikTok。\
+...綜合外媒報導，川普稍早在空軍一號上向記\
+...者說：「就TikTok而言，我們將會禁止它在美國營運。」他也\
+...表示，自己有權利動用行政命令，最快能在週六禁止這家中資公司在美國運作。"
+>>> print(line)
 
->>> poem2 = '''I do not like thee, Doctor Fell.
-... The reason why, I cannot tell.
-... But this I know, and know full well:
-... I do not like thee, Doctor Fell.
-... '''
->>> print(poem2)
-I do not like thee, Doctor Fell.
-	The reason why, I cannot tell.
-	But this I know, and know full well: 
-	I do not like thee, Doctor Fell.
->>>
+美國認定字節跳動旗下的TikTok對國家構成資安威脅，總統川普稍早也向記者表示，最快能在明（美國時間1日）禁止平台在美國營運，不過根據最新消息，微軟正在洽談收購TikTok的相關事宜，若能順利買下，就可能扭轉局勢，讓全美手機用戶都能繼續使用TikTok。綜合外媒報導，川普稍早在空軍一號上向記者說：「就TikTok而言，我們將會禁止它在美國營運。」他也表示，自己有權利動用行政命令，最快能在週六禁止這家中資公司在美國運作。
 ```
 ---
 
