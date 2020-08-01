@@ -132,14 +132,15 @@ print("字串2:", str4)
 
 ```python
 
+#字串利用加法的串接
 bottles = 99
 base = ''
-base += 'current inventory: '
+base += '現在剩餘的瓶數:'
 base = base + str(bottles)
 base
 
 結果:==============
-'current inventory: 99'
+'現在剩餘的瓶數:99'
 ```
 ---
 
