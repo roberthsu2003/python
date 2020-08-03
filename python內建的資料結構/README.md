@@ -1063,6 +1063,9 @@ print (list2)
 >>> codes
 {"tw": "Taiwan","jp": "japan","hk": "Hong Kong" } 
 
+>>> codes['tw']
+'taiwan'
+
 >>> lol = [ ['a', 'b'], ['c', 'd'], ['e', 'f'] ]
 >>> dict(lol)
 {'c': 'd', 'a': 'b', 'e': 'f'}
