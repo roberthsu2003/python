@@ -1042,45 +1042,6 @@ print (list2)
 - 可輸入 key 找尋您要找出來的值。
 - 如果輸入的 key 不存在，那就會出現錯誤訊息。
 
-```python
-#操作範例:請動手操作，並留意輸出結果
-# dict1.py
-dict1={'a':200,'b':400,'b':300} 
-print(dict1)
-print(dict1['a']) 
-print(dict1['b']) 
-print(dict1['d']) #不存在
-```
-
-```python
-#Question: 請問執行後的結果哪一行是錯的?(選擇題)
-
-dict1={'a':100,'b':200, 'b':300} 
-print(dict1)
-print(dict1['a']) 
-print(dict1['d'])
-
-(1) print(dict1)   
-(2) print(dict1['a'])  
-(3) print(dict1['d'])  
-(4) 沒有錯誤.
-```
- 
-```python
-#請問執行後的結果是哪一個答案呢?(選擇題)
-
-dict1={'a':100,'b':200,'b':300}
-print(dict1['b'])
-
-(1) 100  
-(2) 200   
-(3) 300  
-(4) 0  
-```
-
-
----
-
 ### 建立Dictionary
 
 ```python
@@ -1091,16 +1052,16 @@ print(dict1['b'])
 {}
 
 
->>> bierce = {
-"day": "A period of twenty-four hours, mostly misspent",
-"positive": "Mistaken at the top of one's voice",
-"misfortune": "The kind of fortune that never misses"
+>>> codes = {
+"tw": "Taiwan",
+"jp": "japan",
+"hk": "Hong Kong"
  } 
 
 
 
->>> bierce
-{'misfortune': 'The kind of fortune that never misses', 'positive': "Mistaken at the top of one's voice", 'day': 'A period of twenty-four hours, mostly misspent'}
+>>> codes
+{"tw": "Taiwan","jp": "japan","hk": "Hong Kong" } 
 
 >>> lol = [ ['a', 'b'], ['c', 'd'], ['e', 'f'] ]
 >>> dict(lol)
@@ -1146,6 +1107,47 @@ print(dict1['b'])
 
 - 元素可否變更:
 	- 以 = 指派方式指派給 key 就可以變更資料
+
+---
+
+```python
+#操作範例:請動手操作，並留意輸出結果
+# dict1.py
+dict1={'a':200,'b':400,'b':300} 
+print(dict1)
+print(dict1['a']) 
+print(dict1['b']) 
+print(dict1['d']) #不存在
+```
+
+```python
+#Question: 請問執行後的結果哪一行是錯的?(選擇題)
+
+dict1={'a':100,'b':200, 'b':300} 
+print(dict1)
+print(dict1['a']) 
+print(dict1['d'])
+
+(1) print(dict1)   
+(2) print(dict1['a'])  
+(3) print(dict1['d'])  
+(4) 沒有錯誤.
+```
+ 
+```python
+#請問執行後的結果是哪一個答案呢?(選擇題)
+
+dict1={'a':100,'b':200,'b':300}
+print(dict1['b'])
+
+(1) 100  
+(2) 200   
+(3) 300  
+(4) 0  
+```
+
+
+---
 
 
 
