@@ -1403,28 +1403,29 @@ dict_keys(['綠燈', '黃燈', '紅燈'])
 
 
 >>> list( signals.values() )
-['go', 'smile for the camera', 'go faster']
+['走', '走快些', '停等']
 
 
 >>> list( signals.items() )
-[('green', 'go'), ('red', 'smile for the camera'), ('yellow', 'go faster')]
+[('綠燈', '走'), ('黃燈', '走快些'), ('紅燈', '停等')]
 
 
->>> signals = {'green': 'go', 'yellow': 'go faster', 'red': 'smile for the camera'} 
+>>> signals = {'綠燈': '走', '黃燈': '走快些', '紅燈': '停等'} 
 >>> save_signals = signals
 >>> signals['blue'] = 'confuse everyone'
 >>> save_signals
-    {'blue': 'confuse everyone', 'green': 'go',
-    'red': 'smile for the camera', 'yellow': 'go faster'}
+    {'blue': 'confuse everyone', '綠燈': '走', '黃燈': '走快些', '紅燈': '停等'}
 
 
->>> signals = {'green': 'go', 'yellow': 'go faster', 'red': 'smile for the camera'} >>> original_signals = signals.copy()
+>>> signals = {'綠燈': '走', '黃燈': '走快些', '紅燈': '停等'}
+
+>>> original_signals = signals.copy()
 >>> signals['blue'] = 'confuse everyone'
 >>> signals
-{'blue': 'confuse everyone', 'green': 'go',
-'red': 'smile for the camera', 'yellow': 'go faster'}
+{'blue': 'confuse everyone','綠燈': '走', '黃燈': '走快些', '紅燈': '停等'}
 >>> original_signals
-{'green': 'go', 'red': 'smile for the camera', 'yellow': 'go faster'}
+{'綠燈': '走', '黃燈': '走快些', '紅燈': '停等'}
+
 ```
 
 ---
