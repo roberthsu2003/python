@@ -1333,7 +1333,7 @@ print ('b' in dict1)
 #Question: 請問執行後的結果哪一個是對的?(選擇題)
 dict1={'a':100,'b':200, 'c':300} 
 dict1.clear( )
-print ('b' in dict1.keys( ))
+print ('b' in dict1)
 
 
 (1) 產生錯誤  
