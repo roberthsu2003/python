@@ -1397,9 +1397,9 @@ print('b' in dict1.keys( ))
 
 ```python
 
->>> signals = {'green': 'go', 'yellow': 'go faster', 'red': 'smile for the camera'} 
+>>> signals = {'綠燈': '走', '黃燈': '走快些', '紅燈': '停等'} 
 >>> signals.keys()
-dict_keys(['green', 'red', 'yellow'])
+dict_keys(['綠燈', '黃燈', '紅燈'])
 
 
 >>> list( signals.values() )
