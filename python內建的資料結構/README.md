@@ -681,6 +681,18 @@ print(list1)
 >>> citys.index('台中')
 1
 
+>>> citys = ['台北', '台中', '高雄', '台南', '花蓮'] 
+>>> citys.index('台中1')
+ValueError                                
+Traceback (most recent call last)
+<ipython-input-78-e4644962e59d> in <module>
+      1 #檢查
+      2 citys = ['台北', '台中', '高雄', '台南', '花蓮']
+----> 3 citys.index('台中1')
+
+ValueError: '台中1' is not in list
+
+
 
 >>> citys = ['台北', '台中', '高雄', '台南', '花蓮']  
 >>> '高雄' in citys
