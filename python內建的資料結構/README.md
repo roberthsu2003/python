@@ -342,14 +342,14 @@ x = ["a", "b", "b"]
 
 ### 2維List
 ```python
->>> small_birds = ['hummingbird', 'finch']
->>> extinct_birds = ['dodo', 'passenger pigeon', 'Norwegian Blue'] 
->>> carol_birds = [3, 'French hens', 2, 'turtledoves']
->>> all_birds = [small_birds, extinct_birds, 'macaw', carol_birds]
+>>> nb = ['筆記電腦', '商用筆電']
+>>> mobile = ['APPLE', 'ASUS', 'HTC'] 
+>>> home = [3, '冰箱', 2, '洗衣機']
+>>> all3c = [nb, mobile, home]
 
 
 >>> all_birds
-	[['hummingbird', 'finch'], ['dodo', 'passenger pigeon', 'Norwegian Blue'], 'macaw', [3, 'French hens', 2, 'turtledoves']]
+	[['筆記電腦', '商用筆電'], ['APPLE', 'ASUS', 'HTC'], [3, '冰箱', 2, '洗衣機']]
 
 
 >>> all_birds[0]
