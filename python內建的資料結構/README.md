@@ -1245,23 +1245,22 @@ print(dict1['e'])
 ---
 
 ```python
->>> pythons = {
-'Chapman': 'Graham',
-'Cleese': 'John',
-'Gilliam': 'Terry',
-'Idle': 'Eric',
-'Jones': 'Terry',
-'Palin': 'Michael'
+>>> nums = {
+1: 'one',
+2: 'two',
+3: 'three',
+4: 'four',
+5: 'five',
 }
 
->>> pythons
-{'Cleese': 'John', 'Gilliam': 'Terry', 'Palin': 'Michael', 'Chapman': 'Graham', 'Idle': 'Eric', 'Jones': 'Terry'}
+>>> nums
+{1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five'}
 
 #利用update(dictionary), 一次增加多個key,value
->>> others = { 'Marx': 'Groucho', 'Howard': 'Moe' }
->>> pythons.update(others)
->>> pythons
-{'Cleese': 'John', 'Howard': 'Moe', 'Gilliam': 'Terry', 'Palin': 'Michael', 'Marx': 'Groucho', 'Chapman': 'Graham', 'Idle': 'Eric', 'Jones': 'Terry'}
+>>> others = {6:'six', 7:'seven'}
+>>> nums.update(others)
+>>> nums
+{1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven'}
 ```
 ---
 
@@ -1371,20 +1370,35 @@ print ('b' in dict1)
 ```python
 #clear()
 
->>> pythons = {'Cleese': 'John', 'Howard': 'Moe', 'Gilliam': 'Terry', 'Palin': 'Michael', 'Chapman': 'Graham', 'Idle': 'Eric', 'Jones': 'Terry'}
+>>> nums = {
+1: 'one',
+2: 'two',
+3: 'three',
+4: 'four',
+5: 'five',
+}
 
->>> del pythons['Howard']
->>> pythons
-{'Cleese': 'John', 'Gilliam': 'Terry', 'Palin': 'Michael', 'Chapman': 'Graham', 'Idle': 'Eric', 'Jones': 'Terry'}
+>>> del nums[1]
+>>> nums
+{2: 'two', 3: 'three', 4: 'four', 5: 'five'}
 
 
->>> pythons.clear() 
->>> pythons
+>>> nums.clear() 
+>>> nums
 {}
->>> pythons = {}
->>> pythons
+>>> nums = {}
+>>> nums
 {}
 
+>>> del nums
+>>> nums
+NameError                                 
+Traceback (most recent call last)
+<ipython-input-119-55a5412c7eee> in <module>
+----> 1 del nums
+      2 nums
+
+NameError: name 'nums' is not defined
 ```
 ---
 
