@@ -348,26 +348,21 @@ x = ["a", "b", "b"]
 >>> all3c = [nb, mobile, home]
 
 
->>> all_birds
-	[['筆記電腦', '商用筆電'], ['APPLE', 'ASUS', 'HTC'], [3, '冰箱', 2, '洗衣機']]
+>>> all3c
+[['筆記電腦', '商用筆電'], ['APPLE', 'ASUS', 'HTC'], [3, '冰箱', 2, '洗衣機']]
 
 
->>> all_birds[0]
-   ['hummingbird', 'finch']
+>>> all3c[0]
+['筆記電腦', '商用筆電']
 
 
->>> all_birds[1]
-['dodo', 'passenger pigeon', 'Norwegian Blue']
+>>> all3c[1]
+['APPLE', 'ASUS', 'HTC']
 
 
->>> all_birds[1][0] 
-'dodo'
+>>> all3c[2][1] 
+'冰箱'
 
-
->>> marxes = ['Groucho', 'Chico', 'Harpo']
->>> marxes[2] = 'Wanda'
->>> marxes
-['Groucho', 'Chico', 'Wanda']
 ```
 
 ---
