@@ -93,15 +93,23 @@
 '台北'
 
 
->>> marxes = ['Groucho', 'Chico', 'Harpo'] 
->>> marxes[5]
-Traceback (most recent call last):
-File "<stdin>", line 1, in <module> 
+>>> citys = ['台北', '台中', '高雄'] 
+>>> citys[3]
+
+IndexError                               
+Traceback (most recent call last)
+<ipython-input-5-73d59aebae96> in <module>
+----> 1 citys[3]
+
 IndexError: list index out of range
->>> marxes[-5]
-Traceback (most recent call last):
-File "<stdin>", line 1, in <module> 
+>>> citys[-5]
+IndexError                               
+Traceback (most recent call last)
+<ipython-input-5-73d59aebae96> in <module>
+----> 1 citys[-5]
+
 IndexError: list index out of range
+
 ```
 
 ---
