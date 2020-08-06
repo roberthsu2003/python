@@ -525,7 +525,42 @@ print(list1[3])
 	- list.pop( )
 	- del list[ ]
 
+```python
+#del
+#pop()
+>>> citys = ['台北', '台中', '高雄', '台南', '花蓮']
+>>> del citys[-1]
+>>> citys
+['Groucho', 'Chico', 'Harpo', 'Gummo', 'Zeppo']
 
+
+>>> citys = ['台北', '台中', '高雄', '台南', '花蓮'] 
+>>> citys[2]
+'高雄'
+>>> del citys[2]
+>>> citys
+['台北', '台中', '台南', '花蓮']
+>>>citys[2]
+'台南'
+
+
+>>> all3c = ['筆記電腦', '商用筆電', 'APPLE', 'ASUS', 'HTC'] 
+>>> all3c.remove('APPLE')
+>>> all3c
+['筆記電腦', '商用筆電', 'ASUS', 'HTC']
+
+
+>>> all3c = ['筆記電腦', '商用筆電', 'APPLE', 'ASUS', 'HTC'] 
+>>> all3c.pop()
+'HTC'
+>>> all3c
+['筆記電腦', '商用筆電', 'APPLE', 'ASUS']
+>>> all3c.pop(1)
+'商用筆電'
+>>> all3c
+['筆記電腦', 'APPLE', 'ASUS']
+```
+--- 
 
 ###  list.remove
 - list 可透過 remove 方式移除資料
@@ -631,44 +666,6 @@ print(list1)
 (2) ['1','x','3']
 (3) ['x','2','x']
 (4) ['1','x']
-```
-
-
-
-```python
-#del
-#pop()
->>> citys = ['台北', '台中', '高雄', '台南', '花蓮']
->>> del citys[-1]
->>> citys
-['Groucho', 'Chico', 'Harpo', 'Gummo', 'Zeppo']
-
-
->>> citys = ['台北', '台中', '高雄', '台南', '花蓮'] 
->>> citys[2]
-'高雄'
->>> del citys[2]
->>> citys
-['台北', '台中', '台南', '花蓮']
->>>citys[2]
-'台南'
-
-
->>> all3c = ['筆記電腦', '商用筆電', 'APPLE', 'ASUS', 'HTC'] 
->>> all3c.remove('APPLE')
->>> all3c
-['筆記電腦', '商用筆電', 'ASUS', 'HTC']
-
-
->>> all3c = ['筆記電腦', '商用筆電', 'APPLE', 'ASUS', 'HTC'] 
->>> all3c.pop()
-'HTC'
->>> all3c
-['筆記電腦', '商用筆電', 'APPLE', 'ASUS']
->>> all3c.pop(1)
-'商用筆電'
->>> all3c
-['筆記電腦', 'APPLE', 'ASUS']
 ```
 
 ---
