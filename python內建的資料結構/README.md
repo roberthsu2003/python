@@ -1220,28 +1220,26 @@ print(dict1['e'])
 
 ```python
 #{}
->>> pythons = {
-'Chapman': 'Graham',
-'Cleese': 'John',
-'Idle': 'Eric',
-'Jones': 'Terry',
-'Palin': 'Michael',
+>>> nums = {
+1: 'one',
+2: 'two',
+3: 'three',
+4: 'four',
+5: 'five',
 }
 
->>> pythons
-{'Cleese': 'John', 'Jones': 'Terry', 'Palin': 'Michael', 'Chapman': 'Graham', 'Idle': 'Eric'}
+>>> nums
+{1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five'}
 
 #沒有key就新增
->>> pythons['Gilliam'] = 'Gerry'
->>> pythons
-{'Cleese': 'John', 'Gilliam': 'Gerry', 'Palin': 'Michael',
-'Chapman': 'Graham', 'Idle': 'Eric', 'Jones': 'Terry'}
+>>> nums[6] = 'six'
+>>> nums
+{1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six'}
 
 #有key就更新
->>> pythons['Gilliam'] = 'Terry'
->>> pythons
-{'Cleese': 'John', 'Gilliam': 'Terry', 'Palin': 'Michael',
-'Chapman': 'Graham', 'Idle': 'Eric', 'Jones': 'Terry'}
+>>> nums[6] = 'SIX'
+>>> nums
+{1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'SIX'}
 
 ```
 ---
