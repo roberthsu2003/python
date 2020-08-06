@@ -654,9 +654,9 @@ print(list1)
 '台南'
 
 
->>> marxes = ['Groucho', 'Chico', 'Harpo', 'Gummo', 'Zeppo'] 
->>> marxes.remove('Gummo')
->>> marxes
+>>> all3c = ['筆記電腦', '商用筆電', 'APPLE', 'ASUS', 'HTC'] 
+>>> all3c.remove('APPLE')
+>>> all3c
 ['Groucho', 'Chico', 'Harpo', 'Zeppo']
 
 
