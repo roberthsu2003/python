@@ -697,7 +697,7 @@ True
 >>> citys = ['台北', '台中', '高雄', '台南', '花蓮']
 >>> citys.count('台北')
 1
->>> citys.count('新竹')
+>>> citys.count('新竹')
 0
 >>> snack = ['蛋糕', '蛋糕', '蛋糕'] 
 >>> snack.count('蛋糕')
