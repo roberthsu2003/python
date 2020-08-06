@@ -657,18 +657,18 @@ print(list1)
 >>> all3c = ['筆記電腦', '商用筆電', 'APPLE', 'ASUS', 'HTC'] 
 >>> all3c.remove('APPLE')
 >>> all3c
-['Groucho', 'Chico', 'Harpo', 'Zeppo']
+['筆記電腦', '商用筆電', 'ASUS', 'HTC']
 
 
->>> marxes = ['Groucho', 'Chico', 'Harpo', 'Zeppo'] 
->>> marxes.pop()
-'Zeppo'
->>> marxes
-['Groucho', 'Chico', 'Harpo'] 
->>> marxes.pop(1)
-'Chico'
->>> marxes
-['Groucho', 'Harpo']
+>>> all3c = ['筆記電腦', '商用筆電', 'APPLE', 'ASUS', 'HTC'] 
+>>> all3c.pop()
+'HTC'
+>>> all3c
+['筆記電腦', '商用筆電', 'APPLE', 'ASUS']
+>>> all3c.pop(1)
+'商用筆電'
+>>> all3c
+['筆記電腦', 'APPLE', 'ASUS']
 ```
 
 ---
