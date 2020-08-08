@@ -816,7 +816,7 @@ globals: {'animal': 'fruitbat',
 
 ```
 
-### 使用__name__,__doc__
+### 使用__name__, __doc__
 
 ```python
 
