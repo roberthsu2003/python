@@ -344,7 +344,8 @@ File "<stdin>", line 1, in <module> ZeroDivisionError: integer division or modul
    
 >>>(2+3)*4
    20
-   
+
+>>> 2 * (1 + 2) ** 2 - 2 ** 2 * 2 
 ```
 
 ## 2,8,16進位
