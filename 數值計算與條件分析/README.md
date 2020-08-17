@@ -215,6 +215,429 @@ print(a,a.__class__ )
 | % | 餘數  | 7 % 3 = 1
 | ** | 次方 |  3 ** 4 = 81
 
+
+## python數學運算子
+
+運算子 | 描述  | 範例
+-----| ------- | ----
+| + | 加法 | 5+8=13
+| - | 減法 | 90-10=80  
+| * | 乘法 | 4*7=28
+| / | 浮點數除法 | 7 / 2=3.5
+| // | 整數除法 | 7 // 2 = 3
+| % | 餘數  | 7 % 3 = 1
+| ** | 次方 |  3 ** 4 = 81
+
+--- 
+## python的整數
+
+```python
+>>> 5
+5
+
+>>> 0
+0
+
+#數字前不可以加0
+>>> 05
+      File "<stdin>", line 1
+05
+^
+SyntaxError: invalid token #python的語法錯誤
+
+
+#正整數
+>>> 123
+    123
+>>> +123
+    123
+    
+#負整數
+>>> -123 
+-123
+
+#整數運算
+>>>5+9 
+   14 
+>>>100-7 
+   93 
+>>>4-10 
+   -6
+   
+#多個數值運算
+>>>5+9+3
+17 
+>>>4+3-2-1+6 
+	 10
+	 
+#乘法運算
+>>>6*7
+42
+>>>7*6
+42 
+>>>6*7*2*3 
+   252
+   
+#浮點數除法
+>>>9/5 
+   1.8
+
+#整數除法
+>>>9//5 
+   1
+#除數不可以為零
+>>>5/0
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module> ZeroDivisionError: division by zero >>>7//0
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module> ZeroDivisionError: integer division or modulo by z
+
+
+#變數可以運算
+>>>a=95 
+>>> a
+95 
+>>>a-3 
+   92
+
+#將變數自已的內容減3   
+>>>a=a-3 
+>>> a
+92
+
+>>>a=95 
+>>>temp=a-3 
+>>>a=temp
+
+#上面敘述式，可以使用下面這行替代
+>>>a=a-3
+
+#餘數
+>>>9%5 
+   4
+   
+>>> divmod(9,5)
+    (1, 4)
+
+>>> 9//5 
+   1 
+>>> 9%5 
+   4
+
+
+
+```
+
+## 優先運算子
+
+```python
+>>>2+3*4 
+   14
+   
+>>>(2+3)*4
+   20
+   
+```
+
+## 2,8,16進位
+表示 | 進位
+--- | ---
+0b 0B | 2進位
+0o 0O | 8進位
+0x 0X | 16進位
+
+```python
+#10進位
+>>> 10 
+10
+
+#2進位
+>>> 0b10
+2
+
+#8進位
+>>> 0o10
+8
+
+#16進位
+>>> 0x10
+16
+
+```
+
+## 類型轉換
+
+```python
+>>> int(True)
+    1
+>>> int(False)
+    0
+ 
+ 
+    
+>>> int(98.6) 
+    98
+>>> int(1.0e4) 
+    10000
+ 
+  
+    
+>>> int('99') 
+    99
+>>> int('-23') 
+    -23
+>>> int('+12')
+    12
+
+
+>>> int(12345)
+    12345
+
+
+
+>>> int('99 bottles of beer on the wall')
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '99 bottles of beer on the wall' >>> int('')
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: ''
+
+
+
+>>> int('98.6')
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '98.6' >>> int('1.0e4')
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '1.0e4'
+
+
+
+>>>4+7.0 
+   11.0
+   
+
+>>>True+2
+    3
+>>> False + 5.0 
+    5.0
+```
+
+## int的範圍
+
+```kotlin
+>>>
+>>> googol = 10**100
+>>> googol
+   100000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000
+
+>>> googol * googol
+    100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+
+    
+```
+
+## float浮點數
+
+```python
+>>> float(True) 
+    1.0
+>>> float(False)
+    0.0
+
+>>> float(98) 
+    98.0
+>>> float('99') 
+    99.0
+
+    
+
+>>> float('98.6')
+    98.6
+>>> float('-1.5')
+    -1.5
+>>> float('1.0e4')
+    10000.0
+
+
+```
+
+## 字串
+
+```python
+>>> 'Snap'
+    'Snap'
+>>> "Crackle"
+    'Crackle'
+
+
+>>> "'Nay,' said the naysayer."
+"'Nay,' said the naysayer."
+>>> 'The rare double quote in captivity: ".'
+'The rare double quote in captivity: ".'
+>>> 'A "two by four" is actually 1 1⁄2" × 3 1⁄2".'
+'A "two by four is" actually 1 1⁄2" × 3 1⁄2".'
+>>> "'There's the man that shot my paw!' cried the limping hound." "'There's the man that shot my paw!' cried the limping hound."
+ 
+
+
+>>> '''Boom!'''
+    'Boom'
+>>> """Eek!"""
+    'Eek!'
+    
+>>> poem = '''There was a Young Lady of Norway, ... Who casually sat in a doorway;
+... When the door squeezed her flat,
+... She exclaimed, "What of that?"
+... This courageous Young Lady of Norway.'''
+
+
+
+>>> poem2 = '''I do not like thee, Doctor Fell.
+... The reason why, I cannot tell.
+... But this I know, and know full well:
+... I do not like thee, Doctor Fell.
+... '''
+>>> print(poem2)
+I do not like thee, Doctor Fell.
+	The reason why, I cannot tell.
+	But this I know, and know full well: 
+	I do not like thee, Doctor Fell.
+>>>
+
+
+>>> print(99, 'bottles', 'would be enough.') 
+    99 bottles would be enough.
+    
+    
+
+>>> ''
+    ''
+>>> ""
+    ''
+>>> ''''''
+    ''
+>>> """"""
+    ''
+>>>
+
+
+
+
+>>> bottles = 99
+>>> base = ''
+>>> base += 'current inventory: '
+>>> base += str(bottles)
+>>> base
+    'current inventory: 99'
+
+
+
+#使用str()轉換為字串型別
+>>> str(98.6) 
+    '98.6'
+>>> str(1.0e4) 
+    '10000.0'
+>>> str(True)
+    'True'
+
+
+
+
+#脫溢字元 \
+>>> palindrome = 'A man,\nA plan,\nA canal:\nPanama.' 
+>>> print(palindrome)
+A man,
+A plan,
+A canal: Panama.
+
+
+
+>>> print('\tabc') 
+    abc
+>>> print('a\tbc') 
+    a bc
+>>> print('ab\tc') 
+    ab c
+>>> print('abc\t') 
+    abc
+
+
+
+>>> testimony = "\"I did nothing!\" he said. \"Not that either! Or the other thing.\""
+>>> print(testimony)
+"I did nothing!" he said. "Not that either! Or the other thing."
+>>> fact = "The world's largest rubber duck was 54'2\" by 65'7\" by 105'" 
+>>> print(fact)
+The world's largest rubber duck was 54'2" by 65'7" by 105'
+
+
+
+>>> speech = 'Today we honor our friend, the backslash: \\.' 
+>>> print(speech)
+Today we honor our friend, the backslash: \.
+
+
+
+# 使用+運算子
+>>> 'Release the kraken! ' + 'At once!'
+    'Release the kraken! At once!'
+
+
+
+
+>>> a = 'Duck.' 
+    b=a
+>>> c = 'Grey Duck!' 
+>>>a+b+c 
+   'Duck.Duck.Grey Duck!'
+
+
+
+>>> print(a, b, c) 
+    Duck. Duck. Grey Duck!
+    
+```
+
+
+
+
+### question:以下的資料輸出哪一個是錯的?(選擇題)
+(1) "I can add integers, like " + str(5) + " to strings."  
+(2) "Isaid"+("Hey"*2)+"Hey!"  
+(3) "The correct answer to this multiple choice exercise is answer number" + 2  
+(4) True + False  
+
+---
+ 
+### question:請問執行後的說明哪一個是對的?(選擇題)
+```python
+a,b,c="pcschool",2016,3.41
+print(b)
+```
+(1) 2016  
+(2) 3.41  
+(3) pcschool  
+
+---
+
+
+###  請問執行後的說明哪一個是對的?(選擇題)
+```python
+test=("abc"+"!")*2
+print(test)
+```
+(1) abc!2  
+(2) abc! abc!
+(3) abc+!*2
+
+---
+
+
 ### question: 請問計算後Z的內容哪一個是對的?(選擇題)
 ```python
 x=5
