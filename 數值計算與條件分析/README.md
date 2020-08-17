@@ -328,9 +328,17 @@ File "<stdin>", line 1, in <module> ZeroDivisionError: integer division or modul
 
 ```
 
-## 優先運算子
+## 數學運算子優先順序
 
 ```python
+優先順序由上而下
+()
+**
+正負
+* / % //
++ -
+=
+
 >>>2+3*4 
    14
    
