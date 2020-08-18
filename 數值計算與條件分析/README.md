@@ -126,82 +126,6 @@ Type: builtin_function_or_method
 
 ```
 
-## Continue Lines with \
-
-```python
->>> alphabet = ''
->>> alphabet += 'abcdefg'
->>> alphabet += 'hijklmnop'
->>> alphabet += 'qrstuv'
->>> alphabet += 'wxyz'
-
-#連結字串
->>> alphabet = 'abcdefg' + \
-... 'hijklmnop' + \
-... 'qrstuv' + \
-... 'wxyz'
-
-
->>> 1+2+
-File "<stdin>", line 1
-1+2+ ^
-SyntaxError: invalid syntax 
->>>1+2+\
-... 3
-6
-```
-## 資料輸入
-- input 代表資料輸入
-- 輸入資料後可利用變數 .__class__ 方式查詢變數的資料型態。
-- 預設輸入的資料型態為字串
-	- 若是整數資料您必須加入 int( ) 轉換。
-		- 如果輸入浮點數或者字串都會產生錯誤訊息。
-	- 若是浮點數小數資料您必須加入 float( ) 轉換。
-		- 如果輸入整數會當作浮點數處理，輸入字串會產生錯誤訊息。  
-
-```python
-資料輸出入:請動手操作，並留意輸出結果
-# input01.py
-
-a = input("輸入整數1a: ") 
-b = input("輸入整數1b: ") 
-c = int(input("int輸入c:")) 
-d = int(input("int輸入d:")) 
-f=a+b
-g=c+d 
-print(f)
-print(g)
-```
-
-```python
-資料輸出入:請動手操作，並留意輸出結果
-# input02.py
-
-c = int(input("int輸入c:"))
-d = int(input("int輸入d:")) 
-g=c+d
-print(g)
-h = float(input("float輸入h:"))
-i = float(input("float輸入i:"))
-j=h+d
-print(j)
-```
-
-```python
-資料輸出入:請動手操作，並留意輸出結果
-# input03.py
-
-a = input("輸入字串: ")
-print(a,a.__class__ )
-a = input("輸入整數: ")
-print(a,a.__class__ )
-a = float(input("float輸入浮點數: "))
-print(a,a.__class__ )
-a = int(input("int輸入整數:"))
-print(a,a.__class__ )
-a = int(input("int輸入字串:"))
-print(a,a.__class__ )
-```
 
 
 
@@ -426,7 +350,7 @@ ValueError: invalid literal for int() with base 10: '1.0e4'
 
 ## int的範圍
 
-```kotlin
+```python
 >>>
 >>> googol = 10**100
 >>> googol
@@ -600,6 +524,83 @@ Today we honor our friend, the backslash: \.
 >>> print(a, b, c) 
     Duck. Duck. Grey Duck!
     
+```
+## Continue Lines with \
+
+```python
+>>> alphabet = ''
+>>> alphabet += 'abcdefg'
+>>> alphabet += 'hijklmnop'
+>>> alphabet += 'qrstuv'
+>>> alphabet += 'wxyz'
+
+#連結字串
+>>> alphabet = 'abcdefg' + \
+... 'hijklmnop' + \
+... 'qrstuv' + \
+... 'wxyz'
+
+
+>>> 1+2+
+File "<stdin>", line 1
+1+2+ ^
+SyntaxError: invalid syntax 
+>>>1+2+\
+... 3
+6
+```
+
+## 資料輸入
+- input 代表資料輸入
+- 輸入資料後可利用變數 .__class__ 方式查詢變數的資料型態。
+- 預設輸入的資料型態為字串
+	- 若是整數資料您必須加入 int( ) 轉換。
+		- 如果輸入浮點數或者字串都會產生錯誤訊息。
+	- 若是浮點數小數資料您必須加入 float( ) 轉換。
+		- 如果輸入整數會當作浮點數處理，輸入字串會產生錯誤訊息。  
+
+```python
+資料輸出入:請動手操作，並留意輸出結果
+# input01.py
+
+a = input("輸入整數1a: ") 
+b = input("輸入整數1b: ") 
+c = int(input("int輸入c:")) 
+d = int(input("int輸入d:")) 
+f=a+b
+g=c+d 
+print(f)
+print(g)
+```
+
+```python
+資料輸出入:請動手操作，並留意輸出結果
+# input02.py
+
+c = int(input("int輸入c:"))
+d = int(input("int輸入d:")) 
+g=c+d
+print(g)
+h = float(input("float輸入h:"))
+i = float(input("float輸入i:"))
+j=h+d
+print(j)
+```
+
+```python
+資料輸出入:請動手操作，並留意輸出結果
+# input03.py
+
+a = input("輸入字串: ")
+print(a,a.__class__ )
+a = input("輸入整數: ")
+print(a,a.__class__ )
+a = float(input("float輸入浮點數: "))
+print(a,a.__class__ )
+a = int(input("int輸入整數:"))
+print(a,a.__class__ )
+a = int(input("int輸入字串:"))
+print(a,a.__class__ )
 ```
 
 
