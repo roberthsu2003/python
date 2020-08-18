@@ -550,12 +550,11 @@ Today we honor our friend, the backslash: \.
 >>> 'Release the kraken! ' + 'At once!'
     'Release the kraken! At once!'
 
-
-
-
 >>> a = 'Duck.' 
     b=a
+    
 >>> c = 'Grey Duck!' 
+
 >>>a+b+c 
    'Duck.Duck.Grey Duck!'
 
