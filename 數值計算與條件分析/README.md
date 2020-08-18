@@ -420,25 +420,31 @@ ValueError: invalid literal for int() with base 10: '1.0e4'
     
 >>> """Eek!"""
     'Eek!'
-    
->>> poem = '''There was a Young Lady of Norway, ... Who casually sat in a doorway;
-... When the door squeezed her flat,
-... She exclaimed, "What of that?"
-... This courageous Young Lady of Norway.'''
+
+#單行文字    
+>>> poem = "Apple Arcade 推出的最新遊戲《Next Stop Nowhere》，由位於洛杉磯的開發商 Night School Studio 出品。這款遊戲是太空公路之旅的夥伴冒險，其中不同角色間展開了一些精彩的劇情。在銀河系的外圍，每個人和所有事物之間都有充分的空間，Night School 希望這款遊戲可為近來可能感到孤立的玩家提供一些慰藉。"
+
+#單行文字
+>>>"Apple Arcade 推出的最新遊戲《Next Stop Nowhere》，\
+由位於洛杉磯的開發商 Night School Studio 出品。\
+這款遊戲是太空公路之旅的夥伴冒險，其中不同角色間展開了一些精彩的劇情。\
+在銀河系的外圍，每個人和所有事物之間都有充分的空間，Night School\
+希望這款遊戲可為近來可能感到孤立的玩家提供一些慰藉。"
 
 
+>>> poem2 = '''Apple Arcade 推出的最新遊戲《Next Stop Nowhere》，由位於洛杉磯的開發商 Night School Studio 出品。
 
->>> poem2 = '''I do not like thee, Doctor Fell.
-... The reason why, I cannot tell.
-... But this I know, and know full well:
-... I do not like thee, Doctor Fell.
-... '''
+這款遊戲是太空公路之旅的夥伴冒險，其中不同角色間展開了一些精彩的劇情。
+
+在銀河系的外圍，每個人和所有事物之間都有充分的空間，Night School 希望這款遊戲可為近來可能感到孤立的玩家提供一些慰藉。 '''
+
 >>> print(poem2)
-I do not like thee, Doctor Fell.
-	The reason why, I cannot tell.
-	But this I know, and know full well: 
-	I do not like thee, Doctor Fell.
->>>
+Apple Arcade 推出的最新遊戲《Next Stop Nowhere》，由位於洛杉磯的開發商 Night School Studio 出品。
+
+這款遊戲是太空公路之旅的夥伴冒險，其中不同角色間展開了一些精彩的劇情。
+
+在銀河系的外圍，每個人和所有事物之間都有充分的空間，Night School 希望這款遊戲可為近來可能感到孤立的玩家提供一些慰藉。
+
 
 
 >>> print(99, 'bottles', 'would be enough.') 
