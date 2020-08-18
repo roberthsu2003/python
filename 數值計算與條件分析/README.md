@@ -394,22 +394,30 @@ ValueError: invalid literal for int() with base 10: '1.0e4'
 ```python
 >>> 'Snap'
     'Snap'
+    
 >>> "Crackle"
     'Crackle'
 
-
 >>> "'Nay,' said the naysayer."
 "'Nay,' said the naysayer."
+
 >>> 'The rare double quote in captivity: ".'
 'The rare double quote in captivity: ".'
+
 >>> 'A "two by four" is actually 1 1⁄2" × 3 1⁄2".'
 'A "two by four is" actually 1 1⁄2" × 3 1⁄2".'
+
 >>> "'There's the man that shot my paw!' cried the limping hound." "'There's the man that shot my paw!' cried the limping hound."
  
+```
 
+### 多行文字
+
+```python
 
 >>> '''Boom!'''
     'Boom'
+    
 >>> """Eek!"""
     'Eek!'
     
