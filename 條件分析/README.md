@@ -263,19 +263,22 @@ It's a cat.
 ```
 
 ```python
-#多項選擇
-color = "紫褐色"
-if color == "紅色":
-    print("It's a 蕃茄")
-elif color == "green":
-    print("It's a 青椒")
-elif color == "蜂密青":
-    print("我不知道蜂密青, 我只知道蜂密")
+#巢狀選擇
+• 如果x不是負數，則傳回值為 x ** (1 / y)。
+• 如果x是負數而且為偶數，則傳回值為"虛數"。
+• 如果x是負數而且為奇數，則傳回值為 -(-x) ** (1 / y)。
+
+x = int(input('請輸入x:'))
+y = int(input('請輸入y:'))
+
+if x >= 0:
+    root = x ** (1 / y)
 else:
-    print("我沒有聽過這個顏色", color)
-
-
-I've never heard of the color puce
+    if x % 2 == 0:
+        root = "虛數"
+    else:
+        root = -(-x) ** (1 / y)
+print('root=',root)
 ```
 
 ##  邏輯運算符號
