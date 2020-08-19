@@ -28,31 +28,6 @@ True
 >>> x<10 
 True
 
->>> 5<x and x<10 
-True
-
->>> (5<x) and (x<10)
-True
-
->>> 5<x or x<10 
-True 
-
->>> 5<x and x>10
-False 
-
->>> 5 < x and not x > 10 
-True
-
->>>5 < x < 10 
-True
-
->>> some_list = []
->>> if some_list:
-		print("There are something in here")
-	else:
-		print("Hey! It's empty")
-
-Hey, it's empty!
 ```
 
 ##  單一選擇
@@ -99,6 +74,19 @@ if [True|False]:
 else:
 	false區塊
 ```
+
+```python
+#雙向選擇
+>>> disaster = True 
+>>> disaster = False
+	if disaster:
+	    print("危險")
+	else:
+	    print("好險")
+危險
+
+```
+
 
 ### 雙向選擇 if else:請留意輸出結果  
 
@@ -175,7 +163,6 @@ else:
 	print("小於12")
 ```
 
-### 多向選擇 if elif:請留意輸出結果
 
 ```python
 # if3-2.py
@@ -218,17 +205,7 @@ else:
 ```
 [解題](discount.py)
 
-## 判斷流程控制 if, elif, and else
-```python
-#雙向選擇
->>> disaster = True 
->>> if disaster:
-		print("Woe!") 
-	else:
-		print("Whee!")
-Woe!
-
-```
+## 巢狀判斷
 
 ```python
 #巢狀選擇
@@ -279,6 +256,35 @@ I've never heard of the color puce
 [boolean and boolean]
 [boolean or boolean]
 [not boolean]
+```
+
+```python
+>>> 5<x and x<10 
+True
+
+>>> (5<x) and (x<10)
+True
+
+>>> 5<x or x<10 
+True 
+
+>>> 5<x and x>10
+False 
+
+>>> 5 < x and not x > 10 
+True
+
+>>>5 < x < 10 
+True
+
+>>> some_list = []
+>>> if some_list:
+		print("There are something in here")
+	else:
+		print("Hey! It's empty")
+
+Hey, it's empty!
+
 ```
 
 ### 邏輯運算子:請留意輸出結果
