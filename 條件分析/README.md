@@ -191,6 +191,30 @@ else:
 (3) 小於 12 
 
 ---
+```python
+下列為換算成績等級的程式碼，換算的規則如下：
+
+• 90(含)~100分為「優」
+• 80(含)~89分為「甲」
+• 70(含)~79分為「乙」
+• 60(含)~69分為「丙」
+• 0(含)~59分為「丁」
+
+score = int(input("請輸入分數"))
+if score >= 90:
+    grade = '優'
+elif score >= 80:
+    grade = '甲'
+elif score >= 70:
+    grade = '乙'
+elif score >= 60:
+    grade = '丙'
+else:
+    grade = '丁'
+    
+print("成績等級為：", grade)
+
+```
 
 ### Homework(discount.py):
 輸入顧客購買金額，若金額在
@@ -204,6 +228,8 @@ else:
 實付金額是: 104000.0 元
 ```
 [解題](discount.py)
+
+
 
 ## 巢狀判斷
 
