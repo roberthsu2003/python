@@ -152,40 +152,50 @@ else:
 ```
 
 ```python
-# if3.py
-
-a=21
-if a>18:
-	print("大於18") 
-elif a>12:
-	print("大於12") 
+age = int(input("請輸入年紀?"))
+if age > 18:
+    print("青年")
+elif age >= 12:
+    print("青少年")
 else:
-	print("小於12")
+    print("少年")
 ```
+
+```python
+age = int(input("請輸入年紀?"))
+if age < 12:
+    print("少年")
+elif age <= 18:
+    print("青少年")
+else:
+    print("青年")
+```
+
 
 
 ```python
 # if3-2.py
-#有問題的設計
-a=21
-if a>12:
-	print("大於12")
-elif a>18:
-	print("大於18") 
+#有問題的設計,錯誤
+age = int(input("請輸入年紀?"))
+if age > 12:
+    print("少年")
+elif age > 18:
+    print("青少年")
 else:
-	print("小於12")
+    print("青年")
 ```
-
 ###  請問執行後的結果哪一個是對的?(選擇題)
-```
+
+```python
 a=11
 if a>18:
 	print("大於18")
 elif a>12:
-	print("大於12")
+	print("大於12小於等於18")
 else:
 	print("小於12")
 ```
+
 (1) 大於 18  
 (2) 大於 12  
 (3) 小於 12 
