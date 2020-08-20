@@ -321,6 +321,7 @@ print('root=',root)
 ```
 
 ```python
+x = 8
 >>> 5<x and x<10 
 True
 
