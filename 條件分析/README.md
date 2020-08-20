@@ -424,6 +424,22 @@ else:
 (3) 2 3  
 (4) 2 4
 
+```
+下列為檢查輸入整數位數的程式碼，請回答以下問題來完成程式
+
+n = int(input("請輸入整數："))
+
+if n > -10 and n < 10:
+    digit = "一"
+elif n > -100 and n < 100:
+    digit = "二"
+else:
+    digit = "大於二"
+
+print(n,"是" ,digit + "位數")
+
+```
+
 ### HomeWork:BMI 計算後分析
 - 請依據 BMI 值分析他人的身體狀況。
 
