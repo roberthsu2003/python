@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e704ac1f-6e11-4962-bd28-b7059beaaac7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample4.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sample4.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python基礎與資料輸出/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../python基礎與資料輸出/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample5.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sample5.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +190,7 @@
       <updated>1596090311956</updated>
       <workItem from="1597827129820" duration="446000" />
       <workItem from="1597902504638" duration="479000" />
+      <workItem from="1597988556798" duration="303000" />
     </task>
     <servers />
   </component>
