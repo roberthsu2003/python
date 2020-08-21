@@ -395,7 +395,7 @@ A B C
 C A B
 
 #用名稱指定位置
-"{a} {c} {b}".format((a="A", b="B", c="C"))
+"{a} {c} {b}".format(a="A", b="B", c="C")
 A C B
 ```
 
