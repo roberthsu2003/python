@@ -302,112 +302,6 @@ else: # 沒有執行break
 沒有偶數
 ```
 
-
-## 使用for in迴圈
-- 使用時機,讀取所有集合物件元素1次。(list,tuple,string,dictionaries,sets)
-- 使用時機,明確指定執行次數。
-
-```python
-#使用傳統的方式,讀取list內的每一個元素
-rabbits = ['Flopsy', 'Mopsy', 'Cottontail', 'Peter'] 
-current = 0
-while current < len(rabbits):
-    print(rabbits[current])
-    current += 1
-    
-結果=======
-Flopsy
-Mopsy
-Cottontail
-Peter
-```
-
-```python
-#使用更簡潔方式(for..in)
-rabbits = ['Flopsy', 'Mopsy', 'Cottontail', 'Peter']
-for rabbit in rabbits: 
-    print(rabbit)
-			
-結果=======
-Flopsy
-Mopsy
-Cottontail
-Peter
-
-```
-
-
-### 字串每次取出一個字元
-
-```python
-word = 'cat'
-for letter in word:
-    print(letter)
-			
-結果=======
-c
-a
-t
-```
-
-### 使用for in讀取dictionary,取出的元素是key, 也可以使用dictionary.keys()方法.
-- 使用values()方法取出元素的值
-
-```python
-
-accusation = {'room': 'ballroom', 'weapon': 'lead pipe', 'person': 'Col. Mustard'}
-
-for card in accusation: # 或者使用 accusation.keys():
-    print(card)
-
-結果=======
-room
-weapon
-person
-
-```
-
-```python
-accusation = {'room': 'ballroom', 'weapon': 'lead pipe', 'person': 'Col. Mustard'}
-
-#使用values()方法取出元素的值
-for value in accusation.values(): 
-    print(value)
-
-結果=======
-ballroom
-lead pipe 
-Col. Mustard
-```
-
-```python
-accusation = {'room': 'ballroom', 'weapon': 'lead pipe', 'person': 'Col. Mustard'}
-
-#使用items()方法,取出包含key和value的tuple, 
-for item in accusation.items(): 
-    print(item)
-
-結果=======
-('room', 'ballroom')
-('weapon', 'lead pipe') 
-('person', 'Col. Mustard')
-
-
-```
-
-```python
-accusation = {'room': 'ballroom', 'weapon': 'lead pipe', 'person': 'Col. Mustard'}
-
-#使用拆解法直接同時取出key和value
-for card, contents in accusation.items():
-    print('Card', card, 'has the contents', contents 
-
-			
-Card weapon has the contents lead pipe
-Card person has the contents Col. Mustard
-Card room has the contents ballroom
-```
-
 ### 使用range()產生數值串列
 - 使用range()產一個範圍的數值list
 - range()不會像list,tuple,set,dictionary先佔用大量記憶體空間
@@ -529,6 +423,112 @@ for x in range(0,8,2) :
 (1) 0 2 4 6 8  
 (2) 0 2 4 6  
 (3) 0 2 8  
+
+
+## 使用for in迴圈
+- 使用時機,讀取所有集合物件元素1次。(list,tuple,string,dictionaries,sets)
+- 使用時機,明確指定執行次數。
+
+```python
+#使用傳統的方式,讀取list內的每一個元素
+rabbits = ['Flopsy', 'Mopsy', 'Cottontail', 'Peter'] 
+current = 0
+while current < len(rabbits):
+    print(rabbits[current])
+    current += 1
+    
+結果=======
+Flopsy
+Mopsy
+Cottontail
+Peter
+```
+
+```python
+#使用更簡潔方式(for..in)
+rabbits = ['Flopsy', 'Mopsy', 'Cottontail', 'Peter']
+for rabbit in rabbits: 
+    print(rabbit)
+			
+結果=======
+Flopsy
+Mopsy
+Cottontail
+Peter
+
+```
+
+
+### 字串每次取出一個字元
+
+```python
+word = 'cat'
+for letter in word:
+    print(letter)
+			
+結果=======
+c
+a
+t
+```
+
+### 使用for in讀取dictionary,取出的元素是key, 也可以使用dictionary.keys()方法.
+- 使用values()方法取出元素的值
+
+```python
+
+accusation = {'room': 'ballroom', 'weapon': 'lead pipe', 'person': 'Col. Mustard'}
+
+for card in accusation: # 或者使用 accusation.keys():
+    print(card)
+
+結果=======
+room
+weapon
+person
+
+```
+
+```python
+accusation = {'room': 'ballroom', 'weapon': 'lead pipe', 'person': 'Col. Mustard'}
+
+#使用values()方法取出元素的值
+for value in accusation.values(): 
+    print(value)
+
+結果=======
+ballroom
+lead pipe 
+Col. Mustard
+```
+
+```python
+accusation = {'room': 'ballroom', 'weapon': 'lead pipe', 'person': 'Col. Mustard'}
+
+#使用items()方法,取出包含key和value的tuple, 
+for item in accusation.items(): 
+    print(item)
+
+結果=======
+('room', 'ballroom')
+('weapon', 'lead pipe') 
+('person', 'Col. Mustard')
+
+
+```
+
+```python
+accusation = {'room': 'ballroom', 'weapon': 'lead pipe', 'person': 'Col. Mustard'}
+
+#使用拆解法直接同時取出key和value
+for card, contents in accusation.items():
+    print('Card', card, 'has the contents', contents 
+
+			
+Card weapon has the contents lead pipe
+Card person has the contents Col. Mustard
+Card room has the contents ballroom
+```
 
 ###  迴圈中斷
 - break 與 continue 都是迴圈中斷語法
