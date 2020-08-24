@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e704ac1f-6e11-4962-bd28-b7059beaaac7" name="Default Changelist" comment="" />
+    <list default="true" id="e704ac1f-6e11-4962-bd28-b7059beaaac7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,6 +190,7 @@
       <workItem from="1597827129820" duration="446000" />
       <workItem from="1597902504638" duration="479000" />
       <workItem from="1597988556798" duration="1392000" />
+      <workItem from="1598247648269" duration="285000" />
     </task>
     <servers />
   </component>
@@ -270,11 +273,11 @@
     <state x="0" y="0" width="1280" height="984" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1596091905309" />
     <state x="0" y="0" key="SettingsEditor/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1597827495607" />
     <state x="1440" y="0" width="1707" height="1080" key="SettingsEditor/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1597902579915" />
-    <state x="1823" y="295" key="com.intellij.ide.util.TipDialog" timestamp="1597988557890">
+    <state x="1823" y="295" key="com.intellij.ide.util.TipDialog" timestamp="1598247649061">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="287" y="246" key="com.intellij.ide.util.TipDialog/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1597902505900" />
-    <state x="1823" y="295" key="com.intellij.ide.util.TipDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1597988557890" />
+    <state x="1823" y="295" key="com.intellij.ide.util.TipDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598247649061" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/12345$main.coverage" NAME="main Coverage Results" MODIFIED="1597995305167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
