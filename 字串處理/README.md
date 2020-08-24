@@ -681,12 +681,12 @@ A123456789正確
 #===========================
 
 import re
-taiwanId = input('請輸入身份證字號:')
-mobj = re.match(r'^[A-Z]\d{9}$',taiwanId,re.I)
-if(mobj):
-    print(taiwanId,"正確")
+taiwanId = input("請輸入身份證字號:")
+matchObject = re.match(r'^[A-Z]\d{9}$',taiwanId,re.I)
+if matchObject:
+    print(matchObject.group(), "正確")
 else:
-    print(taiwanId, "有誤")
+    print(taiwanId, "不正確")
 
 ```
 
