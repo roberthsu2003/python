@@ -377,6 +377,8 @@ flags 用於更改正規表示式的行為，這是個可選項
 如果匹配成功就返回 Match 物件，否則返回 NONE。
 返回的匹配物件 Match 還有兩個主要方法，即 group(num=0)。
 可以使用這些方法來分別返回匹配的特定子序列和所有子序列。
+
+re.match只匹配字串的開始，如果字符開始不符合正则表達式，则匹配失败
 ```
 
 
@@ -384,10 +386,13 @@ flags 用於更改正規表示式的行為，這是個可選項
 #使用 match 函式
 
 import re
-strTest = "Hello Python Programming"
-mobj = re.match(r"hello", strTest, re.I)
-print(mobj.group())
 
+strText = "Hello Python Programming"
+matchObjec = re.match("hello", strText, re.I)
+if matchObjec is None:
+    print("文字最前面沒有搜尋到")
+else:
+    print("文字最前面搜尋到%s" % matchObjec.group())
 
 #在此示例中，使用字首 r 來表示字串是原始字串。在原始字串中，在使用轉義序列時不需要寫雙斜槓，例如，如果你想要一個反斜槓，那麼你只需要一個\，而不用像普通字串那樣的雙反斜槓\\。
 ```

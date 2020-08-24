@@ -1,7 +1,7 @@
 import re
 
 strText = "Hello Python Programming"
-matchObjec = re.match("hello", strText, re.I)
+matchObjec = re.match(r"Hello", strText, flags=0)
 if matchObjec is None:
     print("文字最前面沒有搜尋到")
 else:
