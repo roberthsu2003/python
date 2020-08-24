@@ -620,13 +620,14 @@ split(patter, string, maxsplit=0, flags=0)
 
 ```python
 import re
-str1 = "Birds fly high in the sky for ever"
-mobj = re.split('\s+', str1, 5)
-print(mobj)
-```
+str1 = "Birds   fly  high in    the   sky for ever"
+splitList = re.split(r'\s+',str1)
+print(splitList)
+print("-".join(splitList))```
 
 ```python
-['Birds', 'fly', 'high', 'in', 'the', 'sky for ever']
+['Birds', 'fly', 'high', 'in', 'the', 'sky', 'for', 'ever']
+Birds-fly-high-in-the-sky-for-ever
 ```
 
 - 本例中，模式 \s 用來匹配所有的空白字元，它等效於各種空白字元的集合，包括空格，製表符，回車等，具體如 [ \t\n\r\f\v]。所以你可以通過它將各個拆分開來。這裡的最大拆分次數是 5，所以結果列表中有 6 個元素，最後一個元素是最後一次拆分後剩下的所有的字串。
