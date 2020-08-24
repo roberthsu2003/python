@@ -407,10 +407,16 @@ re.search(pattern, string, flags)
 ```
 
 ```pytnon
+
 import re
+
 str = "Hello Python Programming"
-sobj = re.search(r"programming", str, re.I)
-print(sobj.group())
+searchObject = re.search(r"programming", str, re.I)
+if not searchObject:
+    print("文字內沒有搜尋到任何相同內容")
+else:
+    print("文字內搜尋到%s" % searchObject.group())
+    
 ```
 
 在此程式碼中，我們來搜尋給定字串中是否存在 programming，search 函式搜尋整個字串。
