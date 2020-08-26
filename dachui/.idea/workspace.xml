@@ -25,10 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccf2b888-3b3a-48fd-ae0b-f663f81610b8" name="Default Changelist" comment="modify">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ccf2b888-3b3a-48fd-ae0b-f663f81610b8" name="Default Changelist" comment="modify" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598420991540</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="modify">
+      <created>1598422283989</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1598422283989</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,9 +182,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="154" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598413504298" />
-    <state x="452" y="186" key="Vcs.Push.Dialog.v2" timestamp="1598420993520">
+    <state x="452" y="186" key="Vcs.Push.Dialog.v2" timestamp="1598422286086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="186" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598420993520" />
+    <state x="452" y="186" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598422286086" />
   </component>
 </project>
