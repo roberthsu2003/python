@@ -11,11 +11,14 @@ file.close()
 
 file=open('空氣品質指標.csv','r',encoding='UTF-8')
 rows = csv.reader(file)
-
+dict = dict()
 rowsList = list(rows)
+rowsList.pop(0)
 for rows in rowsList:
-    for row in rows:
-        print(row)
+   dict[rows[0]] = rows[11]
+
+print(dict)
+
 
 
 
