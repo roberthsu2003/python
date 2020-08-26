@@ -13,7 +13,7 @@
 
 特別號:15
 '''
-
+#https://drive.google.com/drive/folders/1xHcI_lKm1aqpVHufjVs7_hbCRk-qClMf?usp=sharing
 import random
 
 if __name__ == '__main__':
