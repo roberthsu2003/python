@@ -16,7 +16,13 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccf2b888-3b3a-48fd-ae0b-f663f81610b8" name="Default Changelist" comment="" />
@@ -43,7 +49,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager" selected="Python.guess">
     <configuration name="guess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -110,7 +116,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -118,25 +136,25 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1895" height="269" key="GridCell.Tab.0.bottom" timestamp="1598411575639">
+    <state width="1895" height="269" key="GridCell.Tab.0.bottom" timestamp="1598412858020">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1895" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598411575639" />
-    <state width="1895" height="269" key="GridCell.Tab.0.center" timestamp="1598411575639">
+    <state width="1895" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598412858020" />
+    <state width="1895" height="269" key="GridCell.Tab.0.center" timestamp="1598412858020">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1895" height="269" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598411575639" />
-    <state width="1895" height="269" key="GridCell.Tab.0.left" timestamp="1598411575639">
+    <state width="1895" height="269" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598412858020" />
+    <state width="1895" height="269" key="GridCell.Tab.0.left" timestamp="1598412858019">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1895" height="269" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598411575639" />
-    <state width="1895" height="269" key="GridCell.Tab.0.right" timestamp="1598411575639">
+    <state width="1895" height="269" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598412858019" />
+    <state width="1895" height="269" key="GridCell.Tab.0.right" timestamp="1598412858020">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1895" height="269" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598411575639" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1598404387864">
+    <state width="1895" height="269" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598412858020" />
+    <state x="461" y="154" key="SettingsEditor" timestamp="1598413504298">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598404387864" />
+    <state x="461" y="154" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598413504298" />
   </component>
 </project>
