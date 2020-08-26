@@ -25,7 +25,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccf2b888-3b3a-48fd-ae0b-f663f81610b8" name="Default Changelist" comment="" />
+    <list default="true" id="ccf2b888-3b3a-48fd-ae0b-f663f81610b8" name="Default Changelist" comment="modify">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,6 +112,21 @@
       <option name="presentableId" value="Default" />
       <updated>1598325937471</updated>
     </task>
+    <task id="LOCAL-00001" summary="modify">
+      <created>1598413990599</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598413990599</updated>
+    </task>
+    <task id="LOCAL-00002" summary="modify">
+      <created>1598420991540</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598420991540</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,6 +153,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modify" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify" />
+  </component>
   <component name="WindowStateProjectService">
     <state width="1895" height="269" key="GridCell.Tab.0.bottom" timestamp="1598412858020">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -156,5 +178,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="154" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598413504298" />
+    <state x="452" y="186" key="Vcs.Push.Dialog.v2" timestamp="1598420993520">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="186" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598420993520" />
   </component>
 </project>
