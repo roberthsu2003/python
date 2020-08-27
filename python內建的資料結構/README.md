@@ -421,6 +421,31 @@ print(list1[3])
 
 --- 
 
+#### Homework:
+
+```python
+#建立50位學生，每位學生有5個分數
+import random
+
+students = []
+for _ in range(50):
+    scores = [] #建立一個0元素的list
+    for _ in range(5):
+        scores += [random.randint(50,100)]
+    students.append(scores)
+
+studentId=0
+for stu in students:
+    studentId += 1
+    print("學生:",studentId)
+    print(stu)
+    sum = 0
+    for score in stu:
+        sum += score
+    print("總分為:", sum,"平均為:",sum/5)
+    print()
+```
+
 ###  list 項目擴展資料
 - extend 擴展資料
 	- 如果引號括起來的字串有 [ ] 將會拆解成好幾個資料。
