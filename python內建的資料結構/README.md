@@ -1318,6 +1318,20 @@ names[3]:梁朝為
 
 ---
 
+#### homework
+```python
+#建立50位學生,每位學生有5科的分數
+import random
+students = list()
+for _ in range(50):
+    scores = dict()
+    subjects = ["國文","英文","數學","社會","自然"]
+    for subject in subjects:
+        scores[subject] = random.randint(50, 100)
+    students.append(scores)
+students
+```
+
 ###  刪除動作
 - 刪除動作可分刪除資料、清除所有項目與刪除字典三種:
 	- del dict[key]  刪除某一個 key 的資料
