@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e704ac1f-6e11-4962-bd28-b7059beaaac7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/sample12.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample6.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sample6.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +58,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="Python.sample11">
+  <component name="RunManager" selected="Python.sample12">
     <configuration name="sample10" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="北認下午135上課內容" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -103,7 +103,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sample7" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sample12" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="北認下午135上課內容" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -116,7 +116,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sample7.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sample12.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -171,11 +171,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.sample12" />
         <item itemvalue="Python.sample11" />
         <item itemvalue="Python.sample10" />
         <item itemvalue="Python.sample9" />
         <item itemvalue="Python.sample8" />
-        <item itemvalue="Python.sample7" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +195,8 @@
       <workItem from="1598247648269" duration="2154000" />
       <workItem from="1598252424783" duration="53000" />
       <workItem from="1598252496976" duration="5068000" />
-      <workItem from="1598506635368" duration="2182000" />
+      <workItem from="1598506635368" duration="2421000" />
+      <workItem from="1598513345152" duration="942000" />
     </task>
     <task id="LOCAL-00001" summary="message">
       <created>1598508500707</created>
@@ -225,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598511503480</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="message">
+      <created>1598512565011</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1598512565011</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,43 +261,43 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="1851" y="74" key="CommitChangelistDialog2/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598512564904" />
-    <state width="1868" height="290" key="GridCell.Tab.0.bottom" timestamp="1598260940312">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state width="1868" height="290" key="GridCell.Tab.0.bottom" timestamp="1598514251173">
+      <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state width="998" height="134" key="GridCell.Tab.0.bottom/0.0.1024.779@0.0.1024.779" timestamp="1596183341437" />
     <state width="1255" height="245" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1596097671343" />
     <state width="1388" height="232" key="GridCell.Tab.0.bottom/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1597827514283" />
-    <state width="1868" height="290" key="GridCell.Tab.0.bottom/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598260672739" />
+    <state width="1868" height="290" key="GridCell.Tab.0.bottom/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598514251173" />
     <state width="1868" height="361" key="GridCell.Tab.0.bottom/1440.0.1920.1080/0.23.1440.877@1440.0.1920.1080" timestamp="1598001789573" />
     <state width="1388" height="232" key="GridCell.Tab.0.bottom/1440.23.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1597827578983" />
     <state width="1868" height="290" key="GridCell.Tab.0.bottom/1440.23.1920.1057/0.23.1440.877@1440.23.1920.1057" timestamp="1598260940312" />
-    <state width="1868" height="290" key="GridCell.Tab.0.center" timestamp="1598260940311">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state width="1868" height="290" key="GridCell.Tab.0.center" timestamp="1598514251171">
+      <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state width="998" height="134" key="GridCell.Tab.0.center/0.0.1024.779@0.0.1024.779" timestamp="1596183341437" />
     <state width="1255" height="245" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1596097671343" />
     <state width="1388" height="232" key="GridCell.Tab.0.center/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1597827514282" />
-    <state width="1868" height="290" key="GridCell.Tab.0.center/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598260672737" />
+    <state width="1868" height="290" key="GridCell.Tab.0.center/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598514251171" />
     <state width="1868" height="361" key="GridCell.Tab.0.center/1440.0.1920.1080/0.23.1440.877@1440.0.1920.1080" timestamp="1598001789571" />
     <state width="1388" height="232" key="GridCell.Tab.0.center/1440.23.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1597827578981" />
     <state width="1868" height="290" key="GridCell.Tab.0.center/1440.23.1920.1057/0.23.1440.877@1440.23.1920.1057" timestamp="1598260940311" />
-    <state width="1868" height="290" key="GridCell.Tab.0.left" timestamp="1598260940311">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state width="1868" height="290" key="GridCell.Tab.0.left" timestamp="1598514251170">
+      <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state width="998" height="134" key="GridCell.Tab.0.left/0.0.1024.779@0.0.1024.779" timestamp="1596183341437" />
     <state width="1255" height="245" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1596097671343" />
     <state width="1388" height="232" key="GridCell.Tab.0.left/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1597827514281" />
-    <state width="1868" height="290" key="GridCell.Tab.0.left/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598260672736" />
+    <state width="1868" height="290" key="GridCell.Tab.0.left/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598514251170" />
     <state width="1868" height="361" key="GridCell.Tab.0.left/1440.0.1920.1080/0.23.1440.877@1440.0.1920.1080" timestamp="1598001789571" />
     <state width="1388" height="232" key="GridCell.Tab.0.left/1440.23.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1597827578979" />
     <state width="1868" height="290" key="GridCell.Tab.0.left/1440.23.1920.1057/0.23.1440.877@1440.23.1920.1057" timestamp="1598260940311" />
-    <state width="1868" height="290" key="GridCell.Tab.0.right" timestamp="1598260940312">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state width="1868" height="290" key="GridCell.Tab.0.right" timestamp="1598514251172">
+      <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state width="998" height="134" key="GridCell.Tab.0.right/0.0.1024.779@0.0.1024.779" timestamp="1596183341437" />
     <state width="1255" height="245" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1596097671343" />
     <state width="1388" height="232" key="GridCell.Tab.0.right/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1597827514283" />
-    <state width="1868" height="290" key="GridCell.Tab.0.right/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598260672738" />
+    <state width="1868" height="290" key="GridCell.Tab.0.right/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598514251172" />
     <state width="1868" height="361" key="GridCell.Tab.0.right/1440.0.1920.1080/0.23.1440.877@1440.0.1920.1080" timestamp="1598001789572" />
     <state width="1388" height="232" key="GridCell.Tab.0.right/1440.23.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1597827578982" />
     <state width="1868" height="290" key="GridCell.Tab.0.right/1440.23.1920.1057/0.23.1440.877@1440.23.1920.1057" timestamp="1598260940312" />
@@ -338,6 +346,7 @@
     <SUITE FILE_PATH="coverage/12345$sample7.coverage" NAME="sample7 Coverage Results" MODIFIED="1598256777868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/12345$sample8.coverage" NAME="sample8 Coverage Results" MODIFIED="1598257511333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/12345$sample10.coverage" NAME="sample10 Coverage Results" MODIFIED="1598260254710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/12345$sample12.coverage" NAME="sample12 Coverage Results" MODIFIED="1598514251163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/12345$guess.coverage" NAME="guess Coverage Results" MODIFIED="1598254910297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/12345$sample9.coverage" NAME="sample9 Coverage Results" MODIFIED="1598258619964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/12345$sample6.coverage" NAME="sample6 Coverage Results" MODIFIED="1598255814369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
