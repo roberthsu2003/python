@@ -196,7 +196,7 @@
       <workItem from="1598247648269" duration="2154000" />
       <workItem from="1598252424783" duration="53000" />
       <workItem from="1598252496976" duration="5068000" />
-      <workItem from="1598506635368" duration="1020000" />
+      <workItem from="1598506635368" duration="1338000" />
     </task>
     <task id="LOCAL-00001" summary="message">
       <created>1598508500707</created>
@@ -205,7 +205,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598508500707</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="message">
+      <created>1598509662746</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598509662746</updated>
+    </task>
+    <task id="LOCAL-00003" summary="message">
+      <created>1598509747758</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1598509747758</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,10 +243,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="message" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1851" y="74" key="CommitChangelistDialog2" timestamp="1598509662633">
+    <state x="1851" y="74" key="CommitChangelistDialog2" timestamp="1598509747647">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="1851" y="74" key="CommitChangelistDialog2/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598509662633" />
+    <state x="1851" y="74" key="CommitChangelistDialog2/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598509747647" />
     <state width="1868" height="290" key="GridCell.Tab.0.bottom" timestamp="1598260940312">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
