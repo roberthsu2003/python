@@ -21,6 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e704ac1f-6e11-4962-bd28-b7059beaaac7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/sample6-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/sample6-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample6.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sample6.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +57,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager" selected="Python.sample11">
     <configuration name="sample10" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -194,8 +196,16 @@
       <workItem from="1598247648269" duration="2154000" />
       <workItem from="1598252424783" duration="53000" />
       <workItem from="1598252496976" duration="5068000" />
-      <workItem from="1598506635368" duration="67000" />
+      <workItem from="1598506635368" duration="1020000" />
     </task>
+    <task id="LOCAL-00001" summary="message">
+      <created>1598508500707</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598508500707</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +224,15 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="message" />
+    <option name="LAST_COMMIT_MESSAGE" value="message" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="1851" y="74" key="CommitChangelistDialog2" timestamp="1598508500548">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1851" y="74" key="CommitChangelistDialog2/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598508500548" />
     <state width="1868" height="290" key="GridCell.Tab.0.bottom" timestamp="1598260940312">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
@@ -279,12 +297,17 @@
     <state width="1868" height="361" key="GridCell.Tab.1.right/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598254910313" />
     <state width="1868" height="361" key="GridCell.Tab.1.right/1440.0.1920.1080/0.23.1440.877@1440.0.1920.1080" timestamp="1598001789575" />
     <state width="1868" height="361" key="GridCell.Tab.1.right/1440.23.1920.1057/0.23.1440.877@1440.23.1920.1057" timestamp="1598260940306" />
-    <state x="1440" y="0" width="1707" height="1080" key="SettingsEditor" timestamp="1598506701894">
+    <state x="1440" y="0" width="1707" height="1080" key="SettingsEditor" timestamp="1598508379771">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="0" width="1280" height="984" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1596091905309" />
     <state x="0" y="0" key="SettingsEditor/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1597827495607" />
     <state x="1440" y="0" width="1707" height="1080" key="SettingsEditor/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598506701894" />
+    <state x="1440" y="0" key="SettingsEditor/1440.0.1920.1080/0.23.1440.877@1440.0.1920.1080" timestamp="1598508379771" />
+    <state x="1900" y="219" key="Vcs.Push.Dialog.v2" timestamp="1598508503295">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1900" y="219" key="Vcs.Push.Dialog.v2/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598508503295" />
     <state x="1823" y="295" key="com.intellij.ide.util.TipDialog" timestamp="1598506636716">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
