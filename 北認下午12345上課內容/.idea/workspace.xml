@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e704ac1f-6e11-4962-bd28-b7059beaaac7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/sample6-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/sample6-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample6.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sample6.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -196,7 +195,7 @@
       <workItem from="1598247648269" duration="2154000" />
       <workItem from="1598252424783" duration="53000" />
       <workItem from="1598252496976" duration="5068000" />
-      <workItem from="1598506635368" duration="1338000" />
+      <workItem from="1598506635368" duration="2182000" />
     </task>
     <task id="LOCAL-00001" summary="message">
       <created>1598508500707</created>
@@ -219,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598509747758</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="message">
+      <created>1598511503480</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1598511503480</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,10 +249,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="message" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1851" y="74" key="CommitChangelistDialog2" timestamp="1598509747647">
+    <state x="1851" y="74" key="CommitChangelistDialog2" timestamp="1598511503364">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="1851" y="74" key="CommitChangelistDialog2/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598509747647" />
+    <state x="1851" y="74" key="CommitChangelistDialog2/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598511503364" />
     <state width="1868" height="290" key="GridCell.Tab.0.bottom" timestamp="1598260940312">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
@@ -318,10 +324,10 @@
     <state x="0" y="0" key="SettingsEditor/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1597827495607" />
     <state x="1440" y="0" width="1707" height="1080" key="SettingsEditor/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598506701894" />
     <state x="1440" y="0" key="SettingsEditor/1440.0.1920.1080/0.23.1440.877@1440.0.1920.1080" timestamp="1598508379771" />
-    <state x="1900" y="219" key="Vcs.Push.Dialog.v2" timestamp="1598509664990">
+    <state x="1900" y="219" key="Vcs.Push.Dialog.v2" timestamp="1598511507055">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="1900" y="219" key="Vcs.Push.Dialog.v2/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598509664990" />
+    <state x="1900" y="219" key="Vcs.Push.Dialog.v2/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598511507055" />
     <state x="1823" y="295" key="com.intellij.ide.util.TipDialog" timestamp="1598506636716">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
