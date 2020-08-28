@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e704ac1f-6e11-4962-bd28-b7059beaaac7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/sample9-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/sample9-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample8.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sample8.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sample9.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sample9.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../檔案存取/.ipynb_checkpoints/README-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../檔案存取/.ipynb_checkpoints/README-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../檔案存取/README.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../檔案存取/README.ipynb" afterDir="false" />
@@ -44,7 +42,9 @@
   </component>
   <component name="JupyterTrust" id="13e6bb3a-0b49-4af2-a949-e971618db3ef" />
   <component name="ProjectId" id="1fOXrZvVE5PiyMLmtWYlAAzmT3v" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -203,7 +203,7 @@
       <workItem from="1598506635368" duration="2421000" />
       <workItem from="1598513345152" duration="3582000" />
       <workItem from="1598593172199" duration="23000" />
-      <workItem from="1598593203779" duration="682000" />
+      <workItem from="1598593203779" duration="871000" />
     </task>
     <task id="LOCAL-00001" summary="message">
       <created>1598508500707</created>
@@ -303,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598596245926</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="message">
+      <created>1598597626577</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1598597626577</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,6 +330,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="message" />
     <option name="LAST_COMMIT_MESSAGE" value="message" />
   </component>
