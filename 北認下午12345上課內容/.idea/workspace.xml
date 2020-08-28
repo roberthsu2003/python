@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e704ac1f-6e11-4962-bd28-b7059beaaac7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/sample8.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sample8.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/students.txt" beforeDir="false" afterPath="$PROJECT_DIR$/students.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/sample9-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/sample9-checkpoint.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,6 +197,8 @@
       <workItem from="1598252496976" duration="5068000" />
       <workItem from="1598506635368" duration="2421000" />
       <workItem from="1598513345152" duration="3582000" />
+      <workItem from="1598593172199" duration="23000" />
+      <workItem from="1598593203779" duration="211000" />
     </task>
     <task id="LOCAL-00001" summary="message">
       <created>1598508500707</created>
@@ -385,11 +387,11 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="1900" y="219" key="Vcs.Push.Dialog.v2/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598520360360" />
-    <state x="1823" y="295" key="com.intellij.ide.util.TipDialog" timestamp="1598506636716">
+    <state x="1823" y="295" key="com.intellij.ide.util.TipDialog" timestamp="1598593176974">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="287" y="246" key="com.intellij.ide.util.TipDialog/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1597902505900" />
-    <state x="1823" y="295" key="com.intellij.ide.util.TipDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598506636716" />
+    <state x="1823" y="295" key="com.intellij.ide.util.TipDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598593176974" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/12345$sample7.coverage" NAME="sample7 Coverage Results" MODIFIED="1598256777868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
