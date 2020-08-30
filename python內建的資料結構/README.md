@@ -41,6 +41,9 @@
 >>> list('cat')
 ['c', 'a', 't']
 
+>>> list(range(1,5))
+[1, 2, 3, 4]
+
 
 >>> a_tuple = ('ready', 'fire', 'aim') 
 >>> list(a_tuple)
