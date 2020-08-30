@@ -729,13 +729,17 @@ else:
 ```
 
 ---
+
 ```python
 #email.py
 # r'\w+[.|\w]\w+@\w+[.]\w+[.|\w+]\w+'
 
 
 顯示:
-請輸入多筆email:bogusemail123@sillymail.com, robert@gmail.com ,,,roberthsu2003@gmail.com
+請輸入多筆email:內政部公開New eID換發系統建置及維護案，規定業bogusemail123@sillymail.com者須在明年6月10日前完成相關系統開發，包括New eID管理系統、戶役政資訊系統軟硬robert@gmail.com擴充、維護、人員訓練等。LINE GrayLab資安研究roberthsu2003@gmail.com室負責人公布他們在企業內部與產品發布的資安防護作法，同時也透露他們最新的諸多進展
+
+bogusemail123@sillymail.com, ,roberthsu2003@gmail.com,,,robert@gmail.com
+
 取出的email有:
 bogusemail123@sillymail.com
 robert@gmail.com
