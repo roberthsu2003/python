@@ -388,7 +388,7 @@ re.match只匹配字串的開始，如果字符開始不符合正则表達式，
 import re
 
 strText = "Hello Python Programming"
-matchObjec = re.match("hello", strText, re.I)
+matchObjec = re.match(r"hello", strText, re.I)
 if matchObjec is None:
     print("文字最前面沒有搜尋到")
 else:
@@ -527,6 +527,21 @@ obj = re.sub(r'^.*$',"Working",s)
 print(obj)
 ```
 - 這裡，模式 r'^.*$ 中，^和 $ 意思是從開頭到結尾，.*意思是匹配字串中的任意字元，它們結合起來就是匹配從開頭到結尾的任意字元。 "Working"將來替換整個字串 s.
+
+```python
+#替換文字re.sub
+import re
+s = "Playing 4 hours a day"
+#matchStr = re.sub(r'^.*$',"Working",s)
+matchStr = re.sub(r'hours',"Working",s)
+print(matchStr.__class__)
+print(matchStr)
+
+
+========================
+<class 'str'>
+Playing 4 Working a day
+```
 
 
 
