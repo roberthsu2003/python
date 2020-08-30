@@ -647,6 +647,29 @@ Birds-fly-high-in-the-sky-for-ever
 
 - 本例中，模式 \s 用來匹配所有的空白字元，它等效於各種空白字元的集合，包括空格，製表符，回車等，具體如 [ \t\n\r\f\v]。所以你可以通過它將各個拆分開來。這裡的最大拆分次數是 5，所以結果列表中有 6 個元素，最後一個元素是最後一次拆分後剩下的所有的字串。
 
+```python
+import re
+s = "768 Working 2343 789 five 234 656 hours 324 4646 a 345 day"
+matchStr = re.sub(r'\d',"",s)
+print(matchStr)
+splitList = re.split(r'\s+',matchStr)
+for word in splitList:
+    print(word)
+
+
+    
+======================================
+ Working   five   hours   a  day
+
+Working
+five
+hours
+a
+day
+```
+
+
+
 ---
 
 ### Basic patterns of re 的基本模式
