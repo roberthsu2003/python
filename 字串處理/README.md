@@ -388,7 +388,7 @@ re.match只匹配字串的開始，如果字符開始不符合正则表達式，
 import re
 
 strText = "Hello Python Programming"
-matchObjec = re.match("hello", strText, re.I)
+matchObjec = re.match(r"hello", strText, re.I)
 if matchObjec is None:
     print("文字最前面沒有搜尋到")
 else:
@@ -528,6 +528,21 @@ print(obj)
 ```
 - 這裡，模式 r'^.*$ 中，^和 $ 意思是從開頭到結尾，.*意思是匹配字串中的任意字元，它們結合起來就是匹配從開頭到結尾的任意字元。 "Working"將來替換整個字串 s.
 
+```python
+#替換文字re.sub
+import re
+s = "Playing 4 hours a day"
+#matchStr = re.sub(r'^.*$',"Working",s)
+matchStr = re.sub(r'hours',"Working",s)
+print(matchStr.__class__)
+print(matchStr)
+
+
+========================
+<class 'str'>
+Playing 4 Working a day
+```
+
 
 
 ```python
@@ -632,6 +647,29 @@ Birds-fly-high-in-the-sky-for-ever
 
 - 本例中，模式 \s 用來匹配所有的空白字元，它等效於各種空白字元的集合，包括空格，製表符，回車等，具體如 [ \t\n\r\f\v]。所以你可以通過它將各個拆分開來。這裡的最大拆分次數是 5，所以結果列表中有 6 個元素，最後一個元素是最後一次拆分後剩下的所有的字串。
 
+```python
+import re
+s = "768 Working 2343 789 five 234 656 hours 324 4646 a 345 day"
+matchStr = re.sub(r'\d',"",s)
+print(matchStr)
+splitList = re.split(r'\s+',matchStr)
+for word in splitList:
+    print(word)
+
+
+    
+======================================
+ Working   five   hours   a  day
+
+Working
+five
+hours
+a
+day
+```
+
+
+
 ---
 
 ### Basic patterns of re 的基本模式
@@ -691,13 +729,17 @@ else:
 ```
 
 ---
+
 ```python
 #email.py
 # r'\w+[.|\w]\w+@\w+[.]\w+[.|\w+]\w+'
 
 
 顯示:
-請輸入多筆email:bogusemail123@sillymail.com, robert@gmail.com ,,,roberthsu2003@gmail.com
+請輸入多筆email:內政部公開New eID換發系統建置及維護案，規定業bogusemail123@sillymail.com者須在明年6月10日前完成相關系統開發，包括New eID管理系統、戶役政資訊系統軟硬robert@gmail.com擴充、維護、人員訓練等。LINE GrayLab資安研究roberthsu2003@gmail.com室負責人公布他們在企業內部與產品發布的資安防護作法，同時也透露他們最新的諸多進展
+
+bogusemail123@sillymail.com, ,roberthsu2003@gmail.com,,,robert@gmail.com
+
 取出的email有:
 bogusemail123@sillymail.com
 robert@gmail.com
