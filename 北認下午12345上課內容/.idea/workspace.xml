@@ -20,6 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e704ac1f-6e11-4962-bd28-b7059beaaac7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.ipynb_checkpoints/line-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/line.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,6 +203,9 @@
       <workItem from="1598513345152" duration="3582000" />
       <workItem from="1598593172199" duration="23000" />
       <workItem from="1598593203779" duration="3569000" />
+      <workItem from="1599311068060" duration="443000" />
+      <workItem from="1599530158268" duration="50000" />
+      <workItem from="1599530384476" duration="16000" />
     </task>
     <task id="LOCAL-00001" summary="message">
       <created>1598508500707</created>
@@ -450,9 +455,11 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="1900" y="219" key="Vcs.Push.Dialog.v2/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598606033212" />
-    <state x="1823" y="295" key="com.intellij.ide.util.TipDialog" timestamp="1598593176974">
-      <screen x="1440" y="0" width="1920" height="1080" />
+    <state x="335" y="287" key="com.intellij.ide.util.TipDialog" timestamp="1599530164747">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="287" y="246" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1599311071901" />
+    <state x="335" y="287" key="com.intellij.ide.util.TipDialog/0.0.1680.1050/1680.0.1920.1080@0.0.1680.1050" timestamp="1599530164747" />
     <state x="287" y="246" key="com.intellij.ide.util.TipDialog/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1597902505900" />
     <state x="1823" y="295" key="com.intellij.ide.util.TipDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1598593176974" />
   </component>
