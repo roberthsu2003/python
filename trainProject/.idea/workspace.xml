@@ -6,15 +6,6 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
     <select />
   </component>
@@ -122,22 +113,22 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="446" y="124" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1605579057967" />
-    <state width="1414" height="206" key="GridCell.Tab.0.bottom" timestamp="1605582506046">
+    <state width="1414" height="206" key="GridCell.Tab.0.bottom" timestamp="1605584135620">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1414" height="206" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1605582506046" />
-    <state width="1414" height="206" key="GridCell.Tab.0.center" timestamp="1605582506046">
+    <state width="1414" height="206" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1605584135620" />
+    <state width="1414" height="206" key="GridCell.Tab.0.center" timestamp="1605584135620">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1414" height="206" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1605582506046" />
-    <state width="1414" height="206" key="GridCell.Tab.0.left" timestamp="1605582506046">
+    <state width="1414" height="206" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1605584135620" />
+    <state width="1414" height="206" key="GridCell.Tab.0.left" timestamp="1605584135620">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1414" height="206" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1605582506046" />
-    <state width="1414" height="206" key="GridCell.Tab.0.right" timestamp="1605582506046">
+    <state width="1414" height="206" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1605584135620" />
+    <state width="1414" height="206" key="GridCell.Tab.0.right" timestamp="1605584135620">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1414" height="206" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1605582506046" />
+    <state width="1414" height="206" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1605584135620" />
     <state x="89" y="0" key="SettingsEditor" timestamp="1605580137544">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
