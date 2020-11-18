@@ -8,6 +8,7 @@ def main(w):
     w.mainloop()
 
 def gui(w):
+    global scollbar
     w.title("收集資料")
     # w.geometry('500x300')
     topFrame = Frame(w,bd=1,relief=GROOVE)
@@ -17,10 +18,13 @@ def gui(w):
     Button(topFrame, text="確定3",font=('Verdans',13,'bold')).pack(ipadx=25, ipady=10, side=LEFT, expand=YES)
     topFrame.pack(ipady=20,ipadx=20,pady=20,padx=20)
     bottomFrame = Frame(w,bd=1,relief=GROOVE)
+    scollbar = Scrollbar(bottomFrame)
+    scollbar.pack(side=LEFT)
     bottomFrame.pack(ipady=20,ipadx=20,pady=20,padx=20,expand=YES,fill=X)
 
 def aqi():
     # 下載AQI
+    global rows
     print("下載資料")
     CSV_URL = "https://data.epa.gov.tw/api/v1/aqx_p_432?limit=1000&api_key=9be7b239-557b-4c10-9775-78cadfc555e9&format=csv"
     http = urllib3.PoolManager(cert_reqs='CERT_REQUIRED',ca_certs=certifi.where())
@@ -43,7 +47,7 @@ def aqi():
             next(file)
             rows=csv.reader(file)
             for item in rows:
-                print(item[0],item[2],sep="-");
+                scollbar.insert(item[0])
             file.close()
 
     else:
@@ -54,5 +58,7 @@ def aqi():
 
 
 if __name__ == "__main__":
+    rows = None
+    scollbar = None
     window = Tk()
     main(window)
