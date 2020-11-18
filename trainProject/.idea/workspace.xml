@@ -10,7 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee602255-87ee-47d7-bb19-c03e0f869f6f" name="Default Changelist" comment="" />
+    <list default="true" id="ee602255-87ee-47d7-bb19-c03e0f869f6f" name="Default Changelist" comment="modify" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +34,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
   </component>
   <component name="RunManager" selected="Python.sample2">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -157,26 +157,26 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="446" y="124" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1605579057967" />
-    <state width="1414" height="289" key="GridCell.Tab.0.bottom" timestamp="1605601022802">
+    <state width="1414" height="289" key="GridCell.Tab.0.bottom" timestamp="1605602360737">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1414" height="289" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1605601022802" />
-    <state width="1414" height="289" key="GridCell.Tab.0.center" timestamp="1605601022802">
+    <state width="1414" height="289" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1605602360737" />
+    <state width="1414" height="289" key="GridCell.Tab.0.center" timestamp="1605602360737">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1414" height="289" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1605601022802" />
-    <state width="1414" height="289" key="GridCell.Tab.0.left" timestamp="1605601022802">
+    <state width="1414" height="289" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1605602360737" />
+    <state width="1414" height="289" key="GridCell.Tab.0.left" timestamp="1605602360737">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1414" height="289" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1605601022802" />
-    <state width="1414" height="289" key="GridCell.Tab.0.right" timestamp="1605601022802">
+    <state width="1414" height="289" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1605602360737" />
+    <state width="1414" height="289" key="GridCell.Tab.0.right" timestamp="1605602360737">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1414" height="289" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1605601022802" />
-    <state x="89" y="0" key="SettingsEditor" timestamp="1605580137544">
+    <state width="1414" height="289" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1605602360737" />
+    <state x="89" y="0" key="SettingsEditor" timestamp="1605661953669">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="89" y="0" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1605580137544" />
+    <state x="89" y="0" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1605661953669" />
     <state x="471" y="321" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605580161666">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
