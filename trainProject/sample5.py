@@ -21,9 +21,14 @@ def gui(w):
 def aqi():
     # 下載AQI
     print("下載資料")
-    CSV_URL = "http://opendata.epa.gov.tw/webapi/Data/REWIQA/?$orderby=SiteName&$skip=0&$top=1000&format=csv"
-    http = urllib3.PoolManager()
-    response = http.request('GET', CSV_URL)
+    CSV_URL = "https://data.epa.gov.tw/api/v1/aqx_p_432?limit=1000&api_key=9be7b239-557b-4c10-9775-78cadfc555e9&format=csv"
+    http = urllib3.PoolManager(cert_reqs='CERT_REQUIRED',ca_certs=certifi.where())
+    try:
+        response = http.request('GET', CSV_URL)
+    except:
+        print("主機忙線中")
+        return
+
     if response.status == 200:
         print("下載成功")
         #儲存檔案
