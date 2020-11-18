@@ -8,7 +8,7 @@ def main(w):
     w.mainloop()
 
 def gui(w):
-    global scollbar
+    global scrollbar,mylist
     w.title("收集資料")
     # w.geometry('500x300')
     topFrame = Frame(w,bd=1,relief=GROOVE)
@@ -18,8 +18,9 @@ def gui(w):
     Button(topFrame, text="確定3",font=('Verdans',13,'bold')).pack(ipadx=25, ipady=10, side=LEFT, expand=YES)
     topFrame.pack(ipady=20,ipadx=20,pady=20,padx=20)
     bottomFrame = Frame(w,bd=1,relief=GROOVE)
-    scollbar = Scrollbar(bottomFrame)
-    scollbar.pack(side=LEFT)
+    scrollbar = Scrollbar(bottomFrame)
+    scrollbar.pack(side=LEFT)
+    mylist = Listbox(bottomFrame,yscrollcommand=scrollbar.set)
     bottomFrame.pack(ipady=20,ipadx=20,pady=20,padx=20,expand=YES,fill=X)
 
 def aqi():
@@ -47,7 +48,9 @@ def aqi():
             next(file)
             rows=csv.reader(file)
             for item in rows:
-                scollbar.insert(item[0])
+                mylist.insert(END,item[0])
+            mylist.pack(side=LEFT, fill=BOTH)
+            scrollbar.config(command = mylist.yview)
             file.close()
 
     else:
@@ -59,6 +62,7 @@ def aqi():
 
 if __name__ == "__main__":
     rows = None
-    scollbar = None
+    scrollbar = None
+    mylist = None
     window = Tk()
     main(window)
