@@ -51,13 +51,15 @@ def aqi():
                 mylist.insert(END,item[0])
             mylist.pack(side=LEFT, fill=BOTH)
             scrollbar.config(command = mylist.yview)
+            mylist.bind('<Button-1>', printlist)
             file.close()
 
     else:
         print("下載失敗")
         return
 
-
+def printlist(event):
+    print(event)
 
 
 if __name__ == "__main__":
