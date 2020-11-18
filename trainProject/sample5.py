@@ -59,7 +59,7 @@ def aqi():
         return
 
 def printlist(event):
-    print(event)
+    print(mylist.curselection())
 
 
 if __name__ == "__main__":
@@ -68,3 +68,4 @@ if __name__ == "__main__":
     mylist = None
     window = Tk()
     main(window)
+#https://docs.google.com/forms/d/e/1FAIpQLSeQmoajuMAlFiqzA_7nSgoGXaSzDNK244BoPczBI82IPV_62A/viewform?usp=sf_link
