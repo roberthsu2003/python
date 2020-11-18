@@ -40,9 +40,10 @@ def aqi():
 
         with open("空氣品質指標.csv","r",encoding='UTF-8') as file:
             #content = file.read()
+            next(file)
             rows=csv.reader(file)
             for item in rows:
-                print(item)
+                print(item[0],item[2],sep="-");
             file.close()
 
     else:
