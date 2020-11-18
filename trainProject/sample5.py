@@ -1,6 +1,7 @@
 from tkinter import *
 import urllib3
 import certifi
+import csv
 
 def main(w):
     gui(w)
@@ -36,10 +37,18 @@ def aqi():
         file.write(response.data)
         file.close()
         print("存檔成功")
+
+        with open("空氣品質指標.csv","r",encoding='UTF-8') as file:
+            #content = file.read()
+            rows=csv.reader(file)
+            for item in rows:
+                print(item)
+            file.close()
+
     else:
         print("下載失敗")
         return
-    print(response.data)
+
 
 
 
