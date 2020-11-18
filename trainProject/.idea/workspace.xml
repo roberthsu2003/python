@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="65b8b844-08ad-4ba6-bb7a-4310ad73fe04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/trainProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/trainProject.iml" afterDir="false" />
+    <list default="true" id="65b8b844-08ad-4ba6-bb7a-4310ad73fe04" name="Default Changelist" comment="modify">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample5.py" beforeDir="false" afterPath="$PROJECT_DIR$/sample5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/空氣品質指標.csv" beforeDir="false" afterPath="$PROJECT_DIR$/空氣品質指標.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +40,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager">
     <configuration name="sample5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -62,12 +79,72 @@
       <option name="presentableId" value="Default" />
       <updated>1605696381869</updated>
     </task>
+    <task id="LOCAL-00001" summary="modify">
+      <created>1605696560617</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605696560617</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modify" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="469" y="152" key="SettingsEditor" timestamp="1605696496579">
+    <state width="1894" height="236" key="GridCell.Tab.0.bottom" timestamp="1605711591879">
       <screen x="0" y="25" width="1920" height="982" />
     </state>
-    <state x="469" y="152" key="SettingsEditor/-1360.25.1360.743/0.25.1920.982/1920.25.2048.1127@0.25.1920.982" timestamp="1605696496579" />
+    <state width="1894" height="236" key="GridCell.Tab.0.bottom/-1360.25.1360.743/0.25.1920.982/1920.25.2048.1127@0.25.1920.982" timestamp="1605711591879" />
+    <state width="1894" height="236" key="GridCell.Tab.0.center" timestamp="1605711591878">
+      <screen x="0" y="25" width="1920" height="982" />
+    </state>
+    <state width="1894" height="236" key="GridCell.Tab.0.center/-1360.25.1360.743/0.25.1920.982/1920.25.2048.1127@0.25.1920.982" timestamp="1605711591878" />
+    <state width="1894" height="236" key="GridCell.Tab.0.left" timestamp="1605711591877">
+      <screen x="0" y="25" width="1920" height="982" />
+    </state>
+    <state width="1894" height="236" key="GridCell.Tab.0.left/-1360.25.1360.743/0.25.1920.982/1920.25.2048.1127@0.25.1920.982" timestamp="1605711591877" />
+    <state width="1894" height="236" key="GridCell.Tab.0.right" timestamp="1605711591878">
+      <screen x="0" y="25" width="1920" height="982" />
+    </state>
+    <state width="1894" height="236" key="GridCell.Tab.0.right/-1360.25.1360.743/0.25.1920.982/1920.25.2048.1127@0.25.1920.982" timestamp="1605711591878" />
+    <state width="1895" height="313" key="GridCell.Tab.1.bottom" timestamp="1605710100575">
+      <screen x="0" y="25" width="1920" height="982" />
+    </state>
+    <state width="1895" height="313" key="GridCell.Tab.1.bottom/-1360.25.1360.743/0.25.1920.982/1920.25.2048.1127@0.25.1920.982" timestamp="1605710100575" />
+    <state width="1895" height="313" key="GridCell.Tab.1.center" timestamp="1605710100575">
+      <screen x="0" y="25" width="1920" height="982" />
+    </state>
+    <state width="1895" height="313" key="GridCell.Tab.1.center/-1360.25.1360.743/0.25.1920.982/1920.25.2048.1127@0.25.1920.982" timestamp="1605710100575" />
+    <state width="1895" height="313" key="GridCell.Tab.1.left" timestamp="1605710100575">
+      <screen x="0" y="25" width="1920" height="982" />
+    </state>
+    <state width="1895" height="313" key="GridCell.Tab.1.left/-1360.25.1360.743/0.25.1920.982/1920.25.2048.1127@0.25.1920.982" timestamp="1605710100575" />
+    <state width="1895" height="313" key="GridCell.Tab.1.right" timestamp="1605710100575">
+      <screen x="0" y="25" width="1920" height="982" />
+    </state>
+    <state width="1895" height="313" key="GridCell.Tab.1.right/-1360.25.1360.743/0.25.1920.982/1920.25.2048.1127@0.25.1920.982" timestamp="1605710100575" />
+    <state x="469" y="152" key="SettingsEditor" timestamp="1605696657537">
+      <screen x="0" y="25" width="1920" height="982" />
+    </state>
+    <state x="469" y="152" key="SettingsEditor/-1360.25.1360.743/0.25.1920.982/1920.25.2048.1127@0.25.1920.982" timestamp="1605696657537" />
+    <state x="560" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605696596819">
+      <screen x="0" y="25" width="1920" height="982" />
+    </state>
+    <state x="560" y="253" key="Vcs.Push.Dialog.v2/-1360.25.1360.743/0.25.1920.982/1920.25.2048.1127@0.25.1920.982" timestamp="1605696596819" />
   </component>
 </project>
