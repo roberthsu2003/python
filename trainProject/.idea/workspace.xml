@@ -1,32 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee602255-87ee-47d7-bb19-c03e0f869f6f" name="Default Changelist" comment="modify" />
+    <list default="true" id="65b8b844-08ad-4ba6-bb7a-4310ad73fe04" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/trainProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/trainProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/空氣品質指標.csv" beforeDir="false" afterPath="$PROJECT_DIR$/空氣品質指標.csv" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1kM8YxPpJlRTxwYH3zfGBhfZe2k" />
+  <component name="ProjectId" id="1kSaKKH6w1rxRBs21trnDJPDqrz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -34,93 +23,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="Python.sample5">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="trainProject" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="sample1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="trainProject" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sample1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="sample2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="trainProject" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sample2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="sample3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="trainProject" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sample3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="sample5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="trainProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,79 +50,24 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.sample5" />
-        <item itemvalue="Python.sample2" />
-        <item itemvalue="Python.sample3" />
-        <item itemvalue="Python.sample1" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ee602255-87ee-47d7-bb19-c03e0f869f6f" name="Default Changelist" comment="" />
-      <created>1605499151163</created>
+      <changelist id="65b8b844-08ad-4ba6-bb7a-4310ad73fe04" name="Default Changelist" comment="" />
+      <created>1605696381869</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1605499151163</updated>
+      <updated>1605696381869</updated>
     </task>
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="446" y="124" key="FileChooserDialogImpl" timestamp="1605579057967">
-      <screen x="0" y="0" width="1440" height="860" />
+    <state x="469" y="152" key="SettingsEditor" timestamp="1605696496579">
+      <screen x="0" y="25" width="1920" height="982" />
     </state>
-    <state x="446" y="124" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1605579057967" />
-    <state width="1414" height="258" key="GridCell.Tab.0.bottom" timestamp="1605692306870">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state width="1414" height="258" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1605692306870" />
-    <state width="1414" height="258" key="GridCell.Tab.0.center" timestamp="1605692306870">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state width="1414" height="258" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1605692306870" />
-    <state width="1414" height="258" key="GridCell.Tab.0.left" timestamp="1605692306870">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state width="1414" height="258" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1605692306870" />
-    <state width="1414" height="258" key="GridCell.Tab.0.right" timestamp="1605692306870">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state width="1414" height="258" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1605692306870" />
-    <state width="1414" height="258" key="GridCell.Tab.1.bottom" timestamp="1605692306870">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state width="1414" height="258" key="GridCell.Tab.1.bottom/0.0.1440.860@0.0.1440.860" timestamp="1605692306870" />
-    <state width="1414" height="258" key="GridCell.Tab.1.center" timestamp="1605692306870">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state width="1414" height="258" key="GridCell.Tab.1.center/0.0.1440.860@0.0.1440.860" timestamp="1605692306870" />
-    <state width="1414" height="258" key="GridCell.Tab.1.left" timestamp="1605692306870">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state width="1414" height="258" key="GridCell.Tab.1.left/0.0.1440.860@0.0.1440.860" timestamp="1605692306870" />
-    <state width="1414" height="258" key="GridCell.Tab.1.right" timestamp="1605692306870">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state width="1414" height="258" key="GridCell.Tab.1.right/0.0.1440.860@0.0.1440.860" timestamp="1605692306870" />
-    <state x="89" y="0" key="SettingsEditor" timestamp="1605661953669">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="89" y="0" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1605661953669" />
-    <state x="471" y="321" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605580161666">
-      <screen x="0" y="0" width="1440" height="860" />
-    </state>
-    <state x="471" y="321" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.860@0.0.1440.860" timestamp="1605580161666" />
+    <state x="469" y="152" key="SettingsEditor/-1360.25.1360.743/0.25.1920.982/1920.25.2048.1127@0.25.1920.982" timestamp="1605696496579" />
   </component>
 </project>
