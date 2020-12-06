@@ -269,8 +269,8 @@ print(x)
 |:--|:--|
 | var1=20 |  var1 是整數，也就是 int 型態。|
 | var2=123.45 | var2 是浮點數，也就是 float 型態。 |
-| var3 | var3 是布林值，也就是 True 或者 False。 |
-|  var4=‘string1’ |  var4 是字串 string，可用單引號或雙引號包起來。|
+| var3=True | var3 是布林值，也就是 True 或者 False。 |
+|  var4=‘string1’ |  var4 是字串 str，可用單引號或雙引號包起來。|
  
 ##  資料型態
 - 如何知道變數的資料型態?
@@ -326,8 +326,10 @@ var1=20
 print(type(var1))
 var2=123.45
 print(type(var2))
-var3=True print(type(var3)) 
-var4='string1' print(type(var4)) 
+var3=True 
+print(type(var3)) 
+var4='string1' 
+print(type(var4)) 
 ```
 
 ### 資料型態:請動手操作，並留意輸出結果(type2.py)
