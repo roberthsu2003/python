@@ -1,19 +1,27 @@
-# Objects and Classes
-## Define a Class with class
-- variables, called attributes
-- functions, called methods
+# 物件和類別
+## 使用class定義類別
+- 變數, 稱為屬性
+- 函式, 稱為方法
+
+### 建立一個最簡單的類別
 
 ```python
 class Person():
 	pass
 
 >>> someone = Person()
+```
 
+### 建立一個有自訂初始化功能的類別
+```
 class Person():
 	def __init__(self): 
 		pass
 
+```
 
+### 建立一個有屬性name
+```
 class Person():
 	def __init__(self, name):
 		self.name = name
@@ -23,7 +31,7 @@ class Person():
 The mighty hunter: Elmer Fudd
 ```
 
-## Inheritance
+## 繼承
 ```python
 class Car():
 	pass
@@ -52,7 +60,7 @@ I'm a Car!
 
 ```
 
-## Override a Method
+## 覆寫方法
 
 ```python
 class Car():
@@ -71,8 +79,10 @@ I'm a Car!
 >>> give_me_a_yugo.exclaim()
 I'm a Yugo! Much like a Car, but more Yugo-ish.
 
+```
 
 
+```python
 class Person():
 	def __init__(self, name):
 	self.name = name
@@ -97,7 +107,7 @@ Fudd, Esquire
 
 ```
 
-## Add a Method
+## 增加一個方法
 
 ```python
 class Car():
@@ -125,7 +135,7 @@ File "<stdin>", line 1, in <module>
 AttributeError: 'Car' object has no attribute 'need_a_push'
 ```
 
-## Get Help from Your Parent with super
+## 使用super()呼叫父類別
 
 ```python
 class Person():
