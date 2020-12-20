@@ -723,3 +723,4 @@ M*1 + M*2 + M*3 + ......+ M*N = 50
 [解題](commonfactor.py)
 
 
+v
