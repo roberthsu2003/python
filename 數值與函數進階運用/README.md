@@ -392,6 +392,7 @@ test2(200)
 (4) may,200  
 
 ### 使用*參數,可接收不限數量的位置引數
+大部份使用在參數的最前方
 
 ```python
 >>> def print_args(*args):
@@ -419,6 +420,7 @@ All the rest: ('scarf', 'monocle', 'mustache wax')
 ```
 
 ### 使用**參數,呼叫使可使用不限數量的引數名稱
+使用在最後的參數位置
 
 ```python
 >>> def print_kwargs(**kwargs):
