@@ -1,4 +1,12 @@
 #! usr/bin/python3
 
+from random import randint
+
+
 if __name__ == "__main__":
-    print("這個檔是主要的執行檔")
+    lot = set()
+    while(len(lot) <= 7):
+        rValue = randint(1, 49)
+        lot.add(rValue)
+    print('本期大樂透電腦選號號碼如下:')
+    print(lot)
