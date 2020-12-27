@@ -15,14 +15,17 @@
 '''
 
 import random
+
 if __name__ == '__main__':
-    lot = set()
+     lot = set()
     while(len(lot) <= 7):
-        lot.add(random.randint(1,49))
+        rValue = randint(1, 49)
+        lot.add(rValue)
     print('本期大樂透電腦選號號碼如下:')
-    for item in lot:
-        print(item, end=' ')
-    print('\n')
 
     lotList = list(lot)
-    print('特別號:',lotList.pop())
+    specialNum = lotList.pop()
+    for item in lotList:
+        print(item, end=' ')
+
+    print('特別號:%d' % specialNum )
