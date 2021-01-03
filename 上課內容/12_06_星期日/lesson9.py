@@ -1,3 +1,5 @@
+#!usr/bin/python3.6
+
 import tkinter as tk
 
 class Window(tk.Tk):
