@@ -635,7 +635,7 @@ for i in range(1,num+1):
 
 ```python
 #求質數
-n = int(input('請輸入數值，將求2到數值間的值數:'))
+n = int(input('請輸入數值，將求2到數值間的質數:'))
 for i in range(2,n):
   k = True
   for j in range(2,i):    
