@@ -607,6 +607,46 @@ for i in range(1,6):
     print()
 ```
 
+```python
+#求所有因數
+num = int(input("請輸入整數，求所有因數:"))
+print(num,"的因數:")
+for i in range(1,num+1):  
+  if num % i == 0:
+    print(i)
+```
+
+```python
+#求公因數
+print("請輸入2數,求2數公因數:")
+n = int(input('請輸入第1個數:'))
+m = int(input('請輸入第2個數:'))
+if n > m:
+  num = m
+else:
+  num = n
+
+#num是2數的最小值
+print(n,'和',m, '的公因數是:')
+for i in range(1,num+1):
+  if n % i == 0 and m % i == 0:
+    print(i)
+```
+
+```python
+#求質數
+n = int(input('請輸入數值，將求2到數值間的值數:'))
+for i in range(2,n):
+  k = True
+  for j in range(2,i):    
+    if i % j == 0:
+      k = False
+      continue
+
+  if k == True:
+    print(i)
+```
+
 
 
 ### for break else語法
