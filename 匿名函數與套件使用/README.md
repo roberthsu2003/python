@@ -501,20 +501,21 @@ print(a)
 ```
 
 --- 
-## Modules, Packages, and Programs
-### Standalone Programs
+## 模組(Modules), 套件(Packages), and 程式
+### 將py檔當作主程式使用
+
 ```python
 #test.py
 
 >>> print("This interactive snippet works.") 
 This interactive snippet works.
 
-
 $ python test1.py
 This standalone program works!
 ```
 
 ### Command-Line Arguments
+- python檔當作主程式使用時，可以在command-line後加上引數，主程式可以收集到這些引數
 
 ```python
 # test2.py 
@@ -525,21 +526,23 @@ print('Program arguments:', sys.argv)
 
 $ python test2.py
 Program arguments: ['test2.py']
+
 $ python test2.py tra la la
 Program arguments: ['test2.py', 'tra', 'la', 'la']
 
 ```
 
-### Modules and the import Statement
+### 模組(Modules) 和 import 語法
 
 ```python
-#A module is just a file of Python code.
+#模組就是一個python檔案，模組名稱就是一個檔案名稱
 ```
 
-### Import a Module
-```python
-#module is the name of another Python file, without the .py extension
+### Import模組
 
+```python
+#模組名稱就是一個檔案名稱，沒有副檔名py
+#以下為建立2個py檔案, weatherman.py當作主程式，report.py當作模組
 # weatherman.py
 
 import report
@@ -565,13 +568,6 @@ $ python weatherman.py
 Today's weather: sleet
 
 
-
-def get_description(): 
-	import random
-	possibilities = ['rain', 'snow', 'sleet', 'fog', 'sun', 'who knows'] 
-	return random.choice(possibilities)
-
-
 ```
 
 ```python
@@ -587,7 +583,7 @@ def get_description():
 
 ```
 
-### Import a Module with Another Name
+### 載入模組至主程式並更改模組名稱
 
 ```python
 import report as wr
@@ -596,7 +592,7 @@ print("Today's weather:", description)
 
 ```
 
-### Import Only What You Want from a Module
+### 載入模組內想使用的東西
 
 ```python
 from report import get_description
@@ -612,7 +608,7 @@ print("Today's weather:", description)
 
 ```
 
-### Module Search Path
+### 模組搜尋的路徑(Module Search Path)
 
 ```python
 >>> import sys
