@@ -624,7 +624,9 @@ print("Today's weather:", description)
 /Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages
 ```
 
-## Packages
+## 套件(Packages)
+
+- 套件就是一個檔案資料夾
 
 ```python
 #Main program: boxes/weather.py.
