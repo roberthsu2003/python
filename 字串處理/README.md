@@ -382,6 +382,7 @@ re.match只匹配字串的開始，如果字符開始不符合正则表達式，
 ```
 
 
+
 ```python
 #使用 match 函式
 
@@ -397,9 +398,32 @@ else:
 #在此示例中，使用字首 r 來表示字串是原始字串。在原始字串中，在使用轉義序列時不需要寫雙斜槓，例如，如果你想要一個反斜槓，那麼你只需要一個\，而不用像普通字串那樣的雙反斜槓\\。
 ```
 
+```python
+import re
+ 
+line = "Cats are smarter than dogs"
+ 
+matchObj = re.match( r'(.*) are (.*?) .*', line, re.M|re.I)
+ 
+if matchObj:
+   print "matchObj.group() : ", matchObj.group()
+   print "matchObj.group(1) : ", matchObj.group(1)
+   print "matchObj.group(2) : ", matchObj.group(2)
+else:
+   print "No match!!"
+
+輸出結果:========================
+matchObj.group() :  Cats are smarter than dogs
+matchObj.group(1) :  Cats
+matchObj.group(2) :  smarter
+```
+
 ---
 
 ### search() 函式
+
+search 函式搜尋整個字串
+
 你可以使用 search() 函式搜尋給定字串中的正規表示式匹配模式。search 有三個輸入引數，匹配模式，給定字串以及可選的匹配行為選項 flags
 
 ```python
@@ -409,13 +433,19 @@ re.search(pattern, string, flags)
 ```pytnon
 
 import re
-
 str = "Hello Python Programming"
 searchObject = re.search(r"programming", str, re.I)
 if not searchObject:
     print("文字內沒有搜尋到任何相同內容")
 else:
     print("文字內搜尋到%s" % searchObject.group())
+    print("文字內搜尋到的位置是",searchObject.span())
+    print(str[13:24])
+    
+輸出結果:================
+文字內搜尋到Programming
+文字內搜尋到的位置是 (13, 24)
+Programming
     
 ```
 
@@ -503,7 +533,7 @@ s = re.search("L", "Hello", re.I)
 print(s)		#Output: 1
 
 s = re.search("^L", "Hello", re.I)
-print(s)
+print(s)  #Output:None
 ```
 ---
 
@@ -584,6 +614,9 @@ import re
 str1 = "Working 6 hours a day. Studying 4 hours a day."
 mobj = re.findall(r'[0-9]', str1)
 print(mobj)
+
+輸出結果:===============
+['6', '4']
 ```
 ---
 
@@ -611,8 +644,8 @@ for mobj in re.finditer(pat, str1):
     e = mobj.end()
     g = mobj.group()
     print('{} found at location [{},{}]'.format(g, s, e))
-```
-```python
+
+輸出結果:===================
 <class 're.Match'>
 6 found at location [8,9]
 <class 're.Match'>
@@ -638,9 +671,9 @@ import re
 str1 = "Birds   fly  high in    the   sky for ever"
 splitList = re.split(r'\s+',str1)
 print(splitList)
-print("-".join(splitList))```
+print("-".join(splitList))
 
-```python
+輸出結果:==================
 ['Birds', 'fly', 'high', 'in', 'the', 'sky', 'for', 'ever']
 Birds-fly-high-in-the-sky-for-ever
 ```
@@ -655,10 +688,11 @@ print(matchStr)
 splitList = re.split(r'\s+',matchStr)
 for word in splitList:
     print(word)
+    
 
 
     
-======================================
+輸出結果======================================
  Working   five   hours   a  day
 
 Working
