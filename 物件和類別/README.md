@@ -50,6 +50,9 @@ The mighty hunter: Elmer Fudd
 
 ## 繼承
 
+- 透過建立全新的類別，以便擴充現有的類別功能。
+- 因為有繼承的關係，所有有父類別和子類別區分，以下範例，Car是父類別，Yugo為子類別
+
 ```python
 class Car():
 	pass
@@ -60,6 +63,9 @@ class Yugo(Car):
 >>> give_me_a_car = Car() 
 >>> give_me_a_yugo = Yugo()
 ```
+
+- 當父類別有增加一個方法時，子類別也將會繼承這個方法
+- 呼叫方法exclaim()時，程式自動會將實體的參考傳給參數self
 
 ```python
 class Car():
@@ -80,6 +86,8 @@ I'm a Car!
 
 ## 覆寫方法
 
+- 子類別透過覆寫更改父類別方法的功能
+
 ```python
 class Car():
 	def exclaim(self):
@@ -99,6 +107,7 @@ I'm a Yugo! Much like a Car, but more Yugo-ish.
 
 ```
 
+- 實作__init__()就是覆寫父類別的__init__()
 
 ```python
 class Person():
@@ -125,7 +134,7 @@ Fudd, Esquire
 
 ```
 
-## 增加一個方法
+## 子類別增加一個方法
 
 ```python
 class Car():
@@ -180,7 +189,7 @@ class EmailPerson(Person):
 
 ```
 
-## In self Defense
+## self
 
 ```python
 
@@ -188,12 +197,21 @@ class EmailPerson(Person):
 >>> car.exclaim() 
 I'm a Car!
 
+#也可以使用這種語法,但不建議使用-類別名稱.實體方法(實體參考)
 >>> Car.exclaim(car)
 I'm a Car!
 
 ```
 
-## Get and Set Attribute Values with Properties
+## 實體property屬性
+
+- 實作Get和Set方法至屬性attribute成為一個新屬性(Property)
+- 目的是讓實體不可以直接存取屬性attribute
+
+### 方法1:
+- 建立get
+- 建立set
+- 使用name = property(get,set), 建立name property
 
 ```python
 class Duck():
@@ -228,11 +246,14 @@ inside the setter
 inside the getter
 'Daffy'
 
+```
 
+### 方法2做用decorators
 
+- @preperty,定義getter 方法
+- @name.setter,定義setter 方法
 
-
-
+```
 class Duck():
 def __init__(self, input_name):
 	self.hidden_name = input_name
@@ -255,7 +276,13 @@ inside the setter
 >>> fowl.name
 inside the getter 'Donald'
 
+```
 
+> 注意:上方的範例，實際上還是可以直接存取hidden_name(attribute)
+
+### 僅建立getter property
+
+```python
 class Circle():
 	def __init__(self, radius): 
 		self.radius = radius
@@ -312,6 +339,7 @@ AttributeError: 'Duck' object has no attribute '__name'
 ```
 
 ## Method Types
+
 ```python
 class A():
 	count = 0
