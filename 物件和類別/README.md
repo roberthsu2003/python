@@ -1,7 +1,7 @@
 # 物件和類別
 ## 使用class定義類別
-- 變數, 稱為屬性
-- 函式, 稱為方法
+- 變數, 稱為屬性(instance attribute)
+- 函式, 稱為方法(instance method)
 
 ### 建立一個最簡單的類別
 
@@ -13,6 +13,9 @@ class Person():
 ```
 
 ### 建立一個有自訂初始化功能的類別
+
+- 引數self代表是呼叫這個實體的參考
+
 ```
 class Person():
 	def __init__(self): 
@@ -21,6 +24,7 @@ class Person():
 ```
 
 ### 建立一個有屬性name
+
 ```
 class Person():
 	def __init__(self, name):
@@ -31,7 +35,21 @@ class Person():
 The mighty hunter: Elmer Fudd
 ```
 
+### hunter = Person('Elmer Fudd')
+這行程式同時代表6個意思
+1. 尋找Person類別
+2. 在記憶體內建立實體
+3. 呼叫Person類別內的__init__(self,name), 將引數字串'Elmer Fudd'傳遞給參數name
+4. 儲存'Elmer Fudd'儲存至實體的name屬性內
+5. 傳出這個實體的參考
+6. 將參考儲存至hunter變數
+
+### 注意事項
+- __init__方法不是一定要實作的
+- name屬性在Person定義的類別內的存取，必需使用self.name,但當建立真實的實體後必需使用參考名稱.name,本範例為hunter.name
+
 ## 繼承
+
 ```python
 class Car():
 	pass
