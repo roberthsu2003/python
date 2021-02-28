@@ -288,8 +288,8 @@ class Circle():
 		self.radius = radius
 
 	@property
-		def diameter(self): 
-			return 2 * self.radius
+	def diameter(self): 
+		return 2 * self.radius
 			
 >>> c = Circle(5) 
 >>> c.radius
@@ -308,7 +308,9 @@ File "<stdin>", line 1, in <module>
 AttributeError: can't set attribute
 ```
 
-## Name Mangling for Privacy
+## 建立private 屬性(attribute)
+
+- 使用符號 __屬性名稱
 
 ```python
 class Duck():
@@ -338,13 +340,19 @@ File "<stdin>", line 1, in <module>
 AttributeError: 'Duck' object has no attribute '__name'
 ```
 
-## Method Types
+## 類別方法和類別屬性
+
+- 類別方法是為類別建立獨自的類別功能
+- @classmethod修飾詞建立類別方法
+- 使用類別方法和類別屬性時，必需使用-類別名稱.類別屬性或類別名稱.類別方法
+- 建立類別方法必需要有一個參數(cls),cls代表類別
 
 ```python
 class A():
 	count = 0
 	def __init__(self):
 		A.count += 1
+		
 	def exclaim(self):
 		print("I'm an A!")
 		
@@ -357,8 +365,13 @@ class A():
 >>> wheezy_a = A()
 >>> A.kids()
 A has 3 little objects.
+```
 
+### 靜態類別方法
+- 使用@staticmethod
+- 靜態類別方法可以不用參數
 
+```
 class CoyoteWeapon():
 	@staticmethod
 	def commercial():
@@ -433,6 +446,7 @@ Brook says Babble
 ```
 
 ## Special Methods
+
 ```python
 class Word():
 	def __init__(self, text):
@@ -547,11 +561,6 @@ This duck has a wide orange bill and a long tail
 
 ```
 
-## When to Use Classes and Objects versus Modules
-
-```python
-
-```
 
 ## Named Tuples
 
