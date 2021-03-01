@@ -797,7 +797,14 @@ Result: 8
 
 ```
 
-### 命名空間和使用範圍(Namespaces and Scope)
+### 名稱空間和使用範圍(Namespaces and Scope)
+- 名稱代表的就是變數名稱，function名稱
+- 一個名稱空間內不可以有設定相同的名稱
+- 不同的名稱空間內可以設定相同的名稱，不會衝突
+- function內的程式區塊就是建立一個function的名稱空間
+- 主程式py(__ name __ )是 __ main __就是全域的名稱空間，在全域名稱空間內定義的變數稱為全域變數
+- function內如果要改變全域變數的值，建議使用關鍵字「global 全域變數」
+- 使用locals(),globals()
 
 ```python
 >>> animal = 'fruitbat'
@@ -811,9 +818,9 @@ at the top level: fruitbat
 inside print_global: fruitbat
 
 
-
-def change_and_print_global():
-	print('inside change_and_print_global:', animal)
+#會出錯，同時使用全域變數，又建立同名的區域變數
+def change_and_print_global(): 	
+print('inside change_and_print_global:', animal)
 	animal = 'wombat'
 	print('after the change:', animal)
 
@@ -825,6 +832,7 @@ Traceback (most recent call last):
 UnboundLocalError: local variable 'animal' referenced before assignment
 
 
+#不會出錯，因為在function內沒有使用全域變數，所以可以建立區域變數animal
 
 def change_local():
 	animal = 'wombat'
@@ -842,7 +850,7 @@ inside change_local: wombat 4330406160
 
 >>> animal = 'fruitbat'
 
-
+# 宣告animal是全域變數的animal,便可以在區域空間內改變全域變數的值
 def change_and_print_global():
 	global animal
 	animal = 'wombat'
@@ -858,8 +866,8 @@ inside change_and_print_global: wombat
 
 >>> animal = 'fruitbat'
 	def change_and_print_global():
-	animal = 'wombat'
-	print('locals:',locals())
+		animal = 'wombat'
+		print('locals:',locals())
 	
 >>> animal
 'fruitbat'
@@ -881,8 +889,12 @@ globals: {'animal': 'fruitbat',
 
 ### 使用__name__, __doc__
 
+- function.__name__(輸出function name)
+- function.__doc__(輸出function說豆)
+
 ```python
 
+#建立function的說明
 def amazing():
 	'''This is the amazing function.
 	Want to see it again?'''
