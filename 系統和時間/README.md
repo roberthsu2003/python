@@ -524,5 +524,17 @@ laugardagur, október, 20
 週六, 10月, 20
 ```
 
+### 想一想,做一做
+
+1. 將現在時間轉成字串，並且寫入至today.txt檔內. 
+2. 讀入today.txt,並將內容儲存至變數today_string. 
+3. 解析變數today_string,轉換成物件
+4. 條列出目前目錄內所有的檔案
+5. 條列出目前目錄的上層目錄所有的檔案
+6. 使用multiprocessing建立3個processes. 使用亂數讓每個processes等待1到5秒(), 並列印出當時時間，並且離開這3個processes
+7. 建立一個出生年月日的date物件.
+8. 查出您的生日是星期幾
+9. 10000天後，你幾歲?
+
 
 
