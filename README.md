@@ -23,4 +23,4 @@
 
 12 [檔案存取](https://github.com/roberthsu2003/python/blob/master/%E6%AA%94%E6%A1%88%E5%AD%98%E5%8F%96/README.ipynb)
 
-13 [整合line使用](./line)
+13 [整合line使用](./line/README.ipynb)
