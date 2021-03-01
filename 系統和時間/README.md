@@ -404,3 +404,125 @@ datetime.date(2021, 3, 1)
 datetime.time(15, 36, 37, 427772)
 ```
 
+### time Module
+- python同有datatime和time2種module
+- time Module內提供的是function
+- time Module內的time()function傳出的時間是從1970/1/1到現在的秒數時間
+
+
+```python
+>>> import time
+>>> now = time.time()
+>>> now
+1614598360.741274
+```
+
+#### 使用ctime()轉換timestamp成為字串
+
+```python
+>>> time.ctime(now)
+'Mon Mar  1 19:32:40 2021'
+```
+
+#### 使用localtime(),gmtime()建立struct_time物件
+
+```python
+>>> time.localtime(now)
+time.struct_time(tm_year=2021, tm_mon=3, tm_mday=1, tm_hour=19, tm_min=32, tm_sec=40, tm_wday=0, tm_yday=60, tm_isdst=0)
+
+
+#建立UTCtime
+>>> time.gmtime(now)
+time.struct_time(tm_year=2021, tm_mon=3, tm_mday=1, tm_hour=11, tm_min=32, tm_sec=40, tm_wday=0, tm_yday=60, tm_isdst=0)
+```
+
+> ### 注意:儲存時間請使用UTC time,儲存字串請使用UTF-8
+
+### 讀寫日期和時間
+#### 可將日期轉為字串
+
+- isoformat()
+- time.ctime()
+- strftime() ->在datetime,date,time物件中被當作method,在time module初當作function
+
+#### strftime()轉為字串的字串格式
+
+| 字串格式 | Date/time單位 | 範圍 |
+|:--|:--|:--|
+| %Y | year | 1900-... |
+| %m | month | 01-12 |
+| %B | month name | January,.. |
+| %b | month 縮寫 | Jan,.. |
+| %d | day of month | 01-31 |
+| %A | weekday name | Sunday,... |
+| a | weekday 縮寫 | Sun,... |
+| %H | hour(24 hr) | 00-23 |
+| %I | hour(12 hr) | 01-12 |
+| %p | AM/PM | AM,PM |
+| %M | minute | 00-59 |
+| %S | second | 00-59 |
+
+#### 使用strftime()將struct_time物件轉成字串
+
+```python
+>>> import time
+>>> fmt = "現在日期是 %A, %B %d, %Y,時間是 %I:%M:%S%p"
+>>> t = time.localtime()
+time.struct_time(tm_year=2021, tm_mon=3, tm_mday=1, tm_hour=20, tm_min=6, tm_sec=38, tm_wday=0, tm_yday=60, tm_isdst=0)
+
+>>> time.strftime(fmt,t)
+'現在日期是 Monday, March 01, 2021,時間是 08:06:38PM'
+```
+
+#### 使用date物件和strftime()method
+
+- #### date物件只轉換date部份
+
+```python
+>>> from datetime import date
+>>> some_day = date(2018, 7, 4)
+>>> fmt = "日期是 %B, %d, %Y,時間是 %I:%M:%S%p"
+>>> some_day.strftime(fmt)
+'日期是 July, 04, 2018,時間是 12:00:00AM'
+```
+
+- #### time物件只轉換time部份
+
+```python
+>>> from datetime import time
+>>> some_time = time(10, 35)
+>>> fmt = "日期是 %B, %d, %Y,時間是 %I:%M:%S%p"
+>>> some_time.strftime(fmt)
+'日期是 January, 01, 1900,時間是 10:35:00AM'
+```
+
+### 使用strptime()將字串轉為date或time物件
+
+```pytnon
+#注意字串格式
+>>> import time
+>>> fmt = "%Y-%m-%d"
+>>> time.strptime("2012-01-29", fmt)
+time.struct_time(tm_year=2012, tm_mon=1, tm_mday=29, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=6, tm_yday=29, tm_isdst=-1)
+```
+
+### 使用local module
+
+```python
+>>> import locale
+>>> from datetime import date
+>>> halloween = date(2018, 10, 20)
+>>> for lang_country in  ['en_us','fr_fr','de_de','es_es','is_is','zh_tw']:
+       locale.setlocale(locale.LC_TIME, lang_country)
+       print(halloween.strftime('%A, %B, %d'))
+       
+Saturday, October, 20
+Samedi, octobre, 20
+Samstag, Oktober, 20
+sábado, octubre, 20
+laugardagur, október, 20
+週六, 10月, 20
+```
+
+
+
