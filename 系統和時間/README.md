@@ -330,6 +330,77 @@ datetime.date(2021, 2, 28)
 #### 使用time
 
 ```python
+>>> from datetime import time
+>>> noon = time(12, 0, 0)
+>>> noon
 
+datetime.time(12, 0)
+
+>>> noon.hour
+12
+>>> noon.minute
+0
+>>> noon.second
+0
+>>> noon.microsecond
+0
+```
+
+#### 使用datetime
+
+```python
+>>> from datetime import datetime
+>>> some_day = datetime(2021,1,2,3,4,5,6)
+>>> some_day
+
+datetime.datetime(2021, 1, 2, 3, 4, 5, 6)
+
+>>> some_day.isoformat()
+'2021-01-02T03:04:05.000006'
+
+```
+
+#### 使用datetime.now()取得現在日期和時間
+
+```python
+>>> from datetime import datetime
+>>> now = datetime.now()
+>>> now
+datetime.datetime(2021, 3, 1, 15, 27, 25, 43479)
+
+>>> now.month
+3
+>>> now.day
+1
+>>> now.hour
+15
+>>> now.minute
+27
+>>> now.second
+25
+>>> now.microsecond
+43479
+```
+
+#### 使用combine()整合date和time成為datetime
+
+```python
+>>> from datetime import datetime, time, date
+>>> noon = time(12)
+>>> this_day = date.today()
+>>> noon_today = datetime.combine(this_day,noon)
+>>> noon_today
+datetime.datetime(2021, 3, 1, 12, 0)
+```
+
+#### 從datetime取出日期和時間
+```
+>>> from datetime import datetime
+>>> now = datetime.now()
+>>> now.date()
+datetime.date(2021, 3, 1)
+
+>>> now.time()
+datetime.time(15, 36, 37, 427772)
 ```
 
