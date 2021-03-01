@@ -1522,6 +1522,7 @@ for c in dict1.values( ):
 ```
 ---
 ###  in
+
 ```python
 #in
 
@@ -1638,6 +1639,8 @@ set()
 特別號:15
 ```
 [解題](biglottery.py)
+
+
 
 
 

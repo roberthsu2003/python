@@ -436,6 +436,51 @@ print(a)
 支出金額由小到大排序為:[3500, 4000, 5000, 7000]
 ```
 
+## None的使用
+
+- None代表變數佔著一個記憶體空間，但沒有儲存任何東西
+- None轉換為boolean值時代表為False
+
+```python
+>>> thing = None
+>>> if thing:
+			print("It's some thing")
+		else:
+			print("It's no thing")
+			
+輸出結果 =============
+It's no thing
+```
+
+使用 is 檢查是否為None
+
+```python
+>>> if thing is None:
+			print("It's nothing")
+		else:
+			print("It's something")
+輸出結果 =============
+It's no thing		
+```
+
+以下，代表是None
+
+- '' 空字串
+- [] 空陣列
+- (,) 空tuple
+- {} 空的dictionary
+- set() 空的set
+
+```python
+>>> def is_none(thing):
+			if thing is None:
+				print("It's None")
+			elif thing:
+				print("It's True")
+			else:
+				print("It's False")
+```
+
  
 ## 使用Comprehensions語法快速簡潔方式建立tuple,list,dictionary,set
 - 搭配迴圈和條件式
@@ -490,7 +535,7 @@ print(a)
 
 ```python
 
-#使用list comprehension建立,可以有運算式靈活改變內容值
+#使用list comprehension建立,可以用運算式靈活改變內容值
 
 >>> number_list = [number-1 for number in range(1,6)] 
 >>> number_list
@@ -500,7 +545,7 @@ print(a)
 
 ```python
 
-#使用lsit comprehension + for in + if
+#使用list comprehension + for in + if
 #語法:[ expression for item in iterable if condition ]
 
 >>> a_list = [number for number in range(1,6) if number % 2 == 1] 
@@ -631,6 +676,13 @@ print(a)
 
 ### Generators
 
+- generator是一個串列資料，可以存放大量資料，但不會建立和儲存全部資料於記憶體內。
+
+- range()產生的就是一個generators
+
+- generators只可以使用一次
+
+
 ```python
 >>> sum(range(1, 101))
 5050
@@ -639,7 +691,7 @@ print(a)
 def my_range(first=0, last=10, step=1):
 	number = first
 	while number < last:
-		yield number
+		yield number #透過yield建立generator的元素
 		number += step
 
 >>> my_range
@@ -659,76 +711,87 @@ for x in ranger:
 ```
 
 ### Decorators
+#### 修改已經有的function功能，但不需要更改到裏面原本的內容程式碼
+
+一個decorator是一個function, 這個function有一個參數，可以利用參數傳入其它function,然後傳出其它修改過的function
+
+下方的程式碼包含
+
+- *args 和 **kwargs
+- Inner functions
+- Functions 當作引數
+
+
 ```python
 def document_it(func):
-	def new_function(*args, **kwargs):
-		print('Running function:', func.__name__) 
-		print('Positional arguments:', args) 
-		print('Keyword arguments:', kwargs) 
-		result = func(*args, **kwargs) 
-		print('Result:', result)
-		return result
-	return new_function
+    def new_function(*args, **kwargs):
+        print('要執行的function:',func.__name__)
+        print('引數位置:',args)
+        print('keyword引數名稱',kwargs)
+        result = func(*args, **kwargs)
+        print('Result:', result)
+        return result
+    return new_function
 
-
-
+#手動傳遞function當作參數
 def add_ints(a, b): 
-returna+b
+	returna+b
 
 >>> add_ints(3, 5)
 8
 
 >>> cooler_add_ints = document_it(add_ints) # manual decorator assignment
 >>> cooler_add_ints(3, 5) 
-Running function: add_ints
-Positional arguments: (3, 5)
-Keyword arguments: {}
+要執行的function: add_ints
+引數位置: (3, 5)
+keyword引數名稱 {}
 Result: 8
 8
 
-
+#另一種傳遞function當作參數的寫法,使用@
 @document_it
 def add_ints(a, b):
 	returna+b
 
 >>> add_ints(3, 5)
-Start function add_ints
-Positional arguments: (3, 5)
-Keyword arguments: {}
+要執行的function: add_ints
+引數位置: (3, 5)
+keyword引數名稱 {}
 Result: 8
 8
 
 
-
+#也可以傳遞一個function給多個decorator
 def square_it(func):
 	def new_function(*args, **kwargs):
         result = func(*args, **kwargs)
 		return result * result
 	return new_function
 
-
+#同時使用2個decorator
 @document_it
 @square_it
 def add_ints(a, b):
 	return a+b
 
 >>> add_ints(3, 5)
-Running function: new_function
-Positional arguments: (3, 5)
-Keyword arguments: {}
+要執行的function: new_function
+引數位置: (3, 5)
+keyword引數名稱 {}
 Result: 64
 64
 
 
+#改變decorator的順序
 @square_it
 @document_it
 def add_ints(a, b):
 return a+b 
 
 >>> add_ints(3, 5) 
-Running function: add_ints
-Positional arguments: (3, 5)
-Keyword arguments: {}
+要執行的function: add_ints
+引數位置: (3, 5)
+keyword引數名稱 {}
 Result: 8
 64
 
