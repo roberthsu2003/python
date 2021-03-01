@@ -19,4 +19,8 @@
 
 10 [物件和類別](https://github.com/roberthsu2003/python/tree/master/%E7%89%A9%E4%BB%B6%E5%92%8C%E9%A1%9E%E5%88%A5)
 
-11 [檔案存取](https://github.com/roberthsu2003/python/blob/master/%E6%AA%94%E6%A1%88%E5%AD%98%E5%8F%96/README.ipynb)
+11 [系統和時間](./系統和時間)
+
+12 [檔案存取](https://github.com/roberthsu2003/python/blob/master/%E6%AA%94%E6%A1%88%E5%AD%98%E5%8F%96/README.ipynb)
+
+13 [整合line使用](./line)
