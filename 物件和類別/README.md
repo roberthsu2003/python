@@ -108,6 +108,21 @@ I'm a Yugo! Much like a Car, but more Yugo-ish.
 ```
 
 - 實作__init__()就是覆寫父類別的__init__()
+```python
+class Person():
+    def __init__(self,name):
+        self.name = name
+
+class MDPerson(Person):
+    pass
+
+class JDPerson(Person):
+    pass
+
+person = Person('Fudd')
+doctor = MDPerson('robert')
+lawyer = JDPerson('Alice')
+```
 
 ```python
 class Person():
@@ -123,14 +138,14 @@ class JDPerson(Person):
 		self.name = name + ", Esquire"
 	
 >>> person = Person('Fudd') 
->>> doctor = MDPerson('Fudd') 
->>> lawyer = JDPerson('Fudd') 
+>>> doctor = MDPerson('Robert') 
+>>> lawyer = JDPerson('Alice') 
 >>> print(person.name)
 Fudd
 >>> print(doctor.name) 
-Doctor Fudd
+Doctor Robert
 >>> print(lawyer.name) 
-Fudd, Esquire
+Alice, Esquire
 
 ```
 
