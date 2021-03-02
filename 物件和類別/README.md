@@ -36,7 +36,7 @@ The mighty hunter: Elmer Fudd
 ```
 
 ### hunter = Person('Elmer Fudd')
-這行程式同時代表6個意思
+#### 這行程式同時代表6個意思
 1. 尋找Person類別
 2. 在記憶體內建立實體
 3. 呼叫Person類別內的__init__(self,name), 將引數字串'Elmer Fudd'傳遞給參數name
@@ -112,15 +112,15 @@ I'm a Yugo! Much like a Car, but more Yugo-ish.
 ```python
 class Person():
 	def __init__(self, name):
-	self.name = name
+		self.name = name
 
 class MDPerson(Person):
 	def __init__(self, name):
-	self.name = "Doctor " + name
+		self.name = "Doctor " + name
 
 class JDPerson(Person):
 	def __init__(self, name):
-	self.name = name + ", Esquire"
+		self.name = name + ", Esquire"
 	
 >>> person = Person('Fudd') 
 >>> doctor = MDPerson('Fudd') 
