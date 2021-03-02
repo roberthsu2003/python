@@ -221,12 +221,12 @@ I'm a Car!
 
 ## 實體property屬性
 
-- 實作Get和Set方法至屬性attribute成為一個新屬性(Property)
+- 實作屬性attribute的Getter和Setter方法成為一個新屬性(Property)
 - 目的是讓實體不可以直接存取屬性attribute
 
 ### 方法1:
-- 建立get
-- 建立set
+- 建立attribute的getter
+- 建立attributer的setter
 - 使用name = property(get,set), 建立name property
 
 ```python
