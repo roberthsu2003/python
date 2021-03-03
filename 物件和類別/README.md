@@ -36,7 +36,7 @@ The mighty hunter: Elmer Fudd
 ```
 
 ### hunter = Person('Elmer Fudd')
-這行程式同時代表6個意思
+#### 這行程式同時代表6個意思
 1. 尋找Person類別
 2. 在記憶體內建立實體
 3. 呼叫Person類別內的__init__(self,name), 將引數字串'Elmer Fudd'傳遞給參數name
@@ -108,29 +108,44 @@ I'm a Yugo! Much like a Car, but more Yugo-ish.
 ```
 
 - 實作__init__()就是覆寫父類別的__init__()
+```python
+class Person():
+    def __init__(self,name):
+        self.name = name
+
+class MDPerson(Person):
+    pass
+
+class JDPerson(Person):
+    pass
+
+person = Person('Fudd')
+doctor = MDPerson('robert')
+lawyer = JDPerson('Alice')
+```
 
 ```python
 class Person():
 	def __init__(self, name):
-	self.name = name
+		self.name = name
 
 class MDPerson(Person):
 	def __init__(self, name):
-	self.name = "Doctor " + name
+		self.name = "Doctor " + name
 
 class JDPerson(Person):
 	def __init__(self, name):
-	self.name = name + ", Esquire"
+		self.name = name + ", Esquire"
 	
 >>> person = Person('Fudd') 
->>> doctor = MDPerson('Fudd') 
->>> lawyer = JDPerson('Fudd') 
+>>> doctor = MDPerson('Robert') 
+>>> lawyer = JDPerson('Alice') 
 >>> print(person.name)
 Fudd
 >>> print(doctor.name) 
-Doctor Fudd
+Doctor Robert
 >>> print(lawyer.name) 
-Fudd, Esquire
+Alice, Esquire
 
 ```
 
@@ -171,6 +186,7 @@ class Person():
 
 
 class EmailPerson(Person):
+	#當建立自訂的__init__,就不會繼承父類別的__init__
 	def __init__(self, name, email): 
 		super().__init__(name) 
 		self.email = email
@@ -205,12 +221,12 @@ I'm a Car!
 
 ## 實體property屬性
 
-- 實作Get和Set方法至屬性attribute成為一個新屬性(Property)
+- 實作屬性attribute的Getter和Setter方法成為一個新屬性(Property)
 - 目的是讓實體不可以直接存取屬性attribute
 
 ### 方法1:
-- 建立get
-- 建立set
+- 建立attribute的getter
+- 建立attributer的setter
 - 使用name = property(get,set), 建立name property
 
 ```python
