@@ -15,7 +15,9 @@
 
 8 [數值與函數進階運用](https://github.com/roberthsu2003/python/tree/master/%E6%95%B8%E5%80%BC%E8%88%87%E5%87%BD%E6%95%B8%E9%80%B2%E9%9A%8E%E9%81%8B%E7%94%A8)
 
-9 [匿名函數與套件使用](https://github.com/roberthsu2003/python/tree/master/%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B8%E8%88%87%E5%A5%97%E4%BB%B6%E4%BD%BF%E7%94%A8)
+9 [匿名函數lambda](./匿名函數lambda)
+
+10 [模組和套件](./模組和套件)
 
 10 [物件和類別](https://github.com/roberthsu2003/python/tree/master/%E7%89%A9%E4%BB%B6%E5%92%8C%E9%A1%9E%E5%88%A5)
 
