@@ -269,9 +269,10 @@ print("Today's weather:", description)
 1. 套件內可以有多個模組。
 2. 套件名稱是資料夾名稱。
 3. 建立一個叫做 happy 的資料夾，裡面放了一個 __ init __.py 的空檔案。
-4. 每個套件裡都必須存在 __ init __.py 這個檔案，它的目的就是告訴 Python 說這個資料夾請把它當做套件來對待,python3版本也可以不用設定
+4. 每個套件裡都必須存在 __ init __.py 這個檔案，執行初始化的動作，python3版本也可以不用設定
 5. __ init __.py 可以是空的，也可以放一些變數或程式在裡面。
 6. happy 的資料夾內放了一個 __ init __.py 的空檔案，請加入一個名為 my_mod.py 檔案，其內容為:
+
 
 ```python
 #happy資料夾內的my_mod.py內容
@@ -346,4 +347,149 @@ Daily forecast: like yesterday Weekly forecast:
 /Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages
 ```
 
+## __init__.py使用方式
+![](./images/pic1.png)
+
+### 使用的方式
+
+```
+每個資料夾內有放__init__.py
+
+如果主程式寫import graphics,則會執行garphics/__init__.py檔，並且會產生一個graphics的命名空間
+
+如果主程式寫import graphics.formats.jpg,則會先執行graphics內的__init__py，再執行formats內的__init__py，最後執行jpy.py。
+
+python3版本可以省略__init__py
+```
+
+#### import的方式
+
+```python
+import graphics.primitive.line
+from graphics.primitive import line 
+import graphics.formats.jpg as jpg
+```
+
+#### 自動載入次module
+
+```
+#如果在graphics/formats/__init__.py內是空白
+#import方式如下:
+from graphics.formats.jpg import *
+from graphics.formats.jpg import *
+```
+
+```
+#如果在graphics/formats/__init__.py內加入
+
+from . import jpg
+from . import png
+
+#import方式如下:
+from graphics.formats import *
+```
+
+## __all__的使用方式
+
+當使用者使用import *的語法時
+限定可以被import的內容
+
+```
+#somemodule.py
+def spam(): 
+	pass
+def grok(): 
+	pass
+blah = 42
+
+# 僅輸出 'spam' 和 'grok',blah沒被輸出
+__all__ = ['spam', 'grok']
+```
+
+## 使用相對路徑輸入套件內的次模組
+
+```
+#目前目錄
+mypackage/
+		__init__.py
+		A/
+				__init__.py
+				spam.py
+				grok.py
+		B/
+				__init__.py
+				bar.py
+```
+
+```
+#mypackage/A/spam.py
+
+from . import grok
+
+
+#mypackage/A/spam.py
+
+from ..B import bar
+
+
+#mypackage/A/spam.py
+
+from mypackage.A import grok #ok
+from . import grok #ok
+import grok #錯誤
+```
+
+## 切割一個module檔成為多個檔
+
+```
+# mymodule.py
+class A:
+	def spam(self):
+		print('A.spam')
+	
+class B(A):
+	def bar(self):
+		print('B.bar')
+```
+
+```
+# 將mymodule.py改為目錄mymodule
+# 建立a.py
+# 建立b.py
+
+mymodule/
+		__init__.py
+		a.py
+		b.py
+```
+
+```
+#在a.py
+
+class A:
+	def spam(self):
+		print('A.spam')	
+		
+#在b.yp
+
+from .a import A
+	class B(A):
+		def bar(self):
+			print('B.bar')
+			
+#在__init__.py
+from .a import A
+from .b import B
+
+
+#在主程式使用方式
+>>> import mymodule 
+>>> a = mymodule.A() 
+>>> a.spam()
+A.spam
+>>> b = mymodule.B() 
+>>> b.bar()
+B.bar
+>>>
+```
 
