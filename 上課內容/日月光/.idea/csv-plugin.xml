@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/lesson12.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
