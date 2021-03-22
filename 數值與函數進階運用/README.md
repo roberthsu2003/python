@@ -419,7 +419,7 @@ All the rest: ('scarf', 'monocle', 'mustache wax')
 
 ```
 
-### 使用**參數,呼叫使可使用不限數量的引數名稱
+### 使用**參數,呼叫時可使用不限數量的引數名稱
 使用在最後的參數位置
 
 ```python
@@ -432,6 +432,41 @@ All the rest: ('scarf', 'monocle', 'mustache wax')
 Keyword arguments: {'dessert': 'macaroon', 'wine': 'merlot', 'entree': 'mutton'}
 
 ```
+
+### 如果在呼叫函式使用*arg或 **kwarg是解開tuple或dictionary,這和定義function時使用的方式剛好相反
+
+```python
+#通過一個元組給一個函數傳遞四個參數，並且讓python將它們解開成不同的參數。
+def func(a,b,c,d):
+    print(a,b,c,d)
+
+a = (1,2,3,4)
+func(*a)
+
+# 如果已經有一個元祖，在參數前加*，函數會把元祖中的元素一個一個傳到函數裏面
+def calc(*numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n * n
+    print(sum)
+
+num = (1,2,3,4)
+calc(*num)
+
+
+#如果已經有一個dict,在參數前面加**，函數會把dict中所有鍵值對轉換為關鍵字參數傳進去
+
+def person(name,age,**kw):
+    print('name:',name,'age:',age,'other:',kw)
+
+extra = {'city': 'Taipei', 'job': 'Engineer'}
+person('Jack', 24, **extra)
+輸出：
+1 2 3 4
+30
+name: Jack age: 24 other: {'city': 'Taipei', 'job': 'Engineer'}
+```
+
 
 ### 不固定接收數量
 1. ( ) 內接收資料若是以 * 表示代表可以引入不定數量的參數:
