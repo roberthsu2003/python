@@ -1,4 +1,4 @@
-# 暱名函數與套件的使用
+# 暱名函數
 ### 函數 Are First-Class Citizens
 
 ```python
