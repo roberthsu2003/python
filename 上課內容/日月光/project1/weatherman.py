@@ -1,9 +1,9 @@
 #主程式
 #import report as rp
-from tools.report import get_description
-from tools.report import a
-from tools.report import b
-from tools.report import c
+from tools import get_description
+from tools import a
+from tools import b
+from tools import c
 
 if __name__ == "__main__":
     description = get_description()
