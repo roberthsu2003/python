@@ -5,6 +5,12 @@ class Student:
         self.english = english
         self.math = math
 
+    def getSum(self):
+        return self.chinese+self.english+self.math
+
+    def getAverage(self):
+        return self.getSum() / 3
+
 if __name__ == "__main__":
     stu1 = Student("robert")
     stu2 = Student("robert",math=60)
