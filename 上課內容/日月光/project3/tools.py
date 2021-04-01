@@ -4,12 +4,13 @@ class Student:
         self.chinese = chinese
         self.english = english
         self.math = math
-
-    def getSum(self):
+    @property
+    def sum(self):
         return self.chinese+self.english+self.math
 
-    def getAverage(self):
-        return self.getSum() / 3
+    @property
+    def average(self):
+        return self.sum / 3
 
 if __name__ == "__main__":
     stu1 = Student("robert")
