@@ -7,8 +7,14 @@ class Window(tk.Tk):
         self.title("Hello Tkinter")
         #self.geometry("400x200")
 
-        label = tk.Label(self, text="Hello First Window", padx=100, pady=50, font=('Times', 24, 'bold italic'))
+        label = tk.Label(self, text="Choose One", padx=100, pady=30, font=('Times', 24, 'bold italic'))
         label.pack(expand=True)
+
+        hello_button = tk.Button(self, text="Say Hello",padx=20,pady=10,font=('Times', 20))
+        hello_button.pack(side=tk.LEFT, padx=(20,0), pady=(0,20))
+
+        goodbye_button = tk.Button(self, text="Say Goodbye", padx=20, pady=10, font=('Times', 20))
+        goodbye_button.pack(side=tk.RIGHT, padx=(20, 20), pady=(0, 20))
 
 if __name__ == "__main__":
     window = Window()
