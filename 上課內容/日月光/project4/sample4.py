@@ -11,9 +11,9 @@ class Window(tk.Tk):
         label = tk.Label(self, textvariable=self.label_text ,font=('Times', 24, 'bold italic'))
         label.pack(expand=True,padx=100, pady=(30,10))
 
-        name_text = tk.StringVar()
+        self.name_text = tk.StringVar()
 
-        name_entry = tk.Entry(self,textvariable=name_text,font=('Times', 24, 'bold italic'))
+        name_entry = tk.Entry(self,textvariable=self.name_text,font=('Times', 24, 'bold italic'))
         name_entry.pack(pady=(0,30))
 
         hello_button = tk.Button(self, text="Say Hello",padx=20,pady=10,font=('Times', 20), command=self.say_hello)
@@ -23,14 +23,15 @@ class Window(tk.Tk):
         goodbye_button.pack(side=tk.RIGHT, padx=(20, 20), pady=(0, 20))
 
     def say_hello(self):
-        msgbox.showinfo("Hello", "Hello World!")
+        message = "Hello,您的名字是" + self.name_text.get()
+        msgbox.showinfo("Hello", message)
 
     def say_goodbye(self):
-        if msgbox.askyesno("關閉視窗嗎?","你真的想要關閉視窗嗎?"):
+        if msgbox.askyesno("關閉視窗嗎?",f"{self.name_text.get()},真的想要關閉視窗嗎?"):
             self.label_text.set("Goodbye!(2秒後引爆)")
             self.after(2000, self.destroy)
         else:
-            msgbox.showinfo("不會關閉視窗", "非常好!將回到原視窗")
+            msgbox.showinfo("不會關閉視窗", f"{self.name_text.get()}非常好!將回到原視窗")
 
 if __name__ == "__main__":
     window = Window()
