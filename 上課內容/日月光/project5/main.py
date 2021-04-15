@@ -1,5 +1,6 @@
 import tkinter as tk
 import datasource
+import linebot
 
 class Window(tk.Tk):
     def __init__(self):
@@ -12,7 +13,12 @@ class Window(tk.Tk):
     def sendLineMessage(self):
         print("sendLineMessage")
         imageURI = datasource.getMathGraphic()
-        print(imageURI)
+        status_code=linebot.sendLineNotify("5年9班的數學成績",imageURI)
+        if status_code == 200:
+            print("傳送成功")
+        else:
+            print("傳送失敗")
+
 
 
 if __name__ == "__main__":
