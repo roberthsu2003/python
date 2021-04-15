@@ -1,4 +1,5 @@
 import tkinter as tk
+import datasource
 
 class Window(tk.Tk):
     def __init__(self):
@@ -10,6 +11,7 @@ class Window(tk.Tk):
 
     def sendLineMessage(self):
         print("sendLineMessage")
+        imageURI = datasource.getMathGraphic()
 
 
 if __name__ == "__main__":
