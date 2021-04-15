@@ -16,4 +16,6 @@ def getMathGraphic():
             scores.append(int(itemList[1]))
         plt.plot(names,scores)
         now=int(time.time())
-        plt.savefig(f'datasource/{now}')
+        imagePath = f'datasource/{now}.jpg'
+        plt.savefig(imagePath)
+        return os.path.abspath(imagePath)

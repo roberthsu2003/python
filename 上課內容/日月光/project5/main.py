@@ -12,6 +12,7 @@ class Window(tk.Tk):
     def sendLineMessage(self):
         print("sendLineMessage")
         imageURI = datasource.getMathGraphic()
+        print(imageURI)
 
 
 if __name__ == "__main__":
