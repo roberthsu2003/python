@@ -482,7 +482,7 @@ It's no thing
 ```
 
  
-## 使用Comprehensions語法快速簡潔方式建立tuple,list,dictionary,set
+## 使用Comprehensions語法快速簡潔方式建立list,dictionary,set,generator
 - 搭配迴圈和條件式
 - 語法:[ expression for item in iterable ]
 - 語法:[ expression for item in iterable if condition ]
