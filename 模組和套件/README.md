@@ -86,7 +86,6 @@ print(a)
 | pow(x, y) | x的y次方 的值 |
 |  ceil(x) | 取出不小於 x 的最小整數 |
 | floor(x) | 取出不大於 x 的最大整數 |
-
 ####  Question:請問以下語法執行後結果哪一個正確?(選擇題)
 ```python 
 a=round(80.456, 2) 
