@@ -1,6 +1,2 @@
-print(1234 + 5678)
-print(1234 * 5678)
-print(5678 - 1234)
-print(5678 / 1234)
-print(5678 // 1234)
-print(5677 % 2)
+name = input('請輸入姓名:')
+name
