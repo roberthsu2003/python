@@ -26,7 +26,9 @@ class Window(tk.Tk):
         urlString = "https://flask-robert.herokuapp.com/youbike/%s" % selectedArea
         res = requests.get(urlString)
         jsonobj = res.json()
-        print(jsonobj)
+        areas = jsonobj['data']
+        for area in areas:
+            print(area["sna"])
 
 
 
