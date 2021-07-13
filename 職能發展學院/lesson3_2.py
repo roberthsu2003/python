@@ -22,7 +22,11 @@ class Window(tk.Tk):
         topFrame.pack(padx=100, pady=(30,60))
 
     def userClick(self,event):
-        print(event.widget['text'])
+        selectedArea = event.widget['text']
+        urlString = "https://flask-robert.herokuapp.com/youbike/%s" % selectedArea
+        res = requests.get(urlString)
+        jsonobj = res.json()
+        print(jsonobj)
 
 
 
