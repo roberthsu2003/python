@@ -27,8 +27,10 @@ class Window(tk.Tk):
         res = requests.get(urlString)
         jsonobj = res.json()
         areas = jsonobj['data']
+        snaList = []
         for area in areas:
-            print(area["sna"])
+            snaList.append(area["sna"])
+        print(snaList)
 
 
 
