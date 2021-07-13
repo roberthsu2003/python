@@ -1,6 +1,7 @@
 import requests
 import tkinter as tk
-from tkinter import font
+from tkinter.font import Font
+
 
 class Window(tk.Tk):
     def __init__(self):
@@ -11,10 +12,10 @@ class Window(tk.Tk):
         areas = jsonObj['areas']
 
         #介面
-        topFrame = tk.Frame(self)
-        buttonFont = font.Font(family='Helvetica', size=20)
+        topFrame = tk.Frame(self,bd=2,relief=tk.GROOVE,padx=20,pady=10)
+        buttonFont = Font(family='Helvetica', size=20)
         for area in areas:
-            tk.Button(topFrame,text=area,font=buttonFont).pack(side=tk.LEFT)
+            tk.Button(topFrame,text=area,font=buttonFont,padx=5,pady=5).pack(side=tk.LEFT,padx=5)
         topFrame.pack(padx=100, pady=(30,60))
 
 
