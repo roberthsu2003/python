@@ -1,5 +1,6 @@
 import requests
 import tkinter as tk
+from tkinter import font
 
 class Window(tk.Tk):
     def __init__(self):
@@ -11,8 +12,9 @@ class Window(tk.Tk):
 
         #介面
         topFrame = tk.Frame(self)
+        buttonFont = font.Font(family='Helvetica', size=20)
         for area in areas:
-            tk.Button(topFrame,text=area).pack(side=tk.LEFT)
+            tk.Button(topFrame,text=area,font=buttonFont).pack(side=tk.LEFT)
         topFrame.pack(padx=100, pady=(30,60))
 
 
