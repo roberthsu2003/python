@@ -15,8 +15,11 @@ class Window(tk.Tk):
         topFrame = tk.Frame(self,bd=2,relief=tk.GROOVE,padx=20,pady=10)
         buttonFont = Font(family='Helvetica', size=20)
         for area in areas:
-            tk.Button(topFrame,text=area,font=buttonFont,padx=5,pady=5).pack(side=tk.LEFT,padx=5)
+            tk.Button(topFrame,text=area,font=buttonFont,padx=5,pady=5,command=self.userClick).pack(side=tk.LEFT,padx=5)
         topFrame.pack(padx=100, pady=(30,60))
+
+    def userClick(self):
+        print("user click")
 
 
 
