@@ -35,9 +35,9 @@ class Window(tk.Tk):
         urlString = "https://flask-robert.herokuapp.com/youbike/%s" % selectedArea
         res = requests.get(urlString)
         jsonobj = res.json()
-        areas = jsonobj['data']
+        self.areas = jsonobj['data']
         snaList = []
-        for area in areas:
+        for area in self.areas:
             snaList.append(area["sna"])
         self.createdBottomFrame(snaList)
 
@@ -63,14 +63,8 @@ class Window(tk.Tk):
 
     def userChoicedRadioButton(self):
         index = self.var.get()
-        siteName = self.radioButtonData[index]
-        print(siteName)
-
-
-
-
-
-
+        infomation = self.areas[index]
+        print(infomation)
 
 if __name__ == "__main__":
     window = Window()
