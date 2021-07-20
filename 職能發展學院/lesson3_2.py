@@ -32,8 +32,10 @@ class Window(tk.Tk):
         self.fixedWidthFrame.pack(padx=20)
 
         #建立message介面
-        self.messageDisplayFrame = tk.Frame(self,height=100,bg='blue')
-        self.messageDisplayFrame.pack(expand=True,fill=tk.BOTH,padx=20,pady=30)
+        messageDisplayFrame = tk.Frame(self,height=100,bg='blue')
+        self.snaLabel = tk.Label(messageDisplayFrame,text="站名")
+        self.snaLabel.pack()
+        messageDisplayFrame.pack(expand=True,fill=tk.BOTH,padx=20,pady=30)
 
 
 
@@ -78,6 +80,7 @@ class Window(tk.Tk):
         index = self.var.get()
         infomation = self.areas[index]
         print(infomation)
+        self.snaLabel["text"] = "站名:%s" % infomation["sna"]
 
 if __name__ == "__main__":
     window = Window()
