@@ -12,6 +12,7 @@ class Window(tk.Tk):
         areas = jsonObj['areas']
 
         #介面
+        self.title("台北市行政區")
         topFrame = tk.Frame(self,bd=2,relief=tk.GROOVE,padx=20,pady=10)
         buttonFont = Font(family='Helvetica', size=20)
         for area in areas:
@@ -45,5 +46,5 @@ class Window(tk.Tk):
 
 if __name__ == "__main__":
     window = Window()
-    window.title("台北市行政區")
+    #window.title("台北市行政區")
     window.mainloop()
