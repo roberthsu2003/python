@@ -29,9 +29,15 @@ class Window(tk.Tk):
         self.createdBottomFrame()
         self.fixedWidthFrame.pack(side=tk.LEFT,padx=20)
 
-    def userClick(self,event):
+        #自動執行按鈕按一次的事件
+        self.userClick()
+
+    def userClick(self,event=None):
         self.bottomFrame.destroy()
-        selectedArea = event.widget['text']
+        if(event == None):
+            selectedArea = "中山區"
+        else:
+            selectedArea = event.widget['text']
         urlString = "https://flask-robert.herokuapp.com/youbike/%s" % selectedArea
         res = requests.get(urlString)
         jsonobj = res.json()
@@ -39,7 +45,7 @@ class Window(tk.Tk):
         snaList = []
         for area in self.areas:
             snaList.append(area["sna"])
-        self.createdBottomFrame(snaList)
+        self.createdBottomFrame(data=snaList)
 
     def createdBottomFrame(self,data=None):
         self.bottomFrame = tk.Frame(self.fixedWidthFrame, bd=2, relief=tk.GROOVE, padx=20, pady=10)
