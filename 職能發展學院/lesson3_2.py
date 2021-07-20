@@ -43,8 +43,11 @@ class Window(tk.Tk):
 
         self.var = tk.IntVar()
         for index, data in enumerate(radioButtonData):
-            radioButton = tk.Radiobutton(self.bottomFrame, text=data, value=index, variable=self.var).pack(anchor=tk.W)
-        self.bottomFrame.pack(side=tk.LEFT)
+            if index % 10 == 0:
+                parentframe = tk.Frame(self.bottomFrame)
+                parentframe.pack(side=tk.LEFT,expand=True,fill=tk.Y)
+            radioButton = tk.Radiobutton(parentframe, text=data, value=index, variable=self.var).pack(anchor=tk.W)
+        self.bottomFrame.pack()
         self.var.set(0)
 
     def userClick(self,event):
