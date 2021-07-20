@@ -26,10 +26,16 @@ class Window(tk.Tk):
         topFrame.pack(padx=20, pady=30)
 
 
+        #建立下方radioButton的介面
+        self.fixedWidthFrame = tk.Frame(self,height=600,bg='red')
+        self.createdRadioButtonFrame()
+        self.fixedWidthFrame.pack(padx=20)
 
-        self.fixedWidthFrame = tk.Frame(self,width=500,bg='red')
-        self.createdBottomFrame()
-        self.fixedWidthFrame.pack(side=tk.LEFT,padx=20)
+        #建立message介面
+        self.messageDisplayFrame = tk.Frame(self,height=100,bg='blue')
+        self.messageDisplayFrame.pack(expand=True,fill=tk.BOTH,padx=20,pady=30)
+
+
 
 
     def userClick(self,event):
@@ -42,10 +48,10 @@ class Window(tk.Tk):
         snaList = []
         for area in self.areas:
             snaList.append(area["sna"])
-        self.createdBottomFrame(data=snaList)
+        self.createdRadioButtonFrame(data=snaList)
 
 
-    def createdBottomFrame(self,data=None):
+    def createdRadioButtonFrame(self,data=None):
         self.bottomFrame = tk.Frame(self.fixedWidthFrame, bd=2, relief=tk.GROOVE, padx=20, pady=10)
         if data == None:
             urlString = "https://flask-robert.herokuapp.com/youbike/南港區"
