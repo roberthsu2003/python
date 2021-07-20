@@ -20,12 +20,15 @@ class Window(tk.Tk):
             btn.bind('<Button-1>',self.userClick)
             btn.pack(side=tk.LEFT,padx=5)
 
-        topFrame.pack(padx=100, pady=(30,60))
+        topFrame.pack(padx=20, pady=30)
+
+        self.fixedWidthFrame = tk.Frame(self,width=500,bg='red')
         self.createdBottomFrame()
+        self.fixedWidthFrame.pack(side=tk.LEFT,padx=20)
 
 
     def createdBottomFrame(self,data=None):
-        self.bottomFrame = tk.Frame(self, bd=2, relief=tk.GROOVE, padx=20, pady=10)
+        self.bottomFrame = tk.Frame(self.fixedWidthFrame, bd=2, relief=tk.GROOVE, padx=20, pady=10)
         if data == None:
             radioButtonData = ['仁愛林森路口', '捷運善導寺站(1號出口)', '南昌公園', '國家圖書館', '捷運臺大醫院(4號出口)', '信義連雲街口', '捷運西門站(3號出口)', '和平重慶路口',
                                '金山市民路口', '華山文創園區', '臺北市客家文化主題公園', '捷運小南門站(1號出口)', '臺北轉運站', '羅斯福寧波東街口', '河堤國小', '植物園',
@@ -38,7 +41,7 @@ class Window(tk.Tk):
         self.var = tk.IntVar()
         for index, data in enumerate(radioButtonData):
             radioButton = tk.Radiobutton(self.bottomFrame, text=data, value=index, variable=self.var).pack(anchor=tk.W)
-        self.bottomFrame.pack(padx=100, pady=(30, 60), side=tk.LEFT)
+        self.bottomFrame.pack(side=tk.LEFT)
         self.var.set(0)
 
     def userClick(self,event):
