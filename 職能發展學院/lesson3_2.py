@@ -15,11 +15,14 @@ class Window(tk.Tk):
         self.title("台北市行政區")
         topFrame = tk.Frame(self,bd=2,relief=tk.GROOVE,padx=20,pady=10)
         buttonFont = Font(family='Helvetica', size=20)
-        for area in areas:
-            btn = tk.Button(topFrame,text=area,font=buttonFont,padx=5,pady=5)
-            btn.bind('<Button-1>',self.userClick)
-            btn.pack(side=tk.LEFT,padx=5)
 
+        for index, area in enumerate(areas):
+            if index % 6 == 0:
+                parentframe = tk.Frame(topFrame)
+                parentframe.pack()
+            btn = tk.Button(parentframe, text=area, font=buttonFont, padx=5, pady=5)
+            btn.bind('<Button-1>', self.userClick)
+            btn.pack(side=tk.LEFT, padx=5)
         topFrame.pack(padx=20, pady=30)
 
         self.fixedWidthFrame = tk.Frame(self,width=500,bg='red')
