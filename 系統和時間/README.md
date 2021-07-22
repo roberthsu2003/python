@@ -307,7 +307,7 @@ datetime.date(2018, 10, 9)
 datetime.date(2021, 3, 1)
 ```
 
-#### 使用timedelta取得一日期
+#### 使用timedelta取得一個指定的日期
 
 ```python
 >>> from datetime import date
