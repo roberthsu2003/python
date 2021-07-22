@@ -37,6 +37,12 @@ class Window(tk.Tk):
         self.snaLabel.pack(anchor=tk.W)
         self.arLabel = tk.Label(messageDisplayFrame,text="地址:")
         self.arLabel.pack(anchor=tk.W)
+        self.bempLabel = tk.Label(messageDisplayFrame, text="空位數量:")
+        self.bempLabel.pack(anchor=tk.W)
+        self.sbiLabel = tk.Label(messageDisplayFrame, text="可借車數:")
+        self.sbiLabel.pack(anchor=tk.W)
+        self.totLabel = tk.Label(messageDisplayFrame, text="總車數:")
+        self.totLabel.pack(anchor=tk.W)
         messageDisplayFrame.pack(expand=True,fill=tk.BOTH,padx=20,pady=30)
 
 
@@ -84,6 +90,9 @@ class Window(tk.Tk):
         print(infomation)
         self.snaLabel["text"] = "站名:%s" % infomation["sna"]
         self.arLabel.configure(text="地址:{0:s}".format(infomation["ar"]))
+        self.bempLabel["text"] = "空位數量:{0:d}".format(infomation["bemp"])
+        self.sbiLabel["text"] = "可借車數:{0:d}".format(infomation["sbi"])
+        self.totLabel["text"] = "總車數:{0:d}".format(infomation["tot"])
 
 if __name__ == "__main__":
     window = Window()
