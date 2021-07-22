@@ -16,7 +16,24 @@ def downloadAQIDataFromPlatForm():
 
 
 def readAndParseCSVFile():
+    """
+    解析下載完成的aqi.csv.
+    傳出python的資料結構
+    """
+
     #下載檔案
+    import csv
     downloadAQIDataFromPlatForm()
     #解析aqi.CSV
+    with open(FILE_NAME, newline='') as csvfile:
+        # 讀取 CSV 檔案內容
+        rows = csv.reader(csvfile)
+        # 以迴圈輸出每一列
+        for row in rows:
+            print(row)
+
+
+
+
+
 
