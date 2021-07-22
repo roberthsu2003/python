@@ -1,6 +1,7 @@
 import requests
 import tkinter as tk
 from tkinter.font import Font
+from time import strptime
 
 
 class Window(tk.Tk):
@@ -33,6 +34,8 @@ class Window(tk.Tk):
 
         #建立message介面
         messageDisplayFrame = tk.Frame(self,height=100,bg='blue')
+        self.mdayLabel = tk.Label(messageDisplayFrame, text="記錄時間:")
+        self.mdayLabel.pack(anchor=tk.W)
         self.snaLabel = tk.Label(messageDisplayFrame,text="站名:")
         self.snaLabel.pack(anchor=tk.W)
         self.arLabel = tk.Label(messageDisplayFrame,text="地址:")
@@ -88,6 +91,11 @@ class Window(tk.Tk):
         index = self.var.get()
         infomation = self.areas[index]
         print(infomation)
+        datetimeString = infomation["mday"]
+        datetimeFormat = "%Y%m%d%H%M%S"
+        structTime = strptime(datetimeString,datetimeFormat)
+
+        self.mdayLabel["text"] = "記錄時間:%d年%d月%d日  %d:%d:%d" % (structTime.tm_year,structTime.tm_mon,structTime.tm_mday,structTime.tm_hour,structTime.tm_min,structTime.tm_sec)
         self.snaLabel["text"] = "站名:%s" % infomation["sna"]
         self.arLabel.configure(text="地址:{0:s}".format(infomation["ar"]))
         self.bempLabel["text"] = "空位數量:{0:d}".format(infomation["bemp"])
