@@ -1,6 +1,7 @@
 #data.py就是自訂的module
 #空氣品質AQI的csv檔,線上下載
 FILE_NAME = "aqi.csv"
+aqiData = None
 
 class County:
     def __init__(self):
@@ -31,9 +32,10 @@ def readAndParseCSVFile():
 
     #下載檔案
     import csv
+    global aqiData
     downloadAQIDataFromPlatForm()
     #解析aqi.CSV
-    with open(FILE_NAME, newline='') as csvfile:
+    with open(FILE_NAME, newline='',encoding='utf-8') as csvfile:
         #跳過第一行
         next(csvfile)
         # 讀取 CSV 檔案內容
@@ -44,11 +46,20 @@ def readAndParseCSVFile():
             item = County()
             item.siteName = row[0]
             item.name = row[1]
-            item.AQI = row[2]
+            try:
+                item.AQI = int(row[2])
+            except:
+                item.AQI = 0
+
             item.status = row[4]
             item.publishTime = row[17]
             countyList.append(item)
-        return countyList
+        aqiData = countyList
+
+def updateData():
+    readAndParseCSVFile()
+
+readAndParseCSVFile()
 
 
 
