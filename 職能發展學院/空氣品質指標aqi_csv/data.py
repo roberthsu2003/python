@@ -2,6 +2,14 @@
 #空氣品質AQI的csv檔,線上下載
 FILE_NAME = "aqi.csv"
 
+class County:
+    def __init__(self):
+        self.siteName = None
+        self.name = None
+        self.AQI = None
+        self.status = None
+        self.publishTime = None
+
 def downloadAQIDataFromPlatForm():
     """
     從政府開放平台下載行政院aqi的資料，每1個小時，政府會更新一次
@@ -26,11 +34,21 @@ def readAndParseCSVFile():
     downloadAQIDataFromPlatForm()
     #解析aqi.CSV
     with open(FILE_NAME, newline='') as csvfile:
+        #跳過第一行
+        next(csvfile)
         # 讀取 CSV 檔案內容
         rows = csv.reader(csvfile)
         # 以迴圈輸出每一列
+        countyList = []
         for row in rows:
-            print(row)
+            item = County()
+            item.siteName = row[0]
+            item.name = row[1]
+            item.AQI = row[2]
+            item.status = row[4]
+            item.publishTime = row[17]
+            countyList.append(item)
+        return countyList
 
 
 
