@@ -33,7 +33,7 @@ class Window(tk.Tk):
         self.fixedWidthFrame.pack(padx=20)
 
         #建立message介面
-        messageDisplayFrame = tk.Frame(self,height=100,bg='blue')
+        messageDisplayFrame = tk.Frame(self,bd=2,relief=tk.GROOVE,padx=20,pady=10)
         self.mdayLabel = tk.Label(messageDisplayFrame, text="記錄時間:")
         self.mdayLabel.pack(anchor=tk.W)
         self.snaLabel = tk.Label(messageDisplayFrame,text="站名:")
