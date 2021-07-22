@@ -405,7 +405,7 @@ datetime.time(15, 36, 37, 427772)
 ```
 
 ### time Module
-- python同有datatime和time2種module
+- python同有datatime和time,2種module
 - time Module內提供的是function
 - time Module內的time()function傳出的時間是從1970/1/1到現在的秒數時間
 
