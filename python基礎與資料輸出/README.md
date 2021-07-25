@@ -1,7 +1,5 @@
 # python基礎 
 
-## Microsoft Azure noteboot(雲端編輯器)
-[Azure notebook](https://notebooks.azure.com/)
 
 ## Google Colab(雲端編輯器)
 [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb)
