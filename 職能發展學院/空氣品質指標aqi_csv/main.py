@@ -19,14 +19,18 @@ class Window(tk.Tk):
 
         #下方的frame
         displayFrame = tk.Frame(self)
-        tableFrame = tk.Frame(displayFrame)
+        #設定分欄
+        columnsNum = 5
+        rowsNum = len(countyList) // columnsNum + 1
         for index,county in enumerate(countyList):
-            print(county.siteName, county.name, county.AQI, county.status, county.publishTime)
-            tk.Label(tableFrame,text=county.siteName).grid(row=index,column=0);
-            tk.Label(tableFrame, text=county.name).grid(row=index, column=1);
-            tk.Label(tableFrame, text=county.AQI).grid(row=index, column=2);
-            tk.Label(tableFrame, text=county.status).grid(row=index, column=3);
-        tableFrame.pack()
+            subIndex = index % rowsNum
+            if subIndex == 0:
+                tableFrame = tk.Frame(displayFrame)
+                tableFrame.pack(side=tk.LEFT,padx=(20,0),expand=True,fill=tk.Y)
+            tk.Label(tableFrame, text=county.siteName).grid(row=subIndex, column=0);
+            tk.Label(tableFrame, text=county.name).grid(row=subIndex, column=1);
+            tk.Label(tableFrame, text=county.AQI).grid(row=subIndex, column=2);
+            tk.Label(tableFrame, text=county.status).grid(row=subIndex, column=3);
         displayFrame.pack()
 
 
