@@ -24,6 +24,9 @@ class Window(tk.Tk):
     def createDisplayFrame(self):
         #建立canvas
         canvas = tk.Canvas(self)
+        #canvasScrollbar
+        canvasScorllBar = tk.Scrollbar(self, orient="vertical", command=canvas.yview)
+        canvasScorllBar.pack(side=tk.RIGHT,fill=tk.Y)
         # 下方的frame
         self.displayFrame = tk.Frame(canvas,bg='#cccccc')
         for index, county in enumerate(countyList):
@@ -35,7 +38,8 @@ class Window(tk.Tk):
                 statusLabel['fg'] = 'red'
             statusLabel.grid(row=index, column=3)
         canvas.create_window((0,0),window=self.displayFrame, anchor=tk.NW)
-        canvas.pack()
+        canvas.configure(yscrollcommand=canvasScorllBar.set)
+        canvas.pack(side=tk.LEFT)
 
     def updateWindow(self):
         self.displayFrame.destroy()
