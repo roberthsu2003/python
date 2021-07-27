@@ -25,12 +25,12 @@ class Window(tk.Tk):
         for index,county in enumerate(countyList):
             subIndex = index % rowsNum
             if subIndex == 0:
-                tableFrame = tk.Frame(displayFrame)
+                tableFrame = tk.Frame(displayFrame,bg='#cccccc')
                 tableFrame.pack(side=tk.LEFT,padx=(20,0),expand=True,fill=tk.Y)
-            tk.Label(tableFrame, text=county.siteName).grid(row=subIndex, column=0);
-            tk.Label(tableFrame, text=county.name).grid(row=subIndex, column=1);
-            tk.Label(tableFrame, text=county.AQI).grid(row=subIndex, column=2);
-            tk.Label(tableFrame, text=county.status).grid(row=subIndex, column=3);
+            tk.Label(tableFrame, text=county.name,bg='#cccccc').grid(row=subIndex, column=0);
+            tk.Label(tableFrame, text=county.siteName,bg='#cccccc').grid(row=subIndex, column=1);
+            tk.Label(tableFrame, text=county.AQI,bg='#cccccc').grid(row=subIndex, column=2);
+            tk.Label(tableFrame, text=county.status,bg='#cccccc').grid(row=subIndex, column=3);
         displayFrame.pack()
 
 
