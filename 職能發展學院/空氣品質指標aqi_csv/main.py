@@ -8,6 +8,7 @@ class Window(tk.Tk):
         for county in countyList:
             print(county.siteName, county.name, county.AQI, county.status, county.publishTime)
         '''
+        self.geometry("950x630")
         titleFrame = tk.Frame(self)
         borderFrame = tk.Frame(titleFrame,borderwidth = 1, relief=tk.GROOVE,padx=20,pady=20)
         tk.Label(borderFrame,text="全省空氣品質指標_AQI",font=("Courier", 25, "italic")).pack()
@@ -18,7 +19,7 @@ class Window(tk.Tk):
         titleFrame.pack(padx=20,pady=20)
 
         #建立下方的frame
-        self.createDisplayFrame()
+        self.createDisplayFrame() #建立顯示資料的frame
 
 
     def createDisplayFrame(self):
