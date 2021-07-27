@@ -19,6 +19,10 @@ def downloadAQIDataFromPlatForm():
     import requests
     downloadURL = "https://data.epa.gov.tw/api/v1/aqx_p_432?limit=1000&api_key=9be7b239-557b-4c10-9775-78cadfc555e9&sort=ImportDate%20desc&format=csv"
     response = requests.get(downloadURL, stream=True)
+    #檢查是否下載正常
+    if response.status_code != 200:
+        return
+
     with open(FILE_NAME, 'wb') as fileObject:
         # 寫入檔案
         for chunk in response.iter_content(chunk_size=128):
@@ -32,10 +36,10 @@ def readAndParseCSVFile():
     傳出list,list內的元素是County實體
     """
 
-    #下載檔案
+
     import csv
     global aqiData
-    downloadAQIDataFromPlatForm()
+
     #解析aqi.CSV
     with open(FILE_NAME, newline='',encoding='utf-8') as csvfile:
         #跳過第一行
@@ -64,7 +68,8 @@ def updateData():
     readAndParseCSVFile()
 
 if __name__ != "__main__":
-    readAndParseCSVFile()
+    downloadAQIDataFromPlatForm() #下載檔案
+    readAndParseCSVFile() #解析下載的csv檔
 
 
 
