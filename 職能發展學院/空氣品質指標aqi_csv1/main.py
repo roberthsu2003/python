@@ -22,8 +22,10 @@ class Window(tk.Tk):
 
 
     def createDisplayFrame(self):
+        #建立canvas
+        canvas = tk.Canvas(self)
         # 下方的frame
-        self.displayFrame = tk.Frame(self,bg='#cccccc')
+        self.displayFrame = tk.Frame(canvas,bg='#cccccc')
         for index, county in enumerate(countyList):
             tk.Label(self.displayFrame, text=county.name, bg='#cccccc').grid(row=index, column=0);
             tk.Label(self.displayFrame, text=county.siteName, bg='#cccccc').grid(row=index, column=1);
@@ -32,7 +34,8 @@ class Window(tk.Tk):
             if county.status != '良好':
                 statusLabel['fg'] = 'red'
             statusLabel.grid(row=index, column=3)
-        self.displayFrame.pack()
+        canvas.create_window((0,0),window=self.displayFrame)
+        canvas.pack()
 
     def updateWindow(self):
         self.displayFrame.destroy()
