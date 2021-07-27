@@ -12,8 +12,8 @@ class Window(tk.Tk):
         titleFrame = tk.Frame(self)
         borderFrame = tk.Frame(titleFrame,borderwidth = 1, relief=tk.GROOVE,padx=20,pady=20)
         tk.Label(borderFrame,text="全省空氣品質指標_AQI",font=("Courier", 25, "italic")).pack()
-        publishTimeLabel = tk.Label(borderFrame,text="發佈時間:"+countyList[0].publishTime)
-        publishTimeLabel.pack()
+        self.publishTimeLabel = tk.Label(borderFrame,text="發佈時間:"+countyList[0].publishTime)
+        self.publishTimeLabel.pack()
         tk.Button(borderFrame,text="更新",padx=10,pady=10,command=self.userClickUpdate).pack(pady=(20,0),anchor=tk.E)
         borderFrame.pack()
         titleFrame.pack(padx=20,pady=20)
@@ -45,6 +45,9 @@ class Window(tk.Tk):
     def updateWindow(self):
         self.displayFrame.destroy()
         self.createDisplayFrame()
+        self.publishTimeLabel['text'] = "發佈時間:"+countyList[0].publishTime
+
+
 
     def userClickUpdate(self):
         data.updateData() #更新資料
