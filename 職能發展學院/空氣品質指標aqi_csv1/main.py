@@ -29,6 +29,12 @@ class Window(tk.Tk):
         canvasScorllBar.pack(side=tk.RIGHT,fill=tk.Y)
         # 下方的frame
         self.displayFrame = tk.Frame(canvas,bg='#cccccc')
+        self.displayFrame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(
+                scrollregion=canvas.bbox("all")
+            )
+        )
         for index, county in enumerate(countyList):
             tk.Label(self.displayFrame, text=county.name, bg='#cccccc').grid(row=index, column=0);
             tk.Label(self.displayFrame, text=county.siteName, bg='#cccccc').grid(row=index, column=1);
