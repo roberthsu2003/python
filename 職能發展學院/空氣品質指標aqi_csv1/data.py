@@ -23,6 +23,8 @@ def downloadAQIDataFromPlatForm():
     if response.status_code != 200:
         return
 
+    #錯誤的狀況是可以下載，但是內容是空的資料
+
     with open(FILE_NAME, 'wb') as fileObject:
         # 寫入檔案
         for chunk in response.iter_content(chunk_size=128):

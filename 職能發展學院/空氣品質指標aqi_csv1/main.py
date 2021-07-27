@@ -34,7 +34,7 @@ class Window(tk.Tk):
             if county.status != '良好':
                 statusLabel['fg'] = 'red'
             statusLabel.grid(row=index, column=3)
-        canvas.create_window((0,0),window=self.displayFrame)
+        canvas.create_window((0,0),window=self.displayFrame, anchor=tk.NW)
         canvas.pack()
 
     def updateWindow(self):
