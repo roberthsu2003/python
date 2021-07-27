@@ -3,6 +3,7 @@
 FILE_NAME = "aqi.csv"
 aqiData = None
 
+
 class County:
     def __init__(self):
         self.siteName = None
@@ -57,6 +58,7 @@ def readAndParseCSVFile():
             countyList.append(item)
 
         aqiData = countyList
+
 
 def updateData():
     readAndParseCSVFile()

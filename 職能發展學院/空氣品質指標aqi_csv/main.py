@@ -17,6 +17,19 @@ class Window(tk.Tk):
         borderFrame.pack()
         titleFrame.pack(padx=20,pady=20)
 
+        #下方的frame
+        displayFrame = tk.Frame(self)
+        tableFrame = tk.Frame(displayFrame)
+        for index,county in enumerate(countyList):
+            print(county.siteName, county.name, county.AQI, county.status, county.publishTime)
+            tk.Label(tableFrame,text=county.siteName).grid(row=index,column=0);
+            tk.Label(tableFrame, text=county.name).grid(row=index, column=1);
+            tk.Label(tableFrame, text=county.AQI).grid(row=index, column=2);
+            tk.Label(tableFrame, text=county.status).grid(row=index, column=3);
+        tableFrame.pack()
+        displayFrame.pack()
+
+
 
 if __name__ == "__main__":
     countyList = data.aqiData
