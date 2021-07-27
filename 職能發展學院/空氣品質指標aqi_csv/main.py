@@ -23,14 +23,14 @@ class Window(tk.Tk):
 
     def createDisplayFrame(self):
         # 下方的frame
-        displayFrame = tk.Frame(self)
+        self.displayFrame = tk.Frame(self)
         # 設定分欄
         columnsNum = 5
         rowsNum = len(countyList) // columnsNum + 1
         for index, county in enumerate(countyList):
             subIndex = index % rowsNum
             if subIndex == 0:
-                tableFrame = tk.Frame(displayFrame, bg='#cccccc')
+                tableFrame = tk.Frame(self.displayFrame, bg='#cccccc')
                 tableFrame.pack(side=tk.LEFT, padx=(20, 0), expand=True, fill=tk.Y)
             tk.Label(tableFrame, text=county.name, bg='#cccccc').grid(row=subIndex, column=0);
             tk.Label(tableFrame, text=county.siteName, bg='#cccccc').grid(row=subIndex, column=1);
@@ -39,10 +39,18 @@ class Window(tk.Tk):
             if county.status != '良好':
                 statusLabel['fg'] = 'red'
             statusLabel.grid(row=subIndex, column=3)
-        displayFrame.pack()
+        self.displayFrame.pack()
+
+    def updateWindow(self):
+        self.displayFrame.destroy()
+        self.createDisplayFrame()
 
     def userClickUpdate(self):
-        print("update")
+        data.updateData() #更新資料
+        self.updateWindow() #更新畫面
+
+
+
 
 
 

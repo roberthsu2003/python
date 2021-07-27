@@ -65,7 +65,8 @@ def readAndParseCSVFile():
 
 
 def updateData():
-    readAndParseCSVFile()
+    downloadAQIDataFromPlatForm()  # 下載檔案
+    readAndParseCSVFile()  # 解析下載的csv檔
 
 if __name__ != "__main__":
     downloadAQIDataFromPlatForm() #下載檔案
