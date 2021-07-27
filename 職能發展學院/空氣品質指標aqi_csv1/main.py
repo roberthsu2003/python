@@ -22,10 +22,12 @@ class Window(tk.Tk):
 
 
     def createDisplayFrame(self):
+        #建立bottomRootFrame
+        bottomRootFrame = tk.Frame(self)
         #建立canvas
-        canvas = tk.Canvas(self)
+        canvas = tk.Canvas(bottomRootFrame)
         #canvasScrollbar
-        canvasScorllBar = tk.Scrollbar(self, orient="vertical", command=canvas.yview)
+        canvasScorllBar = tk.Scrollbar(bottomRootFrame, orient="vertical", command=canvas.yview)
         canvasScorllBar.pack(side=tk.RIGHT,fill=tk.Y)
         # 下方的frame
         self.displayFrame = tk.Frame(canvas,bg='#cccccc')
@@ -46,6 +48,7 @@ class Window(tk.Tk):
         canvas.create_window((0,0),window=self.displayFrame, anchor=tk.NW)
         canvas.configure(yscrollcommand=canvasScorllBar.set)
         canvas.pack(side=tk.LEFT)
+        bottomRootFrame.pack(padx=20,pady=20)
 
     def updateWindow(self):
         self.displayFrame.destroy()
