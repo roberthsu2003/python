@@ -28,6 +28,7 @@ def readAndParseCSVFile():
     """
     解析下載完成的aqi.csv.
     傳出python的資料結構
+    傳出list,list內的元素是County實體
     """
 
     #下載檔案
@@ -54,12 +55,15 @@ def readAndParseCSVFile():
             item.status = row[4]
             item.publishTime = row[17]
             countyList.append(item)
+
         aqiData = countyList
 
 def updateData():
     readAndParseCSVFile()
 
-readAndParseCSVFile()
+if __name__ != "__main__":
+    readAndParseCSVFile()
+
 
 
 
