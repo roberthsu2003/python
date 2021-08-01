@@ -350,7 +350,7 @@ a=20.3
 ---
 
 ### 字串輸出格式化
-舊的語法:  
+## 舊的語法:  
 字串 % (變數,變數)
 
 | 符號 |  說明 |
@@ -383,7 +383,7 @@ a=20.3
 >>>
 ```
 
-新的語法:
+## 新的語法:
 
 	字串.format(變數,變數...)  
 
@@ -437,4 +437,23 @@ print("|{0:8}|".format(123))
  |     123|
 print("|{0:8}|".format("abc"))
  |abc     | 
+```
+
+## 字串插補(快速寫法)
+
+```python
+text = 'world'
+print(f'Hello, {text}')
+```
+
+```python
+x = 10
+y = 27
+
+print(f'x + y = {x + y}')
+```
+
+```python
+def hello(text, name):
+    return f'hello {text}, hello {name}'
 ```
