@@ -281,7 +281,7 @@ else:
 	else:
 		print("它是人類或是沒毛的熊")
 
-It's a cat.
+它是貓!
 
 ```
 
