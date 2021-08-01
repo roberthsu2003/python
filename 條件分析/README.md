@@ -321,6 +321,17 @@ print('root=',root)
 ```
 
 ```python
+chinese = 100
+math =100
+if chinese == 100 and math == 100:
+    print("獎金1000元")
+elif chinese == 100 or math == 100:
+    print("獎金500元")
+else:
+    print("沒有獎金")
+```
+
+```python
 x = 8
 >>> 5<x and x<10 
 True
