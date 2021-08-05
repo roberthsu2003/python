@@ -5,6 +5,7 @@ from threading import Timer
 class Window(tk.Tk):
     def __init__(self):
         super().__init__()
+        self.t = None
         self.title("股票成交價及時查詢提醒系統")
         mainFrame = tk.Frame(self, relief="groove",borderwidth=2)
         titleFrame = tk.Frame(mainFrame)
@@ -48,6 +49,9 @@ class Window(tk.Tk):
         mainFrame.pack(pady=30,ipadx=20,ipady=20)
 
     def getStockID(self):
+        if self.t:
+            self.t.cancel()
+
         inputID=self.stockIDEngry.get()
         stockInfo=getData(inputID)
         if not stockInfo.error:
@@ -63,13 +67,17 @@ class Window(tk.Tk):
 
     def repeatCheck(self):
         print("更新")
-        self.t = Timer(10,self.repeatCheck)
+        self.t = Timer(20,self.getStockID)
         self.t.start()
 
 
 
 def closeWindow():
     print("視窗關閉")
+    # 應用程式關閉,有t就關閉
+    if window.t:
+        window.t.cancel()
+
     window.destroy()
 
 
