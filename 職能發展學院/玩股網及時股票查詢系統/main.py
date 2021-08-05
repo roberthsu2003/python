@@ -19,6 +19,29 @@ class Window(tk.Tk):
         submitButton.grid(row=0,column=2,sticky=tk.E)
         self.inputFrame.pack()
 
+        # --------------建立顯示畫面 -----------
+        self.listFrame = tk.Frame(mainFrame)
+        tk.Label(self.listFrame,text='公司名',font=("Arial",14)).grid(row=0,column=0,sticky=tk.E,padx=10,pady=10)
+        self.companyLabel = tk.Label(self.listFrame,text="",font=("Arial",14))
+        self.companyLabel.grid(row=0,column=1, sticky=tk.W,padx=10,pady=10)
+        self.listFrame.pack()
+
+        tk.Label(self.listFrame, text='目前成交價:', font=("Arial", 14)).grid(row=1, column=0, sticky=tk.E, padx=10, pady=10)
+        self.closeLabel = tk.Label(self.listFrame, text="", font=("Arial", 14))
+        self.closeLabel.grid(row=1, column=1, sticky=tk.W, padx=10, pady=10)
+
+        tk.Label(self.listFrame, text='最高成交價:', font=("Arial", 14)).grid(row=2, column=0, sticky=tk.E, padx=10, pady=10)
+        self.highLabel = tk.Label(self.listFrame, text="", font=("Arial", 14))
+        self.highLabel.grid(row=2, column=1, sticky=tk.W, padx=10, pady=10)
+
+        tk.Label(self.listFrame, text='最低成交價:', font=("Arial", 14)).grid(row=3, column=0, sticky=tk.E, padx=10, pady=10)
+        self.lowLabel = tk.Label(self.listFrame, text="", font=("Arial", 14))
+        self.lowLabel.grid(row=3, column=1, sticky=tk.W, padx=10, pady=10)
+
+        tk.Label(self.listFrame, text='開盤價:', font=("Arial", 14)).grid(row=4, column=0, sticky=tk.E, padx=10, pady=10)
+        self.openLabel = tk.Label(self.listFrame, text="", font=("Arial", 14))
+        self.openLabel.grid(row=4, column=1, sticky=tk.W, padx=10, pady=10)
+
         mainFrame.pack(pady=30,ipadx=20,ipady=20)
 
     def getStockID(self):
