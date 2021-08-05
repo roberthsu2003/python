@@ -7,22 +7,21 @@ def getData(stock):
     stockInfo = StockInfo()
     stockInfo.id = stock
     url = "https://www.wantgoo.com/investrue/" + stock + "/daily-candlestick"
+    infoURL = "https://www.wantgoo.com/stock/" + stock + "/company-profile-data"
     header = {
         "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36"}
     try:
         response = requests.get(url, headers=header)
+        infoResponse = requests.get(infoURL, headers=header)
         response.raise_for_status()
     except HTTPError as e:
         print("伺服器錯誤")
-        print(f"錯誤:{e}")
         stockInfo.error = e
     except ConnectionError as e:
         print("連線錯誤")
-        print(f"錯誤:{e}")
         stockInfo.error = e
     except Timeout as e:
         print("伺服器忙錄")
-        print(f"錯誤:{e}")
         stockInfo.error = e
     else:
         try:
@@ -34,13 +33,10 @@ def getData(stock):
             stockInfo.millionAmount = json["millionAmount"]
             stockInfo.high = json["high"]
             stockInfo.low = json["low"]
+
+            infoJson = infoResponse.json()
+            stockInfo.name = infoJson["name"]
         except requests.exceptions.JSONDecodeError as e:
             print("json解析錯誤")
             stockInfo.error = "json解析錯誤"
-
-    infoURL = "https://www.wantgoo.com/stock/" + stock + "/company-profile-data"
-    infoResponse = requests.get(infoURL, headers=header)
-    infoJson = infoResponse.json()
-    stockInfo.name = infoJson["name"]
-
     return stockInfo
