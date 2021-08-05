@@ -1,5 +1,6 @@
 from datasource.source import getData
 import tkinter as tk
+from threading import Timer
 
 class Window(tk.Tk):
     def __init__(self):
@@ -57,6 +58,13 @@ class Window(tk.Tk):
             self.openLabel.configure(text=f"{stockInfo.open}元")
         else:
             print(stockInfo.error)
+
+        self.repeatCheck()
+
+    def repeatCheck(self):
+        print("更新")
+        self.t = Timer(10,self.repeatCheck)
+        self.t.start()
 
 
 
