@@ -26,7 +26,7 @@ def getData(stock):
     else:
         try:
             json = response.json()
-            if not json is None:
+            if not json is None: #如果使用者傳入的資料
                 stockInfo.time = json["time"]
                 stockInfo.open = json["open"]
                 stockInfo.close = json["close"]
