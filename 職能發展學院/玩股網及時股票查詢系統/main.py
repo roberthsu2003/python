@@ -4,10 +4,15 @@ import tkinter as tk
 class Window(tk.Tk):
     def __init__(self):
         super().__init__()
+
         self.title("股票成交價及時查詢提醒系統")
+def closeWindow():
+    print("視窗關閉")
+    window.destroy()
 
 if __name__ == "__main__":
     window = Window()
+    window.protocol("WM_DELETE_WINDOW",closeWindow)
     window.mainloop()
 
     """
