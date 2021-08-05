@@ -4,15 +4,23 @@ import tkinter as tk
 class Window(tk.Tk):
     def __init__(self):
         super().__init__()
-
         self.title("股票成交價及時查詢提醒系統")
+        mainFrame = tk.Frame(self, relief="groove",borderwidth=2)
+        titleFrame = tk.Frame(mainFrame)
+        tk.Label(titleFrame, text="股票成交價及時查詢系統",font=("Arial",20,'bold'),fg='#555555').pack(padx=10)
+        titleFrame.pack()
+        mainFrame.pack(pady=30,ipadx=20,ipady=20)
+
+
 def closeWindow():
     print("視窗關閉")
     window.destroy()
 
+
 if __name__ == "__main__":
     window = Window()
     window.protocol("WM_DELETE_WINDOW",closeWindow)
+    window.resizable(width=0,height=0)
     window.mainloop()
 
     """
