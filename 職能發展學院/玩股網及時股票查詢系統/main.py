@@ -1,6 +1,16 @@
 from datasource.source import getData
+import tkinter as tk
+
+class Window(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("股票成交價及時查詢提醒系統")
 
 if __name__ == "__main__":
+    window = Window()
+    window.mainloop()
+
+    """
     stockID = input("請輸入股票代號:")
     data = getData(stockID)
     if not data.error:
@@ -10,3 +20,5 @@ if __name__ == "__main__":
         print(f"收盤價:{data.close}")
     else:
         print("資類取得錯誤", data.error)
+    
+    """
