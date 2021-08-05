@@ -24,7 +24,7 @@ class Window(tk.Tk):
         tk.Label(self.listFrame,text='公司名',font=("Arial",14)).grid(row=0,column=0,sticky=tk.E,padx=10,pady=10)
         self.companyLabel = tk.Label(self.listFrame,text="",font=("Arial",14))
         self.companyLabel.grid(row=0,column=1, sticky=tk.W,padx=10,pady=10)
-        self.listFrame.pack()
+
 
         tk.Label(self.listFrame, text='目前成交價:', font=("Arial", 14)).grid(row=1, column=0, sticky=tk.E, padx=10, pady=10)
         self.closeLabel = tk.Label(self.listFrame, text="", font=("Arial", 14))
@@ -42,13 +42,19 @@ class Window(tk.Tk):
         self.openLabel = tk.Label(self.listFrame, text="", font=("Arial", 14))
         self.openLabel.grid(row=4, column=1, sticky=tk.W, padx=10, pady=10)
 
+        self.listFrame.pack()
+
         mainFrame.pack(pady=30,ipadx=20,ipady=20)
 
     def getStockID(self):
         inputID=self.stockIDEngry.get()
         stockInfo=getData(inputID)
         if not stockInfo.error:
-            print(stockInfo.name)
+            self.companyLabel.configure(text=stockInfo.name)
+            self.closeLabel.configure(text=f"{stockInfo.close}元")
+            self.highLabel.configure(text=f"{stockInfo.high}元")
+            self.lowLabel.configure(text=f"{stockInfo.low}元")
+            self.openLabel.configure(text=f"{stockInfo.open}元")
         else:
             print(stockInfo.error)
 
