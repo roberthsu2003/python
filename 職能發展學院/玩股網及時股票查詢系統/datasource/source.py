@@ -26,16 +26,22 @@ def getData(stock):
     else:
         try:
             json = response.json()
-            stockInfo.time = json["time"]
-            stockInfo.open = json["open"]
-            stockInfo.close = json["close"]
-            stockInfo.volume = json["volume"]
-            stockInfo.millionAmount = json["millionAmount"]
-            stockInfo.high = json["high"]
-            stockInfo.low = json["low"]
+            if not json is None:
+                stockInfo.time = json["time"]
+                stockInfo.open = json["open"]
+                stockInfo.close = json["close"]
+                stockInfo.volume = json["volume"]
+                stockInfo.millionAmount = json["millionAmount"]
+                stockInfo.high = json["high"]
+                stockInfo.low = json["low"]
+            else:
+                stockInfo.error = "無法解析資料"
 
             infoJson = infoResponse.json()
-            stockInfo.name = infoJson["name"]
+            if not infoJson is None:
+                stockInfo.name = infoJson["name"]
+            else:
+                stockInfo.error = "無法解析資料"
         except requests.exceptions.JSONDecodeError as e:
             print("json解析錯誤")
             stockInfo.error = "json解析錯誤"
