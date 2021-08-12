@@ -71,9 +71,8 @@ class Window(tk.Tk):
 def closeWindow():
     print("視窗關閉")
     # 應用程式關閉,有t就關閉
-    if window.t:
+    if window.t and window.t.is_alive():
         window.t.cancel()
-
     window.destroy()
 
 
