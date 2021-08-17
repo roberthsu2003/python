@@ -2,11 +2,6 @@ import requests
 from .stockInfo import StockInfo
 from requests import HTTPError, ConnectionError, Timeout
 
-#==========台灣證券交易所==============#
-#==========基本市況報導網站============#
-#==========切換為盤中零股行情==========#
-
-#https://mis.twse.com.tw/stock/index.jsp
 
 def getData(stock):
     stockInfo = StockInfo()
