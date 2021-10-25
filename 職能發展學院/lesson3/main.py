@@ -1,2 +1,3 @@
+import report
 if __name__ == "__main__":
-    print("main.py執行")
+    print("今天的天氣是:",report.get_description())
