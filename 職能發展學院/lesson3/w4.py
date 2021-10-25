@@ -1,4 +1,5 @@
 import tkinter as tk
+import tkinter.messagebox as msgbox
 
 class Window(tk.Tk):
     def __init__(self):
@@ -19,10 +20,12 @@ class Window(tk.Tk):
 
     def say_goodbye(self):
         self.label_text.set("GoodBye! \n 2秒鐘後")
+        msgbox.showinfo("Goodbye!","Goodbye, it's been fun!")
         self.after(2000, self.destroy)
 
     def say_hello(self):
-        self.label_text.set("Hello! Python!")
+        #self.label_text.set("Hello! Python!")
+        msgbox.showerror("Hello","Hello! python!")
 
 if __name__ == "__main__":
     window = Window()
