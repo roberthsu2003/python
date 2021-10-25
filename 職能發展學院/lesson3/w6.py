@@ -7,9 +7,14 @@ class Window(tk.Tk):
         self.title("tk button")
 
         self.label_text = tk.StringVar()
-        self.label_text.set("請選擇一個按鈕")
+        self.label_text.set("請輸入姓名:")
+
         label = tk.Label(self,textvar=self.label_text,font=("arial",20))
         label.pack(padx=100, pady=50)
+
+        self.name_text = tk.StringVar()
+        name_entry = tk.Entry(self, textvar=self.name_text)
+        name_entry.pack(padx=20,pady=20)
 
         hello_button = tk.Button(self, text="Say Hello",font=("arial", 20),padx=5,pady=5,command=self.say_hello)
         hello_button.pack(side=tk.LEFT,padx=20,pady=20)
@@ -26,8 +31,8 @@ class Window(tk.Tk):
             msgbox.showerror("noClose", "Not Close")
 
     def say_hello(self):
-        #self.label_text.set("Hello! Python!")
-        msgbox.showerror("Hello","Hello! python!")
+        name = self.name_text.get()
+        msgbox.showinfo("Hello",f"{name}您好")
 
 if __name__ == "__main__":
     window = Window()
