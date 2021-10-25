@@ -3,12 +3,15 @@ def download_youbike_data():
     youbike_url = "https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.json"
     response = requests.get(youbike_url)
     if response.status_code == 200:
-        print("下載成功")
+
         #print(response.encoding)
         return response.json()
     else:
-        print("下載失敗")
+
         return None
+
+def parse_youbike_JSON(json):
+    return list(json['retVal'].values())
 
 
 
@@ -17,6 +20,8 @@ def get_youbike_data():
     origanJSON = download_youbike_data()
     #origanJSON下載失敗會是None
     if(origanJSON):
-        print(origanJSON)
+        youbikeData = parse_youbike_JSON(origanJSON)
+        return youbikeData
     else:
-        print("下載失敗")
+        return None
+
