@@ -5,6 +5,7 @@ def get_atm_address():
     if response.status_code == 200:
         csv_text = response.text
         print(csv_text)
+        return None
     else:
         print(f"下載失敗{response.status_code}");
         return None
