@@ -1,5 +1,6 @@
 #!usr/bin/python3.9
 import random as rd
+import sqlite3
 
 def getAwesome():
     awesomeNum = set()
@@ -10,6 +11,9 @@ def getAwesome():
     return (awesomeList,specialNum)
 
 def insertOneRowToSqlite(date,sixList,oneItem):
+    conn = sqlite3.connect('loto.db')
+    cursor = conn.cursor()
+    sqlString = "INSERT INTO awesome (日期,num1,num2,num3,num4,num5,num6,特別號) VALUES ('20170301',2, 25, 26, 36, 38, 47,24)"
     print(date)
     print(sixList)
     print(oneItem)
