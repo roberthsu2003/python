@@ -35,7 +35,10 @@ if __name__ == "__main__":
         print(f"特別號:{one}")
         print()
     '''
-    six, one = getAwesome()
-    insertOneRowToSqlite("20170401",six,one)
+    dateList = ["20170401","20170402","20170403","20170404","20170405","20170406","20170407","20170408","20170409","201704010"]
+
+    for itemdate in dateList:
+        six, one = getAwesome()
+        insertOneRowToSqlite(itemdate,six,one)
 
 
