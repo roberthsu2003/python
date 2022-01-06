@@ -13,10 +13,11 @@ def getAwesome():
 def insertOneRowToSqlite(date,sixList,oneItem):
     conn = sqlite3.connect('loto.db')
     cursor = conn.cursor()
-    sqlString = "INSERT INTO awesome (日期,num1,num2,num3,num4,num5,num6,特別號) VALUES ('20170301',2, 25, 26, 36, 38, 47,24)"
-    print(date)
-    print(sixList)
-    print(oneItem)
+    sqlString = f"INSERT INTO awesome (日期,num1,num2,num3,num4,num5,num6,特別號) VALUES ({date},{sixList[0]}, {sixList[1]}, {sixList[2]}, {sixList[3]}, {sixList[4]}, {sixList[5]},{oneItem})"
+    cursor.execute(sqlString)
+    cursor.commit()
+    cursor.close()
+    print("insert 成功")
 
 
 if __name__ == "__main__":
