@@ -9,10 +9,16 @@ def getAwesome():
     specialNum = awesomeList.pop(rd.randint(0,6))
     return (awesomeList,specialNum)
 
+def insertOneRowToSqlite(date,sixList,oneItem):
+    print(date)
+    print(sixList)
+    print(oneItem)
+
 
 if __name__ == "__main__":
     # 大樂透
     # 1~49,6號碼+特別號
+    '''
     whichSet = int(input("大樂透電腦選號(組數):"))
     print("大樂透電腦選號:")
     for i in range(whichSet):
@@ -22,3 +28,8 @@ if __name__ == "__main__":
             print(num, end=' ')
         print(f"特別號:{one}")
         print()
+    '''
+    six, one = getAwesome()
+    insertOneRowToSqlite("20170301",six,one)
+
+
