@@ -31,5 +31,5 @@ from datetime import date
 Session = sessionmaker(bind=engine)
 session = Session()
 
-pm25_1 = session.query(PM25).filter_by(sitename='淡水').first()
-print(pm25_1.county,pm25_1.sitename,pm25_1.monitordate,pm25_1.concentration)
+for instance in session.query(PM25):
+    print(instance.sitename)
