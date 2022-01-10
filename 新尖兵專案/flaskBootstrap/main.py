@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask,render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return '<div style="font-size:2rem;color:red"> Hello! World</div>'
+    return render_template('index.html')
