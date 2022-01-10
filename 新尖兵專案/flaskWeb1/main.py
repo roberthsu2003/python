@@ -7,6 +7,6 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/name/')
-def name():
-    return "<h1>RobertHsu</h1>"
+@app.route('/index2')
+def index2():
+    return render_template('index2.html')
