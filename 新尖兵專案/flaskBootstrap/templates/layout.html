@@ -7,6 +7,17 @@
 
     <!-- Bootstrap CSS -->
     <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <style>
+        h1{
+            background-color:#FC9F4D;
+            height:200px;
+            margin: 20px 20px 20px 20px;
+            border-style:solid;
+            border-width:5px;
+            border-color:black;
+            padding: 20px 20px 20px 20px
+        }
+    </style>
 
     <title>CSS排版</title>
 </head>
@@ -14,19 +25,19 @@
 <header>
     {% include 'navbar.html' %}
     <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">box模型</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
-  </li>
-</ul>
+        <li class="nav-item">
+            <a aria-current="page" class="nav-link active" href="#">box模型</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+        </li>
+    </ul>
 </header>
 
 <h1>Layout</h1>
