@@ -10,3 +10,7 @@ def index():
 @app.route('/layout/box')
 def layout():
     return render_template('layout.html')
+
+@app.route('/layout/container')
+def container():
+    return  render_template('container.html')
