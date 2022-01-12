@@ -1,0 +1,42 @@
+{% extends "super/base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <style>
+            h1{
+                background-color:#FC9F4D;
+                height:200px;
+                margin: 20px 20px 20px 20px;
+                border-style:solid;
+                border-width:5px;
+                border-color:black;
+                padding: 20px 20px 20px 20px;
+            }
+    </style>
+{% endblock %}
+
+{% block title%}box模型{% endblock %}
+
+{% block content %}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a aria-current="page" class="nav-link" href="/layout/box">box模型</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/layout/container">容器</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+        </li>
+    </ul>
+<h1>Layout</h1>
+{% endblock %}
+
+{% block footer%}
+{% endblock %}
+
+
+
