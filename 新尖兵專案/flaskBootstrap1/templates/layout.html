@@ -1,36 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
+{% extends "super/base.html" %}
 
-    <!-- Bootstrap CSS -->
-    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+{% block head %}
+    {{ super() }}
     <style>
-        h1{
-            background-color:#FC9F4D;
-            height:200px;
-            margin: 20px 20px 20px 20px;
-            border-style:solid;
-            border-width:5px;
-            border-color:black;
-            padding: 20px 20px 20px 20px;
-        }
+            h1{
+                background-color:#FC9F4D;
+                height:200px;
+                margin: 20px 20px 20px 20px;
+                border-style:solid;
+                border-width:5px;
+                border-color:black;
+                padding: 20px 20px 20px 20px;
+            }
     </style>
+{% endblock %}
 
-    <title>CSS排版</title>
-</head>
-<body>
-<header>
-    {% include 'navbar.html' %}
-    {% include 'sub_bar.html' %}
-</header>
+{% block title%}box模型{% endblock %}
 
+{% block content %}
 <h1>Layout</h1>
+{% endblock %}
 
-<script src="{{url_for('static', filename='js/bootstrap.bundle.js')}}"></script>
+{% block footer%}
+{% endblock %}
 
 
-</body>
-</html>
+
