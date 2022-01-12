@@ -11,13 +11,17 @@
             {% endif %}
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/layout/container">容器</a>
+            {% if name=='container' %}
+                <a class="nav-link active" href="/layout/container">容器</a>
+            {% else %}
+                <a class="nav-link" href="/layout/container">容器</a>
+            {% endif %}
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">不連結</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
+            <a class="nav-link disabled">96個中標</a>
         </li>
     </ul>
 
