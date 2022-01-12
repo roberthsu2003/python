@@ -4,10 +4,16 @@
 <div class="container-lg">
     <div class="row">
         <div class="col-2">
-            navi
+            <nav class="nav flex-column">
+                <a aria-current="page" class="nav-link active" href="#">Active</a>
+                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link disabled">Disabled</a>
+            </nav>
         </div>
         <div class="col-10">
-            display
+            {% block rightArea %}
+            {% endblock %}
         </div>
     </div>
 </div>
