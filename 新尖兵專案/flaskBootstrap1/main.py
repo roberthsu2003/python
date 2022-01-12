@@ -14,3 +14,7 @@ def layout():
 @app.route('/layout/container')
 def container():
     return  render_template('container.html',name="container")
+
+@app.route('/layout/columns')
+def columns():
+    return render_template('columns.html',name="columns")
