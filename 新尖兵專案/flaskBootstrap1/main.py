@@ -18,3 +18,7 @@ def container():
 @app.route('/layout/columns')
 def columns():
     return render_template('columns.html',name="columns")
+
+@app.route('/table')
+def table():
+    return render_template('table.html',name='table')
