@@ -4,11 +4,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-
     <!-- Bootstrap CSS -->
+    {% block head %}
     <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
-
     <title>{% block title%}title{% endblock %}</title>
+
+    {% endblock %}
 </head>
 <body>
 <header>
@@ -42,7 +43,13 @@
         </div>
     </nav>
 </header>
+{% block content %}
+內容區
+{% endblock %}
 
+{% block footer%}
+頁尾區
+{% endblock %}
 
 <script src="{{url_for('static', filename='js/bootstrap.bundle.js')}}"></script>
 </body>
