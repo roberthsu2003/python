@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Bootstrap CSS -->
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+
+
+    <title>CSS排版-容器</title>
+</head>
+<body>
+<header >
+    {% include 'navbar.html' %}
+    {% include 'sub_bar.html' %}
+</header>
+
+<main class="container-lg" style="background-color:#333333;color:#ffffff">
+    內容-{{ name }}
+
+  <div class="row">
+    <div class="col-12 col-lg-4">
+      Column
+    </div>
+    <div class="col-12 col-lg-4">
+      Column
+    </div>
+    <div class="col-12 col-lg-4">
+      Column
+    </div>
+  </div>
+
+</main>
+
+
+
+<script src="{{url_for('static', filename='js/bootstrap.bundle.js')}}"></script>
+
+
+</body>
+</html>
