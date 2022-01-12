@@ -9,7 +9,7 @@ def index():
 @app.route('/layout')
 @app.route('/layout/box')
 def layout():
-    return render_template('layout.html')
+    return render_template('layout.html',name='layout')
 
 @app.route('/layout/container')
 def container():
