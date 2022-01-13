@@ -24,4 +24,4 @@ def table():
         datalist = list(csvReader)
     print(len(datalist))
 
-    return render_template('table.html',name='table')
+    return render_template('table.html',name='table',datalist=datalist)
