@@ -4,6 +4,10 @@ from tableViews.table import  tableApp
 app = Flask(__name__)
 app.register_blueprint(tableApp)
 
+@app.errorhandler(404)
+def error404(err):
+    return render_template('error404.html'),404
+
 @app.route('/')
 def index():
     return render_template('index.html')
