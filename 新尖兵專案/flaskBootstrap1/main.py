@@ -1,6 +1,8 @@
 from flask import Flask,render_template
+from tableViews.table import  tableApp
 
 app = Flask(__name__)
+app.register_blueprint(tableApp)
 
 @app.route('/')
 def index():
@@ -19,6 +21,3 @@ def container():
 def columns():
     return render_template('columns.html',name="columns")
 
-@app.route('/table')
-def table():
-    return render_template('table.html',name='table')
