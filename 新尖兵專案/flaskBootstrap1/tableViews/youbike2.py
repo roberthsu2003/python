@@ -39,4 +39,4 @@ def youbike(region):
             print(value)
             print("=========")
 
-    return render_template('youbike.html',data=dataDict)
+    return render_template('youbike.html',data=dataDict,regions=sareas)

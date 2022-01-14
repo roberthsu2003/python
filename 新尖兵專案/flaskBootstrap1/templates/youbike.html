@@ -1,5 +1,12 @@
 {% extends 'super/tablebase.html' %}
 {% block content %}
     {{super()}}
-    {{data}}
+{% endblock %}
+
+{% block rightArea %}
+    {% for region in regions %}
+        <h1>{{region}}</h1>
+    {% set list = data[region] %}
+        {{list}}
+    {% endfor %}
 {% endblock %}
