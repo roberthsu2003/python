@@ -4,7 +4,6 @@ from requests import ConnectionError,ConnectTimeout,HTTPError,TooManyRedirects
 
 youbikeApp = Blueprint('youbike',__name__)
 url = 'https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json'
-
 @youbikeApp.errorhandler(500)
 def internal_server_error(error):
     return render_template('error404.html'), 500
@@ -25,4 +24,8 @@ def youbike(region):
         abort(500)
     except:
         abort(500)
-    return render_template('youbike.html')
+
+    if region is None:
+        jsonObject = response.json()
+
+    return render_template('youbike.html',data=jsonObject)
