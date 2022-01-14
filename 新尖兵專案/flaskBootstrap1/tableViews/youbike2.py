@@ -29,6 +29,14 @@ def youbike(region):
         jsonObject = response.json()
 
         sareas = list({siteDict['sarea'] for siteDict in jsonObject})
-        print(sareas)
+        dataDict = dict()
+        for key in sareas:
+            regionList = [item for item in jsonObject if item['sarea'] == key]
+            dataDict[key] = regionList
 
-    return render_template('youbike.html',data=jsonObject)
+        for key,value in dataDict.items():
+            print(key)
+            print(value)
+            print("=========")
+
+    return render_template('youbike.html',data=dataDict)
