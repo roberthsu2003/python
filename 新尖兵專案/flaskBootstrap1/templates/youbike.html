@@ -4,13 +4,14 @@
 {% endblock %}
 
 {% block rightArea %}
-    <h1 id="demo"></h1>
-    <select aria-label="Default select example" class="form-select">
+    <label for="regionSelected">區域選取</label>
+    <select id="regionSelected" aria-label="Default select example" class="form-select">
         <option selected>所有區域</option>
         {% for region in regions %}
          <option>{{region}}</option>
         {% endfor %}
     </select>
+    <button id="btn">GO</button>
 
     {% for region in regions %}
         <h1>{{region}}</h1>
@@ -46,6 +47,11 @@
 
 {% block script%}
 <script>
-    document.getElementById("demo").innerHTML = "我的第一段 JavaScript";
+    const btn = document.querySelector('#btn');
+    const rs = document.querySelector('#regionSelected')
+    btn.onclick = (event) => {
+        event.preventDefault();
+        alert(rs.selectedIndex);
+    }
 </script>
 {% endblock %}
