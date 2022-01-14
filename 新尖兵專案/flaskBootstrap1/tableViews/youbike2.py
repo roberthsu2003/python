@@ -28,4 +28,7 @@ def youbike(region):
     if region is None:
         jsonObject = response.json()
 
+        sareas = list({siteDict['sarea'] for siteDict in jsonObject})
+        print(sareas)
+
     return render_template('youbike.html',data=jsonObject)
