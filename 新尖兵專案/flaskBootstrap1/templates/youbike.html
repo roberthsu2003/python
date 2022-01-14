@@ -7,6 +7,31 @@
     {% for region in regions %}
         <h1>{{region}}</h1>
     {% set list = data[region] %}
-        {{list}}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">站名</th>
+                <th scope="col">時間</th>
+                <th scope="col">車容量數</th>
+                <th scope="col">可借</th>
+                <th scope="col">可還</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+            </tr>
+            {%for dict in list%}
+            <tr>
+               <th scope="row">{{dict['sna']}}</th>
+                <td>{{dict['mday']}}</td>
+                <td>{{dict['tot']}}</td>
+                <td>{{dict['sbi']}}</td>
+                <td>{{dict['bemp']}}</td>
+            </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
     {% endfor %}
 {% endblock %}
