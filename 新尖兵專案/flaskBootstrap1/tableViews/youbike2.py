@@ -3,13 +3,13 @@ import requests
 from requests import ConnectionError,ConnectTimeout,HTTPError,TooManyRedirects
 
 youbikeApp = Blueprint('youbike',__name__)
-url = 'https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v3/youbike_immediate.json'
+url = 'https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json'
 
 @youbikeApp.errorhandler(500)
 def internal_server_error(error):
     return render_template('error404.html'), 500
 
-@youbikeApp.route('/table/youbike')
+@youbikeApp.route('/table/youbike',defaults={'region':None})
 @youbikeApp.route('/table/youbike/<region>')
 def youbike(region):
     try:
