@@ -10,4 +10,9 @@ def countdown(n):
 from threading import Thread
 t = Thread(target=countdown,args=(5,))
 t.start()
-print("主執行緒結束")
+
+while t.is_alive():
+    print('次執行緒執行中')
+    time.sleep(1)
+else:
+    print('次執行緒完成')
