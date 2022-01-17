@@ -29,7 +29,6 @@ def youbike(region):
     sareas = list({siteDict['sarea'] for siteDict in jsonObject})
 
     if region is None:
-
         dataDict = dict()
         for key in sareas:
             regionList = [item for item in jsonObject if item['sarea'] == key]
@@ -43,5 +42,4 @@ def youbike(region):
         return render_template('youbike.html', data=dataDict, regions=sareas)
     else:
         areaList=[item for item in jsonObject if item['sarea'] == region]
-        print(areaList)
         return render_template('youbike1.html', data=areaList, regions=sareas,region=region)

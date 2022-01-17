@@ -47,11 +47,19 @@
 
 {% block script%}
 <script>
-    const btn = document.querySelector('#btn');
+    const btn = document.querySelector('#btn')
     const rs = document.querySelector('#regionSelected')
     btn.onclick = (event) => {
-        event.preventDefault();
-        alert(rs.selectedIndex);
+        event.preventDefault()
+        console.log(rs.options[rs.selectedIndex].text)
+        selectedIndex = rs.selectedIndex
+        area = rs.options[selectedIndex].text
+        if(selectedIndex == 0){
+            //window.location = window.location
+        }else{
+            window.location = 'youbike/' + area;
+        }
+
     }
 </script>
 {% endblock %}
