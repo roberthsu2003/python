@@ -1,6 +1,6 @@
-from flask import Blueprint
+from flask import Blueprint,render_template
 sqlApp = Blueprint("sql",__name__)
 
 @sqlApp.route('/sqlalchemy')
 def loto():
-    return "<h1>SQLALCHEMY</h1>"
+    return render_template('loto.html')
