@@ -1,10 +1,12 @@
 from flask import Flask,render_template
 from tableViews.table import  tableApp
 from tableViews.youbike2 import youbikeApp
+from sqlViews.loto import sqlApp
 
 app = Flask(__name__)
 app.register_blueprint(tableApp)
 app.register_blueprint(youbikeApp)
+app.register_blueprint(sqlApp)
 
 @app.errorhandler(404)
 def error404(err):
