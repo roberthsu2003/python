@@ -11,6 +11,9 @@ from threading import Thread
 t = Thread(target=countdown,args=(5,))
 t.start()
 
+t.join()
+print("次執行緒執行完畢")
+
 while t.is_alive():
     print('次執行緒執行中')
     time.sleep(1)
