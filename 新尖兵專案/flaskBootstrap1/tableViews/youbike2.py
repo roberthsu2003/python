@@ -1,5 +1,5 @@
 from flask import Blueprint,render_template,abort
-import requests
+import requests,json
 from requests import ConnectionError,ConnectTimeout,HTTPError,TooManyRedirects
 
 youbikeApp = Blueprint('youbike',__name__)
@@ -62,4 +62,4 @@ def regions_api():
 
     jsonObject = response.json()
     sareas = list({siteDict['sarea'] for siteDict in jsonObject})
-    return str(sareas)
+    return json.dumps(sareas,ensure_ascii=False)
