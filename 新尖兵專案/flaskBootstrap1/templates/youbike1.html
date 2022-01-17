@@ -1,0 +1,58 @@
+{% extends 'super/tablebase.html' %}
+{% block content %}
+    {{super()}}
+{% endblock %}
+
+{% block rightArea %}
+    <label for="regionSelected">區域選取</label>
+    <select id="regionSelected" aria-label="Default select example" class="form-select">
+        <option selected>所有區域</option>
+        {% for region in regions %}
+         <option>{{region}}</option>
+        {% endfor %}
+    </select>
+    <button id="btn">GO</button>
+
+
+        <h1>{{region}}</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">站名</th>
+                <th scope="col">時間</th>
+                <th scope="col">車容量數</th>
+                <th scope="col">可借</th>
+                <th scope="col">可還</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+            </tr>
+
+            {%for dict in data%}
+            <tr>
+               <th scope="row">{{dict['sna']}}</th>
+                <td>{{dict['mday']}}</td>
+                <td>{{dict['tot']}}</td>
+                <td>{{dict['sbi']}}</td>
+                <td>{{dict['bemp']}}</td>
+            </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+
+{% endblock %}
+
+{% block script%}
+<script>
+    const btn = document.querySelector('#btn');
+    const rs = document.querySelector('#regionSelected')
+    btn.onclick = (event) => {
+        event.preventDefault();
+        alert(rs.selectedIndex);
+    }
+</script>
+{% endblock %}
