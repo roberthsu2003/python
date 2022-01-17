@@ -4,15 +4,22 @@
 {% endblock %}
 
 {% block rightArea %}
-    <label for="regionSelected">區域選取</label>
-    <select id="regionSelected" aria-label="Default select example" class="form-select">
-        <option selected>所有區域</option>
-        {% for region in regions %}
-         <option>{{region}}</option>
-        {% endfor %}
-    </select>
-    <button id="btn">GO</button>
-
+    <div class="container-lg mt-3 mb-5">
+        <div class="row">
+            <div class="col-auto">
+                <label for="regionSelected" class="mb-3 d-none" >區域選取</label>
+                <select id="regionSelected" aria-label="Default select example" class="form-select">
+                    <option selected>所有區域</option>
+                    {% for region in regions %}
+                     <option>{{region}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-auto">
+                <button id=btn type="button" class="btn btn-secondary">GO</button>
+            </div>
+        </div>
+    </div>
     {% for region in regions %}
         <h1>{{region}}</h1>
     {% set list = data[region] %}
