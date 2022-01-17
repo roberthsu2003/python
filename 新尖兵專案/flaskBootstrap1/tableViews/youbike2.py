@@ -43,3 +43,23 @@ def youbike(region):
     else:
         areaList=[item for item in jsonObject if item['sarea'] == region]
         return render_template('youbike1.html', data=areaList, regions=sareas,region=region)
+
+@youbikeApp.route('/table/youbike/api/regions')
+def regions_api():
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+    except ConnectionError as e:
+        abort(500)
+    except ConnectTimeout as e:
+        abort(500)
+    except HTTPError as e:
+        abort(500)
+    except TooManyRedirects as e:
+        abort(500)
+    except:
+        abort(500)
+
+    jsonObject = response.json()
+    sareas = list({siteDict['sarea'] for siteDict in jsonObject})
+    return str(sareas)
