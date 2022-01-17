@@ -7,3 +7,4 @@ def countDown(n):
         t.start()
 
 countDown(10)
+print("主執行緒結束")
