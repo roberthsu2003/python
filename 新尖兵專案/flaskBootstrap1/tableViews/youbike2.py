@@ -63,3 +63,28 @@ def regions_api():
     jsonObject = response.json()
     sareas = list({siteDict['sarea'] for siteDict in jsonObject})
     return json.dumps(sareas,ensure_ascii=False)
+
+@youbikeApp.route('/table/youbike/api')
+def youbike_api():
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+    except ConnectionError as e:
+        abort(500)
+    except ConnectTimeout as e:
+        abort(500)
+    except HTTPError as e:
+        abort(500)
+    except TooManyRedirects as e:
+        abort(500)
+    except:
+        abort(500)
+
+    jsonObject = response.json()
+    sareas = list({siteDict['sarea'] for siteDict in jsonObject})
+    dataDict = dict()
+    for key in sareas:
+        regionList = [item for item in jsonObject if item['sarea'] == key]
+        dataDict[key] = regionList
+
+    return json.dumps(dataDict,ensure_ascii=False)
