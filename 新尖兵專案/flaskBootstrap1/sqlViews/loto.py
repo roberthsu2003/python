@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime
 from datetime import datetime
+from sqlalchemy.orm import Session
 
 sqlApp = Blueprint("sql",__name__)
 
@@ -22,9 +23,14 @@ class Loto(Base):
     def __repr__(self):
         return f"<(日期='{self.日期}', num1={self.num1}, num2={self.num2},num3={self.num3},num4={self.num4},num5={self.num5},num6={self.num6},特別號={self.特別號})>"
 
-#Loto(日期=datetime.now(),num1=23, num2=45, num3=13, num4=25, num5=42, num6=3, 特別號=8)
+
 engine = create_engine("sqlite:///sqlViews/data.db", echo=True)
 Base.metadata.create_all(engine)
+
+loto=Loto(日期=datetime.now(),num1=23, num2=45, num3=13, num4=25, num5=42, num6=3, 特別號=8)
+session = Session(engine)
+session.add(loto)
+session.commit()
 
 @sqlApp.route('/sqlalchemy')
 @sqlApp.route('/sqlalchemy/loto')
