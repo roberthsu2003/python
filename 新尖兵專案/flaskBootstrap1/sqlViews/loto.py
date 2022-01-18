@@ -27,10 +27,10 @@ class Loto(Base):
 engine = create_engine("sqlite:///sqlViews/data.db", echo=True)
 Base.metadata.create_all(engine)
 
-loto=Loto(日期=datetime.now(),num1=23, num2=45, num3=13, num4=25, num5=42, num6=3, 特別號=8)
-session = Session(engine)
-session.add(loto)
-session.commit()
+#loto=Loto(日期=datetime.now(),num1=23, num2=45, num3=13, num4=25, num5=42, num6=3, 特別號=8)
+#session = Session(engine)
+#session.add(loto)
+#session.commit()
 
 @sqlApp.route('/sqlalchemy')
 @sqlApp.route('/sqlalchemy/loto',methods=['GET', 'POST'])

@@ -39,10 +39,17 @@
     </div>
     <input type="submit" value="送出資料">
 </form>
+<button type="button" class="btn btn-primary" id="createdRandom">建立亂數</button>
 {% endblock %}
 
 {% block footer%}
 {% endblock %}
 
 {% block script%}
+<script>
+    var randomBtn = document.getElementById('createdRandom')
+    randomBtn.onclick = (event) => {
+        console.log("click")
+    }
+</script>
 {% endblock %}
