@@ -47,9 +47,20 @@
 
 {% block script%}
 <script>
-    var randomBtn = document.getElementById('createdRandom')
+    var randomBtn = document.getElementById('createdRandom');
     randomBtn.onclick = (event) => {
-        console.log("click")
+        const max = 49
+        const min = 1
+        //var num =(Math.floor(Math.random() * 100000)) % (max-min+1) + 1;
+        //console.log(num);
+        var nums = [];
+        while(nums.length<7){
+            var num =(Math.floor(Math.random() * 100000)) % (max-min+1) + 1;
+            if(!nums.includes(num)){
+                nums.push(num)
+            }
+        }
+        console.log(nums)
     }
 </script>
 {% endblock %}
