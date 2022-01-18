@@ -1,1 +1,14 @@
 {% extends 'super/sqlbase.html' %}
+
+{% block content %}
+{{ super() }}
+<form method="post" action="./sqlalchemy">
+<input type="submit" value="送出資料">
+</form>
+{% endblock %}
+
+{% block footer%}
+{% endblock %}
+
+{% block script%}
+{% endblock %}
