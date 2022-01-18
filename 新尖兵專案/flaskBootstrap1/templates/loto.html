@@ -2,8 +2,42 @@
 
 {% block content %}
 {{ super() }}
-<form method="post" action="./sqlalchemy">
-<input type="submit" value="送出資料">
+<form method="post" action="/sqlalchemy/loto">
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="num1">num1</span>
+        <input type="text" class="form-control" placeholder="號碼1" aria-label="Username" aria-describedby="addon-wrapping">
+    </div>
+
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="num2">num2</span>
+        <input type="text" class="form-control" placeholder="號碼2" aria-label="Username" aria-describedby="addon-wrapping">
+    </div>
+
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="num3">num3</span>
+        <input type="text" class="form-control" placeholder="號碼3" aria-label="Username" aria-describedby="addon-wrapping">
+    </div>
+
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="num4">num4</span>
+        <input type="text" class="form-control" placeholder="號碼4" aria-label="Username" aria-describedby="addon-wrapping">
+    </div>
+
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="num5">num5</span>
+        <input type="text" class="form-control" placeholder="號碼5" aria-label="Username" aria-describedby="addon-wrapping">
+    </div>
+
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="num6">num6</span>
+        <input type="text" class="form-control" placeholder="號碼6" aria-label="Username" aria-describedby="addon-wrapping">
+    </div>
+
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="num7">特別號</span>
+        <input type="text" class="form-control" placeholder="特別號" aria-label="Username" aria-describedby="addon-wrapping">
+    </div>
+    <input type="submit" value="送出資料">
 </form>
 {% endblock %}
 

@@ -33,6 +33,6 @@ session.add(loto)
 session.commit()
 
 @sqlApp.route('/sqlalchemy')
-@sqlApp.route('/sqlalchemy/loto')
+@sqlApp.route('/sqlalchemy/loto',methods=['GET', 'POST'])
 def loto():
     return render_template('loto.html',name='loto')
