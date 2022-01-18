@@ -2,7 +2,7 @@ var hotel = {
     name: 'Quay',
     rooms: 40,
     booked: 25,
-    checkAvailability: function() {
+    checkAvailability() {
         return this.rooms - this.booked;
     }
 };
