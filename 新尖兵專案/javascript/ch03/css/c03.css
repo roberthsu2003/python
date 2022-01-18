@@ -1,0 +1,130 @@
+/* JavaScript & jQuery - Chapter 3: Functions, Methods & Programming */
+/* The book used a font called Eau Sans - the download examples use Open Sans */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  background-color: #fff;
+  background: url("../images/travelworthy-backdrop.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;}
+
+h1 {
+  background: #1e1b1e url("../images/travelworthy-logo.gif") no-repeat;
+  width: 230px;
+  height: 180px;
+  float: left;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;}
+
+h2 {
+  margin: 1.75em 0 0 0;
+  color: #adffda; 
+  font-weight: normal;}
+
+h2 + p {
+  margin: 0.25em 0 0 0;}
+p + p {
+  margin: 0;}
+p + h2 {
+  margin: 10px 0 0 0;}
+
+/* message under the logo */
+
+#message {
+  float: left;
+  clear: left;
+  background-color: #ffb87a;
+  color: #1e1b1e;
+  width:170px;
+  padding: 18px 30px;
+  text-align: center;}
+
+/* black bar across the right hand side of the page */
+
+#info {
+  background-color: #1e1b1e;
+  color: #fff;
+  width: 200px;
+  padding: 0 15px;
+  text-align: center;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  right: 15%;}
+
+/* details in the black bar */
+
+#hotelName {
+  text-transform: uppercase;
+  text-align: center; 
+  font-size: 120%;
+  margin-top: 10px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff; 
+  padding: 10px 0;}
+
+#hotel1 {
+  margin-top: 1em; 
+  border-top: 1px solid #fff; 
+  padding-top: 1em;} 
+#hotel2 {
+  border-bottom: 1px solid #fff; 
+  padding-bottom: 1em;}
+
+#rooms {
+  font-size: 440%;
+  color: #ffb87a;
+  display: inline-block;
+  margin: 0;}
+
+#roomRate{
+  text-decoration: line-through;
+  display: inline-block;
+  float: left;
+  padding-top: 10px;}
+
+#specialRate {  
+  font-size: 440%;
+  color: #ffb87a;
+  display: inline-block;
+  padding: 10px 0 20px 0;
+  margin: 0;}
+
+#offerEnds {
+  text-transform: uppercase;
+  color: #ffb87a;
+  font-size: 75%;}
+
+.true, .false {
+  padding: 0 50px 0 50px;
+  line-height: 28px;
+  text-align: left;
+  background-image: url("../images/check-cross.png");
+  background-position: 120px 0;
+  background-repeat: no-repeat;}
+
+.false {
+  background-position: 120px -28px;}
+
+/* footer */
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #adffda;}
+
+#footer p {
+  padding: 10px;
+  margin: 0;}
+
+.data {
+  padding: 10px;}
