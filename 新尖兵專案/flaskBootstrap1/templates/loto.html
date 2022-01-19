@@ -40,7 +40,36 @@
     <input type="submit" value="送出資料">
 </form>
 <button type="button" class="btn btn-primary" id="createdRandom">建立亂數</button>
-{{data[0].日期}}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">日期</th>
+        <th scope="col">號碼1</th>
+        <th scope="col">號碼2</th>
+        <th scope="col">號碼3</th>
+        <th scope="col">號碼4</th>
+        <th scope="col">號碼5</th>
+        <th scope="col">號碼6</th>
+        <th scope="col">特別號</th>
+      </tr>
+    </thead>
+    <tbody>
+       {% for item in data%} 
+      <tr>
+        <th scope="row">{{item.日期}}</th>
+        <td>{{item.num1}}</td>
+        <td>{{item.num2}}</td>
+        <td>{{item.num3}}</td>
+        <td>{{item.num4}}</td>
+        <td>{{item.num5}}</td>
+        <td>{{item.num6}}</td>
+        <td>{{item.特別號}}</td>        
+      </tr>
+      {% endfor %}
+     
+      
+    </tbody>
+  </table>
 {% endblock %}
 
 {% block footer%}
