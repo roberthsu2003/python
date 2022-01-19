@@ -40,10 +40,13 @@ def loto():
         session.add(loto)
         session.commit()
 
+    '''
     #取出資料
     for instance in session.query(Loto).order_by(Loto.id):
         print(instance.__class__)
         print(instance.日期.__class__)
         print(instance.特別號.__class__)
+    '''
+    data = list(session.query(Loto).order_by(Loto.id))
 
-    return render_template('loto.html',name='loto')
+    return render_template('loto.html',name='loto',data=data)
