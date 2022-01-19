@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template
+from flask import Blueprint,render_template,request
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime
@@ -27,12 +27,15 @@ class Loto(Base):
 engine = create_engine("sqlite:///sqlViews/data.db", echo=True)
 Base.metadata.create_all(engine)
 
-#loto=Loto(日期=datetime.now(),num1=23, num2=45, num3=13, num4=25, num5=42, num6=3, 特別號=8)
-#session = Session(engine)
-#session.add(loto)
-#session.commit()
+
 
 @sqlApp.route('/sqlalchemy')
 @sqlApp.route('/sqlalchemy/loto',methods=['GET', 'POST'])
 def loto():
+    if request.method == 'POST':
+        valueList =list(request.form.values());
+        loto=Loto(日期=datetime.now(),num1=valueList[0], num2=valueList[1], num3=valueList[2], num4=valueList[3], num5=valueList[4], num6=valueList[5], 特別號=valueList[6])
+        session = Session(engine)
+        session.add(loto)
+        session.commit()
     return render_template('loto.html',name='loto')
