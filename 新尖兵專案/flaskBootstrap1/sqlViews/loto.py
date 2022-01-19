@@ -4,6 +4,7 @@ from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime
 from datetime import datetime
 from sqlalchemy.orm import Session
+from sqlalchemy import desc
 
 sqlApp = Blueprint("sql",__name__)
 
@@ -47,6 +48,6 @@ def loto():
         print(instance.日期.__class__)
         print(instance.特別號.__class__)
     '''
-    data = list(session.query(Loto).order_by(Loto.id))
+    data = list(session.query(Loto).order_by(desc(Loto.id)))
 
     return render_template('loto.html',name='loto',data=data)
