@@ -32,11 +32,11 @@ Base.metadata.create_all(engine)
 @sqlApp.route('/sqlalchemy')
 @sqlApp.route('/sqlalchemy/loto',methods=['GET', 'POST'])
 def loto():
+    session = Session(engine)
     if request.method == 'POST':
         #新增資料
         valueList =list(request.form.values());
         loto=Loto(日期=datetime.now(),num1=valueList[0], num2=valueList[1], num3=valueList[2], num4=valueList[3], num5=valueList[4], num6=valueList[5], 特別號=valueList[6])
-        session = Session(engine)
         session.add(loto)
         session.commit()
 
