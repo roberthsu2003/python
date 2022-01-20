@@ -1,4 +1,5 @@
-from flask import Blueprint,render_template,request
+from flask import Blueprint,render_template,request,redirect
+from flask import session as flaskSession
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime
@@ -35,19 +36,19 @@ Base.metadata.create_all(engine)
 def loto():
     session = Session(engine)
     if request.method == 'POST':
+        username = flaskSession.get('name')
+        if username is None:
+            print("username不在")
+            flaskSession['name'] = "xxx"
+        else:
+            redirect('loto')
         #新增資料
         valueList =list(request.form.values());
         loto=Loto(日期=datetime.now(),num1=valueList[0], num2=valueList[1], num3=valueList[2], num4=valueList[3], num5=valueList[4], num6=valueList[5], 特別號=valueList[6])
         session.add(loto)
         session.commit()
 
-    '''
-    #取出資料
-    for instance in session.query(Loto).order_by(Loto.id):
-        print(instance.__class__)
-        print(instance.日期.__class__)
-        print(instance.特別號.__class__)
-    '''
+
     data = list(session.query(Loto).order_by(desc(Loto.id)))
 
     return render_template('loto.html',name='loto',data=data)
