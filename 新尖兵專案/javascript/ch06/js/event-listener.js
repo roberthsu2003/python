@@ -11,7 +11,8 @@ function checkUsername(){
 */
 
 var elUsername = document.getElementById('username');
-elUsername.addEventListener('blur',(event)=>{
+elUsername.addEventListener('blur',()=>{
+    //console.log(event);
     var elMsg = document.getElementById('feedback');
     var elUsername = document.getElementById('username');
     if(elUsername.value.length < 5){
