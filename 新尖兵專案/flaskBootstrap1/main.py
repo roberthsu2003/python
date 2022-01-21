@@ -30,3 +30,7 @@ def container():
 def columns():
     return render_template('columns.html',name="columns")
 
+@app.route('/price')
+def price():
+    return render_template('price.html')
+
