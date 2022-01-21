@@ -2,10 +2,10 @@ from flask import Blueprint,render_template,request,redirect,url_for
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime
-from datetime import datetime
+from datetime import datetime,timedelta
+import time
 from sqlalchemy.orm import Session
 from sqlalchemy import desc
-import pytz
 
 sqlApp = Blueprint("sql",__name__)
 
@@ -37,8 +37,8 @@ def loto():
     session = Session(engine)
     if request.method == 'POST':
         valueList = list(request.form.values());
-        local_datetime = datetime.now()
-        loto = Loto(日期=local_datetime.astimezone(pytz.UTC), num1=valueList[0], num2=valueList[1], num3=valueList[2], num4=valueList[3],
+        local_datetime = datetime.utcnow()
+        loto = Loto(日期=local_datetime, num1=valueList[0], num2=valueList[1], num3=valueList[2], num4=valueList[3],
                     num5=valueList[4], num6=valueList[5], 特別號=valueList[6])
         session.add(loto)
         session.commit()
@@ -48,5 +48,8 @@ def loto():
 
 
     data = list(session.query(Loto).order_by(desc(Loto.id)))
+    for item in data:
+        utc_datetime=item.日期
+        item.日期 = utc_datetime + timedelta(hours=8);
 
     return render_template('loto.html',name='loto',data=data)

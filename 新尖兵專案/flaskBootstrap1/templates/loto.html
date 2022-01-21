@@ -56,7 +56,7 @@
     <tbody>
        {% for item in data%} 
       <tr>
-        <th scope="row">{{item.日期.strftime('%Y-%m-%d %H:%M:%S')}}</th>
+        <th scope="row">{{item.日期.strftime("%Y-%m-%d %H:%M:%S")}}</th>
         <td>{{item.num1}}</td>
         <td>{{item.num2}}</td>
         <td>{{item.num3}}</td>
@@ -98,5 +98,6 @@
         }
 
     }
+
 </script>
 {% endblock %}
