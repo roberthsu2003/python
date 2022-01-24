@@ -1,25 +1,23 @@
-#自動轉換型別
-m = 33
-n = 23.0
-m + n
+#單行文字
+poem = "Apple Arcade 推出的最新遊戲《Next Stop Nowhere》，由位於洛杉磯的開發商 Night School Studio 出品。這款遊戲是太空公路之旅的夥伴冒險，其中不同角色間展開了一些精彩的劇情。在銀河系的外圍，每個人和所有事物之間都有充分的空間，Night School 希望這款遊戲可為近來可能感到孤立的玩家提供一些慰藉。"
+poem
 
 
 
 
-
-
-#手動轉換型別
-x = '10'
-y = 20
-
-int(x) + y
-
-
+#單行文字
+poem = "Apple Arcade 推出的最新遊戲《Next Stop Nowhere》，由位於洛杉磯\
+的開發商 Night School Studio 出品。這款遊戲是太空公路之旅的夥伴冒險，其中\
+不同角色間展開了一些精彩的劇情。在銀河系的外圍，每個人和所有事物之間都有充分\
+的空間，Night School 希望這款遊戲可為近來可能感到孤立的玩家提供一些慰藉。"
+poem
 
 
 
+#多行文字
+poem2 = '''Apple Arcade 推出的最新遊戲《Next Stop Nowhere》，由位於洛杉磯的開發商 Night School Studio 出品。
 
-#字串相加
-x = '10'
-y = '000000000'
-float(x + y)
+這款遊戲是太空公路之旅的夥伴冒險，其中不同角色間展開了一些精彩的劇情。
+
+在銀河系的外圍，每個人和所有事物之間都有充分的空間，Night School 希望這款遊戲可為近來可能感到孤立的玩家提供一些慰藉。'''
+print(poem2)
