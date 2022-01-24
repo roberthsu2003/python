@@ -1,3 +1,4 @@
-radius = int(input("請輸入半徑:"))
-area = radius * radius * 3.14
-print("圓面積:",area)
+m = 9999
+n = 9999
+total = m * n
+total
