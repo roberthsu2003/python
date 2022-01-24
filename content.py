@@ -1,3 +1,5 @@
-radius = int(input("請輸入半徑:"))
-area = radius * radius * 3.14
-print("圓面積:",area)
+#輸出 print()
+#輸入 input()
+value1 = input("請輸入一個整數:")
+value2 = input("請輸入另一個整數:")
+int(value1) + int(value2)
