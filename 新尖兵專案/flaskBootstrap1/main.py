@@ -3,6 +3,7 @@ from tableViews.table import  tableApp
 from tableViews.youbike2 import youbikeApp
 from sqlViews.loto import sqlApp
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'roberthsu-hero'
 app.register_blueprint(tableApp)

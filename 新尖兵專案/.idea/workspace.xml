@@ -7,7 +7,7 @@
     <list default="true" id="58e4dfa0-6237-4392-b42d-646f3c8844d5" name="Changes" comment="modify">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flaskBootstrap1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskBootstrap1/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskBootstrap1/templates/super/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/flaskBootstrap1/templates/super/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flaskBootstrap1/sqlViews/loto.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskBootstrap1/sqlViews/loto.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,13 +108,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641274307745</updated>
-    </task>
-    <task id="LOCAL-00116" summary="modify">
-      <created>1642145150254</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1642145150254</updated>
     </task>
     <task id="LOCAL-00117" summary="modify">
       <created>1642146199737</created>
@@ -452,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642745598066</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="modify">
+      <created>1642751942144</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1642751942144</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

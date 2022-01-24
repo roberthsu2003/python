@@ -7,6 +7,7 @@ import time
 from sqlalchemy.orm import Session
 from sqlalchemy import desc
 
+
 sqlApp = Blueprint("sql",__name__)
 
 Base = declarative_base()
@@ -53,3 +54,11 @@ def loto():
         item.日期 = utc_datetime + timedelta(hours=8);
 
     return render_template('loto.html',name='loto',data=data)
+
+@sqlApp.route('/sqlalchemy/loto/page')
+def page():
+    session = Session(engine)
+    data = session.query(Loto).order_by(desc(Loto.id))
+    print(Loto.query)
+
+    return '<h1>Page</h1>'
