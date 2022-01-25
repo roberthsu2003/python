@@ -1,12 +1,4 @@
-n = 5
-n = n + 10
-n
-
-
-
-
-
-
-n = 5
-n += 10
-n
+money = 50000
+cellmoney = int(input('請輸入手機金額:'))
+money -= cellmoney
+print("剩餘款為:",money)
