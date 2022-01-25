@@ -1,5 +1,3 @@
-#輸出 print()
-#輸入 input()
-value1 = input("請輸入一個整數:")
-value2 = input("請輸入另一個整數:")
-int(value1) + int(value2)
+num1 = int(input('請輸入被除數(整數):'))
+num2 = int(input('請輸入除數(整數,不可以為0)'))
+print('商:', num1 // num2, '餘數:', num1 % num2)
