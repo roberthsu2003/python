@@ -1,6 +1,7 @@
-score = 59
-if score >= 60:
-  print('及格')
+age = int(input('請輸入年紀?'))
+if (age > 18):
+  print("青年")
+elif(age >= 12):
+  print("青少年")
 else:
-  print('不及格')
-print('程式結束')
+  print('少年')
