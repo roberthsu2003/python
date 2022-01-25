@@ -3,6 +3,7 @@
 • 如果x是負數而且為奇數，則傳回值為 -(-x) ** (1 / y)。
 
 x = int(input('請輸入x:'))
+y = int(input('請輸入y:'))
 if x >= 0:
   root = x ** (1 / y)
 else:
