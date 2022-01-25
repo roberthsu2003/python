@@ -1,14 +1,14 @@
-#2個條件時,可以使用巢狀判斷
+• 如果x不是負數，則傳回值為 x ** (1 / y)。
+• 如果x是負數而且為偶數，則傳回值為"虛數"。
+• 如果x是負數而且為奇數，則傳回值為 -(-x) ** (1 / y)。
 
-furry = False
-small = True
-if furry:
-  if small:
-    print("它是貓!")
-  else:
-    print("它是熊!")
+x = int(input('請輸入x:'))
+if x >= 0:
+  root = x ** (1 / y)
 else:
-  if small:
-    print("它是小蜥蜴")
+  if x % 2 == 0:
+    root = "虛數"
   else:
-    print("它是人類或是沒毛的熊")
+    root = -(-x) ** (1 / y)
+
+print(root)
