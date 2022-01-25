@@ -1,13 +1,14 @@
-score = int(input("請輸入分數"))
-if score >= 90:
-  grade = '優'
-elif score >= 80:
-  grade = '甲'
-elif score >= 70:
-  grade = '乙'
-elif score >= 60:
-  grade = '丙'
-else:
-  grade = '丁'
+#2個條件時,可以使用巢狀判斷
 
-print("成績等級為",grade) 
+furry = False
+small = True
+if furry:
+  if small:
+    print("它是貓!")
+  else:
+    print("它是熊!")
+else:
+  if small:
+    print("它是小蜥蜴")
+  else:
+    print("它是人類或是沒毛的熊")
