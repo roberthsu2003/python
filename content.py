@@ -1,8 +1,10 @@
-deposit = 0
 num = 0
-while(deposit < 30000):
+sum = 0
+while(True):
   num += 1
-  inputValue = int(input(f"請輸入第{num}月份的存款:"))
-  deposit += inputValue
+  score = int(input('請輸入第' + str(num) + '位學生的成績:'))
+  if(score < 0):
+    break
+  sum += score
 
-print("恭喜!已經存夠了，存了{:d}月,共存了{:.2f}元".format(num,deposit))
+print("全班總成績為:%d,平均分數為:%.2f" % (sum, sum/(num-1)))
