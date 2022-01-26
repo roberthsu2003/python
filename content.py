@@ -1,9 +1,14 @@
-chinese = 99
-math = 99
+score = 56
 
-if chinese == 100 and math == 100 :
-  print("獎金1000元")
-elif chinese == 100 or math == 100:
-  print("獎金500元")
+if score <= 90 and score > 80:
+  print('80~90')
 else:
-  print("沒有獎金")
+  print('其它')
+  
+  
+
+ score = 87
+if 90 >= score > 80:
+   print('80~90')
+else:
+  print('其它')
