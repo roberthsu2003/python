@@ -1,15 +1,9 @@
-• 如果x不是負數，則傳回值為 x ** (1 / y)。
-• 如果x是負數而且為偶數，則傳回值為"虛數"。
-• 如果x是負數而且為奇數，則傳回值為 -(-x) ** (1 / y)。
+chinese = 99
+math = 99
 
-x = int(input('請輸入x:'))
-y = int(input('請輸入y:'))
-if x >= 0:
-  root = x ** (1 / y)
+if chinese == 100 and math == 100 :
+  print("獎金1000元")
+elif chinese == 100 or math == 100:
+  print("獎金500元")
 else:
-  if x % 2 == 0:
-    root = "虛數"
-  else:
-    root = -(-x) ** (1 / y)
-
-print(root)
+  print("沒有獎金")
