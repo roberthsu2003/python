@@ -1,9 +1,26 @@
-#1維list
-nb = ['筆記電腦', '商用筆電']
-mobile = ['APPLE', 'ASUS', 'HTC'] 
-home = [3, '冰箱', 2, '洗衣機']
+numbers = [10, 20, 30, 40]
+print(numbers)
+numbers.append(50)
+print(numbers)
+numbers.extend([60, 70])
+print(numbers)
+numbers += [80, 90]
+print(numbers)
+numbers.insert(1,15)
+print(numbers)
 
-#2維list
-all3c = [nb, mobile, home]
-print(all3c)
-print(all3c[2][3])
+
+
+
+
+numbers = [10, 15, 20, 30, 40, 50, 60, 70, 80, 90]
+
+#刪除
+del numbers[1]
+print(numbers)
+
+#pop
+numbers.pop()
+print(numbers)
+numbers.pop(0)
+print(numbers)
