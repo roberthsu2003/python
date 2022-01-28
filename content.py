@@ -1,26 +1,16 @@
-#Dictionary
-codes = {"tw":"Taiwan",
-         "jp":"Japan",
-         "hk":"Hong Kong"}
-print(codes)
-type(codes)
+dict1 = {
+    'a':200,
+    'b':300,
+    'c':400
+}
 
+print(dict1['a'])
+print(dict1['b'])
+dict1['c'] = 500 #修改
+print(dict1['c'])
 
+dict1['d'] = 600 #新增
+print(dict1)
 
-
-#建立空的
-empty_dict = {}
-print(empty_dict)
-another_empty_dict = dict()
-print(another_empty_dict)
-
-#建立dict使用{}符號
-codes = {"tw":"Taiwan",
-         "jp":"Japan",
-         "hk":"Hong Kong"}
-print(codes)
-
-#建立dict使用dict()
-lol = [['a','b'],['c','d'],['e','f']]
-lod = dict(lol)
-lod
+del dict1['d'] #刪除
+print(dict1)
