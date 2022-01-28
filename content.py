@@ -1,21 +1,26 @@
-marxes = ['Groucho', 'Chico', 'Harpo']
-sorted_marxes = sorted(marxes) #由小到大
-sorted_marxes
+#Dictionary
+codes = {"tw":"Taiwan",
+         "jp":"Japan",
+         "hk":"Hong Kong"}
+print(codes)
+type(codes)
 
 
 
-marxes = ['Groucho', 'Chico', 'Harpo']
-sorted_marxes = sorted(marxes,reverse=True) #由大到小
-sorted_marxes
 
+#建立空的
+empty_dict = {}
+print(empty_dict)
+another_empty_dict = dict()
+print(another_empty_dict)
 
-#list的方法sort(),不會傳出，只會排序自已的內容
-marxes = ['Groucho', 'Chico', 'Harpo']
-marxes.sort() #由小到大
-marxes
+#建立dict使用{}符號
+codes = {"tw":"Taiwan",
+         "jp":"Japan",
+         "hk":"Hong Kong"}
+print(codes)
 
-
-#list的方法sort(),不會傳出，只會排序自已的內容
-marxes = ['Groucho', 'Chico', 'Harpo']
-marxes.sort(reverse=True) #由大到小
-marxes
+#建立dict使用dict()
+lol = [['a','b'],['c','d'],['e','f']]
+lod = dict(lol)
+lod
