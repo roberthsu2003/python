@@ -1,16 +1,7 @@
-dict1 = {
-    'a':200,
-    'b':300,
-    'c':400
-}
+#keys(),values(),items()
+signals = {'綠燈': '走', '黃燈': '走快些', '紅燈': '停等'} 
+print(signals.keys())
 
-print(dict1['a'])
-print(dict1['b'])
-dict1['c'] = 500 #修改
-print(dict1['c'])
+print(signals.values())
 
-dict1['d'] = 600 #新增
-print(dict1)
-
-del dict1['d'] #刪除
-print(dict1)
+print(signals.items())
