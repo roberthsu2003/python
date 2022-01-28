@@ -1,16 +1,8 @@
-import random
-students = []
-for i in range(50):
-  scores = []
-  for j in range(5):
-    scores.append(random.randint(50,100))
-  students.append(scores)
-
-for student in students:
-  print(student,end=',')
-  total = 0
-  for num in student:
-    total += num
-  
-  print(total,end=',')
-  print(total/5.0,end='\n')
+#list的方法index()
+cities =  ['台北', '台中', '高雄', '台南', '花蓮']
+cities.index('台中')
+element = '台南'
+if element in cities:
+  print(f'{element}的索引編號是{cities.index(element)}')
+else:
+  print(element)
