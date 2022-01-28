@@ -1,9 +1,8 @@
-#大樂透電腦選號
-import random
-lot = set()
-while(len(lot)<7):
-  lot.add(random.randint(1,49))
+total = 1000
+num = 10
 
-for i in list(lot)[:6]:
-  print(i,end=' ')
-print(f"特別號:{list(lot)[-1]}")
+print(int(total/num))
+print(total//num)
+
+print(total/num)
+print(float(total//num))
