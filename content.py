@@ -5,3 +5,12 @@ print(signals.keys())
 print(signals.values())
 
 print(signals.items())
+
+
+
+
+
+
+#for in取出key和value
+for key,value in signals.items():
+  print(key,value)
