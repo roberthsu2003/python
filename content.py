@@ -1,8 +1,5 @@
-total = 1000
-num = 10
-
-print(int(total/num))
-print(total//num)
-
-print(total/num)
-print(float(total//num))
+born = input("請輸入出生的民國年： ")
+year = input("請輸入現在的民國年： ")
+age = eval(year) - eval(born)
+msg = "你的年齡是： " + str(age)
+print(msg)
