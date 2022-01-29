@@ -1,4 +1,15 @@
-last = input("請問你昨天過第幾關?")
-now = input("請問你今天過第幾關?")
+word = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+print(word[3:15])
+print(word[3:15:3])
+print(word[3:15:-3])
+print(word[15:3:-3])
+print(word[15:3])
+print(word[::-3])
 
-print("恭賀你今天通過了 " + str(int(now) - int(last)) + " 關!")
+
+
+
+
+students = list(range(1,101))
+students[0:-15]
+students[:-15]
