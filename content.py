@@ -1,7 +1,6 @@
-def dataType(val):
-  return type(val)
-
-print(dataType(False))
-print(dataType(3.0))
-print(dataType(3))
-print(dataType("False"))
+def reverse_word(old_word):
+   word = ''   
+   for index in range(len(old_word)-1, -1, -1):
+       word += old_word[index]
+   return word
+print(reverse_word("nohtyP"))
