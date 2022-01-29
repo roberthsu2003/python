@@ -1,5 +1,7 @@
-def add(a,b):
-  return a + b
+def dataType(val):
+  return type(val)
 
-total = add(10, 20)
-total
+print(dataType(False))
+print(dataType(3.0))
+print(dataType(3))
+print(dataType("False"))
