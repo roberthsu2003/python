@@ -1,6 +1,4 @@
-def reverse_word(old_word):
-   word = ''   
-   for index in range(len(old_word)-1, -1, -1):
-       word += old_word[index]
-   return word
-print(reverse_word("nohtyP"))
+last = input("請問你昨天過第幾關?")
+now = input("請問你今天過第幾關?")
+
+print("恭賀你今天通過了 " + str(int(now) - int(last)) + " 關!")
