@@ -1,5 +1,15 @@
-#輸出 print()
-#輸入 input()
-value1 = input("請輸入一個整數:")
-value2 = input("請輸入另一個整數:")
-int(value1) + int(value2)
+word = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+print(word[3:15])
+print(word[3:15:3])
+print(word[3:15:-3])
+print(word[15:3:-3])
+print(word[15:3])
+print(word[::-3])
+
+
+
+
+
+students = list(range(1,101))
+students[0:-15]
+students[:-15]
