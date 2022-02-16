@@ -1,18 +1,7 @@
-5 + 5
+chinese = 78
+english = 96
+math = 85
 
-
-5 + 5.0  #自動轉換為float
-
-
-
-"Hello" + "Python" #字串可以相加的
-
-
-"Hello" + "5.0"
-
-
-
-"Hello" + str(5)   #強制轉換
-
-
-
+print("國文:", chinese, " 英文:", english, " 數學:", math,sep='') #利用多個print的參數
+print("國文:" + str(chinese) + " 英文:" + str(english) + " 數學:" + str(math)) #利用字串相加
+print(f"國文:{chinese} 英文:{english} 數學:{math}") #利用字串插補
