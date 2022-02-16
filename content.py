@@ -1,6 +1,10 @@
-chinese = 78
-english = 98
-math = 78
+#依據內容,指定型別
+var1 = 20
+var2 = 20.00
+var3 = "abc"
+var4 = True
 
-print("國文:",chinese, " 英文:", english, " 數學:", math, sep='')
-print("總分:", chinese + english + math, " 平均:", (chinese + english + math) / 3, sep='')
+print(type(var1))
+print(type(var2))
+print(type(var3))
+print(type(var4))
