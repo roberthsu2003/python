@@ -1,3 +1,6 @@
-print("Hello! Python")
-print("這是python的課程")
-print("程式結束")
+print(5 + 5)
+print(5 * 5)
+print(5 / 5)
+print(5 % 5)
+
+10 ** 1000
