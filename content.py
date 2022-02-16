@@ -1,8 +1,6 @@
-print("5+5=", 5+5) #2個參數數
+chinese = 78
+english = 98
+math = 78
 
-a1 = 10
-a2 = 20
-a3 = 30
-
-#print()沒有限定參數的數量
-print("a1=", a1, "a2=", a2, "a3=", a3) 
+print("國文:",chinese, "英文:", english, "數學:", math)
+print("總分:", chinese + english + math, " 平均:", (chinese + english + math) / 3)
