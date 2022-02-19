@@ -1,15 +1,7 @@
-word = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-print(word[3:15])
-print(word[3:15:3])
-print(word[3:15:-3])
-print(word[15:3:-3])
-print(word[15:3])
-print(word[::-3])
+chinese = 78
+english = 96
+math = 85
 
-
-
-
-
-students = list(range(1,101))
-students[0:-15]
-students[:-15]
+print("國文:", chinese, " 英文:", english, " 數學:", math,sep='') #利用多個print的參數
+print("國文:" + str(chinese) + " 英文:" + str(english) + " 數學:" + str(math)) #利用字串相加
+print(f"國文:{chinese} 英文:{english} 數學:{math}") #利用字串插補
