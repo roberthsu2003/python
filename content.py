@@ -1,4 +1,11 @@
-money = 50000
-cell = int(input("請輸入手機的金額:"))
-money -= cell #複合指定運算子
-print(f'剩餘:{money}')
+sum = 0.0
+value = float(input("請輸入第一個數:"))
+sum += value
+
+value = float(input("請輸入第二個數:"))
+sum += value
+
+value = float(input("請輸入第三個數:"))
+sum += value
+
+print(f"三個數的總和為:{sum}")
