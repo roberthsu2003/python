@@ -1,7 +1,6 @@
-chinese = 78
-english = 96
-math = 85
+poem = "Apple Arcade 推出的最新遊戲《Next Stop Nowhere》，由位於洛杉磯\
+的開發商 Night School Studio 出品。這款遊戲是太空公路之旅的夥伴冒險，其中不\
+同角色間展開了一些精彩的劇情。在銀河系的外圍，每個人和所有事物之間都有充分的空\
+間，Night School 希望這款遊戲可為近來可能感到孤立的玩家提供一些慰藉。"
 
-print("國文:", chinese, " 英文:", english, " 數學:", math,sep='') #利用多個print的參數
-print("國文:" + str(chinese) + " 英文:" + str(english) + " 數學:" + str(math)) #利用字串相加
-print(f"國文:{chinese} 英文:{english} 數學:{math}") #利用字串插補
+print(poem)
