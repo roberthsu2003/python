@@ -7,6 +7,7 @@ if response.status_code == 200:
     print(f"下載的編碼{response.encoding}")
     print(f"下載的文字{response.text}")
     downloadData = response.json()
+    print(downloadData)
 print(downloadData.__class__)
 for item in downloadData:
     print(f"車隊名稱:{item['車隊名稱']},公司地址:{item['公司地址']},聯絡電話:{item['聯絡電話']}")
