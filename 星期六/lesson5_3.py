@@ -1,7 +1,7 @@
 import requests
 
 urlpath = 'https://data.tainan.gov.tw/dataset/da3520b0-f1a8-475d-8932-32e225c044d8/resource/66b11687-9b28-4366-b5c8-412a68b0cc9f/download/opendata.json'
-response = requests.get(urlpath)
+response = requests.request("GET",urlpath)
 if response.status_code == 200:
     print("下載成功")
     print(f"下載的編碼{response.encoding}")
