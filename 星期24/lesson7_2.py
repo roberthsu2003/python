@@ -12,8 +12,9 @@ def lotGenerator():
         print(item, end=' ')
     print(f'特別號:{special}')
 
-print("========大樂透電腦選號==============")
-groups = int(input("請問需要幾組號碼:"))
 
-for _ in range(groups):
-    lotGenerator()
+if __name__ == "__main__":
+    print("========大樂透電腦選號==============")
+    groups = int(input("請問需要幾組號碼:"))
+    for _ in range(groups):
+        lotGenerator()
