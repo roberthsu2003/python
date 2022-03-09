@@ -18,3 +18,4 @@ if __name__ == "__main__":
     groups = int(input("請問需要幾組號碼:"))
     for _ in range(groups):
         lotGenerator()
+print(groups)
