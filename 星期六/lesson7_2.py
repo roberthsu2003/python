@@ -20,4 +20,3 @@ if __name__ == '__main__':
         a = 5
         big_lot()
 
-print(a)
