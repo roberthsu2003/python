@@ -21,4 +21,12 @@ def get_weather_of_taiwan():
 
     allData = response.json()
     locations = allData["records"]['location']
-    return locations
+    weatherList = []
+    for item in locations:
+        itemDic = {}
+        itemDic['縣市'] = item['parameter'][0]['parameterValue']
+        itemDic['區域'] = item['parameter'][2]['parameterValue']
+        itemDic['時間'] = item['time']['obsTime']
+        itemDic['溫度'] = float(item['weatherElement'][3]['elementValue'])
+        weatherList.append(itemDic)
+    return weatherList
