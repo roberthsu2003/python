@@ -1,5 +1,5 @@
-import tools
-import tools.game
+#from tools import game
+from tools.game import guess_num
 
 if __name__ == "__main__":
-    tools.game.guess_num()
+    guess_num()
