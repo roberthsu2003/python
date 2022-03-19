@@ -1,3 +1,5 @@
 import tools
+import tools.game
+
 if __name__ == "__main__":
-    print("主程式")
+    tools.game.guess_num()
