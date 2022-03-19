@@ -4,7 +4,7 @@ from tools import Student
 if __name__ == "__main__":
     print("小專案lesson9_2")
     if tools.OK:
-        print(tools.get_week())
+        print(Student.get_week())
 
     stu1 = Student("robert",chinese=89,math=95,english=78)
     print(stu1)
