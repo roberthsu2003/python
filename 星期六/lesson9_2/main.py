@@ -5,6 +5,7 @@ def get_week():
 
 if __name__ == "__main__":
     print("小專案lesson9_2")
-    print(get_week())
+    if tools.OK:
+        print(get_week())
 
 
