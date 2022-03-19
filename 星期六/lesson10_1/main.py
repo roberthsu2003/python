@@ -3,4 +3,6 @@
 from tools import weather
 
 if __name__ == "__main__":
-    weather.get_weather_of_taiwan()
+    data = weather.get_weather_of_taiwan()
+    if data is not None:
+        print(f"資料是:{data}")
