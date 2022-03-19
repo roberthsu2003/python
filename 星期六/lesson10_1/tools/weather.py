@@ -20,4 +20,5 @@ def get_weather_of_taiwan():
         return None
 
     allData = response.json()
-    return allData
+    locations = allData["records"]['location']
+    return locations
