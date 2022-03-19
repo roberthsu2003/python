@@ -13,3 +13,9 @@ class Student():
         self.chinese = chinese
         self.english = english
         self.math = math
+
+    def sum(self):
+        return self.chinese + self.english + self.math
+
+    def average(self):
+        return self.sum() / 3.0
