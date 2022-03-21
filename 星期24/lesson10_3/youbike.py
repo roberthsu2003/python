@@ -23,10 +23,14 @@ def download_youbike_data():
 
     return response.json()
 
+def parse_youbike_data(json):
+    return "newData"
+
 def get_youbike_info():
-    data = download_youbike_data()
-    if data is None:
+    allData = download_youbike_data()
+    if allData is None:
         print("請等一下再試")
         return
     else:
-        return data
+        newData = parse_youbike_data(allData)
+        return newData
