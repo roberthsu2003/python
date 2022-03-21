@@ -7,3 +7,6 @@ def getWeek():
 
 class Student():
     pass
+
+def getStudent():
+    return Student()
