@@ -1,4 +1,5 @@
 from random import choice
+from . import games
 
 OK = True
 
