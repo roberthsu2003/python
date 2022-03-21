@@ -1,9 +1,7 @@
+import requests
 def get_youbike_info():
-    list1 = [10, 20, 30, 40]
-    try:
-        print(list1[5])
-    except IndexError as e:
-        print(e)
-    except:
-        print("other Error")
+    #下載資料
+    youbike_url = 'https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.json'
+
+    response = requests.get(youbike_url)
     return "info"
