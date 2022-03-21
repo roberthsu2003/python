@@ -28,6 +28,12 @@ def parse_youbike_data(json):
     dataList = list(retVal.values())
     return dataList
 
+def save_database(json):
+    pass
+
+def write_to_csvFile(json):
+    pass
+
 def get_youbike_info():
     allData = download_youbike_data()
     if allData is None:
@@ -35,4 +41,6 @@ def get_youbike_info():
         return
     else:
         dataList = parse_youbike_data(allData)
+        save_database(dataList)
+        write_to_csvFile(dataList)
         return dataList
