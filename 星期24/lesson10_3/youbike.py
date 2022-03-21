@@ -1,6 +1,7 @@
 import requests
-def get_youbike_info():
-    #下載資料
+
+def download_youbike_data():
+    # 下載資料
     youbike_url = 'https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.json'
     try:
         response = requests.get(youbike_url)
@@ -21,3 +22,11 @@ def get_youbike_info():
         print("下載成功")
 
     return response.json()
+
+def get_youbike_info():
+    data = download_youbike_data()
+    if data is None:
+        print("請等一下再試")
+        return
+    else:
+        return data
