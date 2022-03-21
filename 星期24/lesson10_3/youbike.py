@@ -24,7 +24,9 @@ def download_youbike_data():
     return response.json()
 
 def parse_youbike_data(json):
-    return "newData"
+    retVal = json["retVal"]
+    dataList = list(retVal.values())
+    return dataList
 
 def get_youbike_info():
     allData = download_youbike_data()
@@ -32,5 +34,5 @@ def get_youbike_info():
         print("請等一下再試")
         return
     else:
-        newData = parse_youbike_data(allData)
-        return newData
+        dataList = parse_youbike_data(allData)
+        return dataList

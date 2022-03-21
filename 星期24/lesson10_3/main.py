@@ -1,4 +1,6 @@
 import youbike
 
 if __name__ == "__main__":
-    print(youbike.get_youbike_info())
+    youbikeList = youbike.get_youbike_info()
+    for item in youbikeList:
+        print(item)
