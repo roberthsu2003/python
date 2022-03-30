@@ -29,9 +29,11 @@ def parse_youbike_data(json):
     return dataList
 
 def save_database(json):
+    #寫入至資料庫
     pass
 
 def write_to_csvFile(json):
+    #儲存為csv檔案
     pass
 
 def get_youbike_info():
