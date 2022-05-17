@@ -78,6 +78,28 @@ $jupyter notebook
 
 ![jupyter notebookt畫面](./images/pic1.png)
 
+### jupyter notebook 在windows無法更改ipynb檔案名稱:
+- Bad file descriptor (C:\projects\libzmq\src\epoll.cpp:100) 
+
+```
+#因為pyzmq版本太新
+#解決方法
+$ pip uninstall pyzmq
+$ pip install pyzmq==19.0.2
+
+上面安裝pyzmq如果出錯
+1安裝Microsoft C++ Build Tools()
+https://visualstudio.microsoft.com/zh-hant/visual-cpp-build-tools/
+
+2安裝Cython
+pip install Cython
+
+3.再重新安裝pyzmq
+pip install pyzmq==19.0.2
+
+
+```
+
 ### 使用pycharm建立並執行xxx.py檔執行python
 
 ```python
