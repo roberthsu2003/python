@@ -1,2 +1,7 @@
 import tools
-print(f"這是main.py內的命名空間{__name__}")
+
+def main():
+    print("執行main_function")
+
+if __name__ == "__main__":
+    main()
