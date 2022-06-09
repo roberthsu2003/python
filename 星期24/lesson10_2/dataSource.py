@@ -5,11 +5,11 @@ url = "https://data.tycg.gov.tw/opendata/datalist/datasetMeta/download?id=642de4
 
 def downloadData():
     filename = "桃園youbike.csv"
-    response = requests.get(url)
+    response = requests.get(url, stream=True)
     if response.status_code == 200:
         file = open(filename,'wb')
-        writer = csv.writer(file)
-        writer.writerows(response.content.decode("utf-8"))
+        for chunk in response.iter_content(chunk_size=128):
+            file.write(chunk)
         file.close()
 
 
