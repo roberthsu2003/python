@@ -1,7 +1,8 @@
 import dataSource
 
 def main():
-    print(dataSource.url)
+    dataSource.downloadData()
+    dataSource.parseData()
 
 if __name__ == "__main__":
     main()
