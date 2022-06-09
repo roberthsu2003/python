@@ -1,1 +1,9 @@
-print(f"這是tools.py內的命名空間{__name__}")
+#tools的module
+#function
+#class
+#常數
+
+PI=3.14159
+
+def add(a,b):
+    return a + b;
