@@ -1,0 +1,1 @@
+print(f"這是tools.py內的命名空間{__name__}")
