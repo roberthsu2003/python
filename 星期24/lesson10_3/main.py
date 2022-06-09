@@ -1,9 +1,10 @@
 #import tools.dataSource
-import tools.dataSource as ds
+#import tools.dataSource as ds
+from tools import dataSource
 
 def main():
-    ds.downloadData() #下載資料
-    data = ds.parseData() #解析資料
+    dataSource.downloadData() #下載資料
+    data = dataSource.parseData() #解析資料
     for item in data:
         print(item)
 
