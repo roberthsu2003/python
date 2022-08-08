@@ -1,4 +1,2 @@
-num1 = int(input('請輸第一個數字:'))
-num2 = int(input('請輸第二個數字:'))
-total = num1 + num2
-print(f"2數相加的值為{total}")
+f1 = float(input("請輸入浮點數:"))
+print(f"f1內儲存的值{f1:.2f}")
