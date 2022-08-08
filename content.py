@@ -1,1 +1,4 @@
-print('Hello! Python')
+print(1+1)
+print(123 * 567)
+
+print(123456789 * 123456789 * 987654321)
