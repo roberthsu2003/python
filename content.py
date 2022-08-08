@@ -1,2 +1,4 @@
-f1 = float(input("請輸入浮點數:"))
-print(f"f1內儲存的值{f1:.2f}")
+express = input("請輸入運算式")
+answer = eval(input(f"{express}="))
+print(f"您的答案是{answer}")
+print(f"正確答案是:{eval(express)}")
