@@ -1,17 +1,4 @@
-#動態型別
+#字串插補
 n = 10
-print(type(n))
-
-n = 10.0
-print(type(n))
-
-n = '10.0'
-print(type(n))
-
-n = False
-print(type(n))
-
-print(type(5 + 5.0))
-
-#字串相加只可以是字串
-#print(type('5' + 5.0))
+m = 50
+print(f"n={n}, m={m}, n+m={n+m}")
