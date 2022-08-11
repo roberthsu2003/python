@@ -1,24 +1,8 @@
-score = int(input("請輸入學生分數:"))
-if score >= 90:
-  print("優")
-elif score >= 80:
-  print("甲")
-elif score >= 70:
-  print("乙")
-elif score >= 60:
-  print("丙")
-else:
-  print("丁")
-  
-  
-  
-  
-  
-輸入顧客購買金額，若金額在
-100000元打8折. 
-50000打85折. 
-30000打9折. 
-10000打95折. 
+#小王班上有五位學生，請您為小王設計一個輸入成績的程式，並且在輸入成績後顯示班上總成績及平均成績
+total = 0
+for i in range(1,6):
+  value = eval(input(f"請輸入第{i}位學生的成績:"))
+  total += value
 
-請輸入購買金額:130000
-實付金額是: 104000.0 元
+print(f"五位學生的總分為:{total},平均為{total/5:.2f}")
+
