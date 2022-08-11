@@ -1,13 +1,13 @@
-##小美是一位教師，請你以while迴圈方式為小美設計一個輸入成績的程式，如果輸入負數表示成績輸入結束，在輸入成績結束後顯示班上總成績及平均成績。
-#break
-
-nums = 0
+#請設計一個程式，讓使用者輸入數值，只有加總正偶數值，不加總正奇數值，如果輸入負數，結束程式。
 total = 0
-while True:  
-  score=eval(input(f"請輸入第{nums+1}學生的分數:"))
-  if score < 0:
+while True:
+  value = eval(input("請輸入數值:"))
+  if value < 0:
     break
-  nums += 1
-  total += score
+  elif value % 2 == 1:
+    continue
+  else:
+    total += value
 
-print(f"學生的數量是{nums},總分是{total},平均是{total/nums:.2f}")
+print(f"total={total}")
+
