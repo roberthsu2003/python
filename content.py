@@ -1,24 +1,13 @@
-score = int(input("請輸入學生分數:"))
-if score >= 90:
-  print("優")
-elif score >= 80:
-  print("甲")
-elif score >= 70:
-  print("乙")
-elif score >= 60:
-  print("丙")
-else:
-  print("丁")
-  
-  
-  
-  
-  
-輸入顧客購買金額，若金額在
-100000元打8折. 
-50000打85折. 
-30000打9折. 
-10000打95折. 
+#請設計一個程式，讓使用者輸入數值，只有加總正偶數值，不加總正奇數值，如果輸入負數，結束程式。
+total = 0
+while True:
+  value = eval(input("請輸入數值:"))
+  if value < 0:
+    break
+  elif value % 2 == 1:
+    continue
+  else:
+    total += value
 
-請輸入購買金額:130000
-實付金額是: 104000.0 元
+print(f"total={total}")
+
