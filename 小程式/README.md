@@ -308,3 +308,108 @@ print(f"玩家1所得金額為:{marker[0]}")
 print(f"玩家2所得金額為:{marker[1]}")
 
 ```
+
+
+```python
+# 井字遊戲 
+# 井字遊戲
+# 1~最大數,先輸入最大數,最大數限制15~30
+# 9個數值為1~最大數的亂數
+# 輸入最少次數,完成連線者-勝
+
+
+import random
+from time import sleep 
+from IPython.display import clear_output
+
+def created_9grid():
+  no_repeat = set()
+  while(len(no_repeat) < 9):
+    no_repeat.add(random.randint(1,max))
+  no_repeat = list(no_repeat)
+
+  outer = []
+  for i in range(3):
+    inter = []
+    for j in range(3):
+      inter.append(no_repeat.pop())
+    outer.append(inter)
+  
+  return outer
+
+def display_grid(outer):
+  for inner in outer:
+    for item in inner:
+      print(f"{item:2d}",end="  ")
+    print()
+
+def display_hide_show(outer,selected):
+  for inner in outer:
+    for item in inner:
+      if item in selected:
+        print(f"{item:2d}",end="  ")
+      else:
+        print("__",end="  ")
+    print()
+
+def examine_line(source, selected):
+  match=0
+  for item in selected:
+    if item in source:
+      match += 1
+  
+  if match == 3:
+    return True
+  else:
+    return False
+
+def get_lines(outer, selected):
+  lines = 0
+  sourceline_groups = []
+  sourceline = outer[0]
+  sourceline_groups.append(sourceline)  
+  sourceline = outer[1]
+  sourceline_groups.append(sourceline)
+  sourceline = outer[2]
+  sourceline_groups.append(sourceline)
+  sourceline = [outer[0][0], outer[1][0], outer[2][0]]
+  sourceline_groups.append(sourceline)
+  sourceline = [outer[0][1], outer[1][1], outer[2][1]]
+  sourceline_groups.append(sourceline)
+  sourceline = [outer[0][2], outer[1][2], outer[2][2]]
+  sourceline_groups.append(sourceline)
+  sourceline = [outer[0][0], outer[1][1], outer[2][2]]
+  sourceline_groups.append(sourceline)
+  sourceline = [outer[0][2], outer[1][1], outer[2][0]]
+  sourceline_groups.append(sourceline)
+
+  for source in sourceline_groups:
+    if examine_line(source,selected) == True:
+      lines += 1
+
+  return lines
+
+
+max = int(input("請輸入最大數(15~30):"))
+if max < 15 or max > 30:\
+  max = 30;
+fixInputs= [i for i in range(1,max+1)]
+inputs = []
+grid = created_9grid()
+
+while True:
+  value = eval(input(f"請輸入{fixInputs}:"))
+  if value > max or value not in fixInputs:
+    print("輸入錯誤")
+    continue
+  fixInputs.remove(value)
+  inputs.append(value)
+  clear_output()
+  sleep(1)
+  display_hide_show(grid,inputs)
+  lines = get_lines(grid,inputs)
+  if lines > 0: 
+    break
+
+print(f"輸入{len(inputs)}數值,完成{lines}條線")
+```
