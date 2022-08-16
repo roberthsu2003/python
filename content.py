@@ -1,9 +1,4 @@
-#python使用的是動態型別
-x = 15
-print(type(x))
-x = 15.0
-print(type(x))
-x = '15.0'
-print(type(x))
-x = False
-print(type(x))
+#print(),input()
+x = int(input("請輸入整數x的值:"))
+y = int(input("請輸入整數y的值:"))
+print(x + y)
