@@ -1,5 +1,5 @@
-#python 純值
-'Hello! Python!'
-30
-30.0
-True
+#print()
+print('Hello! Python!')
+print(30)
+print(30.0)
+print(True)
