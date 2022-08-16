@@ -413,3 +413,47 @@ while True:
 
 print(f"輸入{len(inputs)}數值,完成{lines}條線")
 ```
+
+
+```python
+#game:candy catch
+#begin for game
+#1. set player's name of players
+# set number of player
+#2. set candy numbers
+#3. 設定每位玩家最多可以取得糖果的數量
+#created by eva
+#version1.1
+
+player1 = input("請輸入玩家1的姓名:")
+player2 = input("請輸入玩家2的姓名:")
+player_nums = 2
+candy_nums = int(input("請輸入糖果的數量:"))
+catch_limit = int(input("請輸入玩家每次可取得糖果的數量:"))
+nums = 1
+while True:
+  if nums % player_nums == 1:
+    name = player1
+  else:
+    name = player2
+  value = int(input(f"請{name}輸入取得糖果的數量(1~{catch_limit})"))
+  if value <= catch_limit and value < candy_nums and value != 0:
+    if (candy_nums - value) == 1:
+      break
+    else:
+      candy_nums -= value
+      print("===========================")
+      print(f"candy numbers is {candy_nums}")
+      nums += 1
+  else:
+    print("輸入錯誤!請重新輸入")
+    continue
+print(f"The winner is {name}")
+nums += 1
+if nums % player_nums == 1:
+    name = player1
+else:
+    name = player2
+print(f"The failer is {name}")
+print("Game-Over")
+```
