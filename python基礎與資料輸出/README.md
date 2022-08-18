@@ -113,6 +113,60 @@ C:\Users\roberthsu2003\Anaconda3\envs\project1\python.exe C:/Users/roberthsu2003
 Hello! Python.
 ```
 
+## 純值運算
+
+```python
+#python 純值
+'Hello! Python!'
+30
+30.0
+True
+```
+
+```python
+#print()
+print('Hello! Python!')
+print(30)
+print(30.0)
+print(True)
+```
+
+```python
+#整數運算
+print(5 + 8)
+print(90 - 10)
+print(4 * 7)
+print(6 / 2)
+print(7 // 2)
+print(7 % 3)
+print(999 ** 20)
+```
+
+```python
+#浮點數和整數運算
+print(5.0 + 8)
+print(5.0 + 8 + 10)
+print(5.0 + 8 * 2)
+print(2 * (1 + 2) ** 2 - 2 ** 2 * 2)
+```
+
+```python
+#字串的加法運算
+"abc" + "efg"
+
+#字串+數值 -> 出錯
+#"abc" + 13
+
+#str() -> 轉為字串
+"abc" + str(13)
+
+#int() -> 轉為整數
+int("13") + int("25")
+
+#float() -> 轉為浮點數
+float("13.5") + float("21.7")
+```
+
 ## 關於變數
 
 1. 關於變數宣告:
