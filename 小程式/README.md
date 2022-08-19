@@ -457,3 +457,141 @@ else:
 print(f"The failer is {name}")
 print("Game-Over")
 ```
+
+
+```python
+#The maze of numbers
+#version1.0
+
+import random
+
+def next_player(nums, players):
+  players_nums = len(players)
+  index = nums % players_nums
+  return players[index]
+
+print("==============猜數字遊戲============\n")
+players = []
+player_nums = int(input("請輸入玩家的數量(2~5):"))
+for i in range(player_nums):
+  name = input(f"請輸入玩家{i+1}的姓名:")
+  players.append(name)
+
+min = 1
+if player_nums == 2:
+  max = 100
+elif player_nums == 3:
+  max = 300
+elif player_nums == 4:
+  max = 500
+elif player_nums == 5:
+  max = 700
+
+
+nums = random.getrandbits(8)
+number_maze = random.randint(min,max)
+
+while True:
+  player_name = next_player(nums, players)
+  input_value = int(input(f'{player_name}:請猜一個數字({min}~{max}):'))
+  if input_value <= max and input_value >= min:
+    #範圍正確
+    if input_value == number_maze:
+      print(f"{player_name}猜對了。")
+      print(f"{player_name}是贏家")
+      break;
+    elif input_value < number_maze:
+      print("請再大一點")
+      min = input_value + 1
+    elif input_value > number_maze:
+      print("請再小一點")
+      max = input_value - 1
+  else:
+    print("超出範圍,請下個玩家輸入")
+
+  nums += 1
+print("Game Over")
+```
+
+![](./images/pic1.png)
+
+```python
+#The maze of numbers
+#version2.0
+#增加回合數
+
+import random
+
+def next_player(nums, players):
+  players_nums = len(players)
+  index = nums % players_nums
+  return players[index]
+
+def play_game(players,min,max):
+  nums = random.getrandbits(8)
+  number_maze = random.randint(min,max)
+
+  while True:
+    player_name = next_player(nums, players)
+    input_value = int(input(f'{player_name}:請猜一個數字({min}~{max}):'))
+    if input_value <= max and input_value >= min:
+      #範圍正確
+      if input_value == number_maze:
+        print(f"{player_name}猜對了。")
+        print(f"{player_name}是贏家")
+        return player_name
+      elif input_value < number_maze:
+        print("請再大一點")
+        min = input_value + 1
+      elif input_value > number_maze:
+        print("請再小一點")
+        max = input_value - 1
+    else:
+      print("超出範圍,請下個玩家輸入")
+
+    nums += 1
+  
+
+
+print("==============猜數字遊戲============\n")
+round = int(input("請輸入回合數:"))
+players = []
+player_nums = int(input("請輸入玩家的數量(2~5):"))
+for i in range(player_nums):
+  name = input(f"請輸入玩家{i+1}的姓名:")
+  players.append(name)
+
+#records記錄玩家的分數
+records = {}
+for name in players:
+  records[name] = 0
+
+min = 1
+if player_nums == 2:
+  max = 100
+elif player_nums == 3:
+  max = 300
+elif player_nums == 4:
+  max = 500
+elif player_nums == 5:
+  max = 700
+
+while True:
+  win_player = play_game(players,min,max)
+  #讓贏家加1
+  records[win_player] += 1
+  round -= 1
+  if round == 0:
+    break;
+  play_again = input("還要繼續玩嗎?(y,n):")
+  if play_again == 'n':
+    break
+
+print("回合結束:")
+for name in players:
+  print(f"{name}:{records[name]}")
+
+print("Game Over")
+```
+
+![](./images/pic2.png)
