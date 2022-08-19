@@ -595,3 +595,62 @@ print("Game Over")
 ```
 
 ![](./images/pic2.png)
+
+```python
+#2個運算元的加法運算
+import random
+from datetime import datetime
+now = datetime.now()
+questions = []
+for i in range(5):
+  first = random.randint(1,100)
+  second =random.randint(1,100)
+  answer = int(input(f"第{i+1}題: {first} + {second} ="))
+  questions.append([first, second, answer])
+
+total = 0
+for ques in questions:
+  first = ques[0]
+  second = ques[1]
+  answer = ques[2]
+  if first + second == answer:
+    total += 20
+  else:    
+    print(f"{first} + {second} = {first+second}")
+    print(f'答案{answer}錯誤')
+
+print(f"總分為:{total}")
+print(datetime.now() - now)
+
+
+```
+
+```python
+#2個運算元的加減法運算
+import random
+from datetime import datetime
+now = datetime.now()
+questions = []
+for i in range(5):
+  first = random.randint(1,100)
+  second =random.randint(1,100)
+  third = random.randint(1,100)
+  ques = f"{first}{random.choice(['+','-'])}{second}{random.choice(['+','-'])}{third}"
+  answer = int(input(f"{ques} ="))
+  questions.append([ques, answer])
+
+total = 0
+for ques in questions:
+  express = ques[0]  
+  answer = ques[1]
+  if eval(express) == answer:
+    total += 20
+  else: 
+    print("=============================")   
+    print(f"{express} = {eval(express)}")
+    print(f'答案{answer}錯誤')
+
+print(f"總分為:{total}")
+print(datetime.now() - now)
+
+```
