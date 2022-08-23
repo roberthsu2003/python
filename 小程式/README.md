@@ -654,3 +654,57 @@ print(f"總分為:{total}")
 print(datetime.now() - now)
 
 ```
+
+```python
+#最大公因數
+def greatest_common_factor():
+  print("==========最大公因數=============")
+  value1, value2= eval(input("請輸入2數:(數值,數值)"))
+  min_value = min(value1,value2)
+  for i in range(min_value,0,-1):
+    if value1 % i == 0 and value2 % i == 0:
+      print(f"最大公因數是:{i}")
+      break
+      
+#最小公倍數
+def least_common_multiple():
+  print("=========最小公倍數=============")
+  value1, value2 = eval(input("請輸入2數:(數值,數值)"))
+  max_value = max(value1, value2)
+  min_value = min(value1, value2)
+  i = 1
+  while True:
+    if max_value * i % min_value == 0:
+      LCM = max_value * i
+      break
+    i += 1
+  print(f"最小公倍數:{LCM}")
+  
+#質數
+def prime():
+  print("============求一個範圍的質數=========")
+  value1, value2 = eval(input("求一個範圍的質數請輸入2數(最小數值,最大數值):"))
+  for value in range(value1, value2+1):
+    isPrime = True;
+    for i in range(2, value):
+      if value % i == 0:
+        isPrime = False
+        break
+    if isPrime:
+      print(f"{value}",end=" ")
+  print()
+  
+print("運算開始:")
+while True:
+  mode = eval(input("請輸入運算模式:1.最大公因數,2.最小公倍數,3.質數,4.離開:"))
+  if mode == 1:
+    greatest_common_factor()
+  elif mode == 2:
+    least_common_multiple()
+  elif mode == 3:
+    prime()
+  else:
+    break
+print("運算結束")
+
+```
