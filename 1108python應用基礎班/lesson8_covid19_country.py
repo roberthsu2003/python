@@ -21,5 +21,6 @@ df["死亡比例"] = df["死亡"] / df["確診"] * 100
 for code in df.index:
     print(code,end=',')
 print()
-countries = eval(input("請輸入國家:範例(xxx,xxxx,xxx):"))
-print(df.loc[countries])
+countries = input("請輸入國家:範例(xxx,xxxx,xxx):")
+print(countries)
+#print(df.loc[countries])
