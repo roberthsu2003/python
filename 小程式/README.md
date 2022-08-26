@@ -708,3 +708,89 @@ while True:
 print("運算結束")
 
 ```
+
+```python
+#Tic-Tac-Toe
+import random
+
+def next_player(nums, players):
+  players_nums = len(players)
+  index = nums % players_nums
+  return players[index],index+1
+
+def display(grid):
+  for subitem in grid:
+    for num in subitem:
+      if num == 1:
+        print('O',end=' ')
+      elif num == 2:
+        print('X',end=' ')
+      elif num == 0:
+        print('_',end=' ')
+    print()
+
+def fillGrid(row,col,input_num,grid):
+  #檢查輸入範圍是否正確
+  if not (0 <= row < 3 and 0 <= col < 3):
+    return False
+  
+  if grid[row][col] != 0:
+    return False
+  else:
+    grid[row][col] = input_num  
+  display(grid)
+  return True
+
+def checkWinner(grid,name,index):
+  #player1,value=1
+  #player2,value=2
+  #檢查row
+  for item in grid:
+    if item[0] == index and item[1] == index and item[2] == index:
+      return name
+    
+  
+  for i in range(3):
+    if grid[0][i] == index and grid[1][i] == index and grid[2][i] == index:
+      return name
+    
+
+  if grid[0][0] == index and grid[1][1] == index and grid[2][2] == index:
+    return name  
+
+  if grid[0][2] == index and grid[1][1] == index and grid[2][0] == index:
+    return name 
+
+  return False
+  
+  
+
+
+grid = [[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]]
+
+print("===========井字遊戲================\n\n")
+player1 = input("請輸入玩家1的姓名:")
+player2 = input("請輸入玩家2的姓名:")
+players  = [player1, player2]
+randoms = random.getrandbits(2)
+display(grid)
+
+while True:
+  player_name,index = next_player(randoms,players)
+  (row, col) = eval(input(f"{player_name}請輸入(列:1~3,欄:1~3):"))
+  if fillGrid(row-1,col-1,index,grid) == False:
+    print("輸入錯誤,請重新輸入")
+    continue
+  winName = checkWinner(grid,player_name,index)
+  if winName != False:
+    print(f"winner是{winName}")
+    break;
+
+  randoms += 1
+  
+
+
+
+```
