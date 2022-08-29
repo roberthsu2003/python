@@ -18,9 +18,12 @@ df['死亡']=df['死亡'].str.replace(",","")
 df['確診'] = df['確診'].astype(int)
 df['死亡'] = df['死亡'].astype(int)
 df["死亡比例"] = df["死亡"] / df["確診"] * 100
+print(df)
 for code in df.index:
     print(code,end=',')
 print()
-countries = input("請輸入國家:範例(xxx,xxxx,xxx):")
-print(countries)
-#print(df.loc[countries])
+countries_str = input("請輸入國家:範例(xxx,xxxx,xxx):")
+countries_list = countries_str.split(",")
+country_df = df.loc[countries_list]
+with pd.ExcelWriter(f"{countries_str}_covid19.xlsx") as writer:
+    country_df.to_excel(writer,sheet_name=countries_str)
