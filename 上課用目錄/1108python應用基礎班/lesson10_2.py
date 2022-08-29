@@ -1,10 +1,12 @@
 import tkinter as tk
+import tkinter.font as tkFont
 
 class Window(tk.Tk):
     def __init__(self):
         super().__init__()
+        fontstyle = tkFont.Font(family="Lucida Grande", size=25)
         mainFrame = tk.Frame(self,borderwidth=1,relief=tk.GROOVE,padx=10,pady=10)
-        tk.Label(mainFrame,text="全球_covid19_最新統計").grid(column=0, row=0)
+        tk.Label(mainFrame,text="全球 covid19 最新統計",font=fontstyle).grid(column=0, row=0)
         mainFrame.grid(column=0,row=0,padx=20,pady=20)
 
 def main():
