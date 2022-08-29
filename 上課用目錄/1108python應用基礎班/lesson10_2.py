@@ -3,7 +3,9 @@ import tkinter as tk
 class Window(tk.Tk):
     def __init__(self):
         super().__init__()
-        tk.Frame(self,width=700,height=250,borderwidth=1,relief=tk.GROOVE).grid(column=0,row=0,padx=20,pady=20)
+        mainFrame = tk.Frame(self,borderwidth=1,relief=tk.GROOVE,padx=10,pady=10)
+        tk.Label(mainFrame,text="全球_covid19_最新統計").grid(column=0, row=0)
+        mainFrame.grid(column=0,row=0,padx=20,pady=20)
 
 def main():
     window = Window()
