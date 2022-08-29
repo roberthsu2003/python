@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f22c8fc-7843-4df6-8976-3f799f1249ab" name="Changes" comment="modify">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson8_covid19_country.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson8_covid19_country.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/~$日本,土耳其,西班牙_covid19.xlsx" beforeDir="false" />
-    </list>
+    <list default="true" id="5f22c8fc-7843-4df6-8976-3f799f1249ab" name="Changes" comment="modify" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,13 +73,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1660100780809</updated>
-    </task>
-    <task id="LOCAL-00050" summary="modify">
-      <created>1660721502038</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1660721502039</updated>
     </task>
     <task id="LOCAL-00051" summary="modify">
       <created>1660722107087</created>
@@ -421,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661738922726</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="modify">
+      <created>1661740629802</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1661740629802</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
