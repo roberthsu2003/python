@@ -7,12 +7,16 @@ class Window(tk.Tk):
         super().__init__()
         fontstyle = tkFont.Font(family="Lucida Grande", size=25)
         mainFrame = tk.Frame(self,borderwidth=1,relief=tk.GROOVE,padx=10,pady=10)
-        tk.Label(mainFrame,text="全球 covid19 最新統計",font=fontstyle).grid(column=0, row=0)
-        countries_listbox = tk.Listbox(mainFrame)
+        tk.Label(mainFrame,text="全球 covid19 最新統計",font=fontstyle).grid(column=0, row=0,columnspan=2)
+
+        countries_listbox = tk.Listbox(mainFrame,selectmode=tk.MULTIPLE)
         country_names = ds.get_countries()
         for country in country_names:
             countries_listbox.insert(tk.END, country)
         countries_listbox.grid(column=0,row=1)
+
+        button = tk.Button(mainFrame,text="轉換為Excel檔 >>")
+        button.grid(column=1,row=1)
         mainFrame.grid(column=0,row=0,padx=20,pady=20)
 
 
