@@ -7,6 +7,7 @@
     <list default="true" id="5f22c8fc-7843-4df6-8976-3f799f1249ab" name="Changes" comment="modify">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lesson8_covid19_country.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson8_covid19_country.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/~$日本,土耳其,西班牙_covid19.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,13 +77,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1660100780809</updated>
-    </task>
-    <task id="LOCAL-00049" summary="modify">
-      <created>1660720171471</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1660720171471</updated>
     </task>
     <task id="LOCAL-00050" summary="modify">
       <created>1660721502038</created>
@@ -420,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661738132234</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="modify">
+      <created>1661738922726</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1661738922726</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
