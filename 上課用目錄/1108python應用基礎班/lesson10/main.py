@@ -1,6 +1,7 @@
 import tkinter as tk
 import tkinter.font as tkFont
 import datasource as ds
+import tkinter.messagebox as messagebox
 
 class Window(tk.Tk):
     def __init__(self):
@@ -27,12 +28,12 @@ class Window(tk.Tk):
         mainFrame.grid(column=0,row=0,padx=20,pady=20)
 
     def button_click(self):
-        print("button click")
         if len(self.countries_listbox.curselection()) == 0:
-            print("not selections")
+            messagebox.showwarning(title="警告",message="最少必需選取一個國家")
         else:
             for i in self.countries_listbox.curselection():
                 print(self.countries_listbox.get(i))
+            messagebox.showinfo(title="提示", message="轉檔完成")
 
 
 def main():
