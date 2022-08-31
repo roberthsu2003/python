@@ -22,9 +22,12 @@ class Window(tk.Tk):
         scroll_bar.config(command = countries_listbox.yview)
         left_sub_frame.grid(column=0,row=1)
 
-        button = tk.Button(mainFrame,text="轉換為Excel檔 >>")
+        button = tk.Button(mainFrame,text="轉換為Excel檔 >>",command=self.button_click)
         button.grid(column=1,row=1,sticky='N')
         mainFrame.grid(column=0,row=0,padx=20,pady=20)
+
+    def button_click(self):
+        print("button click")
 
 
 def main():
