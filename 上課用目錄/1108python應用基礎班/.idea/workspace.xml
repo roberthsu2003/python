@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5f22c8fc-7843-4df6-8976-3f799f1249ab" name="Changes" comment="modify">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson10/datasource.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson10/datasource.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lesson10/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson10/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/output.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,13 +78,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1660100780809</updated>
-    </task>
-    <task id="LOCAL-00076" summary="modify">
-      <created>1661309585637</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1661309585637</updated>
     </task>
     <task id="LOCAL-00077" summary="modify">
       <created>1661310264980</created>
@@ -420,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661918234054</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="modify">
+      <created>1661918446933</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1661918446933</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

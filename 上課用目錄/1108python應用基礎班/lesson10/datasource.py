@@ -1,6 +1,7 @@
 import requests
 import csv
 import pandas as pd
+from datetime import datetime
 
 def loadData():
     url = 'https://od.cdc.gov.tw/eic/covid19/covid19_global_cases_and_deaths.csv'
@@ -33,5 +34,7 @@ def convert_excel(countrylist):
     csv_text = loadData()
     df = get_df(csv_text)
     selected_df = df.loc[countrylist]
-    with pd.ExcelWriter('output.xlsx') as writer:
+    now = datetime.now()
+    filename = '_'.join(countrylist)+f"_{now.year}{now.month}{now.day}"+'.xlsx'
+    with pd.ExcelWriter(filename) as writer:
         selected_df.to_excel(writer, sheet_name='_'.join(countrylist))

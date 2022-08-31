@@ -31,10 +31,12 @@ class Window(tk.Tk):
         if len(self.countries_listbox.curselection()) == 0:
             messagebox.showwarning(title="警告",message="最少必需選取一個國家")
         else:
+            country_name = []
             for i in self.countries_listbox.curselection():
                 print(self.countries_listbox.get(i))
+                country_name.append(self.countries_listbox.get(i))
 
-            ds.convert_excel(['臺灣','日本','法國'])
+            ds.convert_excel(country_name)
             messagebox.showinfo(title="提示", message="轉檔完成")
 
 
