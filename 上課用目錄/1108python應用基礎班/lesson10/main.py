@@ -8,7 +8,7 @@ class Window(tk.Tk):
         fontstyle = tkFont.Font(family="Lucida Grande", size=25)
         #mainFrame
         mainFrame = tk.Frame(self,borderwidth=1,relief=tk.GROOVE,padx=10,pady=10)
-        tk.Label(mainFrame,text="全球 covid19 最新統計",font=fontstyle).grid(column=0, row=0,columnspan=2)
+        tk.Label(mainFrame,text="全球 covid19 最新統計",font=fontstyle).grid(column=0, row=0,columnspan=2,pady=(0,20))
         #left_sub_frame
         left_sub_frame = tk.Frame(mainFrame)
         countries_listbox = tk.Listbox(left_sub_frame,selectmode=tk.MULTIPLE)
@@ -17,13 +17,13 @@ class Window(tk.Tk):
             countries_listbox.insert(tk.END, country)
         countries_listbox.pack(side="left")
         scroll_bar = tk.Scrollbar(left_sub_frame)
-        scroll_bar.pack(side="left",fill = tk.BOTH)
+        scroll_bar.pack(side="left",fill = tk.BOTH,padx=(0,10))
         countries_listbox.configure(yscrollcommand = scroll_bar.set)
         scroll_bar.config(command = countries_listbox.yview)
         left_sub_frame.grid(column=0,row=1)
 
         button = tk.Button(mainFrame,text="轉換為Excel檔 >>")
-        button.grid(column=1,row=1)
+        button.grid(column=1,row=1,sticky='N')
         mainFrame.grid(column=0,row=0,padx=20,pady=20)
 
 
