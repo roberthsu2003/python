@@ -33,6 +33,8 @@ class Window(tk.Tk):
         else:
             for i in self.countries_listbox.curselection():
                 print(self.countries_listbox.get(i))
+
+            ds.convert_excel(['台灣,日本,法國'])
             messagebox.showinfo(title="提示", message="轉檔完成")
 
 
