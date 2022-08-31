@@ -11,15 +11,15 @@ class Window(tk.Tk):
         tk.Label(mainFrame,text="全球 covid19 最新統計",font=fontstyle).grid(column=0, row=0,columnspan=2,pady=(0,20))
         #left_sub_frame
         left_sub_frame = tk.Frame(mainFrame)
-        countries_listbox = tk.Listbox(left_sub_frame,selectmode=tk.MULTIPLE)
+        self.countries_listbox = tk.Listbox(left_sub_frame,selectmode=tk.MULTIPLE)
         country_names = ds.get_countries()
         for country in country_names:
-            countries_listbox.insert(tk.END, country)
-        countries_listbox.pack(side="left")
+            self.countries_listbox.insert(tk.END, country)
+        self.countries_listbox.pack(side="left")
         scroll_bar = tk.Scrollbar(left_sub_frame)
         scroll_bar.pack(side="left",fill = tk.BOTH,padx=(0,10))
-        countries_listbox.configure(yscrollcommand = scroll_bar.set)
-        scroll_bar.config(command = countries_listbox.yview)
+        self.countries_listbox.configure(yscrollcommand = scroll_bar.set)
+        scroll_bar.config(command = self.countries_listbox.yview)
         left_sub_frame.grid(column=0,row=1)
 
         button = tk.Button(mainFrame,text="轉換為Excel檔 >>",command=self.button_click)
@@ -28,6 +28,11 @@ class Window(tk.Tk):
 
     def button_click(self):
         print("button click")
+        if len(self.countries_listbox.curselection()) == 0:
+            print("not selections")
+        else:
+            for i in self.countries_listbox.curselection():
+                print(self.countries_listbox.get(i))
 
 
 def main():
