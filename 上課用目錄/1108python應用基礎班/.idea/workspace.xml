@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f22c8fc-7843-4df6-8976-3f799f1249ab" name="Changes" comment="modify" />
+    <list default="true" id="5f22c8fc-7843-4df6-8976-3f799f1249ab" name="Changes" comment="modify">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,13 +75,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1660100780809</updated>
-    </task>
-    <task id="LOCAL-00084" summary="modify">
-      <created>1661323633737</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1661323633737</updated>
     </task>
     <task id="LOCAL-00085" summary="modify">
       <created>1661324076464</created>
@@ -417,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661933009945</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="modify">
+      <created>1661934895238</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1661934895238</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
