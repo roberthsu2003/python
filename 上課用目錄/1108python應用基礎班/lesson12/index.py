@@ -6,7 +6,9 @@
 import datasource
 
 def main():
-    pass
+    data_list = datasource.get_pm25()
+    for record in data_list:
+        print(record['sitename'])
 
 if __name__ == "__main__":
     main()
