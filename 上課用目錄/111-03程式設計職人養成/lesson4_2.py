@@ -4,7 +4,8 @@ class Window(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Hello! Tkinnter")
-        self.geometry("800x300")
+        label = tk.Label(self,text="Hello Tkinter!")
+        label.pack(padx=100, pady=50)
 
 
 def main():
