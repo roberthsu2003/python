@@ -1,4 +1,5 @@
 import tkinter as tk
+import requests
 
 class Window(tk.Tk):
     def __init__(self):
@@ -8,11 +9,14 @@ class Window(tk.Tk):
         tk.Button(self,text="下載資料",font=("arial",20),command=self.download).pack(padx=100,pady=50)
     
     def download(self):
-        print("download")
+        url = "https://mopsfin.twse.com.tw/opendata/t187ap05_L.csv"
+        response = requests.get(url)
+        response.encoding = "utf-8"
+        print(response.text)
 
 
 def main():
-   url = "https://mopsfin.twse.com.tw/opendata/t187ap05_L.csv" 
+    
    window = Window()
    window.mainloop()
 
