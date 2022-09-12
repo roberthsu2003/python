@@ -10,9 +10,10 @@ class Window(tk.Tk):
     
     def download(self):
         url = "https://mopsfin.twse.com.tw/opendata/t187ap05_L.csv"
-        response = requests.get(url)
-        response.encoding = "utf-8"
-        print(response.text)
+        response = requests.get(url,stream=True)
+        with open("上市公司每月營業收入彙種表.csv", 'wb') as fd:
+            for chunk in response.iter_content(chunk_size=128):
+                fd.write(chunk)
 
 
 def main():
