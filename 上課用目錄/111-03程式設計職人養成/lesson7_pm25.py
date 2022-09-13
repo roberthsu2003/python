@@ -25,7 +25,7 @@ class Window(tk.Tk):
             if item[1] == county_name:
                  data_list.append(item)
         
-        with open(f"{county_name}.csv",mode="w",newline="") as file:
+        with open(f"{county_name}.csv",mode="w",encoding="utf-8",newline="") as file:
             csv_writer = csv.writer(file)
             csv_writer.writerows(data_list)
         print("存檔成功")
