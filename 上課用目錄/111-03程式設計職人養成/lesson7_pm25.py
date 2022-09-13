@@ -7,7 +7,8 @@ class Window(tk.Tk):
     def __init__(self,county):
         super().__init__()
         self.county  = county
-        print(self.county)
+        for county_str in self.county:
+            tk.Button(self,text=county_str).pack(side=tk.LEFT)
 
 def main():
     county = get_county()
