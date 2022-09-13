@@ -4,13 +4,14 @@ from io import StringIO
 import csv
 
 class Window(tk.Tk):
-    def __init__(self):
+    def __init__(self,county):
         super().__init__()
+        self.county  = county
+        print(self.county)
 
 def main():
-    window = Window()
     county = get_county()
-    print(county)
+    window = Window(county)    
     window.mainloop()
 
 def get_county():
