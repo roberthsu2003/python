@@ -7,8 +7,12 @@ class Window(tk.Tk):
     def __init__(self,county):
         super().__init__()
         self.county  = county
-        for county_str in self.county:
-            tk.Button(self,text=county_str).pack(side=tk.LEFT)
+        self.title("空氣品質指標(AQI)概況")
+        tk.Label(self,text="空氣品質指標(AQI)概況",font=("arial",20,"bold")).pack(padx=20,pady=50)
+        mainFrame = tk.Frame(self)
+        for index,county_str in enumerate(self.county):
+            tk.Button(mainFrame,text=county_str,font=("arial",16),padx=10,pady=10).grid(row=index//3,column= index%3,padx=10,pady=10)
+        mainFrame.pack()
 
 def main():
     county = get_county()
