@@ -1,2 +1,5 @@
+def main():
+    print("main主程式執行了")
+
 if __name__ == "__main__":
-    print("程式執行")
+    main()
