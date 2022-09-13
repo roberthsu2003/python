@@ -2,6 +2,7 @@ import tkinter as tk
 import requests
 from io import StringIO
 import csv
+from tkinter import filedialog
 
 class Window(tk.Tk):
     def __init__(self,csv_list,county):
@@ -24,8 +25,9 @@ class Window(tk.Tk):
         for item in self.csv_list:
             if item[1] == county_name:
                  data_list.append(item)
-        
-        with open(f"{county_name}.csv",mode="w",encoding="utf-8",newline="") as file:
+        path = filedialog.askdirectory()
+        path_file_name = f"{path}/{county_name}.csv"
+        with open(path_file_name,mode="w",encoding="utf-8",newline="") as file:
             csv_writer = csv.writer(file)
             csv_writer.writerows(data_list)
         print("存檔成功")
