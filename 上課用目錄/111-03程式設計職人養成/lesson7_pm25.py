@@ -20,7 +20,12 @@ class Window(tk.Tk):
     def buttonClick(self,event):
         print("button click")
         county_name = event.widget["text"]
-        print(county_name)
+        data_list = []
+        for item in self.csv_list:
+            if item[1] == county_name:
+                 data_list.append(item)
+        
+        print(data_list)
         
 
 def main():    
