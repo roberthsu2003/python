@@ -3,17 +3,19 @@ import json
 from datetime import datetime
 import csv
 
-
-
-def main():
+def download_json():
     url = "http://api.openweathermap.org/data/2.5/group?id=1668341,1668399,1670481&units=metric&appid=29c4f184354b9889e87f7b494ac86aed"
     res = requests.get(url)
 
     if res.ok:
         print("下載成功")
-        jsonText = res.text
+        return res.text
     else:
         print("下載失敗")
+
+
+def main():
+    jsonText = download_json()
 
     data = json.loads(jsonText)
 
