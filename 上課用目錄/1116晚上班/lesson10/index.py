@@ -1,15 +1,9 @@
-from data import Student,Person
-        
+class Window():
+    def __init__(self):
+        print("執行Window init")        
 
 def main():
-    s1 = Student(n="jone",chinese=85)
-    s2 = Student(n="peter",age=21,english=92)
-
-    s1.description()
-    print("總分",s1.sum)
-    print("=============")
-    s2.description()
-    print("總分",s2.sum)
+    window = Window()
 
 
 if __name__ == "__main__":
