@@ -1,3 +1,5 @@
+import data
+
 class Person():
     def __init__(self,n,age=18):
         self.name = n
