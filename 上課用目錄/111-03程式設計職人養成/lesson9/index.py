@@ -19,10 +19,7 @@ class Window(tk.Tk):
         
         self.chage_content_frame = tk.Frame(self) #會改變內容的frame
        
-        #self.displayFrame = DisplayFrame(chage_content_frame,text="台北-Taiwan")
-        #btn = tk.Button(self.displayFrame,text=f"HEllo",padx=20,pady=10,width=5).pack()
-        #self.displayFrame.pack()
-
+        
         self.chage_content_frame.pack()
 
 
@@ -33,8 +30,10 @@ class Window(tk.Tk):
         nameList = btn_text.split()
         cname = nameList[0]
         ename = nameList[1]
-        displayFrame = DisplayFrame(self.chage_content_frame,cname=cname,ename=ename)
-        displayFrame.pack()
+        if hasattr(self, 'displayFrame'):
+            self.displayFrame.destroy()
+        self.displayFrame = DisplayFrame(self.chage_content_frame,cname=cname,ename=ename)
+        self.displayFrame.pack()
         
 
 class DisplayFrame(tk.LabelFrame):
@@ -44,7 +43,7 @@ class DisplayFrame(tk.LabelFrame):
         self.ename = ename
         print(self.cname)
         print(self.ename)
-        tk.Button(self,text="Hello!").pack()
+        tk.Button(self,text=self.cname).pack()
 
 
 def main():
