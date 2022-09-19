@@ -5,6 +5,7 @@ class Window(tk.Tk):
         self.codes = codes
         self.title("各縣市7天天氣預測")
         print(self.codes)
+        tk.Label(self, text="各縣市7天天氣預測", font=("arial",20)).pack(padx=100, pady=50)
 
 def main():
     tw_county_names = {"台北":"Taipei",
