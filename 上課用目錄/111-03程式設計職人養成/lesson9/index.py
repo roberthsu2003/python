@@ -1,3 +1,4 @@
+from asyncio import events
 import tkinter as tk
 class Window(tk.Tk):
     def __init__(self,codes):
@@ -10,9 +11,15 @@ class Window(tk.Tk):
         
         for index,cities in enumerate(self.codes.items()):            
             cname,ename= cities
-            tk.Button(buttonFrame,text=f"{cname}\n{ename}",padx=20,pady=10,width=5).grid(column=index % 4,row=index // 4)
-
+            btn = tk.Button(buttonFrame,text=f"{cname}\n{ename}",padx=20,pady=10,width=5)
+            btn.grid(column=index % 4,row=index // 4)
+            btn.bind('<Button>',self.btnClick)
         buttonFrame.pack()
+
+    def btnClick(self,event):
+        btn=event.widget
+        btn_text = btn["text"]
+        print(btn_text)
 
 def main():
     tw_county_names = {"台北":"Taipei",
