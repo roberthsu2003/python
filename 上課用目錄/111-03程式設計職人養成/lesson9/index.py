@@ -1,4 +1,4 @@
-from asyncio import events
+
 import tkinter as tk
 class Window(tk.Tk):
     def __init__(self,codes):
@@ -7,14 +7,21 @@ class Window(tk.Tk):
         self.title("各縣市7天天氣預測")
         print(self.codes)
         tk.Label(self, text="各縣市7天天氣預測", font=("arial",20)).pack(padx=100, pady=50)
-        buttonFrame = tk.Frame(self)
-        
+
+        buttonFrame = tk.Frame(self)        
         for index,cities in enumerate(self.codes.items()):            
             cname,ename= cities
             btn = tk.Button(buttonFrame,text=f"{cname}\n{ename}",padx=20,pady=10,width=5)
             btn.grid(column=index % 4,row=index // 4)
             btn.bind('<Button>',self.btnClick)
         buttonFrame.pack()
+
+        displayFrame = tk.LabelFrame(self,text="台北-Taiwan")
+        btn = tk.Button(displayFrame,text=f"HELLO",padx=20,pady=10,width=5)
+        btn.pack()
+        displayFrame.pack()
+
+
 
     def btnClick(self,event):
         btn=event.widget
