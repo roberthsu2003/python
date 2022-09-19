@@ -7,7 +7,11 @@ class Window(tk.Tk):
         print(self.codes)
         tk.Label(self, text="各縣市7天天氣預測", font=("arial",20)).pack(padx=100, pady=50)
         buttonFrame = tk.Frame(self)
-        tk.Button(buttonFrame,text="台北\nTaipei",padx=20,pady=10).pack()
+        
+        for index,cities in enumerate(self.codes.items()):            
+            cname,ename= cities
+            tk.Button(buttonFrame,text=f"{cname}\n{ename}",padx=20,pady=10,width=5).grid(column=index % 4,row=index // 4)
+
         buttonFrame.pack()
 
 def main():
