@@ -19,11 +19,9 @@ class Window(tk.Tk):
         
         chage_content_frame = tk.Frame(self) #會改變內容的frame
        
-        self.displayFrame = tk.LabelFrame(chage_content_frame,text="台北-Taiwan")
-
-        btn = tk.Button(self.displayFrame,text=f"HEllo",padx=20,pady=10,width=5).pack()
-
-        self.displayFrame.pack()
+        #self.displayFrame = DisplayFrame(chage_content_frame,text="台北-Taiwan")
+        #btn = tk.Button(self.displayFrame,text=f"HEllo",padx=20,pady=10,width=5).pack()
+        #self.displayFrame.pack()
 
         chage_content_frame.pack()
 
@@ -32,8 +30,19 @@ class Window(tk.Tk):
     def btnClick(self,event):
         btn=event.widget
         btn_text = btn["text"]
-        print(btn_text)
-        self.displayFrame.destroy()
+        nameList = btn_text.split()
+        cname = nameList[0]
+        ename = nameList[1]
+        displayName = DisplayFrame(cname=cname,ename=ename)
+        
+
+class DisplayFrame(tk.LabelFrame):
+    def __init__(self,cname,ename):
+        self.cname = cname
+        self.ename = ename
+        print(self.cname)
+        print(self.ename)
+
 
 def main():
     tw_county_names = {"台北":"Taipei",
