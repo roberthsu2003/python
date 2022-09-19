@@ -1,3 +1,11 @@
+import tkinter as tk
+class Window(tk.Tk):
+    def __init__(self,codes):
+        super().__init__()
+        self.codes = codes
+        self.title("各縣市7天天氣預測")
+        print(self.codes)
+
 def main():
     tw_county_names = {"台北":"Taipei",
                    "台中":"Taichung",
@@ -20,7 +28,8 @@ def main():
                    "澎湖":"Penghu",
                    "連江":"Lienchiang"
                    }
-    print(tw_county_names)
+    window = Window(codes=tw_county_names)
+    window.mainloop()
 
 if __name__ == "__main__":
     main()
