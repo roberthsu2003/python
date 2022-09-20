@@ -51,7 +51,7 @@ class DisplayFrame(tk.LabelFrame):
             messagebox.showerror('取得資料錯誤', '取得資料錯誤,請稍後再試')
             return
         #將資料切割為3等分,left_data,center_data,right_data
-        tk.Button(self,text=f"{self.cname}天氣預報儲存為Excel").pack(anchor=tk.W,padx=10,pady=10)
+        tk.Button(self,text=f"{self.cname}天氣預報儲存為Excel",command=lambda:DisplayFrame.save_to_excel(self.forecast)).pack(anchor=tk.W,padx=10,pady=10)
         total_rows = len(self.forecast)
         columns = 3
         rows = total_rows // 3 + 1
@@ -110,6 +110,12 @@ class DisplayFrame(tk.LabelFrame):
             county_forcase.append([item['dt_txt'],item['main']['temp'],item['weather'][0]['description'],item['main']['humidity']])
         
         return county_forcase
+
+    @staticmethod
+    def save_to_excel(data):        
+        print("儲存資料至excel")
+        print(data)
+        
 
 
 
