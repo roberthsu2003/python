@@ -17,7 +17,9 @@ class Window(tk.Tk):
         path = "https://raw.githubusercontent.com/roberthsu2003/PythonForDataAnalysis/master/%E8%B3%87%E6%96%99%E9%9B%86/%E5%80%8B%E8%82%A1%E6%97%A5%E6%88%90%E4%BA%A4%E8%B3%87%E8%A8%8A.csv"
 
         response = requests.get(path)
-        print(response.text)
+        with open('csv/個股日成交資訊.csv',mode='w',newline='',encoding='utf-8') as file:
+            file.write(response.text)
+        
 
         
 
