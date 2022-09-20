@@ -43,11 +43,26 @@ class DisplayFrame(tk.LabelFrame):
         self.cname = cname
         self.ename = ename
         self.forecast = DisplayFrame.get_forecast(ename=self.ename)
-        print(len(self.forecast))        
+        #將資料切割為3等分,left_data,center_data,right_data
+        total_rows = len(self.forecast)
+        columns = 3
+        rows = total_rows // 3 + 1
+        left_data = self.forecast[:rows]
+        center_data = self.forecast[rows:rows*2]
+        right_data = self.forecast[rows*2:]
+        print(len(left_data))
+        print(len(center_data))
+        print(len(right_data))
+        #建立3欄的顯示空間
+        #左邊顯示空間建立      
         leftFrame = tk.Frame(self,width=150,height=150,background='#333333')
+
         leftFrame.pack(side=tk.LEFT)
+        #中間顯示空間建立
         centerFrame = tk.Frame(self,width=150,height=150,background='#666666')
         centerFrame.pack(side=tk.LEFT)
+
+        #右邊顯示空間建立
         rightFrame = tk.Frame(self,width=150,height=150,background='#999999')
         rightFrame.pack(side=tk.LEFT)
 
