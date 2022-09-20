@@ -51,6 +51,7 @@ class DisplayFrame(tk.LabelFrame):
             messagebox.showerror('取得資料錯誤', '取得資料錯誤,請稍後再試')
             return
         #將資料切割為3等分,left_data,center_data,right_data
+        tk.Button(self,text=f"{self.cname}天氣預報儲存為Excel").pack(anchor=tk.W,padx=10,pady=10)
         total_rows = len(self.forecast)
         columns = 3
         rows = total_rows // 3 + 1
