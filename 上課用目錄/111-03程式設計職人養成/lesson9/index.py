@@ -56,7 +56,9 @@ class DisplayFrame(tk.LabelFrame):
         #建立3欄的顯示空間
         #左邊顯示空間建立      
         leftFrame = tk.Frame(self,width=150,height=150,background='#333333')
-
+        for row_index,item in enumerate(left_data):
+            for column_index,value in enumerate(item):
+                tk.Label(leftFrame,text=value).grid(row=row_index,column=column_index)
         leftFrame.pack(side=tk.LEFT)
         #中間顯示空間建立
         centerFrame = tk.Frame(self,width=150,height=150,background='#666666')
