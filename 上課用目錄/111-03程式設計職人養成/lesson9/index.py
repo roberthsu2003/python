@@ -44,7 +44,12 @@ class DisplayFrame(tk.LabelFrame):
         self.ename = ename
         self.forecast = DisplayFrame.get_forecast(ename=self.ename)
         print(len(self.forecast))        
-        tk.Button(self,text=self.cname).pack()
+        leftFrame = tk.Frame(self,width=150,height=150,background='#333333')
+        leftFrame.pack(side=tk.LEFT)
+        centerFrame = tk.Frame(self,width=150,height=150,background='#666666')
+        centerFrame.pack(side=tk.LEFT)
+        rightFrame = tk.Frame(self,width=150,height=150,background='#999999')
+        rightFrame.pack(side=tk.LEFT)
 
     @staticmethod
     def get_forecast(ename):        
