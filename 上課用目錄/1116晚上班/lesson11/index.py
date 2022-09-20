@@ -1,5 +1,6 @@
 import tkinter as tk
 import os
+import requests
 
 class Window(tk.Tk):
     def __init__(self):
@@ -13,6 +14,11 @@ class Window(tk.Tk):
     def btn1_click(self):
         if not os.path.isdir('csv'):
             os.makedirs('csv')
+        path = "https://raw.githubusercontent.com/roberthsu2003/PythonForDataAnalysis/master/%E8%B3%87%E6%96%99%E9%9B%86/%E5%80%8B%E8%82%A1%E6%97%A5%E6%88%90%E4%BA%A4%E8%B3%87%E8%A8%8A.csv"
+
+        response = requests.get(path)
+        print(response.text)
+
         
 
     def btn2_click(self):
