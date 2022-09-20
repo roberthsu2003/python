@@ -42,6 +42,8 @@ class DisplayFrame(tk.LabelFrame):
         super().__init__(master)
         self.cname = cname
         self.ename = ename
+        #建立title Label
+        self.configure(text=f"{self.cname}-{self.ename}")
         self.forecast = DisplayFrame.get_forecast(ename=self.ename)
         #將資料切割為3等分,left_data,center_data,right_data
         total_rows = len(self.forecast)
