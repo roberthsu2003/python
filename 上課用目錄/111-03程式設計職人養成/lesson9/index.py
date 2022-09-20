@@ -14,7 +14,7 @@ class Window(tk.Tk):
         for index,cities in enumerate(self.codes.items()):            
             cname,ename= cities
             btn = tk.Button(buttonFrame,text=f"{cname}\n{ename}",padx=20,pady=5,width=5)
-            btn.grid(column=index % 5,row=index // 5)
+            btn.grid(column=index % 7,row=index // 7)
             btn.bind('<Button>',self.btnClick)
         buttonFrame.pack()
 
@@ -64,12 +64,28 @@ class DisplayFrame(tk.LabelFrame):
             for column_index,value in enumerate(item):
                 tk.Label(leftFrame,text=value).grid(row=row_index+1,column=column_index,sticky=tk.W,padx=10,pady=3)
         leftFrame.pack(side=tk.LEFT)
+
         #中間顯示空間建立
         centerFrame = tk.Frame(self,width=150,height=150,background='#666666')
+        tk.Label(centerFrame,text="日期-時間").grid(row=0,column=0,sticky=tk.W,padx=10,pady=3)
+        tk.Label(centerFrame,text="溫度").grid(row=0,column=1,sticky=tk.W,padx=10,pady=3)
+        tk.Label(centerFrame,text="狀態").grid(row=0,column=2,sticky=tk.W,padx=10,pady=3)
+        tk.Label(centerFrame,text="濕度").grid(row=0,column=3,sticky=tk.W,padx=10,pady=3)
+        for row_index,item in enumerate(center_data):
+            for column_index,value in enumerate(item):
+                tk.Label(centerFrame,text=value).grid(row=row_index+1,column=column_index,sticky=tk.W,padx=10,pady=3)
+
         centerFrame.pack(side=tk.LEFT)
 
         #右邊顯示空間建立
         rightFrame = tk.Frame(self,width=150,height=150,background='#999999')
+        tk.Label(rightFrame,text="日期-時間").grid(row=0,column=0,sticky=tk.W,padx=10,pady=3)
+        tk.Label(rightFrame,text="溫度").grid(row=0,column=1,sticky=tk.W,padx=10,pady=3)
+        tk.Label(rightFrame,text="狀態").grid(row=0,column=2,sticky=tk.W,padx=10,pady=3)
+        tk.Label(rightFrame,text="濕度").grid(row=0,column=3,sticky=tk.W,padx=10,pady=3)
+        for row_index,item in enumerate(right_data):
+            for column_index,value in enumerate(item):
+                tk.Label(rightFrame,text=value).grid(row=row_index+1,column=column_index,sticky=tk.W,padx=10,pady=3)
         rightFrame.pack(side=tk.LEFT)
 
     @staticmethod
