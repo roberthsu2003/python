@@ -11,6 +11,9 @@ class Window(tk.Tk):
         btn2=tk.Button(self,text="按鈕2",command=self.btn2_click,padx=30,pady=30)
         btn2.pack(padx=100,pady=50)
 
+        btn3=tk.Button(self,text="按鈕3",command=self.btn3_click,padx=30,pady=30)
+        btn3.pack(padx=100,pady=50)
+
     def btn1_click(self):
         if not os.path.isdir('csv'):
             os.makedirs('csv')
@@ -32,6 +35,16 @@ class Window(tk.Tk):
         response = requests.get(path)
         with open('json/新北市公共自行車租賃系統.json',mode='w',encoding='utf-8') as file:
             file.write(response.text)
+
+    def btn3_click(self):
+        if not os.path.isdir('excel'):
+            os.makedirs('excel')
+        
+        path = "https://github.com/roberthsu2003/PythonForDataAnalysis/raw/master/%E8%B3%87%E6%96%99%E9%9B%86/%E7%B8%BD%E7%B5%B1.xls"
+
+        response = requests.get(path)        
+        with open('excel/總統.xls',mode='wb') as file:
+            file.write(response.content)
         
 
 
