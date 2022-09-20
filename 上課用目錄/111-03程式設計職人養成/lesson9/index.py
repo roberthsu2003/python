@@ -43,7 +43,7 @@ class DisplayFrame(tk.LabelFrame):
         self.cname = cname
         self.ename = ename
         self.forecast = DisplayFrame.get_forecast(ename=self.ename)
-        print(self.forecast)
+        print(len(self.forecast))        
         tk.Button(self,text=self.cname).pack()
 
     @staticmethod
