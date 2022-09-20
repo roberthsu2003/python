@@ -1,5 +1,7 @@
 
 import tkinter as tk
+import requests
+
 class Window(tk.Tk):
     def __init__(self,codes):
         super().__init__()
@@ -40,13 +42,25 @@ class DisplayFrame(tk.LabelFrame):
         super().__init__(master)
         self.cname = cname
         self.ename = ename
-        self.forecast = DisplayFrame.get_forecast()
+        self.forecast = DisplayFrame.get_forecast(ename=self.ename)
         print(self.forecast)
         tk.Button(self,text=self.cname).pack()
 
     @staticmethod
-    def get_forecast():
-        return {'key':"value"}
+    def get_forecast(ename):        
+        url = "https://api.openweathermap.org/data/2.5/forecast?q="+ename+",tw&APPID=29c4f184354b9889e87f7b494ac86aed&lang=zh_tw&units=metric"
+        response = requests.request("GET",url)
+        if response.ok == True:
+            print("下載成功")    
+            all_data = response.json()
+        list_data = all_data['list']
+
+        county_forcase = []
+        for item in list_data:
+            county_forcase.append([item['dt_txt'],item['main']['temp'],item['weather'][0]['description'],item['main']['humidity']])
+        
+        return county_forcase
+
 
 
 def main():
