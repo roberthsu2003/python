@@ -2,6 +2,7 @@
 import tkinter as tk
 import requests
 from tkinter import messagebox
+from tkinter import filedialog
 import openpyxl
 
 class Window(tk.Tk):
@@ -124,7 +125,9 @@ class DisplayFrame(tk.LabelFrame):
         for row_index,row_data in enumerate(data):
             for column_index,value in enumerate(row_data):
                 sheet.cell(row=row_index+2,column=column_index+1,value=value)
-        wb.save('氣象預測.xlsx')
+        filePath = filedialog.askdirectory()
+        wb.save(filePath+'/氣象預測.xlsx')
+        messagebox.showinfo("ok",message="存檔成功")
 
         
 
