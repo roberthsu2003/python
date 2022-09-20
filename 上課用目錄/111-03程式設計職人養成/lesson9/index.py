@@ -34,7 +34,7 @@ class Window(tk.Tk):
         if hasattr(self, 'displayFrame'):
             self.displayFrame.destroy()
         self.displayFrame = DisplayFrame(self.chage_content_frame,cname=cname,ename=ename)
-        self.displayFrame.pack()
+        self.displayFrame.pack(padx=10,pady=10)
         
 
 class DisplayFrame(tk.LabelFrame):
@@ -55,38 +55,38 @@ class DisplayFrame(tk.LabelFrame):
         print(len(right_data))
         #建立3欄的顯示空間
         #左邊顯示空間建立      
-        leftFrame = tk.Frame(self,width=150,height=150,background='#333333')
-        tk.Label(leftFrame,text="日期-時間").grid(row=0,column=0,sticky=tk.W,padx=10,pady=3)
-        tk.Label(leftFrame,text="溫度").grid(row=0,column=1,sticky=tk.W,padx=10,pady=3)
-        tk.Label(leftFrame,text="狀態").grid(row=0,column=2,sticky=tk.W,padx=10,pady=3)
-        tk.Label(leftFrame,text="濕度").grid(row=0,column=3,sticky=tk.W,padx=10,pady=3)
+        leftFrame = tk.Frame(self,width=150,height=150,borderwidth=1,relief=tk.GROOVE)
+        tk.Label(leftFrame,text="日期-時間",background='#cccccc').grid(row=0,column=0,sticky=tk.W,padx=10,pady=3)
+        tk.Label(leftFrame,text="溫度",background='#cccccc').grid(row=0,column=1,sticky=tk.W,padx=10,pady=3)
+        tk.Label(leftFrame,text="狀態",background='#cccccc').grid(row=0,column=2,sticky=tk.W,padx=10,pady=3)
+        tk.Label(leftFrame,text="濕度",background='#cccccc').grid(row=0,column=3,sticky=tk.W,padx=10,pady=3)
         for row_index,item in enumerate(left_data):
             for column_index,value in enumerate(item):
                 tk.Label(leftFrame,text=value).grid(row=row_index+1,column=column_index,sticky=tk.W,padx=10,pady=3)
-        leftFrame.pack(side=tk.LEFT)
+        leftFrame.pack(side=tk.LEFT,padx=10)
 
         #中間顯示空間建立
-        centerFrame = tk.Frame(self,width=150,height=150,background='#666666')
-        tk.Label(centerFrame,text="日期-時間").grid(row=0,column=0,sticky=tk.W,padx=10,pady=3)
-        tk.Label(centerFrame,text="溫度").grid(row=0,column=1,sticky=tk.W,padx=10,pady=3)
-        tk.Label(centerFrame,text="狀態").grid(row=0,column=2,sticky=tk.W,padx=10,pady=3)
-        tk.Label(centerFrame,text="濕度").grid(row=0,column=3,sticky=tk.W,padx=10,pady=3)
+        centerFrame = tk.Frame(self,width=150,height=150,borderwidth=1,relief=tk.GROOVE)
+        tk.Label(centerFrame,text="日期-時間",background='#cccccc').grid(row=0,column=0,sticky=tk.W,padx=10,pady=3)
+        tk.Label(centerFrame,text="溫度",background='#cccccc').grid(row=0,column=1,sticky=tk.W,padx=10,pady=3)
+        tk.Label(centerFrame,text="狀態",background='#cccccc').grid(row=0,column=2,sticky=tk.W,padx=10,pady=3)
+        tk.Label(centerFrame,text="濕度",background='#cccccc').grid(row=0,column=3,sticky=tk.W,padx=10,pady=3)
         for row_index,item in enumerate(center_data):
             for column_index,value in enumerate(item):
                 tk.Label(centerFrame,text=value).grid(row=row_index+1,column=column_index,sticky=tk.W,padx=10,pady=3)
 
-        centerFrame.pack(side=tk.LEFT)
+        centerFrame.pack(side=tk.LEFT,padx=10)
 
         #右邊顯示空間建立
-        rightFrame = tk.Frame(self,width=150,height=150,background='#999999')
-        tk.Label(rightFrame,text="日期-時間").grid(row=0,column=0,sticky=tk.W,padx=10,pady=3)
-        tk.Label(rightFrame,text="溫度").grid(row=0,column=1,sticky=tk.W,padx=10,pady=3)
-        tk.Label(rightFrame,text="狀態").grid(row=0,column=2,sticky=tk.W,padx=10,pady=3)
-        tk.Label(rightFrame,text="濕度").grid(row=0,column=3,sticky=tk.W,padx=10,pady=3)
+        rightFrame = tk.Frame(self,width=150,height=150,borderwidth=1,relief=tk.GROOVE)
+        tk.Label(rightFrame,text="日期-時間",background='#cccccc').grid(row=0,column=0,sticky=tk.W,padx=10,pady=3)
+        tk.Label(rightFrame,text="溫度",background='#cccccc').grid(row=0,column=1,sticky=tk.W,padx=10,pady=3)
+        tk.Label(rightFrame,text="狀態",background='#cccccc').grid(row=0,column=2,sticky=tk.W,padx=10,pady=3)
+        tk.Label(rightFrame,text="濕度",background='#cccccc').grid(row=0,column=3,sticky=tk.W,padx=10,pady=3)
         for row_index,item in enumerate(right_data):
             for column_index,value in enumerate(item):
                 tk.Label(rightFrame,text=value).grid(row=row_index+1,column=column_index,sticky=tk.W,padx=10,pady=3)
-        rightFrame.pack(side=tk.LEFT,anchor=tk.N)
+        rightFrame.pack(side=tk.LEFT,anchor=tk.N,padx=10)
 
     @staticmethod
     def get_forecast(ename):        
