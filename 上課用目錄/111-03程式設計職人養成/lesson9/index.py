@@ -44,7 +44,11 @@ class DisplayFrame(tk.LabelFrame):
         self.ename = ename
         #建立title Label
         self.configure(text=f"{self.cname}-{self.ename}")
-        self.forecast = DisplayFrame.get_forecast(ename=self.ename)
+        try:
+            self.forecast = DisplayFrame.get_forecast(ename=self.ename)
+        except:
+            print("發生錯誤")
+            return
         #將資料切割為3等分,left_data,center_data,right_data
         total_rows = len(self.forecast)
         columns = 3
