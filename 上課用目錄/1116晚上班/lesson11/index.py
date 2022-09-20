@@ -24,7 +24,16 @@ class Window(tk.Tk):
         
 
     def btn2_click(self):
-        print("按鈕2的click")
+        if not os.path.isdir('json'):
+            os.makedirs('json')
+        
+        path = "https://raw.githubusercontent.com/roberthsu2003/PythonForDataAnalysis/master/%E8%B3%87%E6%96%99%E9%9B%86/%E6%96%B0%E5%8C%97%E5%B8%82%E5%85%AC%E5%85%B1%E8%87%AA%E8%A1%8C%E8%BB%8A%E7%A7%9F%E8%B3%83%E7%B3%BB%E7%B5%B1.json"
+
+        response = requests.get(path)
+        with open('json/新北市公共自行車租賃系統.json',mode='w',encoding='utf-8') as file:
+            file.write(response.text)
+        
+
 
 
 def main():
