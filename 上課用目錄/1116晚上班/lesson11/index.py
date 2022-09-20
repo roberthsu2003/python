@@ -1,4 +1,5 @@
 import tkinter as tk
+import os
 
 class Window(tk.Tk):
     def __init__(self):
@@ -10,7 +11,9 @@ class Window(tk.Tk):
         btn2.pack(padx=100,pady=50)
 
     def btn1_click(self):
-        print("按鈕1的click")
+        if not os.path.isdir('csv'):
+            os.makedirs('csv')
+        
 
     def btn2_click(self):
         print("按鈕2的click")
