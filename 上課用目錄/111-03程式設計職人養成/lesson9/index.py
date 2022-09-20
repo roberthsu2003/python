@@ -56,9 +56,13 @@ class DisplayFrame(tk.LabelFrame):
         #建立3欄的顯示空間
         #左邊顯示空間建立      
         leftFrame = tk.Frame(self,width=150,height=150,background='#333333')
+        tk.Label(leftFrame,text="日期-時間").grid(row=0,column=0,sticky=tk.W,padx=10,pady=3)
+        tk.Label(leftFrame,text="溫度").grid(row=0,column=1,sticky=tk.W,padx=10,pady=3)
+        tk.Label(leftFrame,text="狀態").grid(row=0,column=2,sticky=tk.W,padx=10,pady=3)
+        tk.Label(leftFrame,text="濕度").grid(row=0,column=3,sticky=tk.W,padx=10,pady=3)
         for row_index,item in enumerate(left_data):
             for column_index,value in enumerate(item):
-                tk.Label(leftFrame,text=value).grid(row=row_index,column=column_index)
+                tk.Label(leftFrame,text=value).grid(row=row_index+1,column=column_index,sticky=tk.W,padx=10,pady=3)
         leftFrame.pack(side=tk.LEFT)
         #中間顯示空間建立
         centerFrame = tk.Frame(self,width=150,height=150,background='#666666')
