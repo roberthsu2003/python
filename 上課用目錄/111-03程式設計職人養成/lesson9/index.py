@@ -2,6 +2,7 @@
 import tkinter as tk
 import requests
 from tkinter import messagebox
+import openpyxl
 
 class Window(tk.Tk):
     def __init__(self,codes):
@@ -113,8 +114,18 @@ class DisplayFrame(tk.LabelFrame):
 
     @staticmethod
     def save_to_excel(data):        
-        print("儲存資料至excel")
-        print(data)
+        wb = openpyxl.Workbook()
+        sheet = wb.active
+        sheet.title = "天氣預測表"
+        sheet.cell(row=1, column=1, value="日期-時間")
+        sheet.cell(row=1, column=2, value="溫度")
+        sheet.cell(row=1, column=3, value="狀態")
+        sheet.cell(row=1, column=4, value="濕度")
+        for row_index,row_data in enumerate(data):
+            for column_index,value in enumerate(row_data):
+                sheet.cell(row=row_index+2,column=column_index+1,value=value)
+        wb.save('氣象預測.xlsx')
+
         
 
 
