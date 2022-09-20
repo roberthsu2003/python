@@ -1,6 +1,7 @@
 
 import tkinter as tk
 import requests
+from tkinter import messagebox
 
 class Window(tk.Tk):
     def __init__(self,codes):
@@ -47,7 +48,7 @@ class DisplayFrame(tk.LabelFrame):
         try:
             self.forecast = DisplayFrame.get_forecast(ename=self.ename)
         except:
-            print("發生錯誤")
+            messagebox.showerror('取得資料錯誤', '取得資料錯誤,請稍後再試')
             return
         #將資料切割為3等分,left_data,center_data,right_data
         total_rows = len(self.forecast)
