@@ -86,7 +86,7 @@ class DisplayFrame(tk.LabelFrame):
         for row_index,item in enumerate(right_data):
             for column_index,value in enumerate(item):
                 tk.Label(rightFrame,text=value).grid(row=row_index+1,column=column_index,sticky=tk.W,padx=10,pady=3)
-        rightFrame.pack(side=tk.LEFT)
+        rightFrame.pack(side=tk.LEFT,anchor=tk.N)
 
     @staticmethod
     def get_forecast(ename):        
