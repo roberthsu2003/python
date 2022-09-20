@@ -4,9 +4,9 @@ class Window(tk.Tk):
     def __init__(self,codes):
         super().__init__()
         self.codes = codes
-        self.title("各縣市7天天氣預測")
+        self.title("各縣市4天天氣預測")
         print(self.codes)
-        tk.Label(self, text="各縣市7天天氣預測", font=("arial",20)).pack(padx=100, pady=50)
+        tk.Label(self, text="各縣市4天天氣預測", font=("arial",20)).pack(padx=100, pady=50)
 
         buttonFrame = tk.Frame(self)        
         for index,cities in enumerate(self.codes.items()):            
@@ -17,9 +17,8 @@ class Window(tk.Tk):
         buttonFrame.pack()
 
         
-        self.chage_content_frame = tk.Frame(self) #會改變內容的frame
-       
-        
+        self.chage_content_frame = tk.Frame(self) #會改變內容的frame       
+        #這裏的內容必需使用者按下按鈕後才面產生
         self.chage_content_frame.pack()
 
 
@@ -41,9 +40,13 @@ class DisplayFrame(tk.LabelFrame):
         super().__init__(master)
         self.cname = cname
         self.ename = ename
-        print(self.cname)
-        print(self.ename)
+        self.forecast = DisplayFrame.get_forecast()
+        print(self.forecast)
         tk.Button(self,text=self.cname).pack()
+
+    @staticmethod
+    def get_forecast():
+        return {'key':"value"}
 
 
 def main():
