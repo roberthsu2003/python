@@ -10,7 +10,8 @@ class Window(tk.Tk):
         btn1.pack(padx=100,pady=50)
 
     def btn1_click(self):
-        datasource.download_air_data()
+        dataList = datasource.download_air_data()
+        print(dataList)
         
         
 

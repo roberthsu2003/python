@@ -5,4 +5,5 @@ url = "https://data.epa.gov.tw/api/v2/aqx_p_133?limit=100&api_key=b8416fe0-3673-
 def download_air_data():
     res = requests.request('GET',url)
     if res.ok:
-        print("下載成功")
+        allData = res.json()
+    return allData['records']   
