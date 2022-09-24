@@ -38,8 +38,8 @@ class Window(tk.Tk):
         print("儲存excel成功")
 
     def btn3_click(self):
-        print("btn3_click")
-        
+        datasource.download_excel()
+
 
 
 

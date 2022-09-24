@@ -17,9 +17,20 @@ def download_github_csv():
     res = requests.request('GET',url)
     if res.ok:
         csvText = res.text
-        
+
     with io.StringIO(csvText) as file:
         csv_reader = csv.reader(file)
         csvList = list(csv_reader)
     
     return csvList
+
+def download_excel():
+    url = "https://github.com/roberthsu2003/PythonForDataAnalysis/raw/master/%E8%B3%87%E6%96%99%E9%9B%86/%E7%B8%BD%E7%B5%B1.xls"
+    res = requests.request('GET',url)
+    if res.ok:
+        binaryContent = res.content
+    
+    with open('總統.xls',mode='wb') as file:
+        file.write(binaryContent)
+    
+    print("儲存下載binary檔成功")
