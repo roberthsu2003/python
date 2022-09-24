@@ -1,4 +1,5 @@
 import tkinter as tk
+import tools
 
 class Window(tk.Tk):
     def __init__(self):
@@ -8,7 +9,8 @@ class Window(tk.Tk):
         btn1.pack(padx=100,pady=50)
 
     def btn1_click(self):
-        print("btn1_click")
+        print("PI的值是");
+        print(tools.PI)
 
 def main():
     #chinese和english區域變數
