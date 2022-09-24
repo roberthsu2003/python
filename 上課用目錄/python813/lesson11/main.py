@@ -14,6 +14,9 @@ class Window(tk.Tk):
         btn2 = tk.Button(self,text="下載csv\n儲存excel",padx=50,pady=25,font=('Arial',20,'bold'),command=self.btn2_click)
         btn2.pack(padx=100,pady=20)
 
+        btn3 = tk.Button(self,text="下載excel",padx=50,pady=25,font=('Arial',20,'bold'),command=self.btn3_click)
+        btn3.pack(padx=100,pady=20)
+
     def btn1_click(self):
         dataList = datasource.download_air_data()
         with open("6都空氣品質.csv",mode="w",encoding="utf-8",newline="") as file:
@@ -33,6 +36,10 @@ class Window(tk.Tk):
         
         wb.save('youbike2資料.xlsx')
         print("儲存excel成功")
+
+    def btn3_click(self):
+        print("btn3_click")
+        
 
 
 
