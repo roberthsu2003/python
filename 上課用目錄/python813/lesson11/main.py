@@ -1,18 +1,22 @@
 import tkinter as tk
 import tools
 import datasource
+import csv
 
 class Window(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("這是我的第一個視窗")        
-        btn1 = tk.Button(self,text="下載資料",padx=50,pady=25,font=('Arial',20,'bold'),command=self.btn1_click)
+        btn1 = tk.Button(self,text="下載空氣品質\n儲存csv",padx=50,pady=25,font=('Arial',20,'bold'),command=self.btn1_click)
         btn1.pack(padx=100,pady=50)
 
     def btn1_click(self):
         dataList = datasource.download_air_data()
-        for item in dataList:
-            print(item)
+        with open("6都空氣品質.csv",mode="w",encoding="utf-8",newline="") as file:
+            csv_writer = csv.writer(file)
+            csv_writer.writerows(dataList)
+            print("儲存'6都空氣品質.csv'成功")
+
         
         
 
