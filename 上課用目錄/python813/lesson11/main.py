@@ -13,8 +13,11 @@ class Window(tk.Tk):
     def btn1_click(self):
         dataList = datasource.download_air_data()
         with open("6都空氣品質.csv",mode="w",encoding="utf-8",newline="") as file:
-            csv_writer = csv.writer(file)
-            csv_writer.writerows(dataList)
+            keys = list(dataList[0].keys())
+            dictWriter = csv.DictWriter(file,fieldnames=keys)
+            dictWriter.writeheader()
+            for item in dataList:
+                dictWriter.writerow(item)          
             print("儲存'6都空氣品質.csv'成功")
 
         
