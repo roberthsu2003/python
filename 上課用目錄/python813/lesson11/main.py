@@ -9,8 +9,11 @@ class Window(tk.Tk):
         btn1.pack(padx=100,pady=50)
 
     def btn1_click(self):
-        print("PI的值是");
-        print(tools.PI)
+        print("PI的值是")
+        print(type(tools.PI))
+        print(type(tools.myfunction))
+        print(type(tools.MyClass))
+        
 
 def main():
     #chinese和english區域變數
