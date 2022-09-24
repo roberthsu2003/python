@@ -1,5 +1,6 @@
 import tkinter as tk
 import tools
+import datasource
 
 class Window(tk.Tk):
     def __init__(self):
@@ -9,10 +10,9 @@ class Window(tk.Tk):
         btn1.pack(padx=100,pady=50)
 
     def btn1_click(self):
-        print("PI的值是")
-        print(type(tools.PI))
-        print(type(tools.myfunction))
-        print(type(tools.MyClass))
+        print("dataSource PI的值是")
+        print(datasource.PACKAGEPI)
+        
         
 
 def main():
