@@ -1,4 +1,6 @@
 import requests
+import io
+import csv
 
 
 
@@ -15,4 +17,9 @@ def download_github_csv():
     res = requests.request('GET',url)
     if res.ok:
         csvText = res.text
-    print(csvText)
+        
+    with io.StringIO(csvText) as file:
+        csv_reader = csv.reader(file)
+        csvList = list(csv_reader)
+    
+    return csvList

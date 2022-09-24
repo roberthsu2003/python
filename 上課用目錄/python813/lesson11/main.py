@@ -24,7 +24,8 @@ class Window(tk.Tk):
             print("儲存'6都空氣品質.csv'成功")
 
     def btn2_click(self):
-        datasource.download_github_csv()
+        csvList = datasource.download_github_csv()
+        print(csvList)
 
         
         
