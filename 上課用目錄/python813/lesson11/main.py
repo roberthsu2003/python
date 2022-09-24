@@ -2,6 +2,7 @@ import tkinter as tk
 import tools
 import datasource
 import csv
+from openpyxl import Workbook
 
 class Window(tk.Tk):
     def __init__(self):
@@ -24,8 +25,16 @@ class Window(tk.Tk):
             print("儲存'6都空氣品質.csv'成功")
 
     def btn2_click(self):
-        csvList = datasource.download_github_csv()
-        print(csvList)
+        csvList = datasource.download_github_csv()        
+        wb = Workbook()
+        ws = wb.active  
+        for item in csvList:
+            ws.append(item)
+        
+        wb.save('youbike2資料.xlsx')
+        print("儲存excel成功")
+
+
 
         
         
