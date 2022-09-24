@@ -10,8 +10,7 @@ class Window(tk.Tk):
         btn1.pack(padx=100,pady=50)
 
     def btn1_click(self):
-        print("dataSource PI的值是")
-        print(datasource.PACKAGEPI)
+        datasource.download_air_data()
         
         
 
