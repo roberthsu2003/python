@@ -11,7 +11,8 @@ class Window(tk.Tk):
 
     def btn1_click(self):
         dataList = datasource.download_air_data()
-        print(dataList)
+        for item in dataList:
+            print(item)
         
         
 
