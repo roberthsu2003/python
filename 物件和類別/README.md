@@ -108,6 +108,7 @@ I'm a Yugo! Much like a Car, but more Yugo-ish.
 ```
 
 - 實作__init__()就是覆寫父類別的__init__()
+
 ```python
 class Person():
     def __init__(self,name):
@@ -123,6 +124,9 @@ person = Person('Fudd')
 doctor = MDPerson('robert')
 lawyer = JDPerson('Alice')
 ```
+
+- [使用**kwargs引數,呼叫父類別(範例)](./sample1.ipynb)
+
 
 ```python
 class Person():
