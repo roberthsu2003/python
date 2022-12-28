@@ -489,6 +489,122 @@ False
 False
 ```
 
+#### 輸入檢查
+
+```python
+while True:
+    print('請輸入age:')
+    age = input()
+    if age.isdecimal():
+        break
+    print('請輸入一個數字:')
+
+while True:
+    print('請輸入密碼(只可以是數字或英文字母):')
+    password = input()
+    if password.isalnum():
+        break
+    print('密碼只可以是數字或英文字母')
+
+print(name)
+print(password)
+```
+
+### 文字對齊rjust(), ljust(), and center()
+
+```python
+>>> 'Hello'.rjust(10)
+'     Hello'
+
+>>> 'Hello'.rjust(20)
+'                Hello'
+
+>>> 'Hello, World'.rjust(20)
+'         Hello, World'
+ 
+>>> 'Hello'.ljust(10) 
+'Hello     '
+
+>>> 'Hello'.rjust(20, '*')
+'***************Hello'
+
+>>> 'Hello'.ljust(20, '-')
+'Hello---------------'
+
+>>> 'Hello'.center(20, '=')
+'=======Hello========'
+```
+
+#### 對齊應用:
+
+```python
+>>> def printPicnic(itemsDict, leftWidth, rightWidth):
+>>>    print('PICNIC ITEMS'.center(leftWidth + rightWidth, '-'))
+>>>    for k, v in itemsDict.items():
+>>>        print(k.ljust(leftWidth, '.') + str(v).rjust(rightWidth))
+
+>>> picnicItems = {'sandwiches': 4, 'apples': 12, 'cups': 4, 'cookies': 8000}
+>>> printPicnic(picnicItems, 12, 5)
+>>>  printPicnic(picnicItems, 20, 6)
+
+結果:===========================
+---PICNIC ITEMS--
+sandwiches..    4
+apples......   12
+cups........    4
+cookies..... 8000
+-------PICNIC ITEMS-------
+sandwiches..........     4
+apples..............    12
+cups................     4
+cookies.............  8000
+```
+
+#### homeword
+- 將上面對齊應用輸出為文字檔.(必需會檔案的存取)
+
+#### homeword
+-將上方多行文字，轉變為下方符號串列
+-將上方多行文字，轉變為下方數字串列
+
+```python
+Lists of animals
+Lists of aquarium life
+Lists of robert by author abbreviation
+Lists of cultivars
+
+結果=====================
+* Lists of animals
+* Lists of aquarium life
+* Lists of robert by author abbreviation
+* Lists of cultivars
+
+
+結果=====================
+1. Lists of animals
+2. Lists of aquarium life
+3. Lists of robert by author abbreviation
+4. Lists of cultivars
+
+```
+
+#### homeword
+- 將上方的list輸出成為下方的樣子
+
+```python
+>>> tableData = [['apples', 'oranges', 'cherries', 'banana'],
+             ['Alice', 'Bob', 'Carol', 'David'],
+					   ['dogs', 'cats', 'moose', 'goose']]
+					   
+結果:===========================
+  apples Alice  dogs
+ oranges   Bob  cats
+cherries Carol moose
+  banana David goose
+```
+
+
+
 ### in 和 not in 操作字串
 
 ```python
