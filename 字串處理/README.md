@@ -663,6 +663,85 @@ True
 
 ---
 
+###  為何需要正規則表達式
+#### 檢查台灣手機號碼輸入格式(xxxx-xxx-xxx)
+
+
+```python
+# 檢查台灣手機號碼輸入格式(xxxx-xxx-xxx)
+# 沒有使用正規則表達式
+
+def isPhoneNumber(text):
+    if len(text) != 12:
+        return False
+    if not text[0:4].isdecimal():
+        return False
+    if text[4] != "-":
+        return False
+    if not text[5:8].isdecimal():
+        return False
+    if text[8] != "-":
+        return False
+    if not text[9:12].isdecimal():
+        return False
+    return True
+    
+phone_num = input("請輸入手機號碼xxxx-xxx-xxx:")
+if isPhoneNumber(phone_num):
+    print(f"您的手機號碼是:{phone_num:s}")
+else:
+    print("手機號碼格式不正確")
+```
+
+```python
+import re
+def isPhoneNumber(text):
+    phoneNumRegex = re.compile(r'\d\d\d\d-\d\d\d-\d\d\d')
+    match = re.match(phoneNumRegex,text)
+    if re.match(phoneNumRegex,text) is None:
+        return False
+    else:
+        print(match.group())
+        return True
+
+phone_num = input("請輸入手機號碼xxxx-xxx-xxx:")
+if isPhoneNumber(phone_num):
+    print(f"您的手機號碼是:{phone_num:s}")
+else:
+    print("手機號碼格式不正確")
+```
+
+```python
+#正規則表達式使用()符號
+import re
+def isPhoneNumber(text):
+    phoneNumRegex = re.compile(r'(\d\d\d\d)-(\d\d\d)-(\d\d\d)')
+    match = re.match(phoneNumRegex,text)
+    if re.match(phoneNumRegex,text) is None:
+        return False
+    else:
+        print(match.group(0))
+        print(match.group(1))
+        print(match.group(2))
+        print(match.group(3))
+        return True
+
+phone_num = input("請輸入手機號碼xxxx-xxx-xxx:")
+if isPhoneNumber(phone_num):
+    print(f"您的手機號碼是:{phone_num:s}")
+else:
+    print("手機號碼格式不正確")
+    
+結果:=======================
+0926-444-333
+0926
+444
+333
+您的手機號碼是:0926-444-333
+```
+
+
+
 ### match() 函式
 - 你可以使用 match() 函式將 RE 模式與給定字串來匹配。match() 函式也包含了標誌，標誌定義正規表示式的行為，它可以有不同的值
  
