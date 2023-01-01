@@ -694,6 +694,7 @@ else:
 ```
 
 ```python
+#使用正規則表達式
 import re
 def isPhoneNumber(text):
     phoneNumRegex = re.compile(r'\d\d\d\d-\d\d\d-\d\d\d')
@@ -710,6 +711,8 @@ if isPhoneNumber(phone_num):
 else:
     print("手機號碼格式不正確")
 ```
+
+[python 正規則表達式測試網站](https://pythex.org)
 
 ```python
 #正規則表達式使用()符號
@@ -739,6 +742,410 @@ else:
 333
 您的手機號碼是:0926-444-333
 ```
+
+在正規則表達式中，有特殊意義的符號
+
+```python
+. ^  $ * + ? { } [] \ | ( )
+```
+
+如果在正規則表達式中,要搜尋這些特殊字元,必需在前面加上脫逸字元(\)
+
+```python
+\. \^ \$ \* \+ \?  \{  \}  \[  \]  \\  \|  \(  \)
+```
+
+```python
+import re
+def isPhoneNumber(text):
+    phoneNumRegex = re.compile(r'(\(\d\d\d\d\))-(\d\d\d)-(\d\d\d)')
+    match = re.match(phoneNumRegex,text)
+    if re.match(phoneNumRegex,text) is None:
+        return False
+    else:
+        print(match.group(0))
+        print(match.group(1))
+        print(match.group(2))
+        print(match.group(3))
+        return True
+
+phone_num = input("請輸入手機號碼xxxx-xxx-xxx:")
+if isPhoneNumber(phone_num):
+    print(f"您的手機號碼是:{phone_num:s}")
+else:
+    print("手機號碼格式不正確")
+
+結果:=================================
+(0926)-666-000
+(0926)
+666
+000
+您的手機號碼是:(0926)-666-000
+```
+
+### 使用pipe(|),選擇多選1
+
+```python
+heroRegex = re.compile(r'Batman|Tina Fey')
+mo1 = heroRegex.match('Batman and Tina Fey')
+print(mo1.group())
+
+mo2 = heroRegex.match('Tina Fey and Batman')
+print(mo2.group())
+
+結果:========================
+Batman
+Tina Fey
+```
+
+### 同時使用 () 和 |符號
+
+```python
+batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
+mo = batRegex.search('Batmobile lost a wheel')
+print(mo.group())
+print(mo.group(1))
+
+結果:========================
+Batmobile
+mobile
+```
+
+### optional matching with ?
+-zero或1次
+
+```python
+batRegex = re.compile(r'Bat(wo)?man')
+mo1 = batRegex.search('The Adventures of Batman')
+
+print(mo1.group())
+
+mo2 = batRegex.search('The Adventures of Batwoman')
+print(mo2.group())
+
+結果:================================
+Batman
+Batwoman
+```
+
+### asterist(*),zero or more
+
+```python
+batRegex = re.compile(r'Bat(wo)*man')
+mo1 = batRegex.search('The Adventures of Batman')
+print(mo1.group())
+
+mo2 = batRegex.search('The Adventures of Batwoman')
+print(mo2.group())
+
+mo3 = batRegex.search('The Adventures of Batwowowowoman')
+print(mo3.group())
+
+結果:==============================
+Batman
+Batwoman
+Batwowowowoman
+```
+
+### + one or more
+
+```python
+batRegex = re.compile(r'Bat(wo)+man')
+mo1 = batRegex.search('The Adventures of Batwoman')
+print(mo1.group())
+
+mo2 = batRegex.search('The Adventures of Batwowowowoman')
+print(mo2.group())
+
+mo3 = batRegex.search('The Adventures of Batman')
+print(mo3  ==  None)
+
+結果:=======================
+Batwoman
+Batwowowowoman
+True
+```
+
+### 指定次數: {}
+- (ha){3} -> 3次
+- (ha){3,5} -> 3-5次
+- (ha){,5} -> 0-5次
+- (ha){3,} -> 3次以上
+
+```python
+(ha){3}
+(ha)(ha)(ha)
+```
+
+```python
+(ha){3,5}
+((ha)(ha)(ha))|((ha)(ha)(ha)(ha))|((ha)(ha)(ha)(ha)(ha))
+```
+
+```python
+haRegex = re.compile(r'(ha){3}')
+mo1 = haRegex.search('hahaha')
+print(mo1.group())
+
+mo2 = haRegex.search('ha')
+print(mo2  == None)
+
+結果:======================
+hahaha
+True
+```
+
+### Greedy(最多次數) and Non-greedy(最少次數) Matching
+
+```python
+greedyHaRegex = re.compile(r'(Ha){3,5}')
+mo1 = greedyHaRegex.search('HaHaHaHaHa')
+print(mo1.group())
+
+nongreedyHaRegex = re.compile(r'(Ha){3,5}?')
+mo2 = nongreedyHaRegex.search('HaHaHaHaHa')
+print(mo2.group())
+
+結果:===========================
+HaHaHaHaHa
+HaHaHa
+```
+
+### findall() method
+- search()搜尋到最前一個match
+- findall()搜尋所有match
+
+```python
+phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+mo = phoneNumRegex.search('Cell: 415-555-9999 Work:212-555-0000')
+print(mo.group())
+li = phoneNumRegex.findall('Cell: 415-555-9999 Work:212-555-0000')
+print(li)
+
+結果:======================
+415-555-9999
+['415-555-9999', '212-555-0000']
+```
+
+###  findall 和 group()結合
+
+```python
+phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)')
+li = phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')
+print(li)
+
+結果:============================
+[('415', '555', '9999'), ('212', '555', '0000')]
+```
+
+### 字元集
+- \d -> (0|1|2|3|4|5|6|7|8|9)
+- \d -> 0-9
+- \D -> 不是0-9
+- \w -> 任何字元,數字,和底線
+- \W -> 不是(任何字元,數字,和底線)
+- \s -> 任何空白,tab或者newline
+- \S -> 不是(任何空白,tab或者newline)
+- [0-5] -> 0-5任一個
+- [0-9] -> 0-9任一個
+- [a-z] -> a-z任一個
+- [a-zA-Z] -> a-z,A-Z任一個
+
+```python
+xmaxRegex = re.compile(r'\d+\s\w+')
+li = xmaxRegex.findall('12 drummers, 11 pipers, 10 lords, 9 ladies, 8 maids, 7 swans, 6 geese, 5 rings,4 birds, 3 hens, 2 doves, 1 partridge')
+print(li)
+
+結果:================================
+['12 drummers', '11 pipers', '10 lords', '9 ladies', '8 maids', '7 swans', '6 geese', '5 rings', '4 birds', '3 hens', '2 doves', '1 partridge']
+```
+
+### 建立自已的字元集
+
+```python
+vowelRegex = re.compile(r'[aeiouAEIOU]')
+li = vowelRegex.findall('RoboCop eats baby food. BABY FOOD.')
+print(li)
+
+結果:===========================
+['o', 'o', 'o', 'e', 'a', 'a', 'o', 'o', 'A', 'O', 'O']
+```
+
+- [.*?] -> 在中括號內的特殊符號，可以不用使用脫逸字元
+- [ ^ ]  -> 在中括號內的最前面的^,代表的是negative character class
+
+```python
+consonantRegex = re.compile(r'[^aeiouAEIOU]')
+li = consonantRegex.findall('RoboCop  eats baby food. BABY FOOD.')
+print(li)
+
+結果:==========================
+['R', 'b', 'C', 'p', ' ', ' ', 't', 's', ' ', 'b', 'b', 'y', ' ', 'f', 'd', '.', ' ', 'B', 'B', 'Y', ' ', 'F', 'D', '.']
+```
+
+### ^ 和 $ 符號
+- ^ -> 起始
+- $ -> 結束
+
+```python
+beginsWithHello = re.compile(r'^Hello')
+mo = beginsWithHello.search('Hello, world!')
+print(mo.group())
+print(beginsWithHello.search('He said hello.') == None)
+
+結果:===============================
+Hello
+True
+```
+
+
+```python
+endsWithNumber = re.compile(r'\d$')
+mo = endsWithNumber.search('Your number is 42')
+print(mo.group())
+
+print(endsWithNumber.search('Your number is forty two.') == None)
+
+結果:=======================
+2
+True
+```
+
+```python
+wholeStringIsNum = re.compile(r'^\d+$')
+mo = wholeStringIsNum.search('1234567890')
+print(mo.group())
+
+print(wholeStringIsNum.search('12345xyz67890') == None)
+print(wholeStringIsNum.search('12  67890') == None)
+
+結果:==========================
+1234567890
+True
+True
+```
+
+### (.) Wildcard 字元
+
+- (.)符號 -> 除了new line以外的所有字元
+
+```python
+atRegex = re.compile(r'.at')
+li = atRegex.findall('The cat in the hat sat on the flat mat.')
+print(li)
+
+結果:==============================
+['cat', 'hat', 'sat', 'lat', 'mat']
+```
+
+#### .* Matching Everything(greedy)
+
+```python
+nameRegex = re.compile(r'First Name: (.*) Last Name: (.*)')
+mo = nameRegex.search('First Name: Robert Last Name: Hsu')
+print(mo.group())
+print(mo.group(1))
+print(mo.group(2))
+
+結果:=======================
+First Name: Robert Last Name: Hsu
+Robert
+Hsu
+```
+
+#### .*? Matching Everything(non-greedy)
+
+```python
+nongreedyRegex = re.compile(r'<.*?>')
+mo = nongreedyRegex.search('<To serve man> for dinner.>')
+print(mo.group())
+
+greedyRegex =  re.compile(r'<.*>')
+mo1 =  greedyRegex.search('<To serve man> for dinner.>')
+print(mo1.group())
+
+結果:========================
+<To serve man>
+<To serve man> for dinner.>
+```
+
+####  (.*)也包含new line(re.DOTALL)
+
+```python
+noNewLineRegex = re.compile('.*')
+mo = noNewLineRegex.search('Serve the public trust.\nProtect the innocent. \nUphold the law.')
+print(mo.group())
+
+newlineRegex = re.compile('.*', re.DOTALL)
+mo1 = newlineRegex.search('Serve the public trust.\nProtect the innocent. \nUphold the law.')
+mo1.group()
+
+結果:===============================
+Serve the public trust.
+'Serve the public trust.\nProtect the innocent. \nUphold the law.'
+```
+
+#### 不分大小寫(re.IGNORECASE)
+
+```python
+robocop = re.compile(r'robocop', re.I)
+mo = robocop.search('RoboCop is part man, part machine, all cop.')
+print(mo.group())
+
+mo1 = robocop.search('ROBOCOP protects the innocent.')
+print(mo1.group())
+
+mo2 = robocop.search('Al, why does your programming book talk about robocop so much?')
+print(mo2.group())
+
+結果:=================================
+RoboCop
+ROBOCOP
+robocop
+```
+
+### sub() 替換字串
+
+```python
+namesRegex = re.compile(r'Agent \w+')
+str1 = namesRegex.sub('CENSORED','Agent Alice gave the secret documents to Agent Bob.')
+print(str1)
+
+結果:==================
+CENSORED gave the secret documents to CENSORED.
+```
+
+```python
+agentnamesRegex = re.compile(r'Agent (\w)\w+')
+str1 = agentnamesRegex.sub(r'\1****','Agent Alice told Agent Carol that Agent Eve knew Agent Bob was a double agent.')
+print(str1)
+
+結果:========================
+A**** told C**** that E**** knew B**** was a double agent.
+```
+
+### 複雜的正規則表達式寫法,使用re.VERBOSE,可以使用空白和註解
+
+```python
+#美國,加拿大,電話號碼
+phoneRegex = re.compile(r'''
+        (\d{3}|\(d{3}\))  #區域碼
+        (\s|-|\.)?        #separator
+        \d{3}             #first 3 digits
+        (\s|-|\.)         #separator
+        \d{4}             #last 4 digits
+        (\s*(ext|x|ext.)\s*\d{2,5})?   #extension
+''',re.VERBOSE)
+```
+
+```python
+#email
+emailRegex = re.compile()
+```
+
+
+
+
 
 
 
