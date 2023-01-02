@@ -27,8 +27,10 @@
 
 14 [檔案存取](./檔案存取/README.ipynb)
 
-15 [整合line使用](./line)
+15 [SQLAlchemy ORM](./sqlalchemy_orm)
 
-16 [同時執行](./Concurrency)
+16 [整合line使用](./line)
 
-17 [小程式](./小程式)
+17 [同時執行](./Concurrency)
+
+18 [小程式](./小程式)
