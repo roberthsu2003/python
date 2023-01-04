@@ -492,11 +492,9 @@ phoneRegex = re.compile(r'''
 #email
 import re
 emailRegex = re.compile(r'''
-        [a-zA-Z0-9._%+-]+ #username
-        @                 #symbol
-        [a-zA-Z0-9.-]+    #domain name
-        (\.[a-zA-Z]{2,4}){:3}
-
+[a-zA-Z0-9._%+-]+ #username
+@                 #symbol
+[a-zA-Z0-9-.]+ #domain name,dot-somthin
 ''',re.VERBOSE)
 ```
 
@@ -772,7 +770,7 @@ Working   five   hours   a  day
 - The findall 函式傳回與模式匹配的所有字串組成的列表。search 和 findall 函式之間的區別在於 findall 查詢所有匹配項，而 search 只查詢第一個匹配項。findall 函式查詢出非重疊的匹配並將其組成列表來返回。
 
 ```python
-findall(pattern, string, flags)
+regex.findall(string)
 ```
 
 --- 
@@ -781,10 +779,10 @@ findall(pattern, string, flags)
 ```python
 #查詢所有的非重疊的匹配
 
-
 import re
 str1 = "Working 6 hours a day. Studying 4 hours a day."
-mobj = re.findall(r'[0-9]', str1)
+regex = re.compile(r"[0-9]")
+mobj = regex.findall(str1)
 print(mobj)
 
 輸出結果:===============
@@ -796,7 +794,7 @@ print(mobj)
 - finditer 函式可用於在字串中查詢正規表示式模式並將匹配的字串以及字串的位置返回。
 
 ```python
-finditer(pattern, string, flags)
+regex.finditer(string)
 ```
 
 
@@ -809,14 +807,14 @@ finditer(pattern, string, flags)
 
 import re
 str1 = "Working 6 hours a day. Studying 4 hours a day."
-pat = r'[0-9]'
-for mobj in re.finditer(pat, str1):
+regex = re.compile(r'[0-9]')
+for mobj in regex.finditer(str1):
     print(mobj.__class__)
     s = mobj.start()
     e = mobj.end()
     g = mobj.group()
     print('{} found at location [{},{}]'.format(g, s, e))
-
+    
 輸出結果:===================
 <class 're.Match'>
 6 found at location [8,9]
@@ -829,7 +827,7 @@ for mobj in re.finditer(pat, str1):
 - split 函式用於拆分字串
 
 ```python
-split(patter, string, maxsplit=0, flags=0)
+regex.split(string, maxsplit=0)
 ```
 
 - 這裡 maxsplit 是最多的拆分次數，假如能夠拆分的次數大於 maxsplit 那麼剩餘的字串將作為列表中的最後一個元素。maxsplit 的預設值是 0，意思是可以無限拆分。
@@ -841,7 +839,8 @@ split(patter, string, maxsplit=0, flags=0)
 ```python
 import re
 str1 = "Birds   fly  high in    the   sky for ever"
-splitList = re.split(r'\s+',str1)
+regex = re.compile(r'\s+')
+splitList = regex.split(str1)
 print(splitList)
 print("-".join(splitList))
 
@@ -855,15 +854,15 @@ Birds-fly-high-in-the-sky-for-ever
 ```python
 import re
 s = "768 Working 2343 789 five 234 656 hours 324 4646 a 345 day"
-matchStr = re.sub(r'\d',"",s)
+regex = re.compile(r'\d')
+matchStr = regex.sub("",s)
 print(matchStr)
-splitList = re.split(r'\s+',matchStr)
+
+regex = re.compile(r'\s+')
+splitList = regex.split(matchStr)
 for word in splitList:
     print(word)
-    
-
-
-    
+        
 輸出結果======================================
  Working   five   hours   a  day
 
@@ -916,7 +915,7 @@ day
 #驗證身份證字號
 
 
-顯示:
+顯示:===================
 請輸入身份證字號:A12345678
 A12345678有誤
 
@@ -926,7 +925,8 @@ A123456789正確
 
 import re
 taiwanId = input("請輸入身份證字號:")
-matchObject = re.match(r'^[A-Z]\d{9}$',taiwanId,re.I)
+regex = re.compile(r'^[A-Z]\d{9}$',re.I)
+matchObject = regex.match(taiwanId)
 if matchObject:
     print(matchObject.group(), "正確")
 else:
@@ -939,23 +939,29 @@ else:
 ```python
 #email.py
 # r'\w+[.|\w]\w+@\w+[.]\w+[.|\w+]\w+'
+import re
 
-
-顯示:
+emails = '''
 請輸入多筆email:內政部公開New eID換發系統建置及維護案，規定業bogusemail123@sillymail.com者須在明年6月10日前完成相關系統開發，包括New eID管理系統、戶役政資訊系統軟硬robert@gmail.com擴充、維護、人員訓練等。LINE GrayLab資安研究roberthsu2003@gmail.com室負責人公布他們在企業內部與產品發布的資安防護作法，同時也透露他們最新的諸多進展
-
 bogusemail123@sillymail.com, ,roberthsu2003@gmail.com,,,robert@gmail.com
+'''
+emailRegex = re.compile(r'''
+[a-zA-Z0-9._%+-]+ #username
+@                 #symbol
+[a-zA-Z0-9-.]+ #domain name,dot-somthin
+''',re.VERBOSE)
 
+getEmails = emailRegex.findall(emails)
+print('取出的email有:')
+for email in getEmails:
+    print(email)
+
+顯示:==================================
 取出的email有:
 bogusemail123@sillymail.com
 robert@gmail.com
 roberthsu2003@gmail.com
-
-
-import re
-emails = input('請輸入多筆email:')
-getEmails = re.findall(r'\w+[.|\w]\w+@\w+[.]\w+[.|\w+]\w+',emails)
-print('取出的email有:')
-for email in getEmails:
-    print(email)
+bogusemail123@sillymail.com
+roberthsu2003@gmail.com
+robert@gmail.com
 ```
