@@ -490,7 +490,14 @@ phoneRegex = re.compile(r'''
 
 ```python
 #email
-emailRegex = re.compile()
+import re
+emailRegex = re.compile(r'''
+        [a-zA-Z0-9._%+-]+ #username
+        @                 #symbol
+        [a-zA-Z0-9.-]+    #domain name
+        (\.[a-zA-Z]{2,4}){:3}
+
+''',re.VERBOSE)
 ```
 
 
@@ -504,6 +511,7 @@ emailRegex = re.compile()
  
 ```python
 re.match(pattern, string, flags=0)
+regex.match(pattern,flags)
 
 #它有三個引數:
 pattern 是要匹配的正規表示式模式
@@ -520,12 +528,13 @@ re.match只匹配字串的開始，如果字符開始不符合正则表達式，
 
 
 ```python
-#使用 match 函式
+#使用match()
 
 import re
 
 strText = "Hello Python Programming"
-matchObjec = re.match(r"hello", strText, re.I)
+helloRegex = re.compile(r"hello",re.I)
+matchObjec = helloRegex.match(strText)
 if matchObjec is None:
     print("文字最前面沒有搜尋到")
 else:
@@ -536,17 +545,18 @@ else:
 
 ```python
 import re
- 
+
 line = "Cats are smarter than dogs"
- 
-matchObj = re.match( r'(.*) are (.*?) .*', line, re.M|re.I)
- 
+catsRegex = re.compile(r'(.*) are (.*?) .*',re.M|re.I)
+
+matchObj = catsRegex.match(line)
+
 if matchObj:
-   print("matchObj.group() : ", matchObj.group())
-   print("matchObj.group(1) : ", matchObj.group(1))
-   print("matchObj.group(2) : ", matchObj.group(2))
+    print("matchObj.group() : ", matchObj.group())
+    print("matchObj.group(1) : ", matchObj.group(1))
+    print("matchObj.group(2) : ", matchObj.group(2))
 else:
-   print("No match!!")
+    print("No match!!")
 
 輸出結果:========================
 matchObj.group() :  Cats are smarter than dogs
@@ -563,14 +573,15 @@ search 函式搜尋整個字串
 你可以使用 search() 函式搜尋給定字串中的正規表示式匹配模式。search 有三個輸入引數，匹配模式，給定字串以及可選的匹配行為選項 flags
 
 ```python
-re.search(pattern, string, flags)
+regex.search(string)
 ```
 
 ```pytnon
 
 import re
 str = "Hello Python Programming"
-searchObject = re.search(r"programming", str, re.I)
+programRegex = re.compile(r"programming",re.I)
+searchObject = programRegex.search(str)
 if not searchObject:
     print("文字內沒有搜尋到任何相同內容")
 else:
@@ -598,11 +609,16 @@ Programming
 
 import re
 str = "Hello Python Programming"
-sobj = re.search(r"^programming", str, re.I)
+pRegex=re.compile(r"^programming",re.I)
+sobj = pRegex.search(str)
 print(sobj) #no match is found
 
-sobj = re.search(r"^hello", str, re.I)
+hRegex = re.compile(r"^hello",re.I)
+sobj = hRegex.search(str)
 print(sobj.group()) #matching: Hello
+結果:=====================
+None
+Hello
 ```
 
 這裡，^ 的意思是隻在字串的開頭進行搜尋，假如開頭不匹配的話，就返回 None，而不管字串後續中有沒有再匹配到。
@@ -616,11 +632,17 @@ print(sobj.group()) #matching: Hello
 #在字串結尾搜尋
 import re
 str = "Hello Python Programming"
-sobj = re.search(r"programming$", str, re.I)
+pRegex=re.compile(r"programming$",re.I)
+sobj = pRegex.search(str)
 print(sobj.group()) #matching: Programming
 
-sobj = re.search(r"hello$", str, re.I)
+hRegex = re.compile(r"^hello$",re.I)
+sobj = hRegex.search(str)
 print(sobj) #no match found
+
+結果:=================
+Programming
+None
 ```
 
 ---
@@ -645,6 +667,9 @@ print(sobj.group())
 
 mobj = compPat.match("234Lalalala 123456789")
 print(mobj.group())
+結果:=================
+1
+2
 ```
 --- 
 
@@ -662,14 +687,22 @@ print(mobj.group())
 
 ```python
 import re
-s = re.search("L", "Hello")
+lRegx= re.compile(r"L")
+s = lRegx.search("Hello")
 print(s)		#Output: None, L is there but in small letter and we didn't use flags
 
-s = re.search("L", "Hello", re.I)
+lRegx= re.compile(r"L",re.I)
+s = lRegx.search("Hello")
 print(s)		#Output: 1
 
-s = re.search("^L", "Hello", re.I)
+lRegx= re.compile(r"^L",re.I)
+s = lRegx.search("Hello")
 print(s)  #Output:None
+
+結果:=========================
+None
+<re.Match object; span=(2, 3), match='l'>
+None
 ```
 ---
 
@@ -678,7 +711,7 @@ print(s)  #Output:None
 - sub 函式返回了一個新的字串。
 
 ```python
-re.sub(pattern, repl, string, count = 0)
+regex.sub(repl, string, count = 0)
 ```
 
 
@@ -687,24 +720,27 @@ re.sub(pattern, repl, string, count = 0)
 #sub 函式舉例
 #下面的例子中，sub 函式將整個字串用新的字串替換掉了
 
-import re
 s = "Playing 4 hours a day"
-obj = re.sub(r'^.*$',"Working",s)
+regex = re.compile(r'^.*$')
+obj = regex.sub("Working",s)
 print(obj)
+
+結果:=============
+Working
 ```
 - 這裡，模式 r'^.*$ 中，^和 $ 意思是從開頭到結尾，.*意思是匹配字串中的任意字元，它們結合起來就是匹配從開頭到結尾的任意字元。 "Working"將來替換整個字串 s.
 
 ```python
-#替換文字re.sub
+#替換文字regex.sub
 import re
 s = "Playing 4 hours a day"
-#matchStr = re.sub(r'^.*$',"Working",s)
-matchStr = re.sub(r'hours',"Working",s)
+regex = re.compile(r'hours')
+matchStr = regex.sub("Working",s)
 print(matchStr.__class__)
 print(matchStr)
 
 
-========================
+結果:========================
 <class 'str'>
 Playing 4 Working a day
 ```
@@ -716,18 +752,18 @@ Playing 4 Working a day
 #下面的例子中，使用 sub 函式來刪除給定字串中的數字，你需要用\d 來匹配數字。
 
 import re
+import re
 s = "768 Working 2343 789 five 234 656 hours 324 4646 a 345 day"
-obj = re.sub(r'\d',"",s)
+regex =  re.compile(r'\d')
+obj = regex.sub("",s)
 print(obj)
-```
-```python
+結果:========================
 Working   five   hours   a  day
 ```
+
 ```python
 #類似的，你可以來刪除字串中的字母，用 \D 來匹配所有的字母。
-```
-
-```
+結果:=======================
 76823437892346563244646345
 ```
 ---
