@@ -27,6 +27,8 @@
 
 14 [檔案存取](./檔案存取/README.ipynb)
 
+15 [excel的應用](./處理excel)
+
 15 [SQLAlchemy ORM](./sqlalchemy_orm)
 
 16 [整合line使用](./line)
