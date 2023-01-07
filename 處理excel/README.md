@@ -341,8 +341,53 @@ print(pprint.pformat(countyData))
 #=========================
 ```
 
+## 使用openpyxl建立excel檔
+
+- 建立workbook
+- 建立sheet
+
+```python
+import openpyxl
+
+wb = openpyxl.Workbook()
+print(wb.sheetnames)
+
+#結果:=====================
+['Sheet']
+#=========================
+
+sheet = wb.active
+print(sheet.title)
+
+#結果:=====================
+Sheet
+#=========================
+
+sheet.title = "練習1"
+wb.sheetnames
+
+#結果:=====================
+['練習1']
+#=========================
 
 
+```
+
+- 儲存workbook成為excel檔案
+
+```python
+import openpyxl
+wb = openpyxl.load_workbook('example.xlsx')
+sheet = wb.active
+sheet.title =  "活頁1"
+wb.save('example_copy.xlsx')
+```
+
+### 建立和刪除sheet
+
+```python
+
+```
 
 
 
