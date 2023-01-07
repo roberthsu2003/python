@@ -29,10 +29,10 @@
 
 15 [excel的應用](./處理excel)
 
-15 [SQLAlchemy ORM](./sqlalchemy_orm)
+16 [SQLAlchemy ORM](./sqlalchemy_orm)
 
-16 [整合line使用](./line)
+17 [整合line使用](./line)
 
-17 [同時執行](./Concurrency)
+18 [同時執行](./Concurrency)
 
-18 [小程式](./小程式)
+19 [小程式](./小程式)
