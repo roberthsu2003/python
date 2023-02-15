@@ -794,7 +794,7 @@ print("剩餘款為:" + str(money))
 ```
 
 ```python
-math.ceil(math.degrees(math.asin(2.5/5)))
+round(math.degrees(math.asin(2.5/5)))
 ```
  
 
