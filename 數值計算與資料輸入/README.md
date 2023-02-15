@@ -780,6 +780,22 @@ print("剩餘款為:" + str(money))
 圓柱體的體積:xxxx立方公分
 ```
 [解題](circle_s.py)
+
+### 高中數學
+### Homework(degree.py)
+- 讓使用者輸入直角三角形的對邊
+- 讓使用者輸入直角三角形的斜邊
+- 計算角度
+
+```
+請輸入對邊:2.5
+請輸入斜邊:5
+直角三角形的角度為:30degree
+```
+
+```python
+math.ceil(math.degrees(math.asin(2.5/5)))
+```
  
 
 
