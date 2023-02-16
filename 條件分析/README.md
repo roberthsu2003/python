@@ -469,6 +469,11 @@ print(n,"是" ,digit + "位數")
  ```
  [解題](bmi.py)
  
+ 
+ ### HomeWork:高血壓
+ 
+ ![](./images/pic1.png)
+ 
 
 
 
