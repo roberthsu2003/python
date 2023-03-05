@@ -76,6 +76,23 @@ else:
 ```
 
 ```python
+#學生總分為300
+#有些學生可以加分5%
+#如果加分超過300,就以300分為準
+
+scores = int(input("請輸入學生分數(最高300分):"))
+is_add = input("學生是否符合加分條件?(y,n)")
+
+if(is_add == "y"): #單項選擇
+    scores *= 1.05
+    if scores > 300:
+        scores = 300
+        
+
+print(round(scores))
+```
+
+```python
 #雙向選擇
 >>> disaster = True 
 >>> disaster = False
