@@ -120,6 +120,17 @@ print("執行結束")
 
 ```
 
+```python
+chinese = int(input("請輸入學生國文分數:"))
+if chinese < 60:
+    print("不及格")
+else:
+    if chinese < 80:
+        print("普通")
+    else:
+        print("優")
+```
+
 ### 請問執行後的結果哪一個是對的?(選擇題)
 ```python
 a=12
