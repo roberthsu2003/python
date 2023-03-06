@@ -1,14 +1,13 @@
-#請輸入小寫英文字[按q會離開]:taipei
-#Taipei
-#請輸入小寫英文字[按q會離開]:q
-#程式結束
+#請設計一個程式，讓使用者輸入數值，只有加總正偶數值，不加總正奇數值，如果輸入負數，結束程式。
 
-
-while(True):  
-  stuff = input("請輸入小寫英文字[按q會離開]:")
-  if stuff == 'q':
+sum = 0
+while(True):
+  inputNum = eval(input("請輸入數值:"))
+  if(inputNum < 0):
     break
-  print(stuff.capitalize())
-  
+  elif(inputNum % 2 == 1):
+    continue
+  else:
+    sum += inputNum
 
-print("程式結束")
+print(f"所有輸入的正偶數的加總是:{sum}")
