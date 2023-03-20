@@ -1,22 +1,15 @@
-ls1 = [78, 87, 68, 92, 91]
-ls1
-
-
-ls2 = list('letter')
-ls2
-
-
-for score in ls1:
-  print(score)
-  
-  
-ls1[0]
-ls1[0] = 100
-ls1[0]
+stu1 = []
+stu1.append(78)
+stu1.append(69)
+stu1.append(95)
+stu1.append(79)
+stu1.append(61)
+stu1
 
 
 
-ls1[0], ls1[2]
+stu1.pop()
+stu1
 
 
-ls1[5]
+student_3[0][4], student_3[1][2], student_3[2][4]
