@@ -1,13 +1,21 @@
-import random
+dic1 = {'one':1,
+        'two':2,
+        'three':3}
 
-def generate_scores() -> list:
-  scores = []
-  for i in range(5):
-    scores.append(random.randint(50, 100))
-  return scores
+dic1
 
-students = []
-for i in range(50):
-  students.append(generate_scores())
 
-students
+
+dic2 = dict([('one',1), ('two',2), ('three',3)])
+dic2
+
+
+dic1['one']
+
+
+dic1['one'] = 11
+dic1
+
+
+dic1['four'] = 4
+dic1
