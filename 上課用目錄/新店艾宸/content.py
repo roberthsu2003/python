@@ -1,21 +1,10 @@
-dic1 = {'one':1,
-        'two':2,
-        'three':3}
-
-dic1
-
+for key in dic1:
+  print(key)
+  print(dic1[key])
+  print("=======")
 
 
-dic2 = dict([('one',1), ('two',2), ('three',3)])
-dic2
-
-
-dic1['one']
-
-
-dic1['one'] = 11
-dic1
-
-
-dic1['four'] = 4
-dic1
+for key,value in dic1.items():
+  print(key)
+  print(value)
+  print("=======")
