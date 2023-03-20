@@ -1,26 +1,23 @@
-import random
-def generate_scores() -> dict:
-  scores = {}
-  scores['chinese'] = random.randint(50,100)
-  scores['english'] = random.randint(50,100)
-  scores['math'] = random.randint(50,100)
-  scores['history'] = random.randint(50,100)
-  scores['discover'] = random.randint(50,100)
-  return scores
-
-generate_scores()
+set1 = {0, 2, 4, 6, 8, 10, 0, 2, 4, 6, 8, 10}
+set1
 
 
 
+set1
+set3 = {0, 2, 4}
+set1 - set3
 
-students = []
-for _ in range(50):
-  students.append(generate_scores())
 
-for student in students:
-  print(f"國文:{student['chinese']}")
-  print(f"英文:{student['english']}")
-  print(f"數學:{student['math']}")
-  print(f"歷史:{student['history']}")
-  print(f"創造:{student['discover']}")
-  print("==========================")
+
+set1
+set4 = {1, 2, 3}
+
+set1 | set4
+
+
+
+set1
+
+set5 = {6, 8, 10}
+
+set1 & set5
