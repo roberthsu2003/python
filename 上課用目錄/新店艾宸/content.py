@@ -1,11 +1,10 @@
-word = "That is Alice's cat."
-word
+letters = 'abcdefghijklmnopqrstuvwxyz'
+len(letters)
 
 
+#字串的slice,字串[m,n]
+letters[3:5]
 
-#脫逸字元
-print('Hello there! \n How are you? \n I\'m doing fine.')
 
-
-#原始字串
-print(r'That is Carol\'s cat.')
+#取出前5個
+letters[:5]
