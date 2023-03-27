@@ -1,23 +1,12 @@
-set1 = {0, 2, 4, 6, 8, 10, 0, 2, 4, 6, 8, 10}
-set1
+def sayHello(name) -> None:
+  print(f'您好{name}')
+  
+  
+sayHello("robert")
+
+def greeting(name) -> str:
+  return f"'您好{name}'"
 
 
-
-set1
-set3 = {0, 2, 4}
-set1 - set3
-
-
-
-set1
-set4 = {1, 2, 3}
-
-set1 | set4
-
-
-
-set1
-
-set5 = {6, 8, 10}
-
-set1 & set5
+greet = greeting("robert")
+print(greet)
