@@ -1,12 +1,11 @@
-def sayHello(name) -> None:
-  print(f'您好{name}')
-  
-  
-sayHello("robert")
-
-def greeting(name) -> str:
-  return f"'您好{name}'"
+word = "That is Alice's cat."
+word
 
 
-greet = greeting("robert")
-print(greet)
+
+#脫逸字元
+print('Hello there! \n How are you? \n I\'m doing fine.')
+
+
+#原始字串
+print(r'That is Carol\'s cat.')
