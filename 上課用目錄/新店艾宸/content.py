@@ -1,10 +1,13 @@
-letters = 'abcdefghijklmnopqrstuvwxyz'
-len(letters)
+#取出後5各
+letters[-5:]
 
 
-#字串的slice,字串[m,n]
-letters[3:5]
+name = 'Henny'
+name
 
 
-#取出前5個
-letters[:5]
+name.replace('H','P')
+
+
+name = name.replace('H','P')
+name
