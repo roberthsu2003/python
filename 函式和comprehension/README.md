@@ -777,7 +777,7 @@ def document_it(func):
 
 #手動傳遞function當作參數
 def add_ints(a, b): 
-	returna+b
+	return a+b
 
 >>> add_ints(3, 5)
 8
