@@ -682,6 +682,48 @@ It's no thing
 
 - generators只可以使用一次
 
+```python
+def my_generator():
+    for i in range(10):
+        yield i
+
+g = my_generator()
+
+print(next(g))  # 0
+print(next(g))  # 1
+print(next(g))  # 2
+
+```
+#### Generators is iteration
+
+```python
+def my_generator():
+    for i in range(10):
+        yield i
+
+
+for i in my_generator():
+    print(i)
+```
+
+- ### 使用Comprehensions 建立Generators
+
+```python
+squares = (i * i for i in range(10))
+
+for square in squares:
+    print(square)
+
+even_squares = (i * i for i in range(10) if i % 2 == 0)
+
+for square in even_squares:
+    print(square)
+
+sum_of_squares = sum(i * i for i in range(10))
+print(sum_of_squares)
+```
+
+- ### range()也可以建立Generators
 
 ```python
 >>> sum(range(1, 101))
