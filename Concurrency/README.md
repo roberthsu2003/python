@@ -177,6 +177,7 @@ class CountdownThread(Thread):
         super().__init__()
         self.n = n
 
+    #run是overwrite
     def run(self):
         while self.n > 0:
             print('倒數計時:',self.n)
