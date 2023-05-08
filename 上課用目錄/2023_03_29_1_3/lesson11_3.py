@@ -1,6 +1,8 @@
 import requests
 import json
 import csv
+from datetime import datetime
+import os
 
 #下載
 youbikeURL = 'https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json'
@@ -21,8 +23,13 @@ for site in youbike_list:
 print(f"目前無車可借的站點數有{i}")
 
 #存成csv
+current = datetime.now()
+filename = f"{current.year}-{current.month}-{current.day}-{current.hour}-{current.minute}-{current.second}.csv"
+path = os.path.abspath('./')
+path_name= os.path.join(path,'data',filename)
 heads = list(sbi0_list[0].keys())
-with open('youbike2.0無車可借.csv',mode='w',encoding='utf-8',newline='') as file:
+print(heads)
+with open(path_name,mode='w',encoding='utf-8',newline='') as file:
     writedCsv = csv.DictWriter(file,heads)
     writedCsv.writeheader()
     writedCsv.writerows(sbi0_list)
