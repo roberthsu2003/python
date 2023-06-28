@@ -264,6 +264,40 @@ print(get_person_name(one_person=john))
 john
 ```
 
+## Pydantic Models
+- pip install pydantic
+
+### 快速建立自訂型別的class
+- 每個attribute必需要有型別
+- 每個實體的attribute必需有值
+- 建立實體時,如果型別不一樣會自動轉換型別
+
+```python
+from datetime import datetime
+
+from pydantic import BaseModel
+
+
+class User(BaseModel):
+    id: int
+    name = "John Doe"
+    signup_ts: datetime | None = None
+    friends: list[int] = []
+
+
+external_data = {
+    "id": "123",
+    "signup_ts": "2017-06-01 12:22",
+    "friends": [1, "2", b"3"],
+}
+user = User(**external_data)
+print(user)
+# > User id=123 name='John Doe' signup_ts=datetime.datetime(2017, 6, 1, 12, 22) friends=[1, 2, 3]
+print(user.id)
+# > 123
+
+```
+
 
 
 
