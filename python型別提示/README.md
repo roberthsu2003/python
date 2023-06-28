@@ -155,9 +155,114 @@ def process_items(items_t: tuple[int, int, str], items_s: set[bytes]) -> tuple[t
     return items_t, items_s
 ```
 
+
+## union
+- 一個變數定義2個以上的變數
+
 ```
+#python3.10+
+def process_item(item: int | str) -> None:
+    print(item)
 ```
 
+```
+#python3.6+
+from typing import Union
+
+def process_item(item: Union[int, str]) -> None:
+    print(item)
+```
+
+
+### 變數有可能是None
+
+```python
+#python3.6+
+from typing import Optional
+
+def say_hi(name: Optional[str] = None) -> None:
+    if name is not None:
+        print(f"Hey {name}!")
+    else:
+        print("Hello World")
+
+```
+
+
+```python
+#python3.6+
+from typing import Union
+
+
+def say_hi(name: Union[str, None] = None) -> None:
+    if name is not None:
+        print(f"Hey {name}!")
+    else:
+        print("Hello World")
+```
+
+
+```python
+#python3.10+
+def say_hi(name: str | None = None) -> None:
+    if name is not None:
+        print(f"Hey {name}!")
+    else:
+        print("Hello World")
+```
+
+```python
+#python3.10+
+def say_hi(name: str | None) -> None:
+    print(f"Hey {name}!")
+
+say_hi("robert")
+say_hi(name="robert")
+
+=======結果
+
+Hey robert!
+Hey robert!
+```
+
+
+```python
+#python3.10+
+
+def say_hi(name: str | None = None) -> None:
+    if name is None:
+        print("Hey")
+    else:
+        print(f"Hey {name}!")
+
+say_hi()
+say_hi("robert")
+say_hi(name="robert")
+
+=========結果
+Hey
+Hey robert!
+Hey robert!
+```
+
+## Classes as types(使用自訂型別)
+
+```python
+class Person:
+    def __init__(self, name: str):
+        self.name = name
+
+john:Person = Person("john")
+
+
+def get_person_name(one_person: Person) -> str:
+    return one_person.name
+
+print(get_person_name(one_person=john))
+
+===========結果
+john
+```
 
 
 
