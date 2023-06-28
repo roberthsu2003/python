@@ -1,3 +1,5 @@
+# 本章節為參考,非必學,初學者可略過
+
 # python 型別提示(type hints)
 - **python3.6**以後的版本支援(type hint)
 - **python3.6**以上都有不同的支援方式如(union,optional,annotation)
