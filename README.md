@@ -40,3 +40,5 @@
 19 [小程式](./小程式)
 
 20 [python的11道練習題](https://buzzorange.com/techorange/2021/03/02/11-projects-for-python-beginner/?fbclid=IwAR0KkjjOoAsQ4jWtU1uLZaC-peitpK0ukyB-R_O9k0q2gbwM6CdiEXJpKgk)
+
+21 其他
