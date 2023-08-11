@@ -1,4 +1,276 @@
 ## 迴圈Loop
+### for-in
+### 使用range()產生數值串列
+- 使用range()產一個範圍的數值list
+- range()不會像list,tuple,set,dictionary先佔用大量記憶體空間
+- 語法:range(start, stop, step).
+- 如果省略start,只有stop,start預設為0
+- 如同slice,產生的值並不包含stop
+- step預設值為1
+
+
+```python
+for x in range(0,3): 
+    print(x)
+    
+結果==========
+0
+1
+2
+```
+
+```python
+list( range(0, 3))
+
+結果========
+[0, 1, 2]
+```
+
+#### Homework:小王班上有五位學生，請您為小王設計一個輸入成績的程式，並且在輸入成績後顯示班上總成績及平均成績。
+```python
+#range1.py
+#小王班上有五位學生，請您為小王設計一個輸入成績的程式，並且在輸入成績後顯示班上總成績及平均成績。
+
+結果========
+請輸入第1位學生的成績:89
+請輸入第2位學生的成績:89
+請輸入第3位學生的成績:89
+請輸入第4位學生的成績:89
+請輸入第5位學生的成績:89
+
+全班總成績為: ***分，平均為89分
+```
+[解題](range1.py)
+
+```python
+#如果使用-1,則每次-1
+for x in range(2, -1, -1):
+    print(x)
+    
+結果========
+2
+1
+0
+```
+
+```python
+list(range(2, -1, -1)) 
+
+結果=======
+[2, 1, 0]
+```
+
+```python
+#step為2,則每次加2
+list( range(0, 11, 2))
+
+結果========
+[0,2,4,6,8,10]
+```
+
+ 
+```python
+#for 迴圈兩個參數:請留意輸出結果
+#for2.py
+
+print("兩個參數") 
+for i in range(4,8):
+    print(i)
+print("離開後i為",i)
+```
+
+
+
+
+```python
+#Question: 請問執行後跑出哪些整數?(選擇題)
+for x in range(6,10): 
+	print(x)
+```
+(1) 6 7 8 9  
+(2) 6 7 8 9 10  
+(3) 7 8 9  
+
+```python
+#for3-1.py
+#(1)for 迴圈三個參數:請留意輸出結果
+
+print("三個參數") 
+for i in range(4,0,-1):
+    print(i) 
+print("離開後i為",i)
+```
+
+```python
+#(2)for 迴圈三個參數:請留意輸出結果
+#for3-2.py
+
+print("三個參數") 
+for i in range(4,8,2):
+    print(i) 
+print("離開後i為",i)
+```
+
+
+```python
+#Question: 請問執行後跑出哪些整數?(選擇題)
+
+for x in range(0,8,2) :
+    print(x)
+```
+(1) 0 2 4 6 8  
+(2) 0 2 4 6  
+(3) 0 2 8  
+
+
+
+```python
+#1~100的加總
+total = 0
+for i in range(1,101):
+    total += i
+
+print(f"1加到100的加總為{total}") 
+```
+
+```python
+end = int(input("1加到多少的數值:"))
+total = 0
+for i in range(1,end+1):
+    total += i
+
+print(f"1加到{end}的加總為{total}") 
+```
+
+```python
+start = int(input("start的數值:"))
+end = int(input("結束的數值:"))
+total = 0
+for i in range(start,end+1):
+    total += i
+
+print(f"{start}加到{end}的加總為{total}") 
+```
+
+```python
+#1~100,偶數的加總
+#1~100,奇數的加總
+evenTotal = 0
+oddTotal = 0
+
+for i in range(1,101):
+    if i % 2 == 0:
+        evenTotal += i
+    else:
+        oddTotal += i
+
+print(f"1加到100偶數的加總為{evenTotal}")
+print(f"1加到100奇數的加總為{oddTotal}") 
+```
+
+### 巢狀迴圈
+
+```python
+#=======================================================================
+# Name        : forNest2.py
+#利用2層迴圈列印九九乘法表
+#=======================================================================
+1 * 1 = 1  1 * 2 = 2  1 * 3 = 3  1 * 4 = 4  1 * 5 = 5  1 * 6 = 6  1 * 7 = 7  1 * 8 = 8  1 * 9 = 9  
+2 * 1 = 2  2 * 2 = 4  2 * 3 = 6  2 * 4 = 8  2 * 5 =10  2 * 6 =12  2 * 7 =14  2 * 8 =16  2 * 9 =18  
+3 * 1 = 3  3 * 2 = 6  3 * 3 = 9  3 * 4 =12  3 * 5 =15  3 * 6 =18  3 * 7 =21  3 * 8 =24  3 * 9 =27  
+4 * 1 = 4  4 * 2 = 8  4 * 3 =12  4 * 4 =16  4 * 5 =20  4 * 6 =24  4 * 7 =28  4 * 8 =32  4 * 9 =36  
+5 * 1 = 5  5 * 2 =10  5 * 3 =15  5 * 4 =20  5 * 5 =25  5 * 6 =30  5 * 7 =35  5 * 8 =40  5 * 9 =45  
+6 * 1 = 6  6 * 2 =12  6 * 3 =18  6 * 4 =24  6 * 5 =30  6 * 6 =36  6 * 7 =42  6 * 8 =48  6 * 9 =54  
+7 * 1 = 7  7 * 2 =14  7 * 3 =21  7 * 4 =28  7 * 5 =35  7 * 6 =42  7 * 7 =49  7 * 8 =56  7 * 9 =63  
+8 * 1 = 8  8 * 2 =16  8 * 3 =24  8 * 4 =32  8 * 5 =40  8 * 6 =48  8 * 7 =56  8 * 8 =64  8 * 9 =72  
+9 * 1 = 9  9 * 2 =18  9 * 3 =27  9 * 4 =36  9 * 5 =45  9 * 6 =54  9 * 7 =63  9 * 8 =72  9 * 9 =81  
+
+for i in range(1,10):
+    for j in range(1,10):
+        print(f"{i:<2d}*{j:2d} ={i*j:2d}",end='  ')
+    print()
+```
+
+
+```python
+#========================================================
+# Name        : forNest1.py
+#利用2層迴圈列印「井」字，將其排列成直角三角形
+#=======================================================
+
+顯示:
+#
+##
+###
+####
+#####
+
+
+
+for i in range(1,6):
+    for _ in range(i):
+        print("#",end='')
+    print()
+```
+
+```python
+#求所有因數
+num = int(input("請輸入整數，求所有因數:"))
+print(num,"的因數:")
+for i in range(1,num+1):  
+  if num % i == 0:
+    print(i)
+```
+
+```python
+#求公因數
+print("請輸入2數,求2數公因數:")
+n = int(input('請輸入第1個數:'))
+m = int(input('請輸入第2個數:'))
+if n > m:
+  num = m
+else:
+  num = n
+
+#num是2數的最小值
+print(n,'和',m, '的公因數是:')
+for i in range(1,num+1):
+  if n % i == 0 and m % i == 0:
+    print(i)
+```
+
+```python
+#求質數
+end = int(input("請輸入end值:"))
+print(f"1到{end}的質數是:")
+for num in range(2,end+1):
+    is_prime = True
+    for i in range(2,num):
+        if num % i == 0:
+            is_prime = False
+
+    if is_prime:
+        print(f"{num}",end=" ")
+```
+
+
+
+### for break else語法
+檢查如果沒有使用break跳出迴圈,就執行else區塊
+
+```python
+#檢查是否cheeses為空list
+cheeses = []
+for cheese in cheeses:
+    print('我喜歡的cheese有', cheese)
+    break
+else: # no break means no cheese
+    print('沒有任何cheese') 
+    
+結果:=============			
+沒有任何cheese
+```
+
 ###  重複執行概念
 - 重覆執行可以讓程式中某一區段流程反覆執行
 - 重複執行可用 while 及 for 兩種方式設計
@@ -302,128 +574,6 @@ else: # 沒有執行break
 沒有偶數
 ```
 
-### 使用range()產生數值串列
-- 使用range()產一個範圍的數值list
-- range()不會像list,tuple,set,dictionary先佔用大量記憶體空間
-- 語法:range(start, stop, step).
-- 如果省略start,只有stop,start預設為0
-- 如同slice,產生的值並不包含stop
-- step預設值為1
-
-
-```python
-for x in range(0,3): 
-    print(x)
-    
-結果==========
-0
-1
-2
-```
-
-```python
-list( range(0, 3))
-
-結果========
-[0, 1, 2]
-```
-
-#### Homework:小王班上有五位學生，請您為小王設計一個輸入成績的程式，並且在輸入成績後顯示班上總成績及平均成績。
-```python
-#range1.py
-#小王班上有五位學生，請您為小王設計一個輸入成績的程式，並且在輸入成績後顯示班上總成績及平均成績。
-
-結果========
-請輸入第1位學生的成績:89
-請輸入第2位學生的成績:89
-請輸入第3位學生的成績:89
-請輸入第4位學生的成績:89
-請輸入第5位學生的成績:89
-
-全班總成績為: ***分，平均為89分
-```
-[解題](range1.py)
-
-```python
-#如果使用-1,則每次-1
-for x in range(2, -1, -1):
-    print(x)
-    
-結果========
-2
-1
-0
-```
-
-```python
-list(range(2, -1, -1)) 
-
-結果=======
-[2, 1, 0]
-```
-
-```python
-#step為2,則每次加2
-list( range(0, 11, 2))
-
-結果========
-[0,2,4,6,8,10]
-```
-
- 
-```python
-#for 迴圈兩個參數:請留意輸出結果
-#for2.py
-
-print("兩個參數") 
-for i in range(4,8):
-    print(i)
-print("離開後i為",i)
-```
-
-
-
-
-```python
-#Question: 請問執行後跑出哪些整數?(選擇題)
-for x in range(6,10): 
-	print(x)
-```
-(1) 6 7 8 9  
-(2) 6 7 8 9 10  
-(3) 7 8 9  
-
-```python
-#for3-1.py
-#(1)for 迴圈三個參數:請留意輸出結果
-
-print("三個參數") 
-for i in range(4,0,-1):
-    print(i) 
-print("離開後i為",i)
-```
-
-```python
-#(2)for 迴圈三個參數:請留意輸出結果
-#for3-2.py
-
-print("三個參數") 
-for i in range(4,8,2):
-    print(i) 
-print("離開後i為",i)
-```
-
-
-```python
-#Question: 請問執行後跑出哪些整數?(選擇題)
-
-for x in range(0,8,2) :
-    print(x)
-```
-(1) 0 2 4 6 8  
-(2) 0 2 4 6  
-(3) 0 2 8  
-
 
 ## 使用for in迴圈
 - 使用時機,讀取所有集合物件元素1次。(list,tuple,string,dictionaries,sets)
@@ -560,110 +710,7 @@ for j in i:
     print(j)
 ```
 
-### 巢狀迴圈
 
-```python
-#=======================================================================
-# Name        : forNest2.py
-#利用2層迴圈列印九九乘法表
-#=======================================================================
-1*1=1   1*2=2   1*3=3   1*4=4   1*5=5   1*6=6   1*7=7   1*8=8   1*9=9
-2*1=2   2*2=4   2*3=6   2*4=8   2*5=10  2*6=12  2*7=14  2*8=16  2*9=18
-3*1=3   3*2=6   3*3=9   3*4=12  3*5=15  3*6=18  3*7=21  3*8=24  3*9=27
-4*1=4   4*2=8   4*3=12  4*4=16  4*5=20  4*6=24  4*7=28  4*8=32  4*9=36
-5*1=5   5*2=10  5*3=15  5*4=20  5*5=25  5*6=30  5*7=35  5*8=40  5*9=45
-6*1=6   6*2=12  6*3=18  6*4=24  6*5=30  6*6=36  6*7=42  6*8=48  6*9=54
-7*1=7   7*2=14  7*3=21  7*4=28  7*5=35  7*6=42  7*7=49  7*8=56  7*9=63
-8*1=8   8*2=16  8*3=24  8*4=32  8*5=40  8*6=48  8*7=56  8*8=64  8*9=72
-9*1=9   9*2=18  9*3=27  9*4=36  9*5=45  9*6=54  9*7=63  9*8=72  9*9=81
-
-
-for i in range(1,10):
-    for j in range(1,10):
-        print(i, " * ", j, " = ", i*j, end='\t')
-        print("%-2d*%2d =%2d" % (i,j,i*j),end="   ")
-    print()
-```
-
-
-```python
-#========================================================
-# Name        : forNest1.py
-#利用2層迴圈列印「井」字，將其排列成直角三角形
-#=======================================================
-
-顯示:
-#
-##
-###
-####
-#####
-
-
-
-for i in range(1,6):
-    for _ in range(i):
-        print("#",end='')
-    print()
-```
-
-```python
-#求所有因數
-num = int(input("請輸入整數，求所有因數:"))
-print(num,"的因數:")
-for i in range(1,num+1):  
-  if num % i == 0:
-    print(i)
-```
-
-```python
-#求公因數
-print("請輸入2數,求2數公因數:")
-n = int(input('請輸入第1個數:'))
-m = int(input('請輸入第2個數:'))
-if n > m:
-  num = m
-else:
-  num = n
-
-#num是2數的最小值
-print(n,'和',m, '的公因數是:')
-for i in range(1,num+1):
-  if n % i == 0 and m % i == 0:
-    print(i)
-```
-
-```python
-#求質數
-n = int(input('請輸入數值，將求2到數值間的質數:'))
-for i in range(2,n):
-  k = True
-  for j in range(2,i):    
-    if i % j == 0:
-      k = False
-      continue
-
-  if k == True:
-    print(i)
-```
-
-
-
-### for break else語法
-檢查如果沒有使用break跳出迴圈,就執行else區塊
-
-```python
-#檢查是否cheeses為空list
-cheeses = []
-for cheese in cheeses:
-    print('我喜歡的cheese有', cheese)
-    break
-else: # no break means no cheese
-    print('沒有任何cheese') 
-    
-結果:=============			
-沒有任何cheese
-```
 
 ### 使用for in zip()同步平行讀取多個串列物件
 

@@ -93,6 +93,35 @@ print(round(scores))
 ```
 
 ```python
+try:
+    money = int(input("請輸入金額:"))
+    print(money)
+except:
+    print("輸入格式錯誤")
+```
+
+```python
+#學生總分為300
+#有些學生可以加分5%
+#如果加分超過300,就以300分為準
+try:
+    score = int(input("請輸入學生分數(最高300分):"))
+    if score <= 300:
+        is_add = input("學生是否符合加分條件?(y,n)")
+
+        if(is_add == "y"):
+            score *= 1.05
+            if score > 300:
+                score = 300
+
+        print(f"學生分數是{round(score)}")
+    else:
+        print("學生分數不可以大於300")
+except:
+    print("格式錯誤")
+```
+
+```python
 #雙向選擇
 >>> disaster = True 
 >>> disaster = False
@@ -166,6 +195,71 @@ print("執行結束")
 ```
 [解題](password.py)
 
+## 巢狀判斷
+
+```python
+#巢狀選擇
+furry = True 
+small = True 
+if furry:
+	if small:
+		print("它是貓!")
+	else:
+		print("它是熊!")
+else:
+	if small:
+		print("它是小蜥蜴")
+	else:
+		print("它是人類或是沒毛的熊")
+
+它是貓!
+
+```
+
+```python
+#巢狀選擇
+• 如果x不是負數，則傳回值為 x ** (1 / y)。
+• 如果x是負數而且為偶數，則傳回值為"虛數"。
+• 如果x是負數而且為奇數，則傳回值為 -(-x) ** (1 / y)。
+
+x = int(input('請輸入x:'))
+y = int(input('請輸入y:'))
+
+if x >= 0:
+    root = x ** (1 / y)
+else:
+    if x % 2 == 0:
+        root = "虛數"
+    else:
+        root = -(-x) ** (1 / y)
+print('root=',root)
+```
+
+
+```python
+# 90(含)~100分為「優」
+# 80(含)~89分為「甲」
+# 70(含)~79分為「乙」
+# 60(含)~69分為「丙」
+# 0(含)~59分為「丁」
+
+score = int(input("請輸入學生分數:"))
+if score >= 90:
+    grade = '優'
+else:
+    if score >= 80:
+        grade = '甲'
+    else:
+        if score >= 70:
+            grade = '乙'
+        else:
+            if score >= 60:
+                grade = '丙'
+            else:
+                grade = '丁'
+print(f"學生等級:{grade}")
+```
+
 ##  多向選擇:if elif else
 - 條件成立要執行某事情，而條件不成立則要進行另外一個分析，請使 用 if elif 語法。
 
@@ -229,6 +323,8 @@ else:
 (3) 小於 12 
 
 ---
+
+
 ```python
 下列為換算成績等級的程式碼，換算的規則如下：
 
@@ -272,65 +368,28 @@ print("成績等級為：", grade)
 ```
 下列為根據最低年齡制定電影分級的函式，假設電影分級的規則如下：
 
-• 限制級：18歲或以上皆可欣賞。
-• 輔導級：13(含) ~ 17歲以上皆可欣賞。
-• 普遍級：12(含)歲以下皆可欣賞。
-• 如果沒有輸入年齡預設為普遍級。
+#限制級：18歲或以上皆可欣賞。
+#輔導級：13(含) ~ 17歲以上皆可欣賞。
+#普遍級：12(含)歲以下皆可欣賞。
+#如果沒有輸入年齡預設為普遍級。
 
-age = input("請輸入年齡")
+age = input("請輸入年齡:")
 rating = ""
-if age == "": rating = "普遍級"
-elif int(age) < 13: rating = "普遍級"
-elif int(age) < 18: rating = "輔導級"
-else: rating = "限制級"
-return rating
-    
-print(movie())
-print(movie(12))
-print(movie(16))
-print(movie(19))
 
-```
-
-## 巢狀判斷
-
-```python
-#巢狀選擇
-furry = True 
-small = True 
-if furry:
-	if small:
-		print("它是貓!")
-	else:
-		print("它是熊!")
+if age == '':
+    rating = '普遍級'
+elif int(age) >= 18:
+    rating = '限制級'
+elif int(age) >= 13:
+    rating = '輔導級'
 else:
-	if small:
-		print("它是小蜥蜴")
-	else:
-		print("它是人類或是沒毛的熊")
+    rating = '普遍級'
+print(rating)
 
-它是貓!
 
 ```
 
-```python
-#巢狀選擇
-• 如果x不是負數，則傳回值為 x ** (1 / y)。
-• 如果x是負數而且為偶數，則傳回值為"虛數"。
-• 如果x是負數而且為奇數，則傳回值為 -(-x) ** (1 / y)。
 
-x = int(input('請輸入x:'))
-y = int(input('請輸入y:'))
-
-if x >= 0:
-    root = x ** (1 / y)
-else:
-    if x % 2 == 0:
-        root = "虛數"
-    else:
-        root = -(-x) ** (1 / y)
-print('root=',root)
-```
 
 ##  邏輯運算符號
 - 針對條件進行邏輯判斷時用到  
@@ -348,15 +407,58 @@ print('root=',root)
 [not boolean]
 ```
 
+```
+add = input("請問是否加分:(y,n)")
+if not (add == 'n'):
+    print("加分")
+else:    
+    print("不加分")
+```
+
 ```python
-chinese = 100
-math =100
+chinese = int(input("請輸入國文分數"))
+math = int(input("請輸入數學分數"))
+#巢狀判斷
+bonus = 0
+if chinese == 100:
+    if math == 100:
+        bonus = 1000
+    else:
+        bonus = 500
+elif math == 100:
+    bonus = 500
+
+print(f"獎金:{bonus}")
+```
+
+```python
+chinese = int(input("請輸入國文分數"))
+math = int(input("請輸入數學分數"))
+#使用邏輯運算子
+bonus = 0
+
 if chinese == 100 and math == 100:
-    print("獎金1000元")
+    bonus = 1000
 elif chinese == 100 or math == 100:
-    print("獎金500元")
+    bonus = 500
+print(f"獎金:{bonus}")
+```
+
+```python
+presure = int(input("請輸入血壓值"))
+if presure >= 80 and presure <= 120:
+    print("血壓正常")
 else:
-    print("沒有獎金")
+    print("血壓不正常")
+
+```
+
+```python
+presure = int(input("請輸入血壓值"))
+if presure < 80 or presure > 120:
+    print("血壓不正常")
+else:
+    print("血壓正常")
 ```
 
 ```python
