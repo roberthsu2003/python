@@ -474,6 +474,26 @@ while(True):
 print("所有輸入的正偶數的加總是:", sum)
 ```
 
+```python
+#break
+#contiune
+#請設計一個程式，讓使用者輸入數值，只有加總正偶數值，不加總正奇數值，如果輸入負數，結束程式。
+sum = 0
+num = 0
+while True:    
+    input_value = int(input(f"請輸入第{num+1}個數值:"))
+    if input_value < 0:
+        break
+    num += 1
+    if input_value % 2 == 1:
+        continue    
+    sum += input_value    
+    
+    
+
+print(f"輸入的次數是{num},所有輸入的正偶數的加總是:{sum}")
+```
+
 ### 無限定次數的迴圈
 
 ```python
