@@ -1,7 +1,7 @@
 import random
 
 #定義function
-def play_game():
+def play_game() -> None:
     min = 1
     max = 100
     target = random.randint(min,max)
