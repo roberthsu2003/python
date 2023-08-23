@@ -4,8 +4,8 @@
 ## Google Colab(雲端編輯器)
 [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb)
 
-## 安裝pycharm (本地端編輯器)
-[安裝pycharm community](https://www.jetbrains.com/pycharm/)  
+## 安裝vscode(本地端編輯器)
+[安裝vscode](https://code.visualstudio.com/)  
 
 ## anaConda(本地虛擬環境編輯器)
 [本地編輯器](https://www.anaconda.com/)
