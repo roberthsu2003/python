@@ -1,0 +1,3256 @@
+{
+ "cwbopendata": {
+  "@xmlns": "urn:cwb:gov:tw:cwbcommon:0.1",
+  "identifier": "dd480d72-95f9-d4ab-851d-3db3de5f041e",
+  "sender": "weather@cwb.gov.tw",
+  "sent": "2023-09-03T10:18:02+08:00",
+  "status": "Actual",
+  "msgType": "Issue",
+  "source": "MFC",
+  "dataid": "C0032-001",
+  "scope": "Public",
+  "dataset": {
+   "datasetInfo": {
+    "datasetDescription": "三十六小時天氣預報",
+    "issueTime": "2023-09-03T11:00:00+08:00",
+    "update": "2023-09-03T10:18:02+08:00"
+   },
+   "location": [
+    {
+     "locationName": "臺北市",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "100",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "100",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "新北市",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "70",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "桃園市",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "31",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "31",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "臺中市",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "31",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "31",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "60",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "臺南市",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "50",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "高雄市",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "70",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "基隆市",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "100",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "新竹縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "32",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "32",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "60",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "60",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "新竹市",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "32",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "32",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "60",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "60",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "苗栗縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "32",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "32",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "50",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "60",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "70",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "彰化縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "31",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "31",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "60",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "南投縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "31",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "雲林縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "26",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "26",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "嘉義縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "70",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "嘉義市",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "25",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "25",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "屏東縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "26",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "26",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "100",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "宜蘭縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "100",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "100",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "100",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "花蓮縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "26",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "26",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "100",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "100",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "100",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "臺東縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰陣雨",
+          "parameterValue": "14"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "26",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "26",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "100",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "100",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "澎湖縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "31",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "31",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "28",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "30",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "金門縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰天",
+          "parameterValue": "7"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "33",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "20",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "60",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "90",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "locationName": "連江縣",
+     "weatherElement": [
+      {
+       "elementName": "Wx",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰短暫陣雨",
+          "parameterValue": "11"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "陰時多雲短暫陣雨",
+          "parameterValue": "10"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MaxT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "29",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "MinT",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "27",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "26",
+          "parameterUnit": "C"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "26",
+          "parameterUnit": "C"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "CI",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "舒適至悶熱"
+         }
+        }
+       ]
+      },
+      {
+       "elementName": "PoP",
+       "time": [
+        {
+         "startTime": "2023-09-03T12:00:00+08:00",
+         "endTime": "2023-09-03T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "80",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-03T18:00:00+08:00",
+         "endTime": "2023-09-04T06:00:00+08:00",
+         "parameter": {
+          "parameterName": "70",
+          "parameterUnit": "百分比"
+         }
+        },
+        {
+         "startTime": "2023-09-04T06:00:00+08:00",
+         "endTime": "2023-09-04T18:00:00+08:00",
+         "parameter": {
+          "parameterName": "70",
+          "parameterUnit": "百分比"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
