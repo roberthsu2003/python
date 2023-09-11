@@ -5,6 +5,7 @@ max = 100
 count = 0
 target = random.randint(min,max)
 print("==============猜數字遊戲==================\n")
+print(target)
 
 while(True):
     try:
