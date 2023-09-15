@@ -2,6 +2,9 @@
 # python內建的資料結構
 ## Lists, Tuples, Dictionaries, and Sets
 ### tuple 與 list 的差異
+
+- [學習巢狀list上課範例](./學生成績.ipynb)
+
 - 括號不同:
 	- tuple 是用小括號()將元素包起來。
 	- list 是用中括號[]將元素包起來。
