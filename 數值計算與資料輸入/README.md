@@ -800,7 +800,16 @@ print("剩餘款為:" + str(money))
 ```python
 round(math.degrees(math.asin(2.5/5)))
 ```
- 
+
+### 高中數學
+### Homework(log運算)
+
+![](./images/pic1.png)
+
+```
+import statistics
+statistics.log(22000/20000) / statistics.log(1.011)
+```
 
 
 
