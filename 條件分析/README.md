@@ -648,6 +648,32 @@ if sbp >= 130 and dbp < 80:
 print(suggestion)
 
  ```
+
+```python
+import pyinputplus as pyip
+sbp = pyip.inputInt(prompt="請輸入收縮壓:")
+print(sbp)
+dbp = pyip.inputInt(prompt="請輸入舒張壓:")
+print(dbp)
+
+status = ""
+if sbp < 120 and dbp<80:
+    status = "正常"
+elif sbp < 130 and dbp<80:
+    status = '血壓升高'
+elif sbp >= 130 and dbp < 80:
+    status = '單純收縮期高血壓'
+elif sbp < 140 or (dbp>=80 and dbp<90):
+    status = '高血壓一期'
+elif sbp >= 140 or dbp >= 90:
+    status = '高血壓二期'
+    
+
+print(status)
+
+
+
+```
  
 
 
