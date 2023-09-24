@@ -4,3 +4,4 @@ pandas
 matplotlib
 requests
 yfinance
+pandas_datareader
