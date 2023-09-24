@@ -1,0 +1,5 @@
+openpyxl
+numpy
+pandas
+matplotlib
+requests
