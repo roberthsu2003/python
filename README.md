@@ -33,7 +33,10 @@
 
 16 [SQLAlchemy ORM](./sqlalchemy_orm)
 
-17 [整合line使用](./line)
+17 [整合應用程式]
+
+	- [整合line使用](./line)
+	- [整合line bot](./line_bot)
 
 18 [同時執行](./Concurrency)
 
