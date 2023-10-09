@@ -1,4 +1,5 @@
 # ChatGPT on Python
+## 目前使用chatGPT API都必需付費
 
 - ### 先至[ChatGPT註冊](https://platform.openai.com/docs/guides/chat),取得API Key。
 - ![](./images/pic1.png)
