@@ -37,6 +37,7 @@
 
   - [整合line使用](./line)
   - [整合line bot](./line_bot)
+  - [整合chat gpt](./chat_gpt)
 
 18 [同時執行](./Concurrency)
 
