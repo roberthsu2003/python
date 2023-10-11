@@ -1,3 +1,4 @@
 PyInputPlus
 requests
 matplotlib
+numpy
