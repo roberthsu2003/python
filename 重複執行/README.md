@@ -422,14 +422,23 @@ print('全班總成績為:', sum, "平均分數為:", "%.2f" % (sum/(num-1)) )
 ### 使用continue,中止現在迴圈,跳至下一輪迴圈,重頭執行
 
 ```python
-while True:
-	value = input("請輸入整數,輸入[q]離開: ") 
-	if value == 'q': # quit
-		break
-	number = int(value)
-	if number % 2 == 0: # 一個偶數值
-		continue
-	print(number, "平方是", number*number)
+while(True):
+    value = input("請輸入整數,輸入[q]離開:")
+    if value == 'q':
+        break
+    try:
+        valueInt = int(value)
+    except:
+        print("輸入錯誤,請重新輸入")
+        continue
+    
+    if (valueInt % 2) == 1:
+        print(f"{valueInt}的平方是{valueInt ** 2} ")
+    else:
+        print("不做事")
+
+print("應用程式結束")
+
 		
 顯示:
 奇數輸出平方
