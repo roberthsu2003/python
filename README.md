@@ -21,7 +21,7 @@
 
 11. [python內建的資料結構](./python內建的資料結構)
 
-12. [pydantic](./pydantic/README.ipynb)
+12. [pydantic](./pydantic)
 
 13. [模組和套件](./模組和套件)
 
