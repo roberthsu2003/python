@@ -1,46 +1,48 @@
 # python
-1 [python基礎與資料輸出](./python基礎與資料輸出)
+1. [python基礎與資料輸出](./python基礎與資料輸出)
 
-2 [python基本型別提示](python型別提示)
+2. [數值計算與資料輸入](./數值計算與資料輸入)
 
-2 [數值計算與資料輸入](./數值計算與資料輸入)
+3. [條件分析](./條件分析)
 
-3 [條件分析](./條件分析)
+4. [重複執行](./重複執行)
 
-4 [重複執行](./重複執行)
+5. [字串處理](./字串處理)
 
-5 [字串處理](./字串處理)
+6. [正規則表達式](./正規則表達式)
 
-6 [正規則表達式](./正規則表達式)
+7. [python基本型別提示](python型別提示)
+  
+8. [函式和comprehension](./函式和comprehension)
 
-7 [python內建的資料結構](./python內建的資料結構)
+9. [數值與函數進階運用](./數值與函數進階運用)
 
-8 [函式和comprehension](./函式和comprehension)
+10. [匿名函數lambda](./匿名函數lambda)
 
-9 [數值與函數進階運用](./數值與函數進階運用)
+11. [python內建的資料結構](./python內建的資料結構)
 
-10 [匿名函數lambda](./匿名函數lambda)
+12. [pydantic](./pydantic/README.ipynb)
 
-11 [模組和套件](./模組和套件)
+13. [模組和套件](./模組和套件)
 
-12 [物件和類別](./物件和類別)
+14. [物件和類別](./物件和類別)
 
-13 [系統和時間](./系統和時間)
+15. [系統和時間](./系統和時間)
 
-14 [檔案存取](./檔案存取/README.ipynb)
+16. [檔案存取](./檔案存取/README.ipynb)
 
-15 [excel的應用](./處理excel)
+17. [excel的應用](./處理excel)
 
-16 [SQLAlchemy ORM](./sqlalchemy_orm)
+18. [SQLAlchemy ORM](./sqlalchemy_orm)
 
-17 整合應用程式
+19. 整合應用程式
 
   - [整合line使用](./line)
   - [整合line bot](./line_bot)
   - [整合chat gpt](./chat_gpt)
 
-18 [同時執行](./Concurrency)
+20. [同時執行](./Concurrency)
 
-19 [小程式](./小程式)
+21. [小程式](./小程式)
 
-20 [python的11道練習題](https://buzzorange.com/techorange/2021/03/02/11-projects-for-python-beginner/?fbclid=IwAR0KkjjOoAsQ4jWtU1uLZaC-peitpK0ukyB-R_O9k0q2gbwM6CdiEXJpKgk)
+22. [python的11道練習題](https://buzzorange.com/techorange/2021/03/02/11-projects-for-python-beginner/?fbclid=IwAR0KkjjOoAsQ4jWtU1uLZaC-peitpK0ukyB-R_O9k0q2gbwM6CdiEXJpKgk)
