@@ -7,6 +7,8 @@
 
 #### 5. [空氣品質aqi.csv](./空氣品質aqi_csv.ipynb)
 
+#### 6. [空氣品質aqi.json](./空氣品質aqi_json.ipynb)
+
 #### 4. [個股日成交資訊.csv檔案轉換為pydantic的架構](./個股日成交資訊.ipynb)
 - 欄位字串要轉換為float,int
 - 欄位字串在轉換前,先整理欄位字串
