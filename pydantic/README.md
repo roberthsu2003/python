@@ -1,7 +1,7 @@
 # pydantic
 
 #### 1. [pydantic觀念說明1](./README.ipynb)
-#### 2. [pydantic觀念說明2](/README1.ipynb)
+#### 2. [pydantic觀念說明2](./README1.ipynb)
 #### 3. [學生分數.csv檔案轉換為pydantic的架構](./學生分數.ipynb)
 - 自訂實體method和property
 
