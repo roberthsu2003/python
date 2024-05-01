@@ -49,4 +49,6 @@
 
 22. [python的11道練習題](https://buzzorange.com/techorange/2021/03/02/11-projects-for-python-beginner/?fbclid=IwAR0KkjjOoAsQ4jWtU1uLZaC-peitpK0ukyB-R_O9k0q2gbwM6CdiEXJpKgk)
 
-23. [附註](./mini_conda/)
+23. 附註
+
+  - [mini_conda](./mini_conda/)
