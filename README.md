@@ -41,6 +41,7 @@
   - [整合line bot](./line_bot)
   - [整合chat gpt](./chat_gpt)
   - [整合Gemini api](./gemini_api/)
+  - [整合Gemini line_bot](./gemini_line_bot/)
 
 20. [同時執行](./Concurrency)
 
