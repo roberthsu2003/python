@@ -5,6 +5,10 @@
 2. #### 自動存檔
 3. #### 安裝jupyter notebook
 
+### codespace設定
+1. #### 建立devcontainer.json(要求建立python的開發環境)
+2. #### 啟動開發環境(rebuilt)
+
 ### git設定
 
 ```
