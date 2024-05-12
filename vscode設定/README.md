@@ -7,7 +7,7 @@
 
 ### codespace設定
 1. #### 建立devcontainer.json(要求建立python的開發環境)
-2. #### 啟動開發環境(rebuilt)
+2. #### 啟動開發環境(rebuilt)->可以想像成重新灌作業系統
 
 ### git設定
 
