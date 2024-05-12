@@ -52,4 +52,4 @@
 23. 附註
 
   - [mini_conda](./mini_conda/)
-  - [vscode最基本的設定](./vscode設定/)
+  - [vscode和git最基本的設定](./vscode設定/)
