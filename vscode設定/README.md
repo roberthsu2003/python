@@ -18,7 +18,7 @@ git config --global pull.rebase false
 - #### 變更 -> 暫存的變更 -> 建立有名稱的提交 -> 同步
 - #### working directory -> stage -> commit -> push
 
-### git強制同步上傳目前的提交(當不知如何處理時)
+### git強制同步上傳目前的所有提交(當不知如何處理時)
 
 ```
 git push --force
