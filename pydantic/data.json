@@ -1,0 +1,19 @@
+	{
+    "name": "Alice",
+    "age": 30,
+    "address": {
+        "street": "123 Main St",
+        "city": "Springfield",
+        "zipcode": "12345"
+    },
+    "projects": [
+        {
+            "name": "Project A",
+            "status": "completed"
+        },
+        {
+            "name": "Project B",
+            "status": "ongoing"
+        }
+    ]
+}
