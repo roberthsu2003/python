@@ -934,6 +934,119 @@ else:
 
 ---
 
+### 正規則表達式範例
+
+### 題目 1: 匹配郵箱地址
+
+編寫一個正則表達式，用於匹配有效的電子郵件地址。電子郵件地址的格式為：用戶名@域名，其中用戶名可以包含字母、數字、下劃線和點號，但不能以點號開頭或結尾，域名包括至少一個點號分隔的兩部分，每部分包含字母和數字。
+
+**示例：**
+
+- 有效的郵箱地址：`user.name@example.com`
+- 無效的郵箱地址：`.username@example.com`
+
+**正則表達式：**
+
+```python
+import re
+
+pattern = r'^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+
+# 測試
+test_emails = ["user.name@example.com", ".username@example.com", "username@com", "user@name@domain.com"]
+valid_emails = [email for email in test_emails if re.match(pattern, email)]
+print(valid_emails)  # 輸出: ['user.name@example.com']
+```
+
+### 題目 2: 匹配日期格式
+
+編寫一個正則表達式，用於匹配日期，格式為`YYYY-MM-DD`，其中年為四位數字，月為兩位數字（01-12），日為兩位數字（01-31）。
+
+**示例：**
+
+- 有效日期：`2024-05-29`
+- 無效日期：`2024-13-01`
+
+**正則表達式：**
+
+```python
+import re
+
+pattern = r'^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$'
+
+# 測試
+test_dates = ["2024-05-29", "2024-13-01", "2024-02-30", "2024-00-01"]
+valid_dates = [date for date in test_dates if re.match(pattern, date)]
+print(valid_dates)  # 輸出: ['2024-05-29']
+```
+
+### 題目 3: 匹配IPv4地址
+
+編寫一個正則表達式，用於匹配IPv4地址。IPv4地址的格式為四個以點號分隔的十進制數字，每個數字在0到255之間。
+
+**示例：**
+
+- 有效IPv4地址：`192.168.1.1`
+- 無效IPv4地址：`256.100.50.25`
+
+**正則表達式：**
+
+```python
+import re
+
+pattern = r'^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])$'
+
+# 測試
+test_ips = ["192.168.1.1", "256.100.50.25", "192.168.01.01", "192.168.1."]
+valid_ips = [ip for ip in test_ips if re.match(pattern, ip)]
+print(valid_ips)  # 輸出: ['192.168.1.1']
+```
+
+### 題目 4: 匹配電話號碼
+
+編寫一個正則表達式，用於匹配美國電話號碼。電話號碼格式為`(XXX) XXX-XXXX`或`XXX-XXX-XXXX`，其中X為數字。
+
+**示例：**
+
+- 有效電話號碼：`(123) 456-7890`
+- 無效電話號碼：`123-45-6789`
+
+**正則表達式：**
+
+```python
+import re
+
+pattern = r'^(\(\d{3}\) |\d{3}-)\d{3}-\d{4}$'
+
+# 測試
+test_numbers = ["(123) 456-7890", "123-456-7890", "123-45-6789", "(123 456-7890"]
+valid_numbers = [number for number in test_numbers if re.match(pattern, number)]
+print(valid_numbers)  # 輸出: ['(123) 456-7890', '123-456-7890']
+```
+
+### 題目 5: 匹配URL
+
+編寫一個正則表達式，用於匹配URL。URL的格式為`http://`或`https://`開頭，後跟一個或多個子域名和頂級域名，中間用點號分隔，且可以包含路徑和查詢參數。
+
+**示例：**
+
+- 有效URL：`https://www.example.com/path?arg=val`
+- 無效URL：`htp://example`
+
+**正則表達式：**
+
+```python
+import re
+
+pattern = r'^(https?://)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}(/[\w\-./?%&=]*)?$'
+
+# 測試
+test_urls = ["https://www.example.com/path?arg=val", "http://example", "ftp://example.com", "https://example."]
+valid_urls = [url for url in test_urls if re.match(pattern, url)]
+print(valid_urls)  # 輸出: ['https://www.example.com/path?arg=val']
+```
+
+
 ```python
 #email.py
 # r'\w+[.|\w]\w+@\w+[.]\w+[.|\w+]\w+'
