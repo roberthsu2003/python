@@ -42,7 +42,7 @@ import os
 load_dotenv()
 
 genai.configure(api_key=os.environ['Gemini_API_KEY'])
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-1.5-flash')
 response = model.generate_content('我想要學習 演算法')
 print(response.text)
 ```
