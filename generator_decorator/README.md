@@ -246,7 +246,7 @@ except Exception as e:
 引數值必需是int或float並且大於0
 ```
 
-- **decorator的範例4,將function輸出的值全部轉成整數**
+- **decorator的範例4,將function輸出的值全部轉成大寫**
 
 ```python
 def uppercase_decorator(func):
