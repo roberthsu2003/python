@@ -195,91 +195,29 @@ def add(a,b):
 print(add(3, 4))
 ```
 
-
-
-
-
-
-一個decorator是一個function, 這個function有一個參數，可以利用參數傳入其它function,然後傳出其它修改過的function
-
-下方的程式碼包含
-
-- *args 和 **kwargs
-- Inner functions
-- Functions 當作引數
-
+- **decorator的範例2,計算一個function執行所花費的時間**
 
 ```python
-def document_it(func):
-    def new_function(*args, **kwargs):
-        print('要執行的function:',func.__name__)
-        print('引數位置:',args)
-        print('keyword引數名稱',kwargs)
-        result = func(*args, **kwargs)
-        print('Result:', result)
-        return result
-    return new_function
+import time
+def timer_decorator(func):
+  def wrapper():
+    start_time = time.time()
+    func()
+    end_time = time.time()
+    print(f"func.__name__花費{end_time-start_time:.4f}秒執行")
 
-#手動傳遞function當作參數
-def add_ints(a, b): 
-	return a+b
+  
+  return wrapper
+  
+@timer_decorator
+def slow_function():
+  time.sleep(2)
+  print("function執行完成")
 
->>> add_ints(3, 5)
-8
+slow_function()
 
->>> cooler_add_ints = document_it(add_ints) # manual decorator assignment
->>> cooler_add_ints(3, 5) 
-要執行的function: add_ints
-引數位置: (3, 5)
-keyword引數名稱 {}
-Result: 8
-8
-
-#另一種傳遞function當作參數的寫法,使用@
-@document_it
-def add_ints(a, b):
-	returna+b
-
->>> add_ints(3, 5)
-要執行的function: add_ints
-引數位置: (3, 5)
-keyword引數名稱 {}
-Result: 8
-8
-
-
-#也可以傳遞一個function給多個decorator
-def square_it(func):
-	def new_function(*args, **kwargs):
-        result = func(*args, **kwargs)
-		return result * result
-	return new_function
-
-#同時使用2個decorator
-@document_it
-@square_it
-def add_ints(a, b):
-	return a+b
-
->>> add_ints(3, 5)
-要執行的function: new_function
-引數位置: (3, 5)
-keyword引數名稱 {}
-Result: 64
-64
-
-
-#改變decorator的順序
-@square_it
-@document_it
-def add_ints(a, b):
-return a+b 
-
->>> add_ints(3, 5) 
-要執行的function: add_ints
-引數位置: (3, 5)
-keyword引數名稱 {}
-Result: 8
-64
-
+#========output=========
+function執行完成
+func.__name__花費2.0021秒執行
 ```
+
