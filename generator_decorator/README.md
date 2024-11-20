@@ -179,23 +179,8 @@ say_hello()
 # Hello!
 ```
 
-- **decorator的範例1**
 
-```python
-def log_decorator(func):
-  def wrapper(*args, **kwargs):
-    print(f'Calling {func.__name__} with {args} and {kwargs}')
-    return func(*args,**kwargs)
-  return wrapper
-
-@log_decorator
-def add(a,b):
-  return a + b
-
-print(add(3, 4))
-```
-
-- **decorator的範例2,計算一個function執行所花費的時間**
+- **decorator的範例1,計算一個function執行所花費的時間**
 
 ```python
 import time
@@ -220,4 +205,146 @@ slow_function()
 function執行完成
 func.__name__花費2.0021秒執行
 ```
+
+- **decorator的範例2,接受引數的decorator**
+
+```python
+def log_decorator(func):
+  def wrapper(*args, **kwargs):
+    print(f'Calling {func.__name__} with {args} and {kwargs}')
+    return func(*args,**kwargs)
+  return wrapper
+
+@log_decorator
+def add(a,b):
+  return a + b
+
+print(add(3, 4))
+```
+
+- **decorator的範例3,檢查輸入的引數值是int或float並小於0**
+
+```python
+def validate_positive_numbers(func):
+  def wrapper(*args,**kwargs):
+    for arg in args:
+      if isinstance(arg,(int, float)) and arg < 0:
+        raise ValueError("引數值必需是int或float並且大於0")
+    return func(*args, **kwargs)
+  return wrapper
+
+@validate_positive_numbers
+def calculate_square_root(number):
+  return number ** 0.5
+  
+try:
+  calculate_square_root(-10)
+except Exception as e:
+  print(e)
+  
+#======output========
+引數值必需是int或float並且大於0
+```
+
+- **decorator的範例4,將function輸出的值全部轉成整數**
+
+```python
+def uppercase_decorator(func):
+  def wrapper():
+    original_result = func()
+    return original_result.upper()  
+  return wrapper
+
+@uppercase_decorator
+def greet():
+  return "hello, world!"
+
+print(greet())
+
+#========output========
+HELLO, WORLD!
+```
+
+## Class Decorator
+
+```python
+class SimpleDecorator:
+  def __init__(self,func):
+    self.func = func
+
+  def __call__(self):
+    print("function執行前")
+    self.func()
+    print("function執行後")
+    
+@SimpleDecorator
+def say_hello():
+  print("Hello!")
+
+say_hello()
+
+#=========output==========
+# Output:
+function執行前
+Hello!
+function執行後
+```
+
+## Decorator with parameter
+- 建立一個decorator factory
+
+```python
+def decorator_with_params(prefix):
+  def actual_decorator(func):
+    def wrapper(*args, **kwargs):
+      print(f"{prefix}:function 呼叫前")
+      result = func(*args, **kwargs)
+      print(f'{prefix}:function呼叫後')
+      return result
+    return wrapper
+  return actual_decorator
+
+@decorator_with_params("DEBUG")
+def greet(name):
+  print(f"Hello, {name}")
+
+greet("Alice")
+
+#======output=======
+DEBUG:function 呼叫前
+Hello, Alice
+DEBUG:function呼叫後
+```
+
+## functools.wraps的功能
+使用在decorator function內的重要功能
+
+- function的名稱(__name__)變為wrapper function的名稱
+- function的名稱docstring(__doc__)變為wrapper function的docstring
+
+要排除上面的方法就要使用functools.wraps的功能
+
+```python
+from functools import wraps
+
+def my_decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        """Wrapper docstring."""
+        print("Wrapper executed!")
+        return func(*args, **kwargs)
+    return wrapper
+
+@my_decorator
+def greet():
+    """Original docstring."""
+    print("Hello!")
+
+print(greet.__name__)  # Output: greet
+print(greet.__doc__)   # Output: Original docstring
+```
+
+
+
+
 
