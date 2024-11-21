@@ -673,9 +673,6 @@ It's no thing
 ```
 
 
-
-
-
 ### 名稱空間和使用範圍(Namespaces and Scope)
 - 名稱代表的就是變數名稱，function名稱
 - 一個名稱空間內不可以有設定相同的名稱
