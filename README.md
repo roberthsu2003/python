@@ -56,3 +56,4 @@
   - [mini_conda](./mini_conda/)
   - [vscode和git最基本的設定](./vscode設定/)
   - [markdown語法練習](https://www.markdowntutorial.com/zh-tw/)
+  - [學習prompt]()
