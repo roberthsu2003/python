@@ -21,6 +21,12 @@
 ## line-bot(line-MessageAPI)申請
 - ### 申請開發者[https://developers.line.biz/zh-hant/](https://developers.line.biz/zh-hant/)
 
+- ### (新)必需手動開啟messaging api功能
+
+網址:https://manager.line.biz/account
+
+設定->啟用Messaging API 
+
 
 ![](./images/pic1.png)
 
