@@ -6,9 +6,9 @@
 
 1. **什麼是 Python？Python 的優勢與應用**
 - Prompt1: "什麼是 Python？解釋其優勢和應用的具體案例。"
-<details>	
-What is Python?Explain its advantages and provide specific examples of its applications
-</details>
+	<details>	
+	What is Python?Explain its advantages and provide specific examples of its applications
+	</details>
 
 - Prompt2: "為什麼 Python 被廣泛使用？列舉它在不同領域的應用。"
 <details>
