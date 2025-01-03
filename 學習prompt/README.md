@@ -17,25 +17,45 @@
 
 2. **安裝與設定開發環境（Windows、Mac、Linux）**
 
-- Prompt1: "如何在 [操作系統] 上安裝 Python？"
+- Prompt: "如何在 [作業系統] 上安裝 Python？"
 	<details>
 	How to install Python on [operating system]?
 	</details>
-
-- Prompt2: "有哪些工具可以用來編寫和執行 Python 程式？"
+	
+- Prompt:"如何在[作業系統]上安裝mini conda?"
+	<details>
+	How to install mini-conda on [operating system]? 
+	</details>
+	
+- Prompt:"如何讓mini-conda建立指定pyhton版本虛擬環境"
+	<details>
+	How to create a virtual enviroment with a specified python version using mini-conda?
+	</details>
+	
+- Prompt: "有哪些工具可以用來編寫和執行 Python 程式？"
 
 	<details>
 	Which tools can be used to write and execute python programs?
 	</details>
 
 3. **第一個 Python 程式：Hello, World!**
-	- Prompt1: "如何編寫和執行第一個 Python 程式？"
-	- Prompt2: "Hello, World! 範例中的每個部分是做什麼的？"
+
+- Prompt1: "如何編寫和執行第一個 Python 程式？"
+	<details>
+	How to write your first Python program?
+	</details>
+	
+- Prompt2: "Hello, World! 範例中的每個部分是做什麼的？"
+		<details>
+		Hello, World! What does each part of the example do?
+		</retails>
+		
 4. **Python 的基本語法**
-	- **縮排與代碼風格**
-		- Prompt1: "什麼是 Python 的縮排規則？如何正確使用？"
-	- **註解的使用**
-		- Prompt2: "如何在 Python 中撰寫單行與多行註解？"
+
+- **縮排與代碼風格**
+	- Prompt1: "什麼是 Python 的縮排規則？如何正確使用？"
+- **註解的使用**
+	- Prompt2: "如何在 Python 中撰寫單行與多行註解？"
 
 #### 第二章：數據類型與操作
 
