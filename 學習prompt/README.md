@@ -11,22 +11,22 @@
 	</details>
 
 - Prompt2: "為什麼 Python 被廣泛使用？列舉它在不同領域的應用。"
-<details>
-Why is Python widely used? List its applications in different fields.
-</details>
+	<details>
+	Why is Python widely used? List its applications in different fields.
+	</details>
 
 2. **安裝與設定開發環境（Windows、Mac、Linux）**
 
 - Prompt1: "如何在 [操作系統] 上安裝 Python？"
-<details>
-How to install Python on [operating system]?
-</details>
+	<details>
+	How to install Python on [operating system]?
+	</details>
 
 - Prompt2: "有哪些工具可以用來編寫和執行 Python 程式？"
 
-<details>
-
-</details>
+	<details>
+	Which tools can be used to write and execute python programs?
+	</details>
 
 3. **第一個 Python 程式：Hello, World!**
 	- Prompt1: "如何編寫和執行第一個 Python 程式？"
