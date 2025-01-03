@@ -5,12 +5,12 @@
 #### 第一章：Python 基礎
 
 1. **什麼是 Python？Python 的優勢與應用**
-	- Prompt1: "什麼是 Python？解釋其優勢和應用的具體案例。"
+- Prompt1: "什麼是 Python？解釋其優勢和應用的具體案例。"
 <details>	
 	What is Python?Explain its advantages and provide specific examples of its applications
 </details>
 
-	- Prompt2: "為什麼 Python 被廣泛使用？列舉它在不同領域的應用。"
+- Prompt2: "為什麼 Python 被廣泛使用？列舉它在不同領域的應用。"
 2. **安裝與設定開發環境（Windows、Mac、Linux）**
 	- Prompt1: "如何在 [操作系統] 上安裝 Python？"
 	- Prompt2: "有哪些工具可以用來編寫和執行 Python 程式？"
