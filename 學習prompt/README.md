@@ -14,9 +14,20 @@
 <details>
 Why is Python widely used? List its applications in different fields.
 </details>
+
 2. **安裝與設定開發環境（Windows、Mac、Linux）**
-	- Prompt1: "如何在 [操作系統] 上安裝 Python？"
-	- Prompt2: "有哪些工具可以用來編寫和執行 Python 程式？"
+
+- Prompt1: "如何在 [操作系統] 上安裝 Python？"
+<details>
+How to install Python on [operating system]?
+</details>
+
+- Prompt2: "有哪些工具可以用來編寫和執行 Python 程式？"
+
+<details>
+
+</details>
+
 3. **第一個 Python 程式：Hello, World!**
 	- Prompt1: "如何編寫和執行第一個 Python 程式？"
 	- Prompt2: "Hello, World! 範例中的每個部分是做什麼的？"
