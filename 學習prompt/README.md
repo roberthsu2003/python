@@ -37,8 +37,19 @@
 	<details>
 	Which tools can be used to write and execute python programs?
 	</details>
+	
+3. **安裝Git**
+- Prompt:"如何在[作業系統]安裝git?"
+	<details>
+	How to install git on [operating system]?
+	</details>
 
-3. **第一個 Python 程式：Hello, World!**
+- Prompt:"如何完成git的最先初始化設定?"
+	<details>
+	How to complete the Git initialization settings?
+	</details>
+
+4. **第一個 Python 程式：Hello, World!**
 
 - Prompt1: "如何編寫和執行第一個 Python 程式？"
 	<details>
