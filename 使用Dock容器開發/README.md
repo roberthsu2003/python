@@ -25,6 +25,8 @@ docker run -it --name python-miniconda continuumio/miniconda3
 ```
 
 ### 步驟3 **使用VSCode Docker容器開發工具**
+- Docker
+- Dev container
 ### 步驟4 **下載github專案**
 ### 步驟5 **安裝VSCode套件**
 - python
