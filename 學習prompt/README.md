@@ -65,32 +65,71 @@
 
 - **縮排與代碼風格**
 	- Prompt1: "什麼是 Python 的縮排規則？如何正確使用？"
+	<details>
+	What are Python's indentation rules?How to user it correctly?
+	</details>
 - **註解的使用**
 	- Prompt2: "如何在 Python 中撰寫單行與多行註解？"
+	<details>
+	How to write single-line and multi-line comments in Python?
+	</details>
 
 #### 第二章：數據類型與操作
 
 1. **數字與運算符**
 	- Prompt1: "Python 中有哪些常用的運算符？"
-	- Prompt2: "如何進行數學運算，例如次方與取餘數？"
+		<details>
+		What are some common operators used in Python?
+		</details>
+	- Prompt2: "python運算符的優先順序?"
+		<details>
+		Prioritize python operators?
+		</details>
+	- Prompt3: "如何從用戶輸入獲取數據並進行處理？"
+		<details>
+		How to get data from user input and process it?
+		</details>
 2. **字符串與基本操作**
-	- Prompt1: "如何創建和操作字符串？"
-	- Prompt2: "什麼是字符串切片，如何使用？"
+	- Prompt1: "python如何創建和操作字串？"
+		<details>
+		How dose python create and manipulate strings?
+		</details>
+	- Prompt2: "什麼是python的字串切片，如何使用？"
+		<details>
+		What is python string slicing and how to use it?
+		</details>
+	
 3. **列表、元組與集合**
-	- Prompt1: "Python 的列表和元組有什麼區別？"
-	- Prompt2: "集合有哪些特點，如何操作？"
+	- Prompt1: "如何建立python list和tuple,它們不同處和如何操作?"
+		<details>
+		How to create python lists and tuples, what are their differents and How do they work?
+		</details>
+	- Prompt2: "python的set有哪些特點，如何操作？"
+		<details>
+		What are the features of python's set and how does it work?
+		</details>
+		
 4. **字典的使用**
-	- Prompt1: "如何創建和修改字典中的鍵值對？"
-	- Prompt2: "什麼是字典的常見操作方法？"
-5. **類型轉換與輸入輸出**
-	- Prompt1: "如何進行不同數據類型之間的轉換？"
-	- Prompt2: "如何從用戶輸入獲取數據並進行處理？"
-
+	- Prompt1: "如何建立和修改python's dictionary？"
+		<details>
+		How to create and modify python's dictionary?
+		</details>
+	- Prompt2: "什麼是python字典常見操作方法？"
+		<details>
+		What are the common operations of a python's dictionary?
+		</details>
+	
 #### 第三章：控制結構
 
 1. **條件語句：if、elif、else**
-	- Prompt1: "如何正確編寫條件語句？"
+	- Prompt1: "如何正確編寫python的條件語句？"
+	<details>
+	How to write python conditional statements correctly?
+	</details>
 	- Prompt2: "有哪些最佳實踐來增強條件語句的可讀性？"
+	<details>
+	What are some best practices to enhance the readability of python conditional statements?
+	</details>
 2. **迴圈結構：for、while**
 	- Prompt1: "如何選擇使用 for 迴圈或 while 迴圈？"
 	- Prompt2: "如何正確退出迴圈？"
@@ -173,8 +212,3 @@
 	- Prompt1: "如何選擇合適的專案進行實踐？"
 	- Prompt2: "如何將已學知識整合到專案中？"
 
-#### 課程建議
-
-- 每章學習建議 1-2 週，根據進度調整。
-- 積極動手實踐，完成練習與專案。
-- 加入學習社群，與其他學員交流經驗。
