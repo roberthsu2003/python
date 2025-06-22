@@ -40,7 +40,7 @@ from dotenv import load_dotenv
 import os
 
 app = Flask(__name__)
-client = genai.configure(api_key=os.environ['Gemini_API_KEY'])
+client = genai.Client(api_key=os.environ['Gemini_API_KEY'])
 
 
 line_bot_api = LineBotApi(os.environ['CHANNEL_ACCESS_TOKEN'])
