@@ -1,6 +1,66 @@
 # Markdown
 
+## 清單
+
+您可以在一行或多行文字前加上 -、* 或 + 來建立無序列表。
+
+```md
+- George Washington
+* John Adams
++ Thomas Jefferson
+```
+
+- George Washington
+* John Adams
++ Thomas Jefferson
+
+---
+
+**若要對清單進行排序，請在每行前面加上一個數字。**
+
+```md
+1. James Madison
+2. James Monroe
+3. John Quincy Adams
+```
+
+1. James Madison
+2. James Monroe
+3. John Quincy Adams
+
+---
+
+## 巢狀清單
+
+您可以將一個或多個清單項目縮排到另一個清單項目下方來建立巢狀清單。
+
+要使用 GitHub 上的網頁編輯器或使用等寬字體的文字編輯器（例如 Visual Studio Code）建立嵌套列表，您可以直觀地對齊列表。在嵌套清單項目前面鍵入空格字符，直到列表標記字符（- 或 *）位於其上方項中文本的第一個字符的正下方。
+
+```md
+1. First list item
+   - First nested list item
+     - Second nested list item
+```
+
+![](./images/nested-list-alignment.webp)
+
+
+## 任務清單
+
+To create a task list, preface list items with a hyphen and space followed by [ ]. To mark a task as complete, use [x].
+
+```md
+- [x] #739
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
+```
+
+![](task-list-rendered-simple.webp)
+
+---
+
 **‼️標示list結束**
+
 
 **問題:**
 
@@ -49,7 +109,7 @@
 - two
 - three
 
-[//]: #
+[//]: # (hello)
     not a list item 
 
 ## 使用表格組織資訊
