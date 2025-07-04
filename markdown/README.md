@@ -2,7 +2,7 @@
 
 **‼️標示list結束**
 
-問題:
+**問題:**
 
 ```md
 - one
@@ -18,7 +18,7 @@
 
     not a list item
     
-使用Html標籤解決
+**使用Html標籤解決**
 
 ```md
 - one
@@ -33,6 +33,24 @@
 - three
 <a/>  
     not a list item
+    
+ **使用markdown註解**
+ 
+ ```
+ - one
+- two
+- three
+
+[//]: # (Hello)
+    not a list item
+ ```  
+ 
+  - one
+- two
+- three
+
+[//]: # (Hello)
+    not a list item 
 
 ## 使用表格組織資訊
 
