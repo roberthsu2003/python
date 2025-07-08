@@ -1,6 +1,8 @@
 # Docker安裝python_conda_git開發環境
 - 電腦必需有安裝Docker Desktop
 
+---
+
 ## 方法1:使用Docker Hub Repository
 - 使用以下的repository
 
@@ -32,3 +34,56 @@ docker run -it --name python-miniconda continuumio/miniconda3
 - python
 - jupyter
 ### 步驟6 **安裝python外部套件**
+
+---
+
+## 方法2
+
+並且安裝nodejs 和 uv,目的是為了mcp
+
+### 步驟1:建立docker file
+
+- pydev為虛擬環境名稱
+
+```dockerfile
+FROM continuumio/miniconda3
+
+# 建立 Conda 環境
+RUN conda create -n pydev python=3.10 -y && conda clean -a -y
+
+# 安裝 Node.js（含 npm/npx）
+RUN conda install -n pydev nodejs -y
+
+# 安裝 uv 到 pydev 環境
+RUN conda run -n pydev pip install uv
+
+# 驗證版本
+RUN conda run -n pydev uv --version
+RUN conda run -n pydev npx --version
+
+# 設定預設目錄
+WORKDIR /workspace
+
+# 容器啟動時，自動進入 pydev bash shell
+CMD ["conda", "run", "-n", "pydev", "bash"]
+```
+
+### 步驟2:建立image
+
+```bash
+docker build -t my-conda-env:v1.0 .
+```
+
+
+### 步驟3:建立容器
+
+```bash
+docker run -it docker run -it my-conda-env:v1.0
+```
+
+
+
+
+
+
+
