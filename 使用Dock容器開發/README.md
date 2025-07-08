@@ -65,20 +65,20 @@ RUN conda run -n pydev npx --version
 WORKDIR /workspace
 
 # 容器啟動時，自動進入 pydev bash shell
-CMD ["conda", "run", "-n", "pydev", "bash"]
+CMD ["conda", "run", "-n", "pydev", "tail", "-f", "/dev/null"]
 ```
 
 ### 步驟2:建立image
 
 ```bash
-docker build -t my-conda-env:v1.0 .
+docker build -t my_image_name:v1.0 .
 ```
 
 
 ### 步驟3:建立容器
 
 ```bash
-docker run -it docker run -it my-conda-env:v1.0
+docker run -it --name my_container_name my-conda-env:v1.0
 ```
 
 
