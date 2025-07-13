@@ -36,8 +36,14 @@ docker run -it --name python-miniconda continuumio/miniconda3
 ### 步驟6 **安裝python外部套件**
 
 ---
-
 ## 方法2
+內建conda和安裝nodejs 和 uv,目的是為了mcp
+
+```
+docker run -it --name python-postgres1 roberthsu2003/conda_uv_npx
+```
+
+## 方法3
 
 並且安裝nodejs 和 uv,目的是為了mcp
 
