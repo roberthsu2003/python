@@ -57,15 +57,15 @@ FROM continuumio/miniconda3
 # 建立 Conda 環境
 RUN conda create -n pydev python=3.10 -y && conda clean -a -y
 
-# 安裝 Node.js（含 npm/npx）
-RUN conda install -n pydev nodejs -y
+# 安裝 Node.js 到系統全域環境（使用 conda）
+RUN conda install -c conda-forge nodejs -y && conda clean -a -y
 
-# 安裝 uv 到 pydev 環境
-RUN conda run -n pydev pip install uv
+# 安裝 uv 到系統全域環境
+RUN pip install uv
 
 # 驗證版本
-RUN conda run -n pydev uv --version
-RUN conda run -n pydev npx --version
+RUN uv --version
+RUN npx --version
 
 # 設定預設目錄
 WORKDIR /workspace
@@ -77,7 +77,8 @@ CMD ["conda", "run", "-n", "pydev", "tail", "-f", "/dev/null"]
 ### 步驟2:建立image
 
 ```bash
-docker build -t my_image_name:v1.0 .
+docker buildx create --use
+docker buildx build --platform linux/amd64,linux/arm64 -t roberthsu2003/conda_uv_npx --push .
 ```
 
 
