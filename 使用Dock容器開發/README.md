@@ -40,7 +40,7 @@ docker run -it --name python-miniconda continuumio/miniconda3
 內建conda和安裝nodejs 和 uv,目的是為了mcp
 
 ```
-docker run -it --platform linux/arm64 --name python-postgres1 roberthsu2003/conda_uv_npx
+docker run -it  --name python-postgres roberthsu2003/conda_uv_npxs
 ```
 
 ## 方法3
@@ -85,7 +85,7 @@ docker buildx build --platform linux/amd64,linux/arm64 -t roberthsu2003/conda_uv
 ### 步驟3:建立容器
 
 ```bash
-docker run -it --name my_container_name my-conda-env:v1.0
+docker run -it  --name python-postgres roberthsu2003/conda_uv_npx
 ```
 
 
