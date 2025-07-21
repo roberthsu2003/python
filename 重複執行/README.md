@@ -53,7 +53,7 @@ for x in range(2, -1, -1):
 0
 ```
 
-```python
+```python
 list(range(2, -1, -1)) 
 
 結果=======
@@ -213,7 +213,7 @@ for i in range(1,6):
     print()
 ```
 
-```python
+```python
 #求所有因數
 num = int(input("請輸入整數，求所有因數:"))
 print(num,"的因數:")
@@ -583,6 +583,54 @@ while(True):
         print("您猜了",count,"次\n")
     else:
         print("請輸入提示範圍內的數字")
+```
+
+### 猜單雙數
+```python
+import random
+
+while True:
+    user = input("請猜單(1)或雙(0)，輸入 q 離開：")
+    if user == 'q':
+        break
+    if user not in ['0', '1']:
+        print("請輸入 1 或 0")
+        continue
+    number = random.randint(1, 100)
+    print(f"隨機數字是：{number}")
+    if number % 2 == int(user):
+        print("你猜對了！\n")
+    else:
+        print("你猜錯了！\n")
+```
+
+### 猜拳遊戲（剪刀石頭布）
+```python
+import random
+
+options = ['剪刀', '石頭', '布']
+win = 0
+lose = 0
+while True:
+    user = input("請輸入 剪刀/石頭/布（或輸入 q 離開）：")
+    if user == 'q':
+        break
+    if user not in options:
+        print("請輸入正確選項！")
+        continue
+    computer = random.choice(options)
+    print(f"電腦出：{computer}")
+    if user == computer:
+        print("平手！")
+    elif (user == '剪刀' and computer == '布') or \
+         (user == '石頭' and computer == '剪刀') or \
+         (user == '布' and computer == '石頭'):
+        print("你贏了！")
+        win += 1
+    else:
+        print("你輸了！")
+        lose += 1
+    print(f"目前戰績：{win}勝 {lose}敗\n")
 ```
 
 ### while ... else語法:
