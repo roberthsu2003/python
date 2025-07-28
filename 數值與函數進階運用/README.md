@@ -578,24 +578,74 @@ fun3(1, 2, 3,4,5)
 (3) 6   
 (4) 9  
 
-#### HomeWork:回文偵測
-- 輸入多個字串為一個 list 清單。
-- list 清單的每一個資料進行分析， 判斷是否為回文。所謂的回文是 指從頭到尾與從尾到頭都是一樣 的內容，例如 1221。
-- 取出字串若為 x，分析比較的對象 為 "".join(reversed(x))。
+#### 範例
 
 ```python
-請輸入字串, 當您輸入0就代表結束:
-請輸入:1221
-請輸入:abba
-請輸入:3456
-請輸入:0
-顯示清單內容:
-['1221', 'abba', '3456']
+# 目標
+# 建立python的自訂function,讓學生了解什麼是
+# 引數值呼叫 (Positional Arguments)
+# 引數名稱呼叫 (Keyword Arguments)  
+# 混合呼叫 (Mixed Arguments)
 
-符合回文的字串為:
-['1221', 'abba']
+# 定義一個示範函數
+def introduce_person(name, age, city="台北", hobby="閱讀"):
+    """
+    介紹一個人的基本資訊
+    
+    參數:
+    name: 姓名 (必需參數)
+    age: 年齡 (必需參數)
+    city: 居住城市 (預設值: "台北")
+    hobby: 興趣 (預設值: "閱讀")
+    """
+    return f"大家好，我是{name}，今年{age}歲，住在{city}，我喜歡{hobby}。"
+
+print("=== 1. 引數值呼叫 (Positional Arguments) ===")
+print("按照參數定義的順序傳遞值")
+result1 = introduce_person("小明", 25, "台中", "游泳")
+print(result1)
+print()
+
+print("=== 2. 引數名稱呼叫 (Keyword Arguments) ===")  
+print("使用參數名稱來指定值，順序可以不同")
+result2 = introduce_person(hobby="畫畫", city="高雄", age=30, name="小華")
+print(result2)
+print()
+
+print("=== 3. 混合呼叫 (Mixed Arguments) ===")
+print("位置參數必須在前，關鍵字參數在後")
+result3 = introduce_person("小美", 28, hobby="旅遊")  # name, age用位置參數，hobby用關鍵字參數
+print(result3)
+print()
+
+# 更多範例
+def calculate_total(price, quantity, discount=0, tax_rate=0.05):
+    """
+    計算商品總價
+    
+    參數:
+    price: 單價
+    quantity: 數量  
+    discount: 折扣金額 (預設值: 0)
+    tax_rate: 稅率 (預設值: 0.05)
+    """
+    subtotal = price * quantity - discount
+    total = subtotal * (1 + tax_rate)
+    return total
+
+print("=== 購物計算範例 ===")
+print("1. 引數值呼叫:")
+total1 = calculate_total(100, 3, 50, 0.1)
+print(f"總價: ${total1:.2f}")
+
+print("\n2. 引數名稱呼叫:")
+total2 = calculate_total(tax_rate=0.08, discount=20, quantity=2, price=150)
+print(f"總價: ${total2:.2f}")
+
+print("\n3. 混合呼叫:")
+total3 = calculate_total(120, 4, tax_rate=0.07)  # price, quantity用位置參數
+print(f"總價: ${total3:.2f}")
 ```
-
 ### Docstrings
 
 ```python
