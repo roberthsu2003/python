@@ -19,7 +19,7 @@
 
 10. [匿名函數lambda](./匿名函數lambda)
 
-11. [Generator,Decoretor](./generator_decorator)
+11. [Generator,Decorator](./generator_decorator)
 
 11. [python內建的資料結構](./python內建的資料結構)
 
