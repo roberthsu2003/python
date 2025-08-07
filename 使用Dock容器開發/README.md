@@ -1,9 +1,11 @@
-# Docker安裝python_conda_git開發環境
+## Docker建立有python conda git 的開發環境容器
+
 - 電腦必需有安裝Docker Desktop
+- Docker Engine and Docker Compose
 
 ---
 
-## 方法1:使用Docker Hub Repository
+### 方法:使用Docker Hub Repository
 - 使用以下的repository
 
 `continuumio/miniconda3`
@@ -15,7 +17,7 @@ docker pull continuumio/miniconda3
 ```
 
 ### 步驟2 **建立容器**
-- 請不要直接使用Docker Desktop直接啟動(因為容器啟動後會直接關閉)
+- 請不要直接使用Docker Desktop直接建立容器(因為容器啟動後會直接關閉)
 - 使用以下指令,建立容器,並且要求可互動,和配置一個偽TTY(容器啟動後不會自動關閉)
 
 ```bash
@@ -26,20 +28,27 @@ docker run -it --name python-miniconda continuumio/miniconda3
 #continuumio/miniconda3 映像名稱(一定在最後面)
 ```
 
-### 步驟3 **使用VSCode Docker容器開發工具**
-- Docker
-- Dev container
+### 步驟3 **使用VSCode 開啟Docker容器**
+- 必需安裝Dev container extension
+
+
 ### 步驟4 **下載github專案**
-### 步驟5 **安裝VSCode套件**
+
+### 步驟5 **安裝VSCode extension套件**
 - python
 - jupyter
+
 ### 步驟6 **安裝python外部套件**
 
 ---
-## 方法2
-內建conda和安裝nodejs 和 uv,目的是為了mcp
 
-```
+## Docker建立有`python conda git` 和 `nodejs uv` 的開發環境容器
+
+### 方法1:使用Docker Hub Repository(roberthsu2003/conda_uv_npx)
+
+*內建conda和安裝nodejs 和 uv,目的是為了mcp*
+
+```bash
 #window,使用intel或amd cpu
 docker run --platform linux/amd64 -it --name python-postgres -d roberthsu2003/conda_uv_npx
 
@@ -47,9 +56,9 @@ docker run --platform linux/amd64 -it --name python-postgres -d roberthsu2003/co
 docker run --platform linux/arm64 -it --name python-postgres -d roberthsu2003/conda_uv_npx
 ```
 
-## 方法3
+### 方法2:使用Dockerfile建立image(使用docker buildx)
 
-並且安裝nodejs 和 uv,目的是為了mcp
+*並且安裝nodejs 和 uv,目的是為了mcp*
 
 ### 步驟1:建立docker file
 
@@ -78,7 +87,10 @@ WORKDIR /workspace
 CMD ["conda", "run", "-n", "pydev", "tail", "-f", "/dev/null"]
 ```
 
-### 步驟2:建立image
+### 步驟2:建立image(使用docker buildx)
+
+- 使用docker buildx建立image,並且推送到docker hub
+- 使用docker buildx建立image,是為了支援多平台(linux/amd64,linux/arm64)
 
 ```bash
 docker buildx create --use
@@ -89,7 +101,7 @@ docker buildx build --platform linux/amd64,linux/arm64 -t roberthsu2003/conda_uv
 ### 步驟3:建立容器
 
 ```bash
-docker run -it  --name python-postgres roberthsu2003/conda_uv_npx
+docker run -it --name python-postgres roberthsu2003/conda_uv_npx
 ```
 
 
