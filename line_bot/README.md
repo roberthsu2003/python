@@ -19,6 +19,7 @@
 - gunicorn
 
 ## line-bot(line-MessageAPI)申請
+- ### line官方帳號管理(https://manager.line.biz)
 - ### 申請開發者[https://developers.line.biz/zh-hant/](https://developers.line.biz/zh-hant/)
 
 - ### (新)必需手動開啟messaging api功能
