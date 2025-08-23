@@ -7,14 +7,14 @@ line-bot-sdk
 flask
 requests
 gunicorn
-google-generativeai
+google-genai
 python-dotenv
 ```
 
 #### 環境變數
 
 ```
-CHANNEL_ACCESS_TOKEN=xxxxxxx
+CHANNEL_ACCESS_TOKEN=xxxxxxxx
 CHANNEL_SECRET=xxxxxxx
 Gemini_API_KEY=xxxxxxx
 #註解:要求render 指定python version
