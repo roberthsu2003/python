@@ -5,7 +5,7 @@
 
 ---
 
-### 方法:使用Docker Hub Repository
+## 方法1:使用Docker Hub Repository
 - 使用以下的repository
 
 `continuumio/miniconda3`
@@ -44,16 +44,12 @@ docker run -it --name python-miniconda continuumio/miniconda3
 
 ## Docker建立有`python conda git` 和 `nodejs uv` 的開發環境容器
 
-### 方法1:使用Docker Hub Repository(roberthsu2003/conda_uv_npx)
+### 方法1:直接使用Docker Hub Repository(roberthsu2003/conda_uv_npx)
 
 *內建conda和安裝nodejs 和 uv,目的是為了mcp*
 
 ```bash
-#window,使用intel或amd cpu
-docker run --platform linux/amd64 -it --name python-postgres -d roberthsu2003/conda_uv_npx
-
-#mac(M1晶片),window,使用高通cpu
-docker run --platform linux/arm64 -it --name python-postgres -d roberthsu2003/conda_uv_npx
+docker run -it --name 容器名稱 roberthsu2003/conda_uv_npx
 ```
 
 ### 方法2:使用Dockerfile建立image(使用docker buildx)
@@ -94,14 +90,14 @@ CMD ["conda", "run", "-n", "pydev", "tail", "-f", "/dev/null"]
 
 ```bash
 docker buildx create --use
-docker buildx build --platform linux/amd64,linux/arm64 -t roberthsu2003/conda_uv_npx --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t docker的帳號/conda_uv_npx --push .
 ```
 
 
 ### 步驟3:建立容器
 
 ```bash
-docker run -it --name python-postgres roberthsu2003/conda_uv_npx
+docker run -it --name 容器名稱 docker帳號/conda_uv_npx
 ```
 
 ### 方法3:使用Dockerfile建立image(使用docker buildx)
@@ -153,14 +149,14 @@ CMD ["conda", "run", "-n", "pydev", "tail", "-f", "/dev/null"]
 
 ```bash
 docker buildx create --use
-docker buildx build --platform linux/amd64,linux/arm64 -t roberthsu2003/conda_uv_npx_gemini --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t docker帳號/conda_uv_npx_gemini --push .
 ```
 
 
 ### 步驟3:建立容器
 
 ```bash
-docker run -it --name 容器名稱 roberthsu2003/conda_uv_npx_gemini
+docker run -it --name 容器名稱 docker帳號/conda_uv_npx_gemini
 ```
 
 
