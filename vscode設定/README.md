@@ -18,7 +18,6 @@ git config --global user.name "roberthsu"
 git config --global user.email "roberthsu2003@gmail.com"
 git config --global pull.rebase false
 git config --global defaultBranch main
-git config --global credential.name "github的帳號"
 ```
 
 ### git上傳流程
