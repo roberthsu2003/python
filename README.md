@@ -56,6 +56,7 @@
   - [本機mini_conda](./mini_conda/)
   - [容器mini_conda開發](./使用Dock容器開發)
   - [vscode和git最基本的設定](./vscode設定/)
+  - [uv 開發環境](./uv)
   - [markdown語法練習](https://www.markdowntutorial.com/zh-tw/)
   - [github markdown](./markdown)
   - [學習prompt](./學習prompt)
