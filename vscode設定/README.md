@@ -14,8 +14,8 @@
 
 ### git設定
 ```
-git config --global user.name "roberthsu"
-git config --global user.email "roberthsu2003@gmail.com"
+git config --global user.name "xxxxxxxx"
+git config --global user.email "xxxxx@gmail.com"
 git config --global pull.rebase false
 git config --global init.defaultBranch main
 ```
