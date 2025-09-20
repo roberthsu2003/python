@@ -89,6 +89,10 @@ uv --version
 
 ### 快速開始
 ```bash
+# 在已有的專案
+uv init --python 3.10
+uv venv
+
 # 建立新專案
 uv init my-project
 cd my-project
