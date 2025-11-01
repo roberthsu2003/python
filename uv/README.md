@@ -92,10 +92,12 @@ uv --version
 # 在已有的專案
 uv init --python 3.10
 uv venv
+uv sync
 
 # 建立新專案
 uv init my-project
 cd my-project
+uv sync
 
 # 建立虛擬環境
 uv venv
