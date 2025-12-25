@@ -18,7 +18,7 @@
 ### 安裝套件
 
 ```
-> pip install google-generativeai
+> pip install -q -U google-genai
 > pip install python-dotenv
 ```
 
@@ -36,13 +36,13 @@ Gemini_API_KEY='您的API_KEY'
 ```
 
 ```python
-import google.generativeai as genai
-from dotenv import load_dotenv
-import os
-load_dotenv()
+from google import genai
 
-genai.configure(api_key=os.environ['Gemini_API_KEY'])
-model = genai.GenerativeModel('gemini-1.5-flash')
-response = model.generate_content('我想要學習 演算法')
+# The client gets the API key from the environment variable `GEMINI_API_KEY`.
+client = genai.Client()
+
+response = client.models.generate_content(
+    model="gemini-2.5-flash", contents="Explain how AI works in a few words"
+)
 print(response.text)
 ```
