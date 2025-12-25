@@ -32,7 +32,7 @@ import google.generativeai as genai
 #### .env file
 
 ```
-Gemini_API_KEY='您的API_KEY'
+GEMINI_API_KEY='您的API_KEY'
 ```
 
 ```python
