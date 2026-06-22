@@ -769,6 +769,8 @@ print("剩餘款為:" + str(money))
 梯形的面積:15平方公分
 ```
 [解題](ladder.py)
+[講師專用](ladder.md)
+
 
 ### Homework(circle_s.py)
 - 使用者輸入圓柱體的半徑及高，程式會計算圓柱體的體積
