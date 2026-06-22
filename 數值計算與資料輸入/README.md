@@ -803,6 +803,8 @@ print("剩餘款為:" + str(money))
 round(math.degrees(math.asin(2.5/5)))
 ```
 
+[講師專用](degree.md)
+
 ### 高中數學
 ### Homework(log運算)
 
