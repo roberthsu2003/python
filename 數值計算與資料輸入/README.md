@@ -810,10 +810,12 @@ round(math.degrees(math.asin(2.5/5)))
 
 ![](./images/pic1.png)
 
+[講師專案](./log.md)
 ```
 import statistics
 statistics.log(22000/20000) / statistics.log(1.011)
 ```
+
 
 
 
