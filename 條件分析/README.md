@@ -354,6 +354,9 @@ print("成績等級為：", grade)
 
 ```
 
+[進階練習](practice3.md)
+
+
 ### Homework(discount.py):
 
 ```python
