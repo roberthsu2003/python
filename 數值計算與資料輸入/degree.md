@@ -1,6 +1,4 @@
-I'll use the python-class-exercise-generator skill to create the teaching materials.# Python 課堂練習設計
-
-## 今日教學重點
+## 教學重點
 
 import 內建 module(以 `math` 模組為例,搭配 `input()`、型別轉換與 `print()`)
 

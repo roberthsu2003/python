@@ -92,6 +92,8 @@ if(is_add == "y"): #單項選擇
 print(round(scores))
 ```
 
+[進階練習](practice1.md)
+
 ```python
 try:
     money = int(input("請輸入金額:"))
@@ -120,6 +122,8 @@ try:
 except:
     print("格式錯誤")
 ```
+
+[進階練習](practice2.md)
 
 ```python
 #雙向選擇
