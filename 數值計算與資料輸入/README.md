@@ -768,7 +768,8 @@ print("剩餘款為:" + str(money))
 請輸入梯形的高(公分):2
 梯形的面積:15平方公分
 ```
-[解題](ladder.py)
+[解題](ladder.py) 
+
 [講師專用](ladder.md)
 
 
