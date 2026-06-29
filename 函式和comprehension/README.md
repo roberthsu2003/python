@@ -1,5 +1,139 @@
 # 函式和Comprehension
 
+## 為什麼要有自訂函數
+
+在撰寫程式時，如果沒有自訂函數（Function），當程式邏輯變得複雜或需要重複執行時，程式碼會變得非常臃腫且難以閱讀。
+
+以**猜數字遊戲**為例，若原本的單次遊戲流程如下：
+
+```python
+import random
+min = 1
+max = 100
+count = 0
+target = random.randint(1, 100)
+print("===============猜數字遊戲=================:\n")
+while(True):
+    count += 1
+    keyin = int(input("猜數字範圍{0}~{1}: ".format(min, max)))
+    if(keyin >=min and keyin <= max):
+        if(keyin == target):
+            print("賓果!猜對了, 答案是:", target)
+            print("您猜了",count,"次")
+            break
+        elif (keyin > target):
+            max = keyin
+            print("再小一點")
+        elif (keyin < target):
+            min = keyin
+            print("再大一點")
+        print("您猜了",count,"次\n")
+    else:
+        print("請輸入提示範圍內的數字")
+```
+
+### 觀念說明：增加「是否再玩一次」的需求
+
+如果我們想要在遊戲結束後，**詢問使用者是否要再玩一次**，我們有兩種設計方式：
+
+#### 1. 不使用自訂函數的寫法（邏輯複雜）
+如果沒有函數，我們必須使用**巢狀迴圈（雙重迴圈）**來控制：
+- 外層迴圈：負責控制「是否要重玩遊戲」。
+- 內層迴圈：負責控制「單次猜數字的遊戲流程」。
+
+此時會遇到以下問題：
+1. **巢狀結構過深**：程式碼縮排層級變多，降低可讀性。
+2. **狀態管理混亂**：每次重新遊戲時，我們都必須在外部手動重設 `min`, `max`, `count`, `target` 等變數。
+3. **流程控制複雜**：內層迴圈的 `break` 只能跳出猜數字迴圈，我們還需要額外的邏輯來判斷何時跳出外層迴圈。
+
+**實作範例（無函數版本）：**
+```python
+import random
+
+while True:
+    # 每次新遊戲開始，都必須手動重新初始化這些變數
+    min_val = 1
+    max_val = 100
+    count = 0
+    target = random.randint(1, 100)
+    print("===============猜數字遊戲=================:\n")
+    
+    # 內層迴圈：單次遊戲流程
+    while True:
+        count += 1
+        keyin = int(input("猜數字範圍{0}~{1}: ".format(min_val, max_val)))
+        if keyin >= min_val and keyin <= max_val:
+            if keyin == target:
+                print("賓果!猜對了, 答案是:", target)
+                print("您猜了", count, "次")
+                break  # 只跳出內層迴圈
+            elif keyin > target:
+                max_val = keyin
+                print("再小一點")
+            elif keyin < target:
+                min_val = keyin
+                print("再大一點")
+            print("您猜了", count, "次\n")
+        else:
+            print("請輸入提示範圍內的數字")
+            
+    # 內層遊戲結束後，在外層詢問是否繼續
+    play_again = input("是否要再玩一次？(y/n): ")
+    if play_again.lower() != 'y':
+        print("遊戲結束，謝謝遊玩！")
+        break  # 跳出外層迴圈
+```
+
+---
+
+#### 2. 使用自訂函數的寫法（邏輯清晰、簡單）
+如果我們將「**單次猜數字遊戲的完整邏輯**」封裝成一個自訂函數 `play_game()`，整個邏輯會變得非常乾淨：
+- **職責分離（Single Responsibility）**：`play_game()` 只專注於「玩一次遊戲的過程」，而主程式只專注於「是否繼續玩遊戲」。
+- **自動狀態重設**：每次呼叫 `play_game()` 時，函式內部的區域變數（`min_val`, `max_val`, `count`, `target`）都會自動重新建立並初始化，完全不需要手動重設。
+- **避免巢狀結構**：主程式只需用一個簡單的單層迴圈呼叫函式即可。
+
+**實作範例（自訂函數版本）：**
+```python
+import random
+
+def play_game():
+    """負責執行單次猜數字遊戲的函式"""
+    min_val = 1
+    max_val = 100
+    count = 0
+    target = random.randint(1, 100)
+    print("===============猜數字遊戲=================:\n")
+    
+    while True:
+        count += 1
+        keyin = int(input("猜數字範圍{0}~{1}: ".format(min_val, max_val)))
+        if keyin >= min_val and keyin <= max_val:
+            if keyin == target:
+                print("賓果!猜對了, 答案是:", target)
+                print("您猜了", count, "次")
+                break  # 結束此函式中的迴圈，函式執行完畢即返回
+            elif keyin > target:
+                max_val = keyin
+                print("再小一點")
+            elif keyin < target:
+                min_val = keyin
+                print("再大一點")
+            print("您猜了", count, "次\n")
+        else:
+            print("請輸入提示範圍內的數字")
+
+# 主程式流程：只負責控制「是否繼續遊玩」
+while True:
+    play_game()  # 呼叫函式，開始一局新遊戲
+    play_again = input("是否要再玩一次？(y/n): ")
+    if play_again.lower() != 'y':
+        print("遊戲結束，謝謝遊玩！")
+        break
+```
+
+透過自訂函數，我們成功將複雜的巢狀迴圈解構為簡單的線性呼叫，不僅程式碼變得更容易閱讀，也更容易進行功能擴充（例如：未來要加入難度選擇或計分功能時，只需修改 `play_game` 函式，主程式完全不需改動）。
+
+
 ## 良好函式設計的 5 個原則（簡化版 SOLID）
 | **原則** | **說明**      |
 | ------ | ----------- |
