@@ -119,351 +119,188 @@ for i in x[10:40:6]:
 	print(i)
 ```
 
-## 趨向於函數導向的設計方式
-- 專注於功能的操作，而不需要考慮資料放外面或著放裡面。
-- 每一個函數都是獨立的，也可以透過 import 方式引用。
-- list 區塊內可以加入迴圈與條件分析語法，讓 list 專注於產生自己所 需資料，不需要連結到其他區塊進行作業。
+## 函式的引數呼叫與參數設定
 
-#### 操作範例 1-1:請動手操作，並留意輸出結果
+當我們定義函式（宣告「參數」）並呼叫它（傳入「引數」）時，Python 提供了多種靈活的傳遞方式。學會如何閱讀函式定義的「說明書」，是寫出乾淨、好讀程式碼的關鍵。
+
+---
+
+### 1. 位置引數與關鍵字引數
+
+在呼叫函式傳入值時，常見有兩種傳參方式：
+- **位置引數呼叫 (Positional Arguments)**：依照參數定義的「順序」傳遞。
+- **關鍵字（名稱）引數呼叫 (Keyword Arguments)**：明確指定「參數名稱 = 值」，可以不按順序傳遞。
+
+#### 💡 示範函式：菜單選擇
 ```python
-# fun9.py
-
-values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
-y = [x + 10 for x in values]
-print(y)
-z = [x for x in values if x % 2 == 0] 
-print(z)
+def make_menu(wine, entree, dessert):
+    return {'wine': wine, 'entree': entree, 'dessert': dessert}
 ```
 
-###  關於函數的後續思考
-1. 如果呼叫函數時忽略傳遞參數資料，該如何避免錯誤產生?
-	- Python 可建立接收初始值設定。  
-
-2. 由於呼叫函數時可以傳遞參數，但執行函數時可能會有不同的參數數量傳遞，但執行相同事情，需要建立不同的函數嗎?  
-	- Python 可使用不定接收參數方式設計函數。 
-
-3. 若只有一個計算式或表達分析語法，若定義一個函數後再呼叫執行顯得沒有效率，那如何規劃進行呢?  
-	- Python 可使用匿名函數方式進行規劃。
-
-
-
-### 引數位置呼叫
-
+#### 💡 呼叫方式一：位置引數呼叫 (Positional)
+完全依靠參數的位置順序來傳遞。
 ```python
->>> def menu(wine, entree, dessert):
-    return {'wine': wine, 'entree':entree, 'dessert': dessert}
-
->>> menu('白酒', '牛排', '蛋糕')
-{'wine': '白酒', 'entree': '牛排', 'dessert': '蛋糕'}
-
->> menu('紅酒', '雞排', '冰淇淋')
-{'wine': '紅酒', 'entree': '雞排', 'dessert': '冰淇淋'}
-
+# '白酒' 傳給 wine, '牛排' 傳給 entree, '蛋糕' 傳給 dessert
+print(make_menu('白酒', '牛排', '蛋糕'))
+# 輸出: {'wine': '白酒', 'entree': '牛排', 'dessert': '蛋糕'}
 ```
 
-### 引數名稱名稱呼叫
-
+#### 💡 呼叫方式二：關鍵字引數呼叫 (Keyword)
+明確指定參數名稱，順序可任意打亂，這讓程式碼的意圖非常清楚。
 ```python
-#引數名稱呼叫
-#可以不依照順序
->>> menu(entree='牛排', dessert='冰淇淋', wine='白酒')
-{'dessert': 'bagel', 'wine': 'bordeaux', 'entree': 'beef'}
+print(make_menu(entree='牛排', dessert='冰淇淋', wine='白酒'))
+# 輸出: {'wine': '白酒', 'entree': '牛排', 'dessert': '冰淇淋'}
 ```
 
-### 引數位置和引數名稱混合呼叫  
+#### 💡 呼叫方式三：混合呼叫 (Mixed)
+我們也可以同時混用位置與關鍵字引數。
+- **⚠️ 鐵律**：**位置引數必須全部排在關鍵字引數的前面！** 一旦在呼叫時使用了關鍵字引數，後面所有的引數就都必須是關鍵字引數。
+```python
+# 正確寫法：前兩個是位置，最後一個是關鍵字
+print(make_menu('紅酒', '雞排', dessert='蛋糕'))
+
+# ❌ 錯誤寫法 (會拋出 SyntaxError: positional argument follows keyword argument)
+# print(make_menu(wine='紅酒', '雞排', '蛋糕')) 
 ```
-#前面一定先用引數位置,後面使用引數名稱
-#使用引數名稱後,就不可以再使用引數位置
 
->>> menu('紅酒', dessert='蛋糕', entree='雞排')
-{'wine': '紅酒', 'entree': '雞排', 'dessert': '蛋糕'}
+---
 
-```
+### 2. 參數預設值 (Default Arguments)
 
-### 指定預設參數的值
+我們可以在定義函式時，為部分參數設定預設值。當呼叫者沒有傳入這些引數時，程式會自動使用預設值。
+
+- **⚠️ 限制**：**沒有設定預設值的參數（必填參數），必須排在有預設值參數的前面！**
 
 ```python
->>> def menu(wine, entree, dessert='奶昔'):
-	    return {'wine': wine, 'entree':entree, 'dessert': dessert}
+# dessert 預設為 '奶昔'
+def make_menu_default(wine, entree, dessert='奶昔'):
+    return {'wine': wine, 'entree': entree, 'dessert': dessert}
 
-#呼叫時,可省略有預設參數的值
->>> menu('紅酒','雞排')
-{'wine': '紅酒', 'entree': '雞排', 'dessert': '奶昔'}
+# 1. 省略有預設值的引數
+print(make_menu_default('紅酒', '雞排'))
+# 輸出: {'wine': '紅酒', 'entree': '雞排', 'dessert': '奶昔'}
 
-#呼叫時,不省略預設的參數值
->>> menu('紅酒','雞排','蛋糕')
-{'wine': '紅酒', 'entree': '雞排', 'dessert': '蛋糕'}
-
->>> menu('紅酒','雞排',dessert='蛋糕')
-{'wine': '紅酒', 'entree': '雞排', 'dessert': '蛋糕'}
+# 2. 傳入新的值覆蓋預設值
+print(make_menu_default('紅酒', '雞排', '蛋糕'))
+# 輸出: {'wine': '紅酒', 'entree': '雞排', 'dessert': '蛋糕'}
 ```
 
+#### ⚠️ 經典陷阱：不要將「可變物件」（如空列表 `[]`）設為預設值！
+在 Python 中，函式的預設值物件是在**函式被定義（載入）時就建立的**，且只會被建立一次。如果使用可變物件（如 list）作為預設值，每次呼叫都會共用同一個 list，產生意想不到的錯誤。
+
+- **❌ 錯誤示範（Buggy）**：
+  ```python
+  def buggy(arg, result=[]):  # 共用同一個 list 實體
+      result.append(arg)
+      return result
+
+  print(buggy('a'))  # 輸出: ['a']
+  print(buggy('b'))  # 輸出: ['a', 'b'] (非預期的累積！)
+  ```
+
+- **✅ 正確示範（Non-buggy）**：
+  使用 `None` 作為預設值，並在函式內部動態建立新的空列表。
+  ```python
+  def non_buggy(arg, result=None):
+      if result is None:
+          result = []  # 每次呼叫時，動態建立一個全新的空列表
+      result.append(arg)
+      return result
+
+  print(non_buggy('a'))  # 輸出: ['a']
+  print(non_buggy('b'))  # 輸出: ['b'] (正常運作！)
+  ```
+
+---
+
+### 3. 進階參數控制：僅限位置與僅限關鍵字參數（`/` 與 `*`）
+
+為了讓函式的使用說明書（介面）更嚴謹，Python 提供了特別的符號 `/` 與 `*` 來規範引數的傳遞方式：
+
+- **`/`（左側僅限位置）**：在 `/` 左側的參數，**必須**使用位置引數傳入，**不能**使用名稱傳入。
+- **`*`（右側僅限關鍵字）**：在 `*` 右側的參數，**必須**使用關鍵字引數傳入，**不能**使用位置傳入。
+
+#### 💡 語法範例
 ```python
-
->>> def buggy(arg, result=[]):
-		result.append(arg)
-		print(result) 
-		...
->>> buggy('a')
-['a']
->>> buggy('b') # expect ['b'] 
-['a', 'b']
-
+def configure_user(name, age, /, country="台灣", *, role="Member", debug=False):
+    """
+    name, age     -> 位於 / 左側，必須是位置引數。
+    country       -> 夾在 / 與 * 之間，可使用位置或關鍵字傳遞。
+    role, debug   -> 位於 * 右側，必須是關鍵字引數。
+    """
+    print(f"User: {name}, Age: {age}, Country: {country}, Role: {role}, Debug: {debug}")
 ```
 
+#### 💡 測試呼叫
 ```python
+# 1. 正確呼叫
+configure_user("Alice", 25, "日本", role="Admin", debug=True)
 
->>> def works(arg):
-		result = []
-		result.append(arg)
-		return result
-...
->>> works('a')
-['a']
->>> works('b')
-['b']
+# 2. ❌ 錯誤：對 name 或 age 使用關鍵字傳遞 (拋出 TypeError)
+# configure_user(name="Alice", age=25, role="Admin")
 
+# 3. ❌ 錯誤：對 role 使用位置傳遞 (拋出 TypeError)
+# configure_user("Alice", 25, "日本", "Admin")
 ```
 
+---
+
+### 4. 接收不定數量的引數：`*args` 與 `**kwargs`
+
+當我們不確定使用者會傳入多少個引數時，可以使用星號標記來自動接收並打包：
+- **`*args` (位置參數打包)**：收集多餘的位置引數，並打包成一個 **Tuple**。
+- **`**kwargs` (關鍵字參數打包)**：收集多餘的關鍵字引數，並打包成一個 **Dictionary**。
+
+#### 💡 操作範例：`*args` 接收任意數量的位置引數
 ```python
+def print_args(required_item, *args):
+    print("必填項目:", required_item)
+    print("其他位置引數 Tuple:", args)
 
->>> def nonbuggy(arg, result=None):
-		if result is None:
-			result = []
-		result.append(arg)
-		print(result) 
-...
->>> nonbuggy('a') 
-['a']
->>> nonbuggy('b')
-['b']
-
+print_args("外套", "圍巾", "手套", "帽子")
+# 輸出:
+# 必填項目: 外套
+# 其他位置引數 Tuple: ('圍巾', '手套', '帽子')
 ```
 
-
-
-###  接收參數設定
-1. 函數若有接收參數，執行時就必須給他參數。
-2. 函數接收資料時參數若有初始值，執行時若沒有給值就會使用那些初始值。
-3. 如果函數接收資料時參數沒有初始值，執行時就必須給他參數，且參 數數量必須相同。
-
-#### 操作範例 :請動手操作，並留意輸出結果
+#### 💡 操作範例：`**kwargs` 接收任意數量的關鍵字引數
 ```python
-# fun5-2.py
+def print_kwargs(**kwargs):
+    print("關鍵字引數 Dictionary:", kwargs)
 
-def printinfo( name="may", age=20 ): 
-	print ("Name: ", name)
-	print ("Age ", age)
-	print("-----------")
-	return( )
-
-printinfo(50,"miki" ) 
-printinfo( ) 
-printinfo("John") 
-printinfo(300) 
-printinfo('max',45) 
+print_kwargs(wine='紅酒', entree='牛排', dessert='蛋糕')
+# 輸出:
+# 關鍵字引數 Dictionary: {'wine': '紅酒', 'entree': '牛排', 'dessert': '蛋糕'}
 ```
 
-####  Question:請問執行後的結果哪一個是對的?(選擇題)
+---
+
+### 5. 呼叫時的引數解包 (Unpacking)
+
+如果在呼叫函式時使用 `*` 或 `**`，其作用與定義時**剛好相反**：它是將現有的 Tuple / List 或 Dictionary **解開**，再一個一個傳入函式中。
+
+#### 💡 tuple/list 解包 (`*`)
 ```python
-def test2( name="may", age=20 ): 
-	print (name,age)
-	return( )
-	
-test2(200)
+def calc_sum(a, b, c):
+    return a + b + c
+
+numbers = (10, 20, 30)
+
+# 使用 * 解開 tuple，等同於傳入 calc_sum(10, 20, 30)
+result = calc_sum(*numbers)
+print("解包計算結果:", result)  # 輸出: 60
 ```
 
-(1) 200,20  
-(2) 20,200  
-(3) may,20  
-(4) may,200  
-
-### 使用*參數,可接收不限數量的位置引數
-大部份使用在參數的最前方
-
+#### 💡 dict 解包 (`**`)
 ```python
->>> def print_args(*args):
-		print('Positional argument tuple:', args) 
-...
+def person_info(name, age, city):
+    print(f"姓名: {name}, 年齡: {age}, 城市: {city}")
 
->>> print_args()
-Positional argument tuple: ()
+info = {"name": "Jack", "age": 24, "city": "台北"}
 
->>> print_args(3, 2, 1, 'wait!', 'uh...')
-Positional argument tuple: (3, 2, 1, 'wait!', 'uh...')
+# 使用 ** 解開字典，等同於傳入 person_info(name="Jack", age=24, city="台北")
+person_info(**info)
 
->>> def print_more(required1, required2, *args): 
-		print('Need this one:', required1)
-		print('Need this one too:', required2) 
-		print('All the rest:', args)
-		
->>> print_more('cap', 'gloves', 'scarf', 'monocle', 'mustache wax')	
-
-Need this one: cap
-Need this one too: gloves
-All the rest: ('scarf', 'monocle', 'mustache wax')
-
-
-```
-
-### 使用**參數,呼叫時可使用不限數量的引數名稱
-使用在最後的參數位置
-
-```python
->>> def print_kwargs(**kwargs):
-		print('Keyword arguments:', kwargs) 
-...
-
->>> print_kwargs(wine='merlot', entree='mutton', dessert='macaroon')
-
-Keyword arguments: {'dessert': 'macaroon', 'wine': 'merlot', 'entree': 'mutton'}
-
-```
-
-### 如果在呼叫函式使用*arg或 **kwarg是解開tuple或dictionary,這和定義function時使用的方式剛好相反
-
-```python
-#通過一個元組給一個函數傳遞四個參數，並且讓python將它們解開成不同的參數。
-def func(a,b,c,d):
-    print(a,b,c,d)
-
-a = (1,2,3,4)
-func(*a)
-
-# 如果已經有一個元祖，在參數前加*，函數會把元祖中的元素一個一個傳到函數裏面
-def calc(*numbers):
-    sum = 0
-    for n in numbers:
-        sum = sum + n * n
-    print(sum)
-
-num = (1,2,3,4)
-calc(*num)
-
-
-#如果已經有一個dict,在參數前面加**，函數會把dict中所有鍵值對轉換為關鍵字參數傳進去
-
-def person(name,age,**kw):
-    print('name:',name,'age:',age,'other:',kw)
-
-extra = {'city': 'Taipei', 'job': 'Engineer'}
-person('Jack', 24, **extra)
-輸出：
-1 2 3 4
-30
-name: Jack age: 24 other: {'city': 'Taipei', 'job': 'Engineer'}
-```
-
-
-### 不固定接收數量
-1. ( ) 內接收資料若是以 * 表示代表可以引入不定數量的參數:
-	- *代表以 tuple 的方式引入
-	- **代表以 dict 的方式引入
-2. 接收資料若需加入多個設定，這些設定請依照順序排列:
-	- 第一個參數設定為接收值
-	- 第二個參數設定為初始值
-	- 第三個參數設定為不固定值，可以是 tuple 或 dict 方式
-	- 
-#### 操作範例 1:請動手操作，並留意輸出結果
-```python
-# fun7-1.py
-def fun3(arg1,arg2='default',*arg3 ): 
-	print("arg1:",arg1)
-	print("arg2: ",arg2)	
-	for each_arg in arg3:
-		print ("each_arg: ", each_arg) 
-
-fun3(1)
-fun3(1, 2) 
-fun3(1, 2, 3)
-```
-
-#### 操作範例 2:請動手操作，並留意輸出結果
-```python
-# fun7-1a.py
-def fun3(arg2='default',arg1,*arg3): 
-	print("arg1:",arg1)
-	print("arg2: ",arg2)
-	for each_arg in arg3:
-		print("each_arg: ", each_arg)
-
-
-fun3(1)
-fun3(1, 2) 
-fun3(1, 2, 3, 5) 
-```
-
-#### 操作範例 3:請動手操作，並留意輸出結果
-```
-#python7-1b.py
-
-def fun3(arg2='default',*arg3): 
-	print("arg2: ",arg2)
-	for each_arg in arg3:
-		print("each_arg: ", each_arg)
-
-fun3( ) 
-print("---A---") 
-fun3(1)
- 
-print("---B---") 
-fun3(1, 2) 
-
-print("---C---") 
-fun3(1, 2, 3,5)
-```
-
-#### 操作範例 4:請動手操作，並留意輸出結果
-```python
-#fun7-1c.py
-def fun3(*arg3):
-	for each_arg in arg3:
-		print ("each_arg: ", each_arg) 
-	print(arg3)
-
-fun3( ) 
-
-print("---A---") 
-fun3(1) 
-
-print("---B---") 
-fun3(1, 2) 
-
-print("---C---") 
-fun3(1, 2, 3,5)
-```
-
-#### 操作範例 5-1:請動手操作，並留意輸出結果
-```python
-# fun7-2.py
-
-def fun4(arg1,arg2='default',**arg4 ):
-	print("arg1:",arg1)
-	print("arg2: ",arg2)
-	for each_arg2 in arg4.keys():
-		print("arg4: %s=>%s" % ( each_arg2, str(arg4[each_arg2])))
-
-fun4(1)
-fun4(1, 2)
-fun4(1, 2, a="b") 
-```
-
-####  Question:請問執行後的結果哪一個是對的?(選擇題)
-```python
-def fun3(arg1,arg2=300,*arg3 ): 
-	sum = 0
-	sum+=arg1 
-	sum+=arg2
-	for each_arg in arg3:
-		sum+=each_arg 
-		print(sum)
-	
-fun3(1, 2, 3,4,5)
-```
-(1) 3   
-(2) 15   
-(3) 6   
-(4) 9  
 
 #### 範例
 
@@ -533,33 +370,54 @@ print("\n3. 混合呼叫:")
 total3 = calculate_total(120, 4, tax_rate=0.07)  # price, quantity用位置參數
 print(f"總價: ${total3:.2f}")
 ```
-### Docstrings
+### 說明文件 (Docstrings)
 
+在 Python 中，寫在函式定義內第一行的字串，被稱為 **說明文件（Docstrings）**。其目的是為函式提供一份結構清晰的「使用手冊」，說明函式的作用、參數格式及回傳值。
+
+好的 Docstring 可以透過三個雙引號 `"""` 來撰寫多行內容，這是 Python 的最佳實踐之一。
+
+#### 💡 範例：標準的 Docstring 寫法
 ```python
->>> def echo(anything):
-		'echo returns its input argument'
-		return anything
-
+def calculate_triangle_area(base, height):
+    """
+    計算直角三角形的面積。
+    
+    參數:
+    base (float): 三角形的底邊長度 (公分)
+    height (float): 三角形的高 (公分)
+    
+    回傳:
+    float: 計算出的三角形面積 (平方公分)
+    """
+    return (base * height) / 2
 ```
 
-```python
-		
->>> def print_if_true(thing, check): 
-		'''Prints the first argument if a second argument is true. The operation is:
-		1. Check whether the *second* argument is true.
-		2. If it is, print the *first* argument. 
-		'''
-		if check: 
-			print(thing)
-			
->>> help(echo)
-Help on function echo in module __main__:
+#### 💡 如何讀取說明文件？
+我們可以使用兩種常見的方式來查閱函式的說明文件：
 
-echo(anything)
-	echo returns its input argument
-	
->>> print(echo.__doc__)
-echo returns its input argument
+- **方法一：特殊屬性 `__doc__`**
+  直接在程式碼中存取並印出函式的 `__doc__` 屬性。
+  ```python
+  print(calculate_triangle_area.__doc__)
+  ```
 
-```
+- **方法二：內建函式 `help()`**
+  在開發或互動式環境中，使用 `help()` 查詢函式的使用說明。
+  ```python
+  help(calculate_triangle_area)
+  ```
+  *預期輸出：*
+  ```text
+  Help on function calculate_triangle_area in module __main__:
+
+  calculate_triangle_area(base, height)
+      計算直角三角形的面積。
+      
+      參數:
+      base (float): 三角形的底邊長度 (公分)
+      height (float): 三角形的高 (公分)
+      
+      回傳:
+      float: 計算出的三角形面積 (平方公分)
+  ```
 
