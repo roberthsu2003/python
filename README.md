@@ -13,7 +13,7 @@
 
 7. [python基本型別提示](python型別提示)
   
-8. [函式和comprehension](./函式和comprehension)
+8. [函式_comprehension_try..except](./函式和comprehension)
 
 9. [數值與函數進階運用](./數值與函數進階運用)
 
