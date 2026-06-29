@@ -709,6 +709,39 @@ print(letter_counts)
 > # 輸出: {'e': 2, 's': 1, 'r': 1, 'l': 1, 't': 2} (順序可能因 set 而不同)
 > ```
 
+#### 💡 實戰範例：商品價格篩選與折扣計算
+在實際開發中，我們經常需要對字典格式的資料進行篩選（Filter）與數值轉換（Map）。
+
+**情境：**
+我們有一份商品的價格字典，我們希望：
+1. 篩選出價格高於 `1000` 元的商品。
+2. 將這些高單價商品打 9 折（乘以 0.9），並轉換為整數。
+
+- **傳統的 `for` 迴圈寫法**：
+  ```python
+  # 原始商品價目表
+  products_info = {"蘋果手機": 35000, "藍牙耳機": 3000, "行動電源": 1200, "手機殼": 650}
+  
+  discounted_products = {}
+  for name, price in products_info.items():
+      # 篩選價格大於 1000 元的商品
+      if price > 1000:
+          # 計算打 9 折後的價格並存入新字典
+          discounted_products[name] = int(price * 0.9)
+          
+  # 結果: {'蘋果手機': 31500, '藍牙耳機': 2700, '行動電源': 1080}
+  ```
+
+- **使用 Dictionary Comprehension 的寫法**：
+  ```python
+  # 原始商品價目表
+  products_info = {"蘋果手機": 35000, "藍牙耳機": 3000, "行動電源": 1200, "手機殼": 650}
+  
+  discounted_products = {name: int(price * 0.9) for name, price in products_info.items() if price > 1000}
+  
+  # 結果: {'蘋果手機': 31500, '藍牙耳機': 2700, '行動電源': 1080}
+  ```
+
 ---
 
 ### 3. 集合解析式 (Set Comprehensions)
@@ -723,6 +756,40 @@ a_set = {number for number in range(1, 6) if number % 3 == 1}
 print(a_set)
 # 輸出: {1, 4} (集合會自動去重，且不保證順序)
 ```
+
+#### 💡 實戰範例：提取不重複的商品分類標籤
+在實際開發中（例如整理訂單或文章標籤），資料中常常會有重複出現的項目。由於 `set`（集合）具備**自動去重**的特性，使用集合解析式能非常快速地幫我們提取出不重複的乾淨清單。
+
+**情境：**
+我們有一批訂單的商品分類標籤（可能帶有空白，且許多分類是重複的）。我們希望：
+1. 清除每個分類名稱前後的空白字元。
+2. 自動排除重複的分類名稱，只保留唯一的分類。
+3. 排除 `“無效標籤”`。
+
+- **傳統的 `for` 迴圈寫法**：
+  ```python
+  # 原始包含重複與空白的標籤資料
+  raw_categories = [" 電子產品 ", " 居家生活", " 電子產品", "美妝保養", " 居家生活 ", "無效標籤"]
+  
+  unique_categories = set()
+  for item in raw_categories:
+      name = item.strip()
+      # 排除無效標籤，並加入 set (會自動去重)
+      if name != "無效標籤":
+          unique_categories.add(name)
+          
+  # 結果: {'電子產品', '居家生活', '美妝保養'} (集合順序為隨機)
+  ```
+
+- **使用 Set Comprehension 的寫法**：
+  ```python
+  # 原始包含重複與空白的標籤資料
+  raw_categories = [" 電子產品 ", " 居家生活", " 電子產品", "美妝保養", " 居家生活 ", "無效標籤"]
+  
+  unique_categories = {item.strip() for item in raw_categories if item.strip() != "無效標籤"}
+  
+  # 結果: {'電子產品', '居家生活', '美妝保養'}
+  ```
 
 ---
 
