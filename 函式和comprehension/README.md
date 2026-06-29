@@ -171,36 +171,74 @@ scores = [85, 92, 78, 60, 99]
 min_score, max_score = get_min_max(scores)  # 拆解 Tuple
 print(f"最低分: {min_score}, 最高分: {max_score}")
 ```
-```python
-# Name        : callByValue1.py
-#callByValue
+## 參數傳遞機制：傳不可變與可變實體
 
+在許多程式語言中，參數傳遞可區分為 **Call by Value（傳值呼叫）** 與 **Call by Reference（傳址呼叫）**。
+然而在 Python 中，本質上所有的參數傳遞都是 **Call by Object Reference（傳送物件的參考）**。其行為特性取決於傳遞的**物件本身是不可變（Immutable）還是可變（Mutable）**。
+
+---
+
+### 1. 傳送不可變實體（行為像 Call by Value）
+
+當我們傳入 **不可變物件**（如：整數 `int`、浮點數 `float`、字串 `str`、元組 `tuple` 等）給函式時，行為類似於 Call by Value：
+- 在函式內部修改該參數時，由於物件本身不能被修改，Python 會在記憶體中建立一個全新的物件，並將區域變數指向它。
+- 這代表**函式內部對參數的修改，完全不會影響到函式外部原始變數的值**。
+
+#### 操作範例：傳遞整數物件 (callByValue1.py)
+```python
 def turbo(speed):
-    print('加速前速度:',speed)
-    speed += 10
+    print('加速前（函式內）速度:', speed)
+    speed += 10  # 建立新的整數物件，並讓區域變數 speed 指向它
+    print('加速後（函式內）速度:', speed)
     return speed
 
 if __name__ == '__main__':
-    speed = int(input('請輸入初始速度:'))
-    speed = turbo(speed)
-    print('加速後的速度:',speed)
+    original_speed = 80
+    
+    # 呼叫函式：傳入整數 80
+    new_speed = turbo(original_speed)
+    
+    print('加速後（函式外）new_speed:', new_speed)         # 輸出: 90
+    print('加速後（函式外）original_speed:', original_speed) # 輸出: 80 (原本的變數完全不受影響)
 ```
 
-### 傳可變實體呼叫(call by reference)
+---
+
+### 2. 傳送可變實體（行為像 Call by Reference）
+
+當我們傳入 **可變物件**（如：列表 `list`、字典 `dict`、集合 `set` 等）給函式時，行為類似於 Call by Reference：
+- 函式內部與外部的變數，都會指向記憶體中的**同一個物件**。
+- 在函式內部對該物件進行修改（如：修改列表內的元素）時，由於物件本身是可變的，會直接在該物件上進行修改 (In-place Modification)。
+- 這代表**函式內部對參數內容的修改，會直接同步反映在函式外部的原始變數上**（不需要 return 回傳）。
+
+#### 操作範例：傳遞列表物件 (callByReference.py)
 ```python
-#Name: callByReference.py
-#callByReference
-
-
 def turbo(listSpeed):
-    print('加速前速度',listSpeed[0])
-    listSpeed[0] += 10
+    print('加速前（函式內）速度:', listSpeed[0])
+    listSpeed[0] += 10  # 直接修改傳入之列表物件的內容
+    print('加速後（函式內）速度:', listSpeed[0])
 
-s = int(input('請輸入初始速度:'))
-listS = [s]
-turbo(listS)
-print('加速後速度',listS[0])
+if __name__ == '__main__':
+    s = 80
+    listS = [s]  # 將整數打包進可變的列表 (List) 中
+    
+    # 呼叫函式：傳入列表
+    turbo(listS)
+    
+    # 由於列表是可變的，外部的列表內容已經被函式直接改變了！
+    print('加速後（函式外）速度:', listS[0])  # 輸出: 90
 ```
+
+---
+
+### 💡 觀念總結與比較
+
+| 傳遞型態 | 常見資料類型 | 函式內部修改參數時的行為 | 外部變數是否受影響 | 模擬之傳遞方式 |
+| :--- | :--- | :--- | :--- | :--- |
+| **不可變物件** (Immutable) | `int`, `float`, `str`, `tuple` | 建立新物件，將區域變數重新指向它 | ❌ 否，外部變數維持原值 | **Call by Value** (傳值) |
+| **可變物件** (Mutable) | `list`, `dict`, `set` | 直接在原物件內部進行修改 (In-place) | ✅ 是，外部變數內容會被修改 | **Call by Reference** (傳址) |
+
+---
 
 ## python專案用的主程式架構
 
