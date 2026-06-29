@@ -31,7 +31,7 @@
 
 15. [系統和時間](./系統和時間/README.md)
 
-16. [檔案存取](./檔案存取/README.ipynb)
+16. [檔案存取](./檔案存取/README.md)
 
 17. [excel的應用](./處理excel/README.md)
 
