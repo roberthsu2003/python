@@ -13,7 +13,7 @@
 
 7. [python基本型別提示](python型別提示/README.md)
   
-8. [函式_comprehension_try..except](./函式和comprehension/README.md)
+8. [函式_comprehension_try..except](./函數的參數和引數的介紹/README.md)
 
 9. [函數的參數和引數的介紹](./數值與函數進階運用/README.md)
 
