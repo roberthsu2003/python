@@ -202,65 +202,161 @@ turbo(listS)
 print('加速後速度',listS[0])
 ```
 
-###  變數影響範圍
-函數外的變數:
-- 函數內可以顯示該變數內容
-- 不屬於函數的區域內都可以使用
+## python專案用的主程式架構
 
-函數內的變數:
-- 只在函數內產生效果，不會影響函數外的變數
-- 若函數內沒有進行變數宣告而進行改變內容動作將會產生錯誤訊息
+在開發較具規模的 Python 專案時，我們通常不會把執行邏輯直接裸露寫在檔案的頂層，而是會封裝在一個名為 `main()` 的主主程式函式中，並使用 Python 特有的入口保護機制。
 
-#### 操作範例:請動手操作，並留意輸出結果
-```python
-#fun3.py
+### 1. 為什麼需要主程式架構？
+當 Python 檔案（模組）被其他檔案 `import` 時，Python 會自動將該檔案「從頭到尾執行一遍」。
+如果我們將專案的測試代碼或執行邏輯寫在最外層（頂層），那麼其他人在 import 我們的函式庫時，就會無意間觸發這些執行邏輯。
 
-a=5
-def func_sum( ):
-	a=10 
-	print("函數內:",a) 
-	return( )
-	
-	
-print("函數外1:", a) 
-func_sum( ) 
-print(func_sum.__class__) 
-print("函數外2:", a)
-```
+為了區分「**此檔案是被直接執行**」還是「**被當作模組載入**」，我們會使用內建變數 `__name__`。
 
-#### 操作範例:請動手操作，並留意輸出結果
+### 2. 核心觀念：`__name__` 與 `__main__`
+- **直接執行該檔案時**：內建變數 `__name__` 的值會被自動設為 `"__main__"`。
+- **被其他檔案 import 時**：`__name__` 的值會是「該檔案的檔名」（不含 `.py` 後綴）。
+
+因此，我們可以使用條件判斷 `if __name__ == '__main__':` 來確保只有在檔案被**直接執行**時，才會啟動主程式。
+
+### 3. 標準的主程式（main.py）範例
 
 ```python
-#fun3-1.py
+# main.py
 
-a=5
-def func_sum( ):
-	#a=10 
-	print("函數內:",a) 
-	return( )
-	
-print("函數外1:", a) 
-func_sum( ) 
-print("函數外2:", a)
+def calculate_average(scores):
+    return sum(scores) / len(scores)
 
+def main():
+    # 專案的主程式入口與控制邏輯
+    student_scores = [85, 90, 78, 92]
+    avg = calculate_average(student_scores)
+    print(f"學生成績平均為: {avg:.2f}")
+
+# 程式的入口點 (Entry Point)
+if __name__ == '__main__':
+    main()
 ```
 
-#### 操作範例:請動手操作，並留意輸出結果
+> **💡 設計主程式架構的好處：**
+> 1. **模組化與可測試性**：其他程式碼可以安全地 import `calculate_average` 函式來使用，而不會執行 `main()` 裡的測試邏輯。
+> 2. **變數隔離**：`main()` 內部的變數都屬於區域變數，不會污染到全域空間，這也是良好程式設計（SOLID）的重要實踐。
+
+---
+
+### 變數影響範圍：命名空間 (Namespace) 與作用域 (Scope)
+
+在 Python 中，變數可以在哪裡被讀取或修改，取決於它被定義在什麼**命名空間（Namespace）**中。初學者需要特別留意哪些語法會建立新的命名空間，而哪些不會。
+
+#### 🔑 核心規則：
+1. **會建立獨立命名空間的語法**：
+   - 只有 `def` (函式)、`class` (類別) 以及整個 `module` (檔案) 會建立自己獨立的作用域 (Scope)。
+2. **不會建立獨立命名空間的語法**：
+   - 常見的控制結構如 `if`、`for`、`while`、`with` 等，雖然它們有縮排區塊，但**不會**建立新的命名空間！在這些區塊內定義的變數，依然屬於外層的作用域。
+
+---
+
+### 1. 函式 (Function) 會建立獨立作用域 (Namespace)
+
+在函式內部定義的變數屬於 **區域變數 (Local Variable)**，只在該函式內部有效，不會影響到函式外的 **全域變數 (Global Variable)**。
+
+#### 操作範例：區域變數與全域變數隔離 (fun3.py)
 ```python
-#fun3-2.py
+a = 5
 
-a=5
-def func_sum( ):
-	#a=0
-	a=a+1 
-	print("函數內:",a) 
-	return( )
-	
-print("函數外1:", a) 
-func_sum( ) 
-print("函數外2:", a)
+def func_sum():
+    a = 10  # 這是在函式內部建立的新變數 a，只在函式內有效 (區域變數)
+    print("函數內:", a)
 
+print("函數外1:", a)  # 輸出: 5
+func_sum()           # 輸出: 10
+print("函數外2:", a)  # 輸出: 5 (外面的 a 沒有被改變)
 ```
+
+#### 操作範例：函式內讀取全域變數 (fun3-1.py)
+如果函式內部沒有同名的區域變數，Python 會自動向外尋找（遵循 LEGB 規則）並讀取全域變數。
+```python
+a = 5
+
+def func_sum():
+    print("函數內:", a)  # 內部沒有宣告 a，所以直接讀取外部全域變數 a
+
+print("函數外1:", a)  # 輸出: 5
+func_sum()           # 輸出: 5
+print("函數外2:", a)  # 輸出: 5
+```
+
+#### 操作範例：經典錯誤 - 未宣告先使用 (fun3-2.py)
+如果在函式內部有對變數進行賦值動作（例如 `a = ...`），Python 會在編譯時將其視為區域變數。這會導致在賦值之前如果試圖讀取它，會產生錯誤。
+```python
+a = 5
+
+def func_sum():
+    # 因為下面有 a = a + 1，Python 認定內部的 a 是區域變數
+    # 但在執行 a + 1 時，區域變數 a 尚未被賦予初始值，因此會報錯！
+    a = a + 1 
+    print("函數內:", a)
+
+print("函數外1:", a)
+func_sum()  # 會拋出 UnboundLocalError: local variable 'a' referenced before assignment
+```
+
+#### 💡 解決方案：使用 `global` 關鍵字修改全域變數
+如果我們**確實想要**在函式內部修改全域變數的值，可以使用 `global` 關鍵字來聲明，告訴 Python：「請直接操作全域的那一個變數，不要建立區域變數」。
+
+```python
+a = 5
+
+def func_sum():
+    global a  # 聲明 a 為全域變數
+    a = a + 1  # 現在可以安全地讀取並修改全域變數 a
+    print("函數內:", a)
+
+print("函數外1:", a)  # 輸出: 5
+func_sum()           # 輸出: 6
+print("函數外2:", a)  # 輸出: 6 (全域變數成功被修改)
+```
+
+---
+
+### 2. if / for / while / with 縮排**不會**建立命名空間
+
+與 C/C++ 或 Java 的區塊作用域（Block Scope）不同，Python 的 `if`、`for` 等控制流程**不會**將變數鎖在縮排內。
+
+#### 操作範例：在 if 區塊內定義變數
+```python
+if True:
+    x = 100  # 在 if 的縮排中定義變數
+
+# 在 if 外面依然可以直接讀取與修改 x
+print("if 外面讀取 x:", x)  # 輸出: 100
+```
+> **⚠️ 注意**：如果 `if` 條件沒有成立（例如 `if False:`），那麼變數將不會被定義，此時在外面存取它依然會拋出 `NameError`。
+
+#### 操作範例：在 for 迴圈中定義變數
+```python
+for i in range(3):
+    temp_val = i * 2  # 迴圈內部定義的變數
+
+# 迴圈結束後，temp_val 與 迴圈變數 i 依然在外部作用域中存在！
+print("迴圈外的 i:", i)          # 輸出: 2
+print("迴圈外的 temp_val:", temp_val)  # 輸出: 4
+```
+
+#### 操作範例：with 區塊
+```python
+# 假設我們建立/開啟一個暫時檔案
+with open("temp.txt", "w") as f:
+    inner_var = "哈囉"
+
+# 在 with 區塊外面依然可以讀取 inner_var 與 f
+print("with 外面讀取 inner_var:", inner_var)  # 輸出: 哈囉
+print("with 外面讀取 f 是否關閉:", f.closed)    # 輸出: True (檔案已關閉，但變數 f 依然可存取)
+```
+
+> **💡 教學小結：**
+> 初學者在編寫 Python 時，不用擔心 `if` 或 `for` 會把變數「鎖住」拿不出來；但相對地，在函式 `def` 內部的變數則有嚴格的隔離保護，外部無法直接取得。
+
+---
 ## None的使用
 
 - None代表變數佔著一個記憶體空間，但沒有儲存任何東西
@@ -307,383 +403,256 @@ It's no thing
 ```
 
  
-## 使用Comprehensions語法快速簡潔方式建立list,dictionary,set,generator
-- 搭配迴圈和條件式
-- 語法:[ expression for item in iterable ]
-- 語法:[ expression for item in iterable if condition ]
-- 語法:[expression for item1 in iterable for item2 in iterable]
+## 使用 Comprehensions 語法快速建立容器
 
+Comprehensions（解析式或推導式）是 Python 一種非常強大且優雅的語法，它能讓我們用簡短的一行程式碼，快速建立 List、Dictionary、Set 或 Generator。
+
+---
+
+### 1. 列表解析式 (List Comprehensions)
+
+#### 📌 基本語法
+`[ expression for item in iterable ]`
+
+#### 💡 對比：建立包含 1 到 5 的列表
+- **傳統的 `for` 迴圈作法**：
+  ```python
+  number_list = []
+  for number in range(1, 6):
+      number_list.append(number)
+  # 結果: [1, 2, 3, 4, 5]
+  ```
+- **使用 List Comprehension 的作法**：
+  ```python
+  number_list = [number for number in range(1, 6)]
+  # 結果: [1, 2, 3, 4, 5]
+  ```
+
+#### 💡 變化一：在表達式中進行運算
+我們可以在表達式（expression）中對元素進行修改。例如：希望列表內的每個數字都減 1：
 ```python
-#使用appen()方法建立
->>> number_list = []
->>> number_list.append(1)
->>> number_list.append(2) 
->>> number_list.append(3) 
->>> number_list.append(4) 
->>> number_list.append(5) 
->>> number_list 
-[1,2,3,4,5]
- 
+number_list = [number - 1 for number in range(1, 6)]
+# 結果: [0, 1, 2, 3, 4]
 ```
 
+#### 💡 變化二：加上條件篩選 (if)
+`[ expression for item in iterable if condition ]`
+只將符合條件的元素加入列表中。例如：只篩選出 1 到 5 之間的奇數：
+- **List Comprehension**：
+  ```python
+  odd_list = [number for number in range(1, 6) if number % 2 == 1]
+  # 結果: [1, 3, 5]
+  ```
+- **相當於傳統的寫法**：
+  ```python
+  odd_list = []
+  for number in range(1, 6):
+      if number % 2 == 1:
+          odd_list.append(number)
+  ```
+
+#### 💡 變化三：巢狀迴圈 (Nested Loops)
+我們可以在一行解析式中寫入雙重（甚至多重）迴圈。例如：產生 row 和 col 的配對座標：
+- **傳統的寫法**：
+  ```python
+  cells = []
+  for row in range(1, 4):
+      for col in range(1, 3):
+          cells.append((row, col))
+  ```
+- **List Comprehension 的寫法**：
+  ```python
+  cells = [(row, col) for row in range(1, 4) for col in range(1, 3)]
+  # 結果: [(1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2)]
+  ```
+
+---
+
+### 2. 字典解析式 (Dictionary Comprehensions)
+
+#### 📌 基本語法
+`{ key_expression : value_expression for item in iterable }`
+
+我們可以快速將一個可反覆的物件轉換成字典。
+#### 操作範例：計算字串中每個字母出現的次數
 ```python
+word = 'letters'
 
-#使用range()方法加上for in迴圈建立
->>> number_list = []
->>> for number in range(1, 6):
-			number_list.append(number) 
->>> number_list
-[1,2,3,4,5]
-
+# key 不會重複，重複的 key 會被新的 value 覆蓋
+letter_counts = {letter: word.count(letter) for letter in word}
+print(letter_counts)  
+# 輸出: {'l': 1, 'e': 2, 't': 2, 'r': 1, 's': 1}
 ```
 
+> **💡 優化技巧**：上面的寫法中，重複的字母會被反覆執行 `word.count()`。我們可以先將字串轉為 `set` 以去除重複字母，提升計算效率：
+> ```python
+> word = 'letters'
+> letter_counts = {letter: word.count(letter) for letter in set(word)}
+> print(letter_counts)
+> # 輸出: {'e': 2, 's': 1, 'r': 1, 'l': 1, 't': 2} (順序可能因 set 而不同)
+> ```
+
+---
+
+### 3. 集合解析式 (Set Comprehensions)
+
+#### 📌 基本語法
+`{ expression for item in iterable if condition }`
+
+集合解析式會自動去除重複的元素。
 ```python
-
-#使用list()和range()建立
-
->>> number_list = list(range(1, 6)) 
->>> number_list
-[1,2,3,4,5]
-
+# 找出 1 到 5 中，除以 3 餘數為 1 的數字
+a_set = {number for number in range(1, 6) if number % 3 == 1}
+print(a_set)
+# 輸出: {1, 4} (集合會自動去重，且不保證順序)
 ```
 
+---
+
+### 4. 產生器解析式 (Generator Comprehensions)
+
+#### 📌 特點
+- **注意**：用小括號 `()` 包裹起來的不是 "Tuple Comprehension"，而是會產生一個**產生器 (Generator) 物件**。
+- **優勢**：產生器不會在記憶體中一次生成並儲存所有的資料，而是當你需要時（例如在 `for` 迴圈中）才一個一個計算並吐出，非常節省記憶體！
+- **特性**：**只能讀取一次**。一旦走訪完畢，該產生器就空了。
+
 ```python
+# 建立一個產生器
+number_thing = (number for number in range(1, 6))
+print(type(number_thing))  # 輸出: <class 'generator'>
 
-#使用list comprehension + for in建立
-[ expression for item in iterable ]
+# 走訪產生器
+for number in number_thing:
+    print(number)  # 依序輸出 1, 2, 3, 4, 5
 
->>> number_list = [number for number in range(1,6)] 
->>> number_list
-[1,2,3,4,5]
-
+# 試圖再次讀取它：
+try_again = list(number_thing)
+print(try_again)  # 輸出: [] (已經被消耗完畢，無法再次讀取)
 ```
 
+如果想要一次把產生器轉為清單，可以使用 `list(generator)`：
 ```python
-
-#使用list comprehension建立,可以用運算式靈活改變內容值
-
->>> number_list = [number-1 for number in range(1,6)] 
->>> number_list
-[0,1,2,3,4]
-
+number_thing = (number for number in range(1, 6))
+number_list = list(number_thing)
+print(number_list)  # 輸出: [1, 2, 3, 4, 5]
 ```
 
-```python
+---
 
-#使用list comprehension + for in + if
-#語法:[ expression for item in iterable if condition ]
+### 5. 名稱空間查詢：locals() 與 globals()
 
->>> a_list = [number for number in range(1,6) if number % 2 == 1] 
->>> a_list
+Python 提供兩個內建函式，方便我們檢視目前作用域中的命名空間內容：
 
-[1, 3, 5]
-
-```
+- `locals()`：回傳包含目前**區域命名空間**所有變數的字典。
+- `globals()`：回傳包含目前**全域命名空間**所有變數的字典。
 
 ```python
-
-#上面的list comprehension建立的list,相當於基本的python語法如下:
->>> a_list = []
->>> for number in range(1,6):
-		if number%2 == 1: 
-			a_list.append(number)
->>> a_list
-[1, 3, 5]
-
-```
-
-```python
-
-#使用巢狀迴圈
->>> rows = range(1,4) 
->>> cols = range(1,3) 
->>> for row in rows:
-		 for col in cols:
-			print(row, col)
-
-1 1 
-1 2 
-2 1 
-2 2 
-3 1 
-3 2
-
-```
-
-```python
-
-#使用list comprehension和巢狀迴圈
->>> rows = range(1,4)
->>> cols = range(1,3)
->>> cells = [(row, col) for row in rows for col in cols] 
->>> for cell in cells:
-		print(cell)
-
-(1, 1)
-(1, 2)
-(2, 1)
-(2, 2)
-(3, 1)
-(3, 2)
-
->>> for row, col in cells:
-		print(row, col)
-		
-
-```
-
-### 詞典物件(Dictionary Comprehensions)
-- 語法:{ key_expression : value_expression for expression in iterable }
-
-```python
->>> word = 'letters'
->>> letter_counts = {letter: word.count(letter) for letter in word}
->>> letter_counts #key不會重覆
-{'l': 1, 'e': 2, 't': 2, 'r': 1, 's': 1}
-
-```
-
-```python
-
-#將word變為set
->>> word = 'letters'
->>> letter_counts = {letter: word.count(letter) for letter in set(word)} 
->>> letter_counts
-{'t': 2, 'l': 1, 'e': 2, 'r': 1, 's': 1}
-```
-
-### Set Comprehensions
-- 語法:{expression for expression in iterable }
-
-```python
->>> a_set = {number for number in range(1,6) if number % 3 == 1} 
->>> a_set
-{1, 4}
-
-```
-
-### Generator Comprehensions
-- tuple沒有Comprehensions,使用括號()產生的是generator comprehension
-
-```python
->>> number_thing = (number for number in range(1, 6))
-
-#傳出的是generator物件
->>> type(number_thing)
-<class 'generator'>
-
->>> for number in number_thing: 
-		print(number)
-
-1
-2 
-3 
-4 
-5
-
-```
-
-```python
-
->>> number_list = list(number_thing) 
->>> number_list
-[1,2,3,4,5]
-
-#generator只可以使用一次,使用完後就被消滅.
->>> try_again = list(number_thing) 
->>> try_again
-[]
-
-
-```
-
-
-### 名稱空間和使用範圍(Namespaces and Scope)
-- 名稱代表的就是變數名稱，function名稱
-- 一個名稱空間內不可以有設定相同的名稱
-- 不同的名稱空間內可以設定相同的名稱，不會衝突
-- function內的程式區塊就是建立一個function的名稱空間
-- 主程式py(__ name __ )是 __ main __就是全域的名稱空間，在全域名稱空間內定義的變數稱為全域變數
-- function內如果要改變全域變數的值，建議使用關鍵字「global 全域變數」
-- 使用locals(),globals()
-
-```python
->>> animal = 'fruitbat'
-def print_global():
-	print('inside print_global:', animal)
-	
-	
->>> print('at the top level:', animal)
-at the top level: fruitbat
->>> print_global()
-inside print_global: fruitbat
-
-
-#會出錯，同時使用全域變數，又建立同名的區域變數
-def change_and_print_global(): 	
-print('inside change_and_print_global:', animal)
-	animal = 'wombat'
-	print('after the change:', animal)
-
-
->>> change_and_print_global()
-Traceback (most recent call last):
-	File "<stdin>", line 1, in <module>
-	File "<stdin>", line 2, in change_and_report_it
-UnboundLocalError: local variable 'animal' referenced before assignment
-
-
-#不會出錯，因為在function內沒有使用全域變數，所以可以建立區域變數animal
+animal = 'fruitbat'  # 全域變數
 
 def change_local():
-	animal = 'wombat'
-	print('inside change_local:', animal, id(animal))
+    animal = 'wombat'  # 區域變數
+    print("內部 locals():", locals())
 
+change_local()
+# 輸出: 內部 locals(): {'animal': 'wombat'}
 
->>> change_local()
-inside change_local: wombat 4330406160 
->>> animal
-'fruitbat'
-
->>> id(animal)
-4330390832
-
-
->>> animal = 'fruitbat'
-
-# 宣告animal是全域變數的animal,便可以在區域空間內改變全域變數的值
-def change_and_print_global():
-	global animal
-	animal = 'wombat'
-	print('inside change_and_print_global',animal)
-	
->>> animal
-'fruitbat'
->>> change_and_print_global()
-inside change_and_print_global: wombat 
->>> animal
-'wombat'
-
-
->>> animal = 'fruitbat'
-	def change_and_print_global():
-		animal = 'wombat'
-		print('locals:',locals())
-	
->>> animal
-'fruitbat'
->>> change_local()
-locals: {'animal': 'wombat'}
-
->>> print('globals',globals()) # reformatted a little for presentation
-globals: {'animal': 'fruitbat',
-'__doc__': None,
-'change_local': <function change_it at 0x1006c0170>,
-'__package__': None,
-'__name__': '__main__',
-'__loader__': <class '_frozen_importlib.BuiltinImporter'>,
- '__builtins__': <module 'builtins'>}
->>> animal
-'fruitbat'
-
+print("外部 globals():", globals()['animal'])
+# 輸出: 外部 globals(): fruitbat (可以從全域字典中讀取變數)
 ```
 
-### 使用__name__, __doc__
+---
 
-- function.__name__(輸出function name)
-- function.__doc__(輸出function說豆)
+### 6. 函式的元數據 (Metadata)：__name__ 與 __doc__
+
+在 Python 中，函式也是物件，它擁有自帶的屬性可以供我們查詢：
+- `func.__name__`：取得函式的名稱（字串格式）。
+- `func.__doc__`：取得函式的說明文件（Docstring，即函式內部的多行註解 `'''`）。
 
 ```python
-
-#建立function的說明
 def amazing():
-	'''This is the amazing function.
-	Want to see it again?'''
-	print('This function is named:', amazing.__name__)
-	print('And its docstring is:', amazing.__doc__)
-	
->>> amazing()
-This function is named: amazing
-And its docstring is: This is the amazing function.
-Want to see it again?
+    '''這是一個非常棒的函式說明文件。
+    用來說明這個函式的功能與用法。'''
+    print("這是一個輸出測試")
+
+# 讀取函式的屬性
+print("函式名稱:", amazing.__name__)
+# 輸出: 函式名稱: amazing
+
+print("函式說明文件:", amazing.__doc__)
+# 輸出:
+# 函式說明文件: 這是一個非常棒的函式說明文件。
+#     用來說明這個函式的功能與用法。
 ```
 
-### 使用try...except處理錯誤
+---
+
+### 7. 錯誤與例外處理 (Try...Except)
+
+在程式執行過程中，難免會遇到錯誤（例如索引超出範圍、除以零等），這時程式會崩潰並拋出錯誤訊息（Exception）。我們可以使用 `try...except` 來捕捉並處理這些例外狀況，讓程式能優雅地繼續運行。
 
 ```python
->>> short_list = [1, 2, 3]
->>> position = 5
->>> short_list[position] 
-Traceback (most recent call last):
-File "<stdin>", line 1, in <module>
-IndexError: list index out of range
-
-
-
-short_list = [1, 2, 3] 
+# 沒處理錯誤的狀況：程式會直接崩潰
+short_list = [1, 2, 3]
 position = 5
-try:
-	short_list[position] 
-except:
-	print('Need a position between 0 and', len(short_list)-1, ' but got',position)
-	
-	
-Need a position between 0 and 2 but got 5
-
-
-
-short_list = [1, 2, 3] 
-	while True:
-		value = input('Position [q to quit]? ')
-		if value == 'q':
-			break 
-		try:
-			position = int(value)
-			print(short_list[position]) 
-		except IndexError as err:
-			print('Bad index:', position) 
-		except Exception as other:
-			print('Something else broke:', other)
-
-Position [q to quit]? 1
-2
-Position [q to quit]? 0
-1
-Position [q to quit]? 2
-3
-Position [q to quit]? 3
-Bad index: 3
-Position [q to quit]? 2
-3
-Position [q to quit]? two
-Something else broke: invalid literal for int() with base 10: 'two'
-Position [q to quit]? q
+# print(short_list[position])  # 會拋出 IndexError: list index out of range 錯誤並中斷程式
 ```
 
-### 建立自已的Exception
+#### 💡 基本防禦性處理
+```python
+short_list = [1, 2, 3]
+position = 5
+
+try:
+    print(short_list[position])
+except IndexError:
+    # 只有在發生 IndexError 時才會執行這裡
+    print(f"錯誤：索引值 {position} 超出範圍，請輸入 0 到 {len(short_list)-1} 之間的數字。")
+```
+
+#### 💡 捕捉多種不同類規模的錯誤
+我們可以使用多個 `except` 區塊，分別處理不同類型的錯誤，並用 `as` 取得錯誤訊息。
+```python
+short_list = [1, 2, 3]
+
+while True:
+    value = input('輸入索引值 (輸入 q 結束): ')
+    if value == 'q':
+        break
+    try:
+        position = int(value)          # 可能會拋出 ValueError (若輸入非數字字串)
+        print(short_list[position])    # 可能會拋出 IndexError (若數字超出範圍)
+    except IndexError as err:
+        print("索引錯誤，此位置沒有元素！詳細訊息:", err)
+    except ValueError as err:
+        print("輸入格式錯誤，必須輸入整數！詳細訊息:", err)
+    except Exception as other:
+        # 捕捉所有其他未預期的錯誤
+        print("發生其他未預期錯誤:", other)
+```
+
+---
+
+### 8. 自訂例外類別與主動拋出錯誤 (Raise)
+
+當我們需要建立專案特有的商務邏輯限制時，可以透過繼承 `Exception` 類別來建立自定義的例外，並使用 `raise` 關鍵字主動拋出它。
 
 ```python
-class UppercaseException(Exception): 
-	pass
+# 1. 建立自訂的例外類別
+class UppercaseException(Exception):
+    pass
 
->>> words = ['eeenie', 'meenie', 'miny', 'MO'] 
-for word in words:
-	if word.isupper():
-		raise UppercaseException(word)
-	
-Traceback (most recent call last):
-File "<stdin>", line 3, in <module>
-__main__.UppercaseException: MO
-
-
+# 2. 測試主動拋出例外
+words = ['apple', 'banana', 'ORANGE', 'grape']
 
 try:
-	raise OopsException('panic')
-except OopsException as exc:
-	print(exc)
+    for word in words:
+        if word.isupper():
+            # 當遇到大寫單字時，主動拋出我們自訂的例外
+            raise UppercaseException(f"不允許大寫單字: {word}")
+        print(f"處理單字: {word}")
+except UppercaseException as exc:
+    print(f"捕捉到自訂錯誤 -> {exc}")
 
-
-```
 
 
 
