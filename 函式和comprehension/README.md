@@ -744,6 +744,8 @@ print(letter_counts)
   # 結果: {'蘋果手機': 31500, '藍牙耳機': 2700, '行動電源': 1080}
   ```
 
+[進階範例](./practice6.md)
+
 ---
 
 ### 3. 集合解析式 (Set Comprehensions)
