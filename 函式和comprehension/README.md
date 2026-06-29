@@ -649,7 +649,41 @@ number_list = [number - 1 for number in range(1, 6)]
   # 結果: [(1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2)]
   ```
 
+#### 💡 實戰範例：學生成績篩選與格式化
+在實際開發中，我們經常需要從原始資料中篩選出符合特定條件的項目，並轉換其呈現格式。
+
+**情境：**
+我們有一份包含「學生姓名」與「期末分數」的資料清單。我們希望：
+1. 篩選出所有**及格（大於或等於 60 分）**的學生。
+2. 將結果格式化為 `“姓名: 分數分”` 的字串列表（例如：`"小華: 85分"`）。
+
+- **傳統的 `for` 迴圈寫法**：
+  ```python
+  # 原始學生分數資料
+  students_scores = [("小明", 55), ("小華", 85), ("小美", 92), ("小白", 48), ("小綠", 60)]
+  
+  passed_students = []
+  for name, score in students_scores:
+      # 篩選及格的分數
+      if score >= 60:
+          # 格式化後加入列表
+          passed_students.append(f"{name}: {score}分")
+  
+  # 結果: ['小華: 85分', '小美: 92分', '小綠: 60分']
+  ```
+
+- **使用 List Comprehension 的寫法**：
+  ```python
+  # 原始學生分數資料
+  students_scores = [("小明", 55), ("小華", 85), ("小美", 92), ("小白", 48), ("小綠", 60)]
+  
+  passed_students = [f"{name}: {score}分" for name, score in students_scores if score >= 60]
+  
+  # 結果: ['小華: 85分', '小美: 92分', '小綠: 60分']
+  ```
+
 ---
+
 
 ### 2. 字典解析式 (Dictionary Comprehensions)
 
