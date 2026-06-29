@@ -1,309 +1,225 @@
-# 暱名函數
-### 函數 Are First-Class Citizens
+# 進階函式應用與匿名函數 (Lambda)
 
+在 Python 中，函式不僅僅是執行程式碼的區塊，它更是一個獨立的物件。這使得 Python 支援許多進階的函式編程手法，例如將函式作為參數傳遞、在函式內部定義函式、使用閉包，以及編寫無名稱的「匿名函數（Lambda）」。
+
+---
+
+## 1. 函式是一等公民 (First-Class Citizens)
+
+在 Python 中，「函式是一等公民」代表函式與整數、字串等一般物件擁有同等地位：
+- 可以被指派給變數。
+- 可以作為引數傳遞給另一個函式。
+- 可以作為另一個函式的回傳值。
+
+#### 💡 範例一：將函式指派給變數
 ```python
-#定義和呼叫function
->>> def answer(): 
-		print(42)
+def answer():
+    print(42)
 
->>> answer()
-42
+# 將函式 answer 賦值給變數 run_func (注意此處不加括號)
+run_func = answer
+
+# 透過變數呼叫函式
+run_func()  # 輸出: 42
 ```
 
+#### 💡 範例二：將函式當作參數傳遞
 ```python
-#將function當作參數
->>> def run_something(func): 
-		func()
+def run_something(func):
+    func()  # 執行傳入的函式
 
->>> run_something(answer) 
-42
+run_something(answer)  # 輸出: 42
 ```
 
-
+#### 💡 範例三：傳入帶有引數的函式
 ```python
-#有引數的參數
-def add_args(arg1, arg2): 
-	print(arg1 + arg2)
-	
-
->>> type(add_args)
-<class 'function'>
-
+def add_args(arg1, arg2):
+    print(arg1 + arg2)
 
 def run_something_with_args(func, arg1, arg2):
-	func(arg1, arg2)
-	
+    func(arg1, arg2)
 
->>> run_something_with_args(add_args, 5, 9) 
-14
-
+run_something_with_args(add_args, 5, 9)  # 輸出: 14
 ```
 
+#### 💡 範例四：結合不定數量參數 (`*args`)
 ```python
-#沒有限定參數的數量
-def sum_args(*args): 
-	return sum(args)
-	
+def sum_args(*args):
+    return sum(args)
 
 def run_with_positional_args(func, *args):
-	return func(*args)
+    # 將接收到的 args 解包後傳入目標函式
+    return func(*args)
 
-
->>> run_with_positional_args(sum_args, 1, 2, 3, 4)
-10	
+result = run_with_positional_args(sum_args, 1, 2, 3, 4)
+print(result)  # 輸出: 10
 ```
 
-### Inner Functions
+---
+
+## 2. 內部函式 (Inner Functions) 與 閉包 (Closures)
+
+### 內部函式
+我們可以在一個函式的內部，定義另一個函式。內部函式可以用來封裝邏輯，避免外部直接存取。
 
 ```python
 def outer(a, b):
-	def inner(c, d): 
-		return c+d
-	return inner(a, b)
+    # 定義內部函式
+    def inner(c, d):
+        return c + d
+    # 在內部呼叫並回傳結果
+    return inner(a, b)
 
-
->>> outer(4, 7)
-11
-
-
-def knights(saying):
-	def inner(quote):	
-		return "We are the knights who say: '%s'" % quote
-	return inner(saying)
-	
-	
->>> knights('Ni!')
-    "We are the knights who say: 'Ni!'"
+print(outer(4, 7))  # 輸出: 11
 ```
 
-### Closures
+### 閉包 (Closures)
+如果內部函式引用了外部函式的變數，且外部函式**將這個內部函式作為物件回傳**，此時就形成了一個「閉包（Closure）」。閉包可以「記住」它被建立時的外部環境狀態。
+
 ```python
-def knights2(saying):
-	def inner2():
-		return "We are the knights who say: '%s'" % saying
-	return inner2
+def make_intro_speaker(saying):
+    # 內部函式記住了外部傳入的變數 saying
+    def speak(name):
+        return f"{name} 說: '{saying}'"
+    return speak  # 回傳函式物件，不加括號
 
->>> a = knights2('Duck')
->>> b = knights2('Hasenpfeffer')
+# 建立兩個具有不同狀態的閉包
+duck_speaker = make_intro_speaker("呱呱")
+cat_speaker = make_intro_speaker("喵喵")
 
->>> type(a) <class 'function'> 
->>> type(b) <class 'function'>
-
->>> a
-<function knights2.<locals>.inner2 at 0x10193e158> 
->>> b
-<function knights2.<locals>.inner2 at 0x10193e1e0>
-
->>> a()
-"We are the knights who say: 'Duck'"
->>> b()
-"We are the knights who say: 'Hasenpfeffer'"
+# 呼叫閉包
+print(duck_speaker("唐老鴨"))  # 輸出: 唐老鴨 說: '呱呱'
+print(cat_speaker("哆啦A夢"))  # 輸出: 哆啦A夢 說: '喵喵'
 ```
 
-##  匿名函數
-1. 不需要定義函數名稱的，只需要用運算式或表達分析語法。
-2. Python 使用 lambda 語法定義匿名函數。
-3. 匿名函數是一個表達式/計算式，並不是一個執行流程區塊。
-4. 匿名函數可以出現在一般函數不允許的地方，例如像 list 內部或函數 呼叫參數的位置。
+---
 
-###  匿名函數說明
-1. 匿名函數會自動返回計算式結果，一般函數必須進行規劃設計才能返回。
-2. 匿名函數用於一個計算式的處理，而一般函數可以做更多複雜的事情。
-3. 匿名函數語法:
-	- lambda 參數: 運算式,資料來源
-	- 參數-可能是多個值
-	- 資料來源-於第一個之後的都是資料來源，這裏得對應資料輸入
+## 3. 匿名函數 (Lambda)
 
-#### 操作範例:請動手操作，並留意輸出結果
+當我們需要一個臨時、簡單的函式，且該函式只會使用一次時，特別適合使用 **Lambda 匿名函數**，而不需要大費周章用 `def` 命名定義它。
+
+#### 📌 核心規則：
+1. **語法**：`lambda 參數1, 參數2, ... : 運算式`
+2. **自動回傳**：Lambda 內部只有單一表達式，該表達式的計算結果會**自動回傳**，不需要（也不能）寫 `return`。
+3. **功能局限**：Lambda 只能包含單一運算式，不能包含多行陳述式（如 `if-elif-else` 分支流程或 `while` 迴圈）。
+
+#### 💡 傳統函式與 Lambda 的對比
 ```python
-#lam-1.py
+# 1. 傳統函式
+def add(x, y):
+    return x + y
 
-#傳統函數 
-def f(x, y, z):
-	return x + y + z 
-print("傳統函數處理") 
-print(f(2, 30, 400)) 
+# 2. 等同效果的 Lambda 匿名函數
+lambda_add = lambda x, y: x + y
 
-#匿名函數
-f = lambda x, y, z: x + y + z 
-print("匿名函數處理") 
-print(f(2, 30, 400))
+print(add(5, 3))        # 輸出: 8
+print(lambda_add(5, 3)) # 輸出: 8
 ```
 
-#### 操作範例:請動手操作，並留意輸出結果
+#### 💡 實用場景一：結合列表 (List) 儲存多個運算公式
+由於 Lambda 是表達式，它可以出現在不允許出現 `def` 的地方，例如儲存在清單內：
 ```python
-#lam-2.py
+# 將不同的運算公式存入清單
+calculators = [
+    lambda x: x ** 2,  # 平方
+    lambda x: x ** 3,  # 立方
+    lambda x: x ** 4   # 四次方
+]
 
-#匿名函數當作參數傳入
-print("匿名函數當作參數傳入")
-mz = (lambda a = 'Wolfgangus', b = ' Theophilus', c = ' Mozart': a + b + c) 
-print(mz('Wolfgang', ' Amadeus')) 
+# 依序使用不同的公式計算數值 3
+for calc in calculators:
+    print(calc(3))  # 依序輸出 9, 27, 81
 ```
 
-### 匿名函數說明
-1. 匿名函數可用於 list 內，可以快速的處理各種數值計算結果，傳入資料與得到回應。
-2. 匿名函數可用於條件分析表達上。
-
-#### 操作範例 1-1:請動手操作，並留意輸出結果
-```
-try1 = [lambda x: x ** 2, lambda x: x ** 3,
-lambda x: x ** 4] 
-print(try1.__class__) 
-for f in try1:
-	print(f.__class__)
-	print(f(3))
- 
-print(try1[0](11))
-```
-
-#### 操作範例 2-1:請動手操作，並留意輸出結果
+#### 💡 實用場景二：結合條件表達式 (Ternary Operator)
+雖然 Lambda 不能包含複雜的多行 `if` 分支，但可以使用單行條件表達式（`A if condition else B`）：
 ```python
-#lam-3a.py 
+# 找出兩數中的最小值
+find_min = lambda x, y: x if x < y else y
 
-print("一般函數處理") 
-def f1(x):
-	return x ** 2 
-
-def f2(x):
-	return x ** 3 
-
-def f3(x):
-	return x ** 4 
-
-try2 = [f1, f2, f3] 
-
-for ff in try2:
-	print(ff.__class__)
-	print(ff(3)) 
-
-print(try2[0](3))
+print(find_min(50, 30))  # 輸出: 30
 ```
 
-#### 操作範例 3:請動手操作，並留意輸出結果
+#### 💡 實用場景三：結合字典實現 Switch-Case 流程控制
 ```python
-#lam-4.py
-
-print("匿名函數可用於條件分析表達上") 
-findmin=(lambda x, y: x if x < y else y)
-print(findmin(101*99, 102*98))  
-print(findmin(102*98, 101*99))
-```
-
-#### 操作範例 4:請動手操作，並留意輸出結果
-```python
-# lam-5.py
-
-#搭配字典，設計出分組挑選的流程 
-score = int(input('please input:')) 
+score = int(input('請輸入分數: '))
 level = score // 10
-{
-10 : lambda: print('Perfect'),
-9 : lambda: print('A'),
-8 : lambda: print('B'),
-7 : lambda: print('C'),
-6 : lambda: print('D') }.get(level)()
 
+# 利用字典對應不同 level 的 lambda 函式
+actions = {
+    10: lambda: print('極佳 (Perfect)'),
+    9 : lambda: print('優等 (A)'),
+    8 : lambda: print('甲等 (B)'),
+    7 : lambda: print('乙等 (C)'),
+    6 : lambda: print('丙等 (D)'),
+}
+
+# 取得對應的函式並執行，若低於 60 分則輸出 "不及格"
+actions.get(level, lambda: print('不及格 (F)'))()
 ```
 
-### Anonymous Functions: the lambda() Function
-```python
-def edit_story(words, func):
-	for word in words:
-		print(func(word))
+---
 
+## 4. 高階函式應用：`map()` 與 `filter()`
 
->>> stairs = ['thud', 'meow', 'thud', 'hiss']
+Lambda 最強大的應用場景，是做為參數傳遞給內建的高階函式如 `map()` 與 `filter()`。
 
-
-def enliven(word): # give that prose more punch 
-	return word.capitalize() + '!'
-	
->>> edit_story(stairs, enliven) 
-Thud!
-Meow!
-Thud!
-Hiss!
-
-
->>> edit_story(stairs, lambda word: word.capitalize() + '!') 
-Thud!
-Meow!
-Thud!
-Hiss!
-```
-
-###  map 與 filter
-1. 用法:map(function, sequence)
-2. 將複合性資料逐一取出項目再傳入到 function 操作，最後以 list 作為回傳值。
-3. filter( ) 函數用於過濾 list，過濾掉不符合條件的元素，返回由符合條件元素組 成的新 list。
-4. filter 接收兩個參數，第一個為函數，第二個為 list，list 的每個元素作為參數 傳遞給函數進行分析，然後返回 True 或 False，最後將返回 True 的元素放 到新list中。
-
-#### 操作範例 1:請動手操作，並留意輸出結果
-```python
-#map-1.py
-
-def multiply2(x): 
-	return x * 2
-	
-a = map(multiply2, [1, 2, 3, 4])
-list1=list(a)
-print(list1)
-
-a=map(lambda x : x*2, [1, 2, 3, 4])
-list2=list(a)
-print(list2)
-b=[1, 2, 3, 4] 
-c=b*2 
-print(c) 
-```
-
-#### 操作範例 2:請動手操作，並留意輸出結果
-```python
-#map-2.py
-
- dict1 = [{'name': 'python', 'points': 10},
-  {'name': 'java','points': 8}] 
-
-print(type(dict1))
-list3=map(lambda x : x['name'], dict1)
-print(list(list3))
-
-list4=map(lambda x : x['points']*10, dict1) print(list(list4))
-
-list5=map(lambda x : x['name'] == "python", dict1) print(list(list5))
-
-list6a = [1, 2, 3]
-list6b = [10, 20, 30]
-list6=map(lambda x, y: x + y, list6a, list6b) print(list(list6))
-```
-
-#### 操作範例 3:請動手操作，並留意輸出結果
-```python
-#filter-1.py
-a = [1, 2, 3, 4, 5, 6]
-list7=filter(lambda x : x % 2 == 0, a)
-print(list(list7))
-
-dict8 = [{'name': 'python', 'points': 10}, {'name': 'java', 'points': 8}]
-list8=filter(lambda x : x['name'] == 'python', dict8)
-print(list(list8))
-
-```
-
-
-####  Homework:匿名函數操作
-- 目前有一個list，內容為"apple", "banana", "papaya", "watermelon"
-- 請利用匿名函數於這些資料後面加上!!!
-- 輸出為
+### 1. map() 函式
+- **用途**：將一個序列（如 list）中的每一個元素，逐一傳入指定的函式進行運算，並回傳包含所有運算結果的 map 物件（通常會再轉回 list 顯示）。
+- **語法**：`map(function, sequence)`
 
 ```python
-['apple!!!', 'banana!!!', 'papaya!!!', 'watermelon!!!']
+# 範例：將清單中的所有數字乘以 2
+
+# 傳統做法（需要先定義一個函式）
+def multiply2(x):
+    return x * 2
+
+result_def = list(map(multiply2, [1, 2, 3, 4]))
+print("傳統函式 map:", result_def)  # 輸出: [2, 4, 6, 8]
+
+# 使用 Lambda 的優雅做法（一行搞定，免命名）
+result_lambda = list(map(lambda x: x * 2, [1, 2, 3, 4]))
+print("Lambda 搭配 map:", result_lambda)  # 輸出: [2, 4, 6, 8]
+```
+> **⚠️ 易混淆點對比**：
+> 如果我們直接寫 `[1, 2, 3, 4] * 2`，在 Python 中代表「複製清單」，會得到 `[1, 2, 3, 4, 1, 2, 3, 4]`。
+> 唯有透過 `map` 才能實現「將清單中的每個元素內部數值翻倍」。
+
+#### 💡 進階技巧：處理複雜資料結構與多重清單
+```python
+# 從字典清單中，只取出所有的 points
+students = [
+    {'name': 'python', 'points': 10},
+    {'name': 'java', 'points': 8}
+]
+
+points_list = list(map(lambda x: x['points'] * 10, students))
+print("加權分數:", points_list)  # 輸出: [100, 80]
+
+# 將兩個清單對應元素相加
+list_a = [1, 2, 3]
+list_b = [10, 20, 30]
+sum_list = list(map(lambda x, y: x + y, list_a, list_b))
+print("對應相加:", sum_list)  # 輸出: [11, 22, 33]
 ```
 
---- 
+### 2. filter() 函式
+- **用途**：將序列中的元素逐一傳入函式進行布林值判斷，只保留判斷結果為 `True` 的元素，過濾掉 `False` 的元素。
+- **語法**：`filter(function, sequence)`
 
+```python
+# 範例一：過濾出清單中的所有偶數
+numbers = [1, 2, 3, 4, 5, 6]
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print("過濾出偶數:", evens)  # 輸出: [2, 4, 6]
 
-
-
-
-
+# 範例二：從字典清單中，過濾出名字為 'python' 的資料
+dict_list = [
+    {'name': 'python', 'points': 10},
+    {'name': 'java', 'points': 8}
+]
+python_data = list(filter(lambda x: x['name'] == 'python', dict_list))
+print("過濾出特定語系:", python_data)
+# 輸出: [{'name': 'python', 'points': 10}]
+```
