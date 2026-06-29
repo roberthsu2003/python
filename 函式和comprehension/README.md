@@ -682,6 +682,8 @@ number_list = [number - 1 for number in range(1, 6)]
   # 結果: ['小華: 85分', '小美: 92分', '小綠: 60分']
   ```
 
+[進階範例](./practice5.md)
+
 ---
 
 
