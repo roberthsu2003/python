@@ -835,5 +835,67 @@ except UppercaseException as exc:
     print(f"捕捉到自訂錯誤 -> {exc}")
 
 
+### 9. 在函式（Function）內進行例外處理與傳遞
+
+在設計函式時，錯誤與例外處理（`try...except`）的安排方式主要有以下三種模式：
+
+#### 💡 模式一：函式內部自行處理例外 (Self-contained Handling)
+函式內部自己包裝 `try...except`，當錯誤發生時在內部直接解決，不影響外部呼叫端的流程。這適合用於「容錯性高、有預設回傳值」的場景。
+
+```python
+def safe_divide(a, b):
+    """安全除法，內部自行處理 ZeroDivisionError"""
+    try:
+        return a / b
+    except ZeroDivisionError:
+        print("【函式內部處理】錯誤：除數不能為零！")
+        return None  # 發生錯誤時，回傳 None 作為安全值
+
+# 呼叫測試
+print(safe_divide(10, 2))  # 輸出: 5.0
+print(safe_divide(10, 0))  # 輸出: None (程式不會崩潰，錯誤已在函式內部被消化)
+```
+
+---
+
+#### 💡 模式二：例外的向上傳遞 (Exception Propagation)
+如果函式內部**沒有**撰寫 `try...except`，當錯誤發生時，Python 會自動將例外「向上傳遞」給呼叫該函式的外層程式。外層程式可以使用 `try...except` 來捕捉並處理。
+
+```python
+def divide(a, b):
+    """此函式內部不處理例外，若 b 為 0 會直接拋出 ZeroDivisionError"""
+    return a / b
+
+# 呼叫端（外部）處理例外
+try:
+    result = divide(10, 0)  # 呼叫時拋出錯誤，錯誤會傳遞到這裡
+    print("計算結果:", result)
+except ZeroDivisionError as err:
+    print(f"【外部呼叫端捕捉】呼叫函式時發生錯誤: {err}")
+```
+
+---
+
+#### 💡 模式三：函式內捕捉後重新拋出 (Re-raising Exceptions)
+有時我們希望在函式內部「先進行部分處理」（例如記錄日誌、釋放資源），但依然希望將錯誤丟回給呼叫端處理。此時可以在 `except` 區塊中使用不帶任何參數的 `raise` 關鍵字，將原本的例外重新拋出。
+
+```python
+def get_user_age(user_data, user_id):
+    try:
+        return user_data[user_id]
+    except KeyError as err:
+        print(f"【系統日誌】嘗試讀取不存在的鍵: {user_id}")
+        raise  # 重新拋出剛才捕捉到的 KeyError，讓呼叫端決定如何應對
+
+# 測試資料
+user_db = {"Alice": 25, "Bob": 30}
+
+try:
+    age = get_user_age(user_db, "Charlie")
+except KeyError:
+    print("【外部處理】找不到該使用者，請確認帳號是否輸入正確。")
+```
+
+
 
 
