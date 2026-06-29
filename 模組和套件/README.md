@@ -1,494 +1,283 @@
-# 模組和套件
-##  使用模組
+# 模組與套件 (Modules and Packages)
 
-1. 可透過import引用其他檔案，就可以使用其他檔案內的類別與函數進行功能擴充。
-2. 模組就是一個python檔案，模組名稱就是一個檔案名稱
-3. Python檔案命名時不要與其他已知模組名稱相同，名稱相同時預設呼叫自己的檔案。
+在開發規模較大的 Python 專案時，將所有的程式碼寫在同一個檔案中會使程式碼難以維護。Python 提供了**模組（Module）**與**套件（Package）**的機制，讓程式碼能夠依據功能進行模組化拆分與重用。
 
-##  import模組語法
-引用 python 檔案就以檔案的主檔案名稱作為模組名稱， 共有以下三種方式:   
- 
-1. import 模組
-2. import 模組 as 新模組名稱
-3. from 模組 import 模組內方法
-4. 不建議 from 模組 import *，易造成名稱衝突
+---
 
-## 呼叫內建模組函數
-###  import 這個功能的使用:以亂數為例
-1. 必須加入import random語法。
-2. 隨機整數:0 到 100 之間(包含100)，請加入andom.randint(0,100) 語法。
-3. 隨機數值:請加入random.random ( ) 語法。
-4. 隨機選取 0 到100 間的偶數(固定間隔)，請加入random.randrange(0, 101, 2) 語法。
+## 1. 使用與匯入模組 (Importing Modules)
 
-#### 操作範例:請動手操作，並留意輸出結果
+在 Python 中，**一個 `.py` 檔案就是一個模組**，模組的名稱就是該檔案的名稱（不含副檔名）。
+
+### 📌 匯入模組的四種語法
+
+| 匯入方式 | 說明 | 呼叫方式 |
+| :--- | :--- | :--- |
+| `import 模組` | 載入整份模組。最安全，不會發生命名衝突。 | `模組.方法()` |
+| `import 模組 as 簡寫` | 載入整份模組，並為其設定一個簡短的別名（Alias）。 | `簡寫.方法()` |
+| `from 模組 import 成員` | 只載入模組中的特定函式、類別或變數。 | `成員()` (直接呼叫) |
+| `from 模組 import *` | 載入該模組內所有的公開成員。**⚠️ 不建議使用**，極易造成命名衝突。 | `成員()` (直接呼叫) |
+
+---
+
+### 2. 常用內建功能與模組範例
+
+以內建的 `random`（隨機數）與 `math`（數學）模組為例，展示如何匯入並使用它們：
+
+#### 💡 隨機數模組 `random` 範例 (rand_demo.py)
 ```python
-#rand1.py
-import random 
-a=random.randint(0,100) 
-print(a) 
-
-b=random.randrange(0, 101, 2) 
-print(b)
-
-c=random.random( )
-print(c)
-```
-
-### 以亂數為例
-1. 重新調整順序:random.shuffle(items)
-2. 隨機字元:請加入 random.choice('abcdefg&#%^*f') 語法。
-3. 多個字元中選取特定數量的字元:例如加入以下語法:
-
-```python
- random.sample('abcdefghij',3)
- ```
- 
-4. 隨機選取字串:例如加入以下語法:
-
-```python
-random.choice ( ['apple', 'pear', 'peach', 'orange', 'lemon'] )
-```
-
-#### 操作範例:請動手操作，並留意輸出結果
-```python
-
-#rand2.py
 import random
-a=random.sample('abcdefghij',3)
-print(a)
 
-b=random.choice( ['apple', 'pear', 'peach', 'orange', 'lemon'] ) 
-print(b)
+# 1. 隨機整數: 產生 0 到 100 之間(包含100)的整數
+rand_int = random.randint(0, 100)
+print(f"隨機整數 (0~100): {rand_int}")
 
+# 2. 隨機偶數: 產生 0 到 100 之間的偶數 (指定間隔為 2)
+rand_even = random.randrange(0, 101, 2)
+print(f"隨機偶數 (0~100): {rand_even}")
+
+# 3. 隨機浮點數: 產生 0.0 到 1.0 之間的隨機小數
+rand_float = random.random()
+print(f"隨機浮點數 (0~1): {rand_float}")
+
+# 4. 隨機選取特定數量的字元
+sample_chars = random.sample('abcdefghij', 3)
+print(f"隨機選取 3 個字元: {sample_chars}")
+
+# 5. 從清單中隨機選取一個元素
+fruits = ['apple', 'pear', 'peach', 'orange', 'lemon']
+selected_fruit = random.choice(fruits)
+print(f"隨機選取水果: {selected_fruit}")
+
+# 6. 重新隨機洗牌清單
 items = [1, 2, 3, 4, 5, 6]
 random.shuffle(items)
-print(items) 
 ```
 
-#### Question: 請問以下語法執行後結果哪一個錯誤?(選擇題)
-```python
-import random 
-a=random.randint(0,100) 
-print(a)
-```
-(1) 0  
-(2) 100   
-(3) 99   
-(4) 101  
-
----
-
-###  數學函數
-以下幾個函數必須引用 math 模組: 
-|函式|說明|
-|--:|--:|
-| sqrt(x) | x的平方根(x>0) |
-| pow(x, y) | x的y次方 的值 |
-|  ceil(x) | 取出不小於 x 的最小整數 |
-| floor(x) | 取出不大於 x 的最大整數 |
-####  Question:請問以下語法執行後結果哪一個正確?(選擇題)
-```python 
-a=round(80.456, 2) 
-print(a)
-```
-(1) 80    
-(2) 81  
-(3) 80.45   
-(4) 80.46  
-
----
-
-####  請問以下語法執行後結果哪一個正確?(選擇題)
-```python
-import math 
-a=math.floor(80.456) 
-print(a)
-```
-
-(1) 80  
-(2) 81   
-(3) 80.45  
-(4) 80.46  
-
----
-
-####  請問以下語法執行後結果哪一個正確?(選擇題)
-
+#### 💡 數學模組 `math` 範例
 ```python
 import math
 
-a=math.ceil(80.456) 
-print(a)
-```
-(1) 80  
-(2) 81   
-(3) 80.45   
-(4) 80.46 
---- 
+x = 80.456
 
+# 1. 平方根 (x 必須大於 0)
+print("平方根:", math.sqrt(64))  # 輸出: 8.0
 
+# 2. 次方運算 (2的3次方)
+print("2的3次方:", math.pow(2, 3))  # 輸出: 8.0
 
+# 3. 無條件進位 (ceil): 取得不小於 x 的最小整數
+print("math.ceil(80.456) =", math.ceil(x))  # 輸出: 81
 
+# 4. 無條件捨去 (floor): 取得確認不大於 x 的最大整數
+print("math.floor(80.456) =", math.floor(x))  # 輸出: 80
 
-```python
->>> import random
->>> def get_description():
-...possibilities = ['rain', 'snow', 'sleet', 'fog', 'sun', 'who knows'] 
-...return random.choice(possibilities)
-
->>> get_description()
-'who knows'
->>> get_description() 
-'rain'
-
+# 5. 四捨五入 (注意: round 是 Python 內建函式，不用引用 math)
+print("round(80.456, 2) =", round(x, 2))  # 輸出: 80.46
 ```
 
+---
 
-### 將py檔案當作主程式使用
+## 3. 建立自訂模組
 
+在同一個目錄下，我們可以建立多個 `.py` 檔案，彼此之間可以互相 import 引用。
+
+#### 💡 步驟一：建立自訂模組 `report.py`
+這個模組專注於提供氣象描述的功能。
 ```python
-#建立test.py,並輸入下面一行程式
-print("print("This standalone program works!")") 
-
-
-$ python test.py
-This standalone program works!
-```
-
-## 自訂模組
-
-```python
-#模組名稱就是一個檔案名稱，沒有副檔名py
-#以下為建立2個py檔案, weatherman.py當作主程式，report.py當作模組
-# weatherman.py
-import report
-description = report.get_description() 
-print("Today's weather:", description)
-
-
-
 # report.py
-def get_description(): # see the docstring below? 
-	"""Return random weather, just like the pros""" 
+import random
 
-	from random import choice
-	possibilities = ['rain', 'snow', 'sleet', 'fog', 'sun', 'who knows'] 
-	return choice(possibilities)
-
-
-
-$ python weatherman.py 
-Today's weather: who knows 
-$ python weatherman.py 
-Today's weather: sun
-$ python weatherman.py 
-Today's weather: sleet
+def get_description():
+    """隨機回傳今日氣象預報"""
+    possibilities = ['晴天', '雨天', '下雪', '起霧', '陰天', '天曉得']
+    return random.choice(possibilities)
 ```
 
-### 操作範例:請動手操作，並留意輸出結果
-
+#### 💡 步驟二：建立主程式 `weatherman.py` 載入並使用該模組
 ```python
-#此檔案命名為modu.py
-#modu.py當作module使用
+# weatherman.py
+import report  # 載入我們自訂的 report 模組
 
-class test1:
-	def __init__(self):
-		print("create") 
-	
-def fun1( ):
-	print("function")
-	return( ) 
+def main():
+    # 呼叫自訂模組中的函式
+    description = report.get_description()
+    print("今日天氣預報:", description)
 
-#當作module使用時，__name__將不會是'__main__' 
 if __name__ == '__main__':
-	print("testmu!")
+    main()
 ```
+當我們在終端機執行 `python weatherman.py` 時，程式會順利印出今日的天氣。
 
+---
+
+## 4. 命令列引數與搜尋路徑
+
+### 命令列引數 (Command-Line Arguments)
+當我們在終端機啟動 Python 腳本時，可以附帶傳入額外的參數。這些參數會被自動收集至內建 `sys` 模組的 `sys.argv` 列表中（第一個元素預設為該主程式的檔案路徑）。
+
+#### 💡 範例：收集命令列參數 (args_demo.py)
 ```python
-import modu
-ob1=modu.test1( ) #create object 
-modu.fun1( )
- 
-```
-
-###  請問以下這一行語法解釋哪一個錯誤?(選擇題)
-```python
-import math1
-```
-(1) math1 是模組   
-(2) 引用 math1.py 內容  
-(3) math1.py 與主程式放在一起  
-(4) math1.py 與主程式不放在一起
-
-### Command-Line Arguments
-- python檔當作主程式使用時，可以在command-line後加上引數，主程式可以收集到這些引數
-
-```python
-# test2.py 
-
+# args_demo.py
 import sys
-print('Program arguments:', sys.argv)
 
+# sys.argv 是一個 list
+print("所有傳入的引數列表:", sys.argv)
+```
+- **執行測試**：
+  ```bash
+  $ python args_demo.py apple banana 123
+  所有傳入的引數列表: ['args_demo.py', 'apple', 'banana', '123']
+  ```
 
-$ python test2.py
-Program arguments: ['test2.py']
+### 模組搜尋路徑 (Module Search Path)
+當你執行 `import xxx` 時，Python 會依序在 `sys.path` 列表定義的目錄中尋找該模組。如果找不到，就會拋出 `ModuleNotFoundError`。
+```python
+import sys
 
-$ python test2.py tra la la
-Program arguments: ['test2.py', 'tra', 'la', 'la']
+# 印出 Python 搜尋模組的順序目錄
+for path in sys.path:
+    print(path)
+```
+> **💡 搜尋順序**：首先會從「目前工作目錄」開始找，接著找 Python 的標準函式庫目錄，最後找安裝第三方套件的 `site-packages` 目錄。
 
+---
+
+## 5. 自製套件 (Packages)
+
+**套件（Package）就是一個包含了多個模組的「資料夾」**。利用套件，我們可以對模組進行二級目錄管理。
+
+### 📌 建立套件的結構
+假設我們要建立一個名為 `happy` 的套件，該套件內包含一個 `my_mod` 模組：
+```text
+專案目錄/
+├── main.py (主程式)
+└── happy/ (套件資料夾)
+    ├── __init__.py (初始化檔案，可以是空白檔案)
+    └── my_mod.py (子模組)
 ```
 
-### 載入模組至主程式並更改模組名稱
+1. **`__init__.py`**：是用來宣告這個資料夾是 Python 套件的標誌性檔案。在 Python 3.3 之後可以省略，但為了向後相容與便於在檔案中加入套件層級的初始化代碼，建議依然建立它。
+2. 撰寫 `happy/my_mod.py` 內容：
+   ```python
+   def happy_python():
+       print("Happy Python!")
+   ```
+
+### 📌 呼叫套件內模組的語法
+
+- **寫法一：完整路徑匯入**
+  ```python
+  import happy.my_mod
+  happy.my_mod.happy_python()
+  ```
+- **寫法二：from-import 匯入**
+  ```python
+  from happy.my_mod import happy_python
+  happy_python()
+  ```
+
+---
+
+## 6. 進階套件管理
+
+### 1. `__init__.py` 配合 `__all__` 的進階使用
+
+在套件或模組的 `__init__.py` 中，我們可以使用特殊變數 `__all__` 列表，來定義「當外部執行 `from package import *` 時，有哪些成員可以被導出」。
 
 ```python
-import report as wr
-description = wr.get_description() 
-print("Today's weather:", description)
+# mymodule.py
 
-```
+def spam():
+    print("Spam!")
 
-### 只載入模組內的get_description()
+def grok():
+    print("Grok!")
 
-```python
-from report import get_description
-description = get_description()
-print("Today's weather:", description)
+# 外部不可讀取此變數
+secret_code = 9999
 
-
-
-
-from report import get_description as do_it 
-description = do_it()
-print("Today's weather:", description)
-
-```
-
-
-## 自製套件  
-1. 套件內可以有多個模組。
-2. 套件名稱是資料夾名稱。
-3. 建立一個叫做 happy 的資料夾，裡面放了一個 __ init __.py 的空檔案。
-4. 每個套件裡都必須存在 __ init __.py 這個檔案，執行初始化的動作，python3版本也可以不用設定
-5. __ init __.py 可以是空的，也可以放一些變數或程式在裡面。
-6. happy 的資料夾內放了一個 __ init __.py 的空檔案，請加入一個名為 my_mod.py 檔案，其內容為:
-
-
-```python
-#happy資料夾內的my_mod.py內容
-def happy_python( ):
-	print ("Happy Python")
-```
-
-7. 呼叫語法可以這樣規劃:
-
-```python
-import happy.my_mod
-happy.my_mod.happy_python( )
-```
-
-8. 呼叫語法也可以這樣規劃:
-
-```
-from happy.my_mod import happy_python
-happy_python( )
-
-```
-
-### 自訂套件和模組範例
-
-```python
-#主程式: boxes/weather.py.
-
-from sources import daily, weekly
-print("Daily forecast:", daily.forecast()) 
-print("Weekly forecast:")
-for number, outlook in enumerate(weekly.forecast(), 1):
-	print(number, outlook)
-
-
-#Module 1: boxes/sources/daily.py.
-def forecast():
-	'fake daily forecast' 
-	return 'like yesterday'
-	
-
-#Module 2: boxes/sources/weekly.py.
-
-def forecast():
-	"""Fake weekly forecast"""
-	return ['snow', 'more snow', 'sleet','freezing rain', 'rain', 'fog', 'hail']
-	
-
-$ python weather.py
-Daily forecast: like yesterday Weekly forecast:
-1 snow
-2 more snow
-3 sleet
-4 freezing rain
-5 rain
-6 fog
-7 hail
-```
-
-### 目前主程式搜尋模組的路徑(Module Search Path)
-
-```python
->>> import sys
->>> for place in sys.path: 
-... print(place)
-
-
-
-/Library/Frameworks/Python.framework/Versions/3.3/lib/python33.zip
-/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3 
-/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/plat-darwin 
-/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/lib-dynload 
-/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages
-```
-
-## __init__.py使用方式
-![](./images/pic1.png)
-
-### 使用的方式
-
-```
-每個資料夾內有放__init__.py
-
-如果主程式寫import graphics,則會執行garphics/__init__.py檔，並且會產生一個graphics的命名空間
-
-如果主程式寫import graphics.formats.jpg,則會先執行graphics內的__init__py，再執行formats內的__init__py，最後執行jpy.py。
-
-python3版本可以省略__init__py
-```
-
-#### import的方式
-
-```python
-import graphics.primitive.line
-from graphics.primitive import line 
-import graphics.formats.jpg as jpg
-```
-
-#### 自動載入次module
-
-```
-#如果在graphics/formats/__init__.py內是空白
-#import方式如下:
-from graphics.formats.jpg import *
-from graphics.formats.jpg import *
-```
-
-```
-#如果在graphics/formats/__init__.py內加入
-
-from . import jpg
-from . import png
-
-#import方式如下:
-from graphics.formats import *
-```
-
-## __all__的使用方式
-
-當使用者使用import *的語法時
-限定可以被import的內容
-
-```
-#somemodule.py
-def spam(): 
-	pass
-def grok(): 
-	pass
-blah = 42
-
-# 僅輸出 'spam' 和 'grok',blah沒被輸出
+# 限定只導出 spam 與 grok
 __all__ = ['spam', 'grok']
 ```
 
-## 使用相對路徑輸入套件內的次模組
+---
 
-```
-#目前目錄
+### 2. 使用相對路徑在套件內部互相 import
+
+當套件內部的子模組需要互相引用時，可以使用**相對路徑**語法（`.` 代表當前目錄，`..` 代表上一級目錄）：
+
+```text
 mypackage/
-		__init__.py
-		A/
-				__init__.py
-				spam.py
-				grok.py
-		B/
-				__init__.py
-				bar.py
+├── __init__.py
+├── A/
+│   ├── __init__.py
+│   ├── spam.py
+│   └── grok.py
+└── B/
+    ├── __init__.py
+    └── bar.py
 ```
 
-```
-#mypackage/A/spam.py
+- 在 `mypackage/A/spam.py` 中引用同目錄的 `grok.py`：
+  ```python
+  from . import grok
+  ```
+- 在 `mypackage/A/spam.py` 中引用相鄰目錄 `B/bar.py`：
+  ```python
+  from ..B import bar
+  ```
+> **⚠️ 限制**：相對路徑 `from . import` 只能在「被當作套件載入」時正常運作。如果直接執行 `python spam.py`，會因為該檔案被視為 `__main__` 找不到父套件而拋出 `ImportError` 錯誤。
 
-from . import grok
+---
 
+### 3. 將大模組重構拆分成多個小檔案
 
-#mypackage/A/spam.py
+當一個模組檔案太大時，我們可以將它轉化為「套件目錄」，並在 `__init__.py` 中匯入所有分散在小檔案的類別，對外保持一模一樣的載入介面，實現「對內拆分，對外統一」。
 
-from ..B import bar
-
-
-#mypackage/A/spam.py
-
-from mypackage.A import grok #ok
-from . import grok #ok
-import grok #錯誤
-```
-
-## 切割一個module檔成為多個檔
-
-```
-# mymodule.py
+#### 💡 舊的單一檔案 `mymodule.py`：
+```python
 class A:
-	def spam(self):
-		print('A.spam')
-	
-class B(A):
-	def bar(self):
-		print('B.bar')
+    def spam(self):
+        print('A.spam')
+    
+class B:
+    def bar(self):
+        print('B.bar')
 ```
 
-```
-# 將mymodule.py改為目錄mymodule
-# 建立a.py
-# 建立b.py
-
+#### 💡 重構後的套件結構：
+```text
 mymodule/
-		__init__.py
-		a.py
-		b.py
+├── __init__.py
+├── a.py (存放類別 A)
+└── b.py (存放類別 B)
 ```
 
+1. **`mymodule/a.py`**：
+   ```python
+   class A:
+       def spam(self):
+           print('A.spam')
+   ```
+2. **`mymodule/b.py`**：
+   ```python
+   class B:
+       def bar(self):
+           print('B.bar')
+   ```
+3. **`mymodule/__init__.py`**（核心：在這裡把分散的類別導入，對外合併）：
+   ```python
+   from .a import A
+   from .b import B
+   ```
+
+#### 💡 外部使用者的呼叫方式（完全不受拆分影響，無痛升級）：
+```python
+import mymodule
+
+obj_a = mymodule.A()
+obj_a.spam()  # 輸出: A.spam
+
+obj_b = mymodule.B()
+obj_b.bar()   # 輸出: B.bar
 ```
-#在a.py
-
-class A:
-	def spam(self):
-		print('A.spam')	
-		
-#在b.yp
-
-from .a import A
-	class B(A):
-		def bar(self):
-			print('B.bar')
-			
-#在__init__.py
-from .a import A
-from .b import B
-
-
-#在主程式使用方式
->>> import mymodule 
->>> a = mymodule.A() 
->>> a.spam()
-A.spam
->>> b = mymodule.B() 
->>> b.bar()
-B.bar
->>>
-```
-
