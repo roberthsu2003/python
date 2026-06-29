@@ -9,19 +9,7 @@
 | 可重用    | 通用邏輯、少用硬編碼  |
 | 錯誤處理   | 適當處理例外狀況    |
 
-## python函式設計練習表
-| **題號** | **題目名稱**       | **題目說明**                   |
-| ------ | -------------- | -------------------------- |
-| 1      | say_hello      | 寫一個函式，輸入名字，輸出 Hello, 名字    |
-| 2      | is_even        | 輸入一個整數，回傳是否為偶數（True/False） |
-| 3      | sum_list       | 傳入一個數字串列，回傳總和              |
-| 4      | find_max       | 輸入一串數字，找出最大值並回傳            |
-| 5      | calculate_bmi  | 傳入身高（公尺）與體重（公斤），回傳 BMI 值   |
-| 6      | convert_temp   | 攝氏與華氏互換（攝氏 → 華氏，華氏 → 攝氏）   |
-| 7      | is_prime       | 判斷是否為質數（Prime Number）      |
-| 8      | count_vowels   | 計算字串中有幾個母音（a, e, i, o, u）  |
-| 9      | reverse_string | 回傳字串反轉結果                   |
-| 10     | get_grade      | 傳入分數，根據標準回傳等級（A~F） |
+
 
 ## 自訂函數 Functions
 - 自訂函數名稱與內容的安排:
@@ -47,245 +35,294 @@
 		- 省略 return( )
 		- 寫成 return
 
-### 自訂函數沒有參數也沒有傳回值
+## python函式設計練習表
+| **題號** | **題目名稱**       | **題目說明**                   |
+| ------ | -------------- | -------------------------- |
+| 1      | say_hello      | 寫一個函式，輸入名字，輸出 Hello, 名字    |
+| 2      | is_even        | 輸入一個整數，回傳是否為偶數（True/False） |
+| 3      | sum_list       | 傳入一個數字串列，回傳總和              |
+| 4      | find_max       | 輸入一串數字，找出最大值並回傳            |
+| 5      | calculate_bmi  | 傳入身高（公尺）與體重（公斤），回傳 BMI 值   |
+| 6      | convert_temp   | 攝氏與華氏互換（攝氏 → 華氏，華氏 → 攝氏）   |
+| 7      | is_prime       | 判斷是否為質數（Prime Number）      |
+| 8      | count_vowels   | 計算字串中有幾個母音（a, e, i, o, u）  |
+| 9      | reverse_string | 回傳字串反轉結果                   |
+| 10     | get_grade      | 傳入分數，根據標準回傳等級（A~F） |
+
+### 1. 自訂函數沒有參數也沒有傳回值
 
 ```python
-def func_sum():
-	print("呼叫函式")
-	return()
+# 範例：定義一個印出歡迎詞的簡單函式
+def say_welcome():
+    print("歡迎光臨 Python 程式設計課！")
 
-func_sum()
-
+# 呼叫函式
+say_welcome()
 ```
 
 ```python
->>> def do_nothing(): 
-		pass
+# 範例：使用 pass 定義一個不做任何事的空函式
+def do_nothing():
+    pass
 
->>> do_nothing() 
->>>
-
-```
-
-```python
-
->>> def make_a_sound():
-		print('quack')
-		
->>> make_a_sound()
-quack
-
+do_nothing()
 ```
 
 #### Question: 請問執行後的結果哪一個是對的?(選擇題)
 ```python
-def func_sum( ):
-	print("A") 
-	return( )
-	
-print("B") 
-func_sum( ) 
+def func_sum():
+    print("A")
+    return
+
+print("B")
+func_sum()
 print("C")
 ```
-(1) A,B,C  
-(2) B,A,C  
-(3) C,B,A  
-(4) A,C,B
+(1) A, B, C  
+(2) B, A, C  
+(3) C, B, A  
+(4) A, C, B  
 
-#### Homework:
+> **答案：(2)**。Python 程式是由上而下執行的，但在執行到 `def` 時只是「定義」函式而未執行其內部程式。程式會先執行第 5 行的 `print("B")`，接著呼叫 `func_sum()` 執行內部的 `print("A")`，最後執行第 7 行的 `print("C")`。
+
+#### Homework 實作練習：
+請在 [function1.py](function1.py) 中定義一個無參數、無傳回值的函式，執行時能顯示「歡迎光臨」。
 ```python
 #============================================================================
 # Name        : function1.py
-#定義函式，顯示「歡迎光臨」。
+# 題目說明     : 定義函式，顯示「歡迎光臨」。
 #============================================================================
 ```
-[解題](function1.py)
+[解題參考](function1.py)
 
-###  自訂函數有接收沒傳回
+---
+
+### 2. 自訂函數有接收參數但無傳回值
+
+```python
+# 範例（對應題號 1: say_hello）：接收名字，並印出問候語
+def say_hello(name):
+    print(f"Hello, {name}!")
+
+# 呼叫函式並傳入引數
+say_hello("Alice")
+say_hello("Bob")
+```
+
+#### Question: 請問執行後的結果哪一個是對的?(選擇題)
 ```python
 def func_sum(a, b):
-	c = a + b
-	print(c)
-	return()
+    c = a + b
+    print(c)
 
-func_sum(3, 5)
-```
-
-####  Question:請問執行後的結果哪一個是對的?(選擇題)
-```python
-def func_sum(a, b): 
-	c=a+b
-	print(c)
-	return( ) 
-	
-print("1") 
-func_sum(3, 4) 
-print("2")
-```
-(1) 1,7,2  
-(2) 1,3,4,2  
-(3) 3,4,1,2  
-(4) 7,1,2
-
-####  Question:請問執行後的結果哪一個是對的?(選擇題)
-```python
-def func_sum(a, b): 
-	c=a+b
-	print(c)
-	return( ) 
-	
-print("1") 
-func_sum( ) 
-print("2")
-```
-(1) 1,0,2   
-(2) 1,2  
-(3) 0,1,2  
-(4) 錯誤  
-
-### 自訂函數有接收有傳回
-```python
-def func_sum(a, b):
-	c = a + b
-	return(c)
-	
-z = func_sum(10, 15)
-```
-
-```python
-
->>> def agree(): 
-		return True 
-
->>> if agree():
-		print('Splendid!')
-	else:
-		print('That was unexpected.')
-
-Splendid!
-
->>> def echo(anything):
-		return anything + ' ' + anything 
-...
->>>
-
->>> echo('Rumplestiltskin')
-'Rumplestiltskin Rumplestiltskin'
-
->>> def commentary(color):
-		if color == 'red':
-			return "It's a tomato."
-		elif color == "green":
-			return "It's a green pepper."
-		elif color == 'bee purple':
-			return "I don't know what it is, but only bees can see it."
-		else:
-			return "I've never heard of the color " + color + "."
-
->>> comment = commentary('blue')
->>> print(comment)
-
-I've never heard of the color blue.
-```
-
-#### 操作範例:請動手操作，並留意輸出結果
-```python
-#fun2.py
-
-def func_sum(a, b): 
-	c=a+b
-	return (c)
-z = func_sum(10, 15) 
-print(z)
-``` 
-
-####  請問執行後的結果哪一個是對的?(選擇題)
-```python
-def func_sum(a, b): 
-	c = a + b * 2 
-	return (c)
-	
 print("1")
-z = func_sum(3, 4) 
+func_sum(3, 4)
+print("2")
+```
+(1) 1, 7, 2  
+(2) 1, 3, 4, 2  
+(3) 3, 4, 1, 2  
+(4) 7, 1, 2  
+
+> **答案：(1)**。先印出 "1"，接著傳入 `3` 和 `4` 呼叫 `func_sum` 算出 `c = 7` 並印出，最後印出 "2"。
+
+#### Question: 請問執行後的結果哪一個是對的?(選擇題)
+```python
+def func_sum(a, b):
+    c = a + b
+    print(c)
+
+print("1")
+func_sum()
+print("2")
+```
+(1) 1, 0, 2  
+(2) 1, 2  
+(3) 0, 1, 2  
+(4) 錯誤 (TypeError)  
+
+> **答案：(4)**。因為 `func_sum` 定義了兩個必須傳入的參數 `a` 與 `b`，當呼叫 `func_sum()` 時未提供引數，Python 會拋出 `TypeError: func_sum() missing 2 required positional arguments` 錯誤。
+
+---
+
+### 3. 自訂函數有接收參數也有傳回值
+
+使用 `return` 可以將運算結果傳回給呼叫端。這是最常用且最符合 SOLID 原則中「單一職責」與「可測試性」的函式設計方式（因為函式只專注於邏輯計算，將輸出/輸入的控制權留給呼叫端）。
+
+```python
+# 範例一（對應題號 2: is_even）：判斷整數是否為偶數並傳回 True/False
+def is_even(number):
+    return number % 2 == 0
+
+# 呼叫函式並使用結果
+result = is_even(7)
+print(f"7 是偶數嗎？ {result}")  # 輸出: 7 是偶數嗎？ False
+
+if is_even(10):
+    print("10 是偶數")
+```
+
+```python
+# 範例二（對應題號 5: calculate_bmi）：傳入身高（公尺）與體重（公斤），回傳 BMI
+def calculate_bmi(height, weight):
+    bmi = weight / (height ** 2)
+    return bmi
+
+my_bmi = calculate_bmi(1.75, 70)
+print(f"計算出的 BMI 為: {my_bmi:.2f}")
+```
+
+#### Question: 請問執行後的結果哪一個是對的?(選擇題)
+```python
+def func_sum(a, b):
+    c = a + b * 2
+    return c
+
+print("1")
+z = func_sum(3, 4)
 print("2")
 print(z)
-
 ```
-(1) 1,7,2  
-(2) 1,11,2  
-(3) 1,2,11   
-(4) 1,2,7  
+(1) 1, 7, 2  
+(2) 1, 11, 2  
+(3) 1, 2, 11  
+(4) 1, 2, 7  
 
-#### Homework:
+> **答案：(3)**。執行順序為：先印出 "1"，接著呼叫 `func_sum(3, 4)`，在函式內部先計算乘法 `4 * 2 = 8` 再加 `3` 得到 `11`，透過 `return` 傳回並賦值給 `z`，接著印出 "2"，最後 `print(z)` 印出 11。因此輸出為：1, 2, 11。
+
+#### Homework 實作練習（對應題號 6: convert_temp）：
+請在 [function2.py](function2.py) 中利用自訂函式完成攝氏與華氏溫度的轉換。
+公式：華氏溫度 = 攝氏溫度 * 9 / 5 + 32
 ```python
-#Name        : function2.py
-#輸入攝氏溫度，求華氏溫度
-#使用function
-#=============================
+#============================================================================
+# Name        : function2.py
+# 題目說明     : 輸入攝氏溫度，使用自訂函式求華氏溫度並印出。
+#============================================================================
+# 期待執行效果:
+# 請輸入攝氏溫度: 19
+# 華氏溫度 = 66.2
+```
+[解題參考](function2.py)
 
-攝氏10度轉華氏溫度=50
-#==========================
-請輸入攝氏溫度:19
-華氏溫度=66.2
+#### Homework 進階練習（結合 while 迴圈）：
+請在 [function3.py](function3.py) 中實作，讓程式可以重複詢問使用者溫度，直到輸入指定字元（例如 'N'）時結束。
+```python
+#============================================================================
+# Name        : function3.py
+# 題目說明     : 建立自訂的溫度轉換函式，並利用 while 迴圈持續讓使用者輸入，直到輸入 N 結束。
+#============================================================================
+# 期待執行效果:
+# 請輸入攝氏溫度: 20
+# 華氏溫度 = 68.0
+# 程式還要繼續嗎?(輸入N結束): y
+# 請輸入攝氏溫度: 10
+# 華氏溫度 = 50.0
+# 程式還要繼續嗎?(輸入N結束): N
+# 程式結束
+```
+[解題參考](function3.py)
 
-#===============================
+---
+
+### 4. 傳入容器與字串的函式練習
+
+函式的參數可以接收任何 Python 物件，包括串列（List）或字串（String）。
+
+```python
+# 範例一（對應題號 3: sum_list）：傳入數字串列，回傳總和
+def sum_list(numbers):
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+
+scores = [85, 90, 78, 92]
+print(f"總分為: {sum_list(scores)}")  # 輸出: 總分為: 345
 ```
 
-#### Homework:
 ```python
-#Name        : function3.py
-#輸入攝氏溫度，求華氏溫度
-#建立自訂的function
-#while()
+# 範例二（對應題號 9: reverse_string）：傳入字串，回傳反轉字串
+def reverse_string(text):
+    return text[::-1]
 
-#=============================
-
-攝氏10度轉華氏溫度=50
-#==========================
-請輸入攝氏溫度:20
-華氏溫度=68
-程式還要繼續嗎?(輸入N....結束):h
-請輸入攝氏溫度:40
-華氏溫度=104
-程式還要繼續嗎?(輸入N....結束):a
-請輸入攝氏溫度:10
-華氏溫度=50
-程式還要繼續嗎?(輸入N....結束):N
-程式結束
-
-#===============================
+print(reverse_string("Python"))  # 輸出: nohtyP
 ```
-[解題](function3.py)
 
-###  函數傳回多值
-- Python 的函數可以傳回多值。
-- 傳回多值的做法是將傳回值轉為 tuple 型態，接收後再拆解給變數。
+#### Homework 實作練習（對應題號 4: find_max）：
+實作一個函式，接收一個數字串列，回傳其中的最大值（嘗試不使用內建的 `max()` 函式以練習邏輯）。
+* 提示：定義 `find_max(numbers)`，遍歷串列比較大小。
 
-#### Question:請問執行後的結果哪一個是對的?(選擇題)
+#### Homework 實作練習（對應題號 8: count_vowels）：
+實作一個函式，接收一個字串，回傳該字串中所包含的母音字母數量（母音為 a, e, i, o, u，不分大小寫）。
+* 提示：定義 `count_vowels(text)`。
+
+---
+
+### 5. 複雜邏輯與條件分支練習
+
+當函式內部包含較複雜的邏輯或多重條件分支時，早期回傳（Early Return）是保持程式碼乾淨的好方法。
+
 ```python
-def manyvalue(a, b): 
-	c=a*b
-	return (a-2, b+3, c)
-	
-x, y, z = manyvalue(3, 5) 
+# 範例（對應題號 10: get_grade）：根據分數回傳等級 A~F
+def get_grade(score):
+    if score < 0 or score > 100:
+        return "Invalid Score"
+    if score >= 90:
+        return "A"
+    if score >= 80:
+        return "B"
+    if score >= 70:
+        return "C"
+    if score >= 60:
+        return "D"
+    return "F"
+
+print(get_grade(85))  # 輸出: B
+print(get_grade(105)) # 輸出: Invalid Score
+```
+
+#### Homework 實作練習（對應題號 7: is_prime）：
+實作一個函式，傳入一個整數，判斷它是否為質數（Prime Number），回傳 `True` 或 `False`。
+* 提示：質數是重大於 1 且除了 1 和自身外沒有其他因數的整數。可以使用 `for` 迴圈測試從 2 到 n-1 是否有因數。
+
+---
+
+### 6. 函數傳回多值
+
+- Python 的函數可以傳回多值，這是透過將多個值自動打包成 `tuple` 實現的。
+- 接收時，可以使用「多重賦值（Unpacking）」一次拆解給多個變數。
+
+```python
+# 範例：找出串列中的最大值與最小值並同時回傳
+def get_min_max(numbers):
+    if not numbers:
+        return None, None
+    return min(numbers), max(numbers)  # 自動打包成 tuple 回傳
+
+scores = [85, 92, 78, 60, 99]
+min_score, max_score = get_min_max(scores)  # 拆解 Tuple
+print(f"最低分: {min_score}, 最高分: {max_score}")
+```
+
+#### Question: 請問執行後的結果哪一個是對的?(選擇題)
+```python
+def manyvalue(a, b):
+    c = a * b
+    return (a - 2, b + 3, c)
+
+x, y, z = manyvalue(3, 5)
 print(y)
 ```
-(1) 8   
-(2) 15   
-(3) 1   
-(4) 20   
+(1) 8  
+(2) 15  
+(3) 1  
+(4) 20  
 
-#### 操作範例 :請動手操作，並留意輸出結果
+> **答案：(1)**。呼叫 `manyvalue(3, 5)` 會回傳 `(3 - 2, 5 + 3, 3 * 5)` 也就是 `(1, 8, 15)`。在拆解賦值 `x, y, z = (1, 8, 15)` 後，`y` 的值為 `8`。
 
-```python
-#fun6.py
+#### Homework 實作練習：
+實作一個函式 `analyze_list(numbers)`，傳入一個數字串列，同時回傳其總和、平均值、最大值與最小值。
 
-def func_a( ): 
-	return 1, 2, 3, 4
-	
-temp = func_a( ) 
-print(type(temp))
-```
 
 ---
 
