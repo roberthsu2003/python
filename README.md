@@ -15,7 +15,7 @@
   
 8. [函式_comprehension_try..except](./函式和comprehension)
 
-9. [數值與函數進階運用](./數值與函數進階運用)
+9. [函數的參數和引數的介紹](./數值與函數進階運用)
 
 10. [匿名函數lambda](./匿名函數lambda)
 
