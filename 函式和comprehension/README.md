@@ -68,23 +68,6 @@ def do_nothing():
 do_nothing()
 ```
 
-#### Question: 請問執行後的結果哪一個是對的?(選擇題)
-```python
-def func_sum():
-    print("A")
-    return
-
-print("B")
-func_sum()
-print("C")
-```
-(1) A, B, C  
-(2) B, A, C  
-(3) C, B, A  
-(4) A, C, B  
-
-> **答案：(2)**。Python 程式是由上而下執行的，但在執行到 `def` 時只是「定義」函式而未執行其內部程式。程式會先執行第 5 行的 `print("B")`，接著呼叫 `func_sum()` 執行內部的 `print("A")`，最後執行第 7 行的 `print("C")`。
-
 #### Homework 實作練習：
 請在 [function1.py](function1.py) 中定義一個無參數、無傳回值的函式，執行時能顯示「歡迎光臨」。
 ```python
@@ -108,40 +91,6 @@ def say_hello(name):
 say_hello("Alice")
 say_hello("Bob")
 ```
-
-#### Question: 請問執行後的結果哪一個是對的?(選擇題)
-```python
-def func_sum(a, b):
-    c = a + b
-    print(c)
-
-print("1")
-func_sum(3, 4)
-print("2")
-```
-(1) 1, 7, 2  
-(2) 1, 3, 4, 2  
-(3) 3, 4, 1, 2  
-(4) 7, 1, 2  
-
-> **答案：(1)**。先印出 "1"，接著傳入 `3` 和 `4` 呼叫 `func_sum` 算出 `c = 7` 並印出，最後印出 "2"。
-
-#### Question: 請問執行後的結果哪一個是對的?(選擇題)
-```python
-def func_sum(a, b):
-    c = a + b
-    print(c)
-
-print("1")
-func_sum()
-print("2")
-```
-(1) 1, 0, 2  
-(2) 1, 2  
-(3) 0, 1, 2  
-(4) 錯誤 (TypeError)  
-
-> **答案：(4)**。因為 `func_sum` 定義了兩個必須傳入的參數 `a` 與 `b`，當呼叫 `func_sum()` 時未提供引數，Python 會拋出 `TypeError: func_sum() missing 2 required positional arguments` 錯誤。
 
 ---
 
@@ -171,24 +120,6 @@ def calculate_bmi(height, weight):
 my_bmi = calculate_bmi(1.75, 70)
 print(f"計算出的 BMI 為: {my_bmi:.2f}")
 ```
-
-#### Question: 請問執行後的結果哪一個是對的?(選擇題)
-```python
-def func_sum(a, b):
-    c = a + b * 2
-    return c
-
-print("1")
-z = func_sum(3, 4)
-print("2")
-print(z)
-```
-(1) 1, 7, 2  
-(2) 1, 11, 2  
-(3) 1, 2, 11  
-(4) 1, 2, 7  
-
-> **答案：(3)**。執行順序為：先印出 "1"，接著呼叫 `func_sum(3, 4)`，在函式內部先計算乘法 `4 * 2 = 8` 再加 `3` 得到 `11`，透過 `return` 傳回並賦值給 `z`，接著印出 "2"，最後 `print(z)` 印出 11。因此輸出為：1, 2, 11。
 
 #### Homework 實作練習（對應題號 6: convert_temp）：
 請在 [function2.py](function2.py) 中利用自訂函式完成攝氏與華氏溫度的轉換。
@@ -304,22 +235,6 @@ min_score, max_score = get_min_max(scores)  # 拆解 Tuple
 print(f"最低分: {min_score}, 最高分: {max_score}")
 ```
 
-#### Question: 請問執行後的結果哪一個是對的?(選擇題)
-```python
-def manyvalue(a, b):
-    c = a * b
-    return (a - 2, b + 3, c)
-
-x, y, z = manyvalue(3, 5)
-print(y)
-```
-(1) 8  
-(2) 15  
-(3) 1  
-(4) 20  
-
-> **答案：(1)**。呼叫 `manyvalue(3, 5)` 會回傳 `(3 - 2, 5 + 3, 3 * 5)` 也就是 `(1, 8, 15)`。在拆解賦值 `x, y, z = (1, 8, 15)` 後，`y` 的值為 `8`。
-
 #### Homework 實作練習：
 實作一個函式 `analyze_list(numbers)`，傳入一個數字串列，同時回傳其總和、平均值、最大值與最小值。
 
@@ -414,23 +329,6 @@ print("函數外2:", a)
 
 ```
 
-####  Question:請問執行後的結果哪一個是對的?(選擇題)
-
-```python
-a=2
-def func_sum( ):
-	print(a)
-	return( ) 
-
-func_sum( )
-```
-(1) 2  
-(2) 5  
-(3) 7  
-(4) 3  
- 
----
-
 #### 操作範例:請動手操作，並留意輸出結果
 ```python
 #fun3-2.py
@@ -447,41 +345,6 @@ func_sum( )
 print("函數外2:", a)
 
 ```
-
-#### Question: 請問執行後的結果哪一個是對的?(選擇題)
-```python
-a=3
-def func_sum( ):
-	a=7 
-	a=a+6 
-	print(a) 
-	return( )
-	
-a += 6 
-func_sum( )
-```
-(1) 7   
-(2) 3  
-(3) 13  
-(4) 9  
-
----
-
-####  請問執行後的結果哪一個是對的?(選擇題)
-```python
-a=3
-def func_sum( ):
-	a=7 
-	a=a+6 
-	return( )
-a += 6 
-func_sum( ) 
-print(a)
-```
-(1) 7   
-(2) 3  
-(3) 13  
-(4) 9  
 
 #### HomeWork:支出最大與最小
 - 輸入四個月的支出金額後列出最多與最少的支出金額。
