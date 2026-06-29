@@ -168,6 +168,8 @@ print(f"1加到100偶數的加總為 {evenTotal}")
 print(f"1加到100奇數的加總為 {oddTotal}") 
 ```
 
+[進階練習](./practice1.md)
+
 ## 巢狀迴圈
 
 ```python
