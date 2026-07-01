@@ -298,6 +298,8 @@ configure_user("Alice", 25, "日本", role="Admin", debug=True)
 # configure_user("Alice", 25, "日本", "Admin")
 ```
 
+[進階範例](./practice4.md)
+
 ---
 
 ### 4. 接收不定數量的引數：`*args` 與 `**kwargs`
