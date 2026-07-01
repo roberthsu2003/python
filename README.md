@@ -20,17 +20,15 @@
 - 整合應用程式
   - [excel的應用](./處理excel/README.md)
   - [整合line bot](./line_bot/README.md) 
-  - [整合Gemini line_bot](./gemini_line_bot/README.md)
+  
 
 
 
 - 附註
-  - [本機mini_conda](./mini_conda/README.md)
-  - [容器mini_conda開發](./使用Dock容器開發/README.md)
-  - [vscode和git最基本的設定](./vscode設定/README.md)
+  - [git](./git/README.md)
   - [uv 開發環境](./uv/README.md)
   - [markdown語法練習](https://www.markdowntutorial.com/zh-tw/)
   - [github markdown](./markdown/README.md)
-  - [學習prompt](./學習prompt/README.md)
+
 
 
