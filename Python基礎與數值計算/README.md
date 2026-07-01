@@ -131,58 +131,12 @@ result = Decimal('1.1') + Decimal('2.2')
 print(result)  # 輸出 3.3
 ```
 
-#### 💡 實戰範例 1：直角三角形角度計算 (使用 `math` 模組)
-輸入直角三角形的對邊及斜邊長度，計算其夾角角度（公式：$\sin(x) = \text{對邊} / \text{斜邊}$，使用 `math` 模組轉換角度）：
-```python
-import math
-opposite = float(input('請輸入直角三角形的對邊長度: '))
-hypotenuse = float(input('請輸入直角三角形的斜邊長度: '))
-radian = math.asin(opposite / hypotenuse)
-degree = math.degrees(radian)
-print('夾角的弧度: ', radian, ' 弧度')
-print('夾角的角度: ', degree, ' 度')
-```
-* [進階練習](degree.md)
-
-#### 💡 實戰範例 2：對數利息運算 (使用 `math.log`)
-計算存款在複利之下達到目標金額所需要的時間，並利用 `math.log()` 進行求解：
-```python
-import math
-principal = float(input('請輸入目前存款金額: '))
-rate = float(input('請輸入年利率(例如 1.1% 請輸入 0.011): '))
-target = float(input('請輸入目標金額: '))
-
-ratio = target / principal
-n = math.log(ratio) / math.log(1 + rate)
-print('大約需要 ', n, ' 年才能達到目標金額')
-```
-
-##### ✍️ 數學運算邏輯說明：
-假設存款現在有 20,000 元，年利率為 1.1%，以複利計息，經過 $n$ 年後，存款總額會是：
-$$20000 \times 1.011^n$$
-
-若要計算存款何時能達到 22,000 元，可列出方程式：
-$$20000 \times 1.011^n = 22000$$
-
-兩邊同除以 20,000 以簡化方程式：
-$$1.011^n = 1.1$$
-
-根據等量公理，兩邊同時取對數 ($\log$)：
-$$\log 1.011^n = \log 1.1$$
-$$n \log 1.011 = \log 1.1$$
-
-計算對數數值後：
-$$0.00475n \approx 0.04139$$
-$$n \approx 8.71\text{ (年)}$$
-
-* [進階練習](log.md)
-
 ---
 
 ## 3. 數值運算與運算子
 
 ### 3.1 數學運算子與優先順序
-Python 提供了豐富 of 數學運算子：
+Python 提供了豐富的數學運算子：
 
 | 運算子 | 描述 | 範例 | 結果 |
 | :---: | :--- | :--- | :--- |
@@ -232,6 +186,52 @@ height = float(input('請輸入圓柱體的高(公分): '))
 area = radius ** 2 * PI * height
 print('圓柱體的體積: ', area, ' 立方公分')
 ```
+
+#### 💡 實戰範例 4：直角三角形角度計算 (使用 `math` 模組)
+輸入直角三角形的對邊及斜邊長度，計算其夾角角度（公式：$\sin(x) = \text{對邊} / \text{斜邊}$，使用 `math` 模組轉換角度）：
+```python
+import math
+opposite = float(input('請輸入直角三角形的對邊長度: '))
+hypotenuse = float(input('請輸入直角三角形的斜邊長度: '))
+radian = math.asin(opposite / hypotenuse)
+degree = math.degrees(radian)
+print('夾角的弧度: ', radian, ' 弧度')
+print('夾角的角度: ', degree, ' 度')
+```
+* [進階練習](degree.md)
+
+#### 💡 實戰範例 5：對數利息運算 (使用 `math.log`)
+計算存款在複利之下達到目標金額所需要的時間，並利用 `math.log()` 進行求解：
+```python
+import math
+principal = float(input('請輸入目前存款金額: '))
+rate = float(input('請輸入年利率(例如 1.1% 請輸入 0.011): '))
+target = float(input('請輸入目標金額: '))
+
+ratio = target / principal
+n = math.log(ratio) / math.log(1 + rate)
+print('大約需要 ', n, ' 年才能達到目標金額')
+```
+
+##### ✍️ 數學運算邏輯說明：
+假設存款現在有 20,000 元，年利率為 1.1%，以複利計息，經過 $n$ 年後，存款總額會是：
+$$20000 \times 1.011^n$$
+
+若要計算存款何時能達到 22,000 元，可列出方程式：
+$$20000 \times 1.011^n = 22000$$
+
+兩邊同除以 20,000 以簡化方程式：
+$$1.011^n = 1.1$$
+
+根據等量公理，兩邊同時取對數 ($\log$)：
+$$\log 1.011^n = \log 1.1$$
+$$n \log 1.011 = \log 1.1$$
+
+計算對數數值後：
+$$0.00475n \approx 0.04139$$
+$$n \approx 8.71\text{ (年)}$$
+
+* [進階練習](log.md)
 
 ---
 
