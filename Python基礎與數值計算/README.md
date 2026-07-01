@@ -30,7 +30,7 @@ Length:      3
 註解是程式的說明文字，不會被 Python 解譯器執行。撰寫良好的註解是良好程式習慣的開始：
 
 * **單行註解**：以井字號 `#` 開頭，該行在其後的內容皆為註解。
-* **多行註解**：Python 原生不支援特別的多行註解語法，但通常有兩種做法：
+* **多行註解**：Python 原生不支援特別的多行註解語法，本講義採用以下常用做法：
   1. 在每行開頭使用 `#`。
   2. 使用**未指派給變數的多行字串**（以三個單引號 `'''` 或雙引號 `"""` 包裹），當解譯器讀到未被指派的多行字串時會將其忽略，因而可作為多行註解使用。
 
@@ -131,12 +131,58 @@ result = Decimal('1.1') + Decimal('2.2')
 print(result)  # 輸出 3.3
 ```
 
+#### 💡 實戰範例 1：直角三角形角度計算 (使用 `math` 模組)
+輸入直角三角形的對邊及斜邊長度，計算其夾角角度（公式：$\sin(x) = \text{對邊} / \text{斜邊}$，使用 `math` 模組轉換角度）：
+```python
+import math
+opposite = float(input('請輸入直角三角形的對邊長度: '))
+hypotenuse = float(input('請輸入直角三角形的斜邊長度: '))
+radian = math.asin(opposite / hypotenuse)
+degree = math.degrees(radian)
+print('夾角的弧度: ', radian, ' 弧度')
+print('夾角的角度: ', degree, ' 度')
+```
+* [進階練習](degree.md)
+
+#### 💡 實戰範例 2：對數利息運算 (使用 `math.log`)
+計算存款在複利之下達到目標金額所需要的時間，並利用 `math.log()` 進行求解：
+```python
+import math
+principal = float(input('請輸入目前存款金額: '))
+rate = float(input('請輸入年利率(例如 1.1% 請輸入 0.011): '))
+target = float(input('請輸入目標金額: '))
+
+ratio = target / principal
+n = math.log(ratio) / math.log(1 + rate)
+print('大約需要 ', n, ' 年才能達到目標金額')
+```
+
+##### ✍️ 數學運算邏輯說明：
+假設存款現在有 20,000 元，年利率為 1.1%，以複利計息，經過 $n$ 年後，存款總額會是：
+$$20000 \times 1.011^n$$
+
+若要計算存款何時能達到 22,000 元，可列出方程式：
+$$20000 \times 1.011^n = 22000$$
+
+兩邊同除以 20,000 以簡化方程式：
+$$1.011^n = 1.1$$
+
+根據等量公理，兩邊同時取對數 ($\log$)：
+$$\log 1.011^n = \log 1.1$$
+$$n \log 1.011 = \log 1.1$$
+
+計算對數數值後：
+$$0.00475n \approx 0.04139$$
+$$n \approx 8.71\text{ (年)}$$
+
+* [進階練習](log.md)
+
 ---
 
 ## 3. 數值運算與運算子
 
 ### 3.1 數學運算子與優先順序
-Python 提供了豐富的數學運算子：
+Python 提供了豐富 of 數學運算子：
 
 | 運算子 | 描述 | 範例 | 結果 |
 | :---: | :--- | :--- | :--- |
@@ -158,14 +204,34 @@ Python 提供了豐富的數學運算子：
   5. 加、減 `+`, `-`
   6. 賦值與複合賦值 `=`
 
-#### 💡 教學範例：商與餘數計算
-讓使用者輸入被除數與除數，程式會計算並顯示相除的商及餘數：
+#### 💡 實戰範例 1：商與餘數計算
+此範例示範如何以整除 `//` 與取餘數 `%` 計算兩數相除的商與餘數：
 ```python
 n = int(input('請輸入被除數(整數): '))
 m = int(input('請輸入除數(整數, 不可以是 0): '))
 print('商:', n // m, '餘數:', n % m)
 ```
-* [解題腳本](mathop.py)
+
+#### 💡 實戰範例 2：梯形面積計算
+讓使用者輸入梯形的上底、下底與高，並計算其面積（$\text{面積} = (\text{上底} + \text{下底}) \times \text{高} / 2$）：
+```python
+top = float(input('請輸入梯形的上底(公分): '))
+bottom = float(input('請輸入梯形的下底(公分): '))
+height = float(input('請輸入梯形的高(公分): '))
+area = (top + bottom) * height / 2
+print('梯形的面積: ', area, ' 平方公分')
+```
+* [進階練習](ladder.md)
+
+#### 💡 實戰範例 3：圓柱體體積計算
+使用者輸入圓柱體的半徑及高，計算圓柱體的體積（$\text{體積} = \pi \times \text{半徑}^2 \times \text{高}$，其中 $\pi \approx 3.14159$）：
+```python
+PI = 3.14159
+radius = float(input('請輸入圓柱體的半徑(公分): '))
+height = float(input('請輸入圓柱體的高(公分): '))
+area = radius ** 2 * PI * height
+print('圓柱體的體積: ', area, ' 立方公分')
+```
 
 ---
 
@@ -175,7 +241,7 @@ print('商:', n // m, '餘數:', n % m)
 * `y = y - 3` ➡️ 可簡寫為 `y -= 3`
 * 相同的規則適用於其他運算子如 `*=`, `/=`, `%=`, `**=` 等。
 
-#### 💡 教學範例 1：手機餘額計算
+#### 💡 實戰範例 1：手機餘額計算
 ```python
 # money.py
 money = 50000
@@ -183,7 +249,6 @@ cell = int(input("請輸入手機金額: "))
 money -= cell  # 相當於 money = money - cell
 print("剩餘款為: " + str(money))
 ```
-* [解題腳本](money.py)
 
 #### 💡 實戰範例 2：三數相加（複合指定運算子）
 讓使用者輸入三個任意數，並使用 `+=` 運算子顯示三數相加的總和：
@@ -197,7 +262,6 @@ x = float(input('請輸入第三個數: '))
 sum_val += x
 print('三個數的總和為: ', sum_val)
 ```
-* [解題腳本](complex_s.py)
 
 ---
 
@@ -224,7 +288,6 @@ n = float(input('請輸入第一個數值: '))
 m = float(input('請輸入第二個數值: '))
 print('兩個數的和是: ', n + m)
 ```
-* [解題腳本](plus_s.py)
 
 #### 💡 實戰範例 2：平方與立方計算
 使用者輸入一個任意數，顯示此數的平方值及立方值：
@@ -235,7 +298,6 @@ print('此數的平方是: ', result)
 result = num ** 3
 print('此數的立方是: ', result)
 ```
-* [解題腳本](complex.py)
 
 ---
 
@@ -245,7 +307,7 @@ print('此數的立方是: ', result)
 #### 1️⃣ 傳統 `%` 格式化 (C語言風格)
 語法：`"字串格式代碼" % (變數1, 變數2, ...)`
 * `%d` 或 `%i`：十進位整數。
-* `%f`：浮點數（可使用 `%.mf` 控制小數點後 `m` 位數，亦可加入寬度控制，如 `%5.2f`）。
+* `%f`：浮點數（可使用 `%.mf` 控制小數點後 `m`位數，亦可加入寬度控制，如 `%5.2f`）。
 * `%s`：字串。
 * `width` 對齊控制：正數為靠右對齊，負數為靠左對齊（如 `%-5s`）。
 
@@ -281,79 +343,6 @@ name = "Python"
 version = 3.9
 print(f"Hello, {name}! Version is {version:.1f}")  # 輸出: Hello, Python! Version is 3.9
 ```
-
----
-
-## 5. 綜合應用範例
-
-### 5.1 梯形面積計算
-讓使用者輸入梯形的上底、下底與高，並計算其面積（$\text{面積} = (\text{上底} + \text{下底}) \times \text{高} / 2$）：
-```python
-top = float(input('請輸入梯形的上底(公分): '))
-bottom = float(input('請輸入梯形的下底(公分): '))
-height = float(input('請輸入梯形的高(公分): '))
-area = (top + bottom) * height / 2
-print('梯形的面積: ', area, ' 平方公分')
-```
-* [解題腳本](ladder.py)
-* [進階練習](ladder.md)
-
-### 5.2 圓柱體體積計算
-使用者輸入圓柱體的半徑及高，計算圓柱體的體積（$\text{體積} = \pi \times \text{半徑}^2 \times \text{高}$，其中 $\pi \approx 3.14159$）：
-```python
-PI = 3.14159
-radius = float(input('請輸入圓柱體的半徑(公分): '))
-height = float(input('請輸入圓柱體的高(公分): '))
-area = radius ** 2 * PI * height
-print('圓柱體的體積: ', area, ' 立方公分')
-```
-* [解題腳本](circle_s.py)
-
-### 5.3 直角三角形角度計算
-輸入直角三角形的對邊及斜邊長度，計算其夾角角度（公式：$\sin(x) = \text{對邊} / \text{斜邊}$，使用 `math` 模組轉換角度）：
-```python
-import math
-opposite = float(input('請輸入直角三角形的對邊長度: '))
-hypotenuse = float(input('請輸入直角三角形的斜邊長度: '))
-radian = math.asin(opposite / hypotenuse)
-degree = math.degrees(radian)
-print('夾角的弧度: ', radian, ' 弧度')
-print('夾角的角度: ', degree, ' 度')
-```
-* [進階練習](degree.md)
-
-### 5.4 對數利息運算
-計算存款在複利之下達到目標金額所需要的時間，並利用 `math.log()` 進行求解：
-```python
-import math
-principal = float(input('請輸入目前存款金額: '))
-rate = float(input('請輸入年利率(例如 1.1% 請輸入 0.011): '))
-target = float(input('請輸入目標金額: '))
-
-ratio = target / principal
-n = math.log(ratio) / math.log(1 + rate)
-print('大約需要 ', n, ' 年才能達到目標金額')
-```
-
-#### ✍️ 數學運算邏輯說明：
-假設存款現在有 20,000 元，年利率為 1.1%，以複利計息，經過 $n$ 年後，存款總額會是：
-$$20000 \times 1.011^n$$
-
-若要計算存款何時能達到 22,000 元，可列出方程式：
-$$20000 \times 1.011^n = 22000$$
-
-兩邊同除以 20,000 以簡化方程式：
-$$1.011^n = 1.1$$
-
-根據等量公理，兩邊同時取對數 ($\log$)：
-$$\log 1.011^n = \log 1.1$$
-$$n \log 1.011 = \log 1.1$$
-
-計算對數數值後：
-$$0.00475n \approx 0.04139$$
-$$n \approx 8.71\text{ (年)}$$
-
-* [進階練習](log.md)
 
 ---
 
