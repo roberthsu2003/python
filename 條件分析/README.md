@@ -94,6 +94,17 @@ else:
 print("執行結束") 
 ```
 
+#### 💡 操作範例 3：密碼檢查
+讓使用者輸入密碼，若密碼為 `1234` 則輸出歡迎光臨，否則提示密碼錯誤：
+```python
+# password.py
+password = input('請輸入密碼:')
+if password == "1234":
+    print('密碼正確!歡迎光臨!')
+else:
+    print('密碼錯誤\n請重新輸入')
+```
+
 #### 🧠 自我檢驗小測驗：
 > **Q2. 請問執行以下程式碼後，輸出的結果是什麼？**
 > ```python
@@ -149,9 +160,9 @@ else:
     else:
         root = -(-x) ** (1 / y)
 print('root =', root)
+```
 
 ➡️ [進階練習 1：會員折扣下限判定 (單一選擇與巢狀 if)](practice1.md)
-```
 
 ---
 
@@ -202,9 +213,58 @@ elif score >= 60:
     grade = '丙'
 else:
     grade = '丁'
+```
 
 ➡️ [進階練習 3：便利商店飲料杯數折扣 (多向選擇)](practice3.md)
+
+#### 💡 操作範例 2：消費折扣計算
+輸入顧客的購買金額，根據區間計算實付金額（金額滿 10 萬打 8 折、滿 5 萬打 85 折、滿 3 萬打 9 折、滿 1 萬打 95 折）：
+```python
+# discount.py
+money = int(input("請輸入購買金額:"))
+if money >= 100000:
+    payMoney = money * 0.8
+elif money >= 50000:
+    payMoney = money * 0.85
+elif money >= 30000:
+    payMoney = money * 0.9
+elif money >= 10000:
+    payMoney = money * 0.95
+else:
+    payMoney = money
+
+print('實付金額是:', payMoney, '元')
 ```
+
+#### 💡 操作範例 3：BMI 計算與診斷
+輸入身高（公分）與體重（公斤），計算出 BMI 值，並依據區間診斷身體狀態：
+
+| BMI 值 | BMI < 18.5 | 18.5 <= BMI < 25 | 25 <= BMI < 30 | BMI >= 30 |
+| :---: | :---: | :---: | :---: | :---: |
+| **身體狀態** | 太輕 | 正常 | 過重 | 肥胖 |
+
+$$\text{BMI} = \text{體重(公斤)} / (\text{身高(公尺)})^2$$
+
+```python
+# bmi.py
+height = float(input('請輸入身高,單位為公分:'))
+weight = float(input('請輸入體重,單位為公斤:'))
+bmi = weight / ((height/100) ** 2)
+
+if bmi < 18.5:
+    state = '太輕'
+elif bmi <= 25:
+    state = '正常'
+elif bmi <= 30:
+    state = '過重'
+else:
+    state = '肥胖'
+
+print('您的BMI是', bmi)
+print('「您的體重', state, '」')
+```
+
+* [進階練習 5：三科平均成績等級判斷 (綜合應用)](practice5.md)
 
 #### ⚠️ 關鍵觀念：邏輯順序與範圍重疊陷阱 (Bug 分析)
 在多向選擇中，**條件的判定是由上而下依序進行的**。一旦某個條件成立，後面的所有條件都會被直接跳過。因此，條件範圍有重疊時，必須注意擺放順序：
@@ -273,9 +333,9 @@ try:
         print("學生分數不可以大於 300 分！")
 except ValueError:
     print("格式錯誤！請輸入有效的整數數值。")
+```
 
 ➡️ [進階練習 2：飲料店訂單金額計算 (異常處理與範圍限制)](practice2.md)
-```
 
 ---
 
@@ -312,9 +372,9 @@ if chinese == 100 and math == 100:
     bonus = 1000
 elif chinese == 100 or math == 100:
     bonus = 500
+```
 
 ➡️ [進階練習 4：遊樂園入場優惠 (邏輯運算子)](practice4.md)
-```
 
 ### 4.2 實用邏輯判斷技巧
 
@@ -367,37 +427,11 @@ else:
 
 ---
 
-## 5. 課後練習與實作 (Homework)
+## 5. 綜合實戰應用：2017 ACC/AHA 血壓分類診斷
 
-### Homework 1：密碼檢查
-* **檔案名稱**：[password.py](password.py)
-* **需求**：讓使用者輸入密碼，若密碼為 `1234` 則輸出 `「密碼正確!歡迎光臨!」`，若錯誤則顯示錯誤並提示重新輸入。
+此實戰範例結合了邏輯運算子與平鋪的 `if-elif-else` 分支判定。
 
-### Homework 2：消費折扣計算
-* **檔案名稱**：[discount.py](discount.py)
-* **需求**：輸入顧客的購買金額，根據以下區間計算實付金額：
-  - 100,000元以上打 8 折。
-  - 50,000元以上打 85 折。
-  - 30,000元以上打 9 折。
-  - 10,000元以上打 95 折。
-* **範例輸出**：輸入 `130000` ➡️ 顯示 `實付金額是: 104000.0 元`
-
-### Homework 3：BMI 計算與診斷
-* **檔案名稱**：[bmi.py](bmi.py)
-* **需求**：輸入身高（公分）與體重（公斤），計算出 BMI 值，並依據下表診斷身體狀態：
-  - $\text{BMI} = \text{體重(公斤)} / (\text{身高(公尺)})^2$
-  
-| BMI 值 | BMI < 18.5 | 18.5 <= BMI < 25 | 25 <= BMI < 30 | BMI >= 30 |
-| :---: | :---: | :---: | :---: | :---: |
-| **身體狀態** | 太輕 | 正常 | 過重 | 肥胖 |
-
-* **範例輸出**：身高 `177`、體重 `80` ➡️ `您的BMI是 25.53544`，`「您的體重過重」`
-
-* [進階練習 5：三科平均成績等級判斷 (綜合應用)](practice5.md)
-
-### Homework 4：2017 ACC/AHA 血壓分類診斷
-依據下表的收縮壓與舒張壓，判定血壓健康狀態：
-
+### 血壓分類標準
 | 分類 | 收縮壓 (sbp) | 關係 | 舒張壓 (dbp) |
 | :--- | :---: | :---: | :---: |
 | **正常** | < 120 | 且 | < 80 |
@@ -406,71 +440,62 @@ else:
 | **高血壓二期** | >= 140 | 或 | >= 90 |
 | **單純收縮期高血壓** | >= 130 | 且 | < 80 |
 
-#### 💡 實作邏輯對比與討論
+以下提供三種不同實作方式的代碼對比與分析：
 
-* **方法一：使用多個 `if`（條件重疊問題）**
-  此寫法每個 `if` 都會執行。需要注意如果多個條件同時成立，`suggestion` 會被後面的值蓋掉。此外，最後必須做單純收縮期高血壓判定。
-  ```python
-  sbp = int(input("請輸入收縮壓:"))
-  dbp = int(input("請輸入舒張壓:"))
-  suggestion = ""
-  if sbp < 120 and dbp < 80:
-      suggestion = "正常"
-  if 120 <= sbp <= 129 and dbp < 80:
-      suggestion = "血壓升高"
-  if 130 <= sbp <= 139 or 80 <= dbp <= 89:
-      suggestion = "高血壓一期"
-  if sbp >= 140 or dbp >= 90:
-      suggestion = "高血壓二期"
-  if sbp >= 130 and dbp < 80:
-      suggestion = "單純收縮期高血壓"
-  print(suggestion)
-  ```
+#### 💡 實作方式一：使用多個 `if`（條件重疊問題）
+此寫法每個 `if` 都會執行。需要注意如果多個條件同時成立，`suggestion` 會被後面的值蓋掉。此外，最後必須做單純收縮期高血壓判定。
+```python
+sbp = int(input("請輸入收縮壓:"))
+dbp = int(input("請輸入舒張壓:"))
+suggestion = ""
+if sbp < 120 and dbp < 80:
+    suggestion = "正常"
+if 120 <= sbp <= 129 and dbp < 80:
+    suggestion = "血壓升高"
+if 130 <= sbp <= 139 or 80 <= dbp <= 89:
+    suggestion = "高血壓一期"
+if sbp >= 140 or dbp >= 90:
+    suggestion = "高血壓二期"
+if sbp >= 130 and dbp < 80:
+    suggestion = "單純收縮期高血壓"
+print(suggestion)
+```
 
-* **方法二：階梯式 `if-elif-else`（推薦，由重度往輕度排除）**
-  使用 `elif` 必須注意先排除「高血壓二期」與「高血壓一期」等嚴重狀態，而「單純收縮期高血壓」因為條件與其他一期/二期狀態有交集，需要格外小心其優先權。
-  ```python
-  sbp = int(input("請輸入收縮壓:"))
-  dbp = int(input("請輸入舒張壓:"))
-  
-  if sbp >= 140 or dbp >= 90:
-      suggestion = "高血壓二期"
-  elif sbp >= 130 and dbp < 80:
-      suggestion = "單純收縮期高血壓"
-  elif sbp >= 130 or 80 <= dbp <= 89:
-      suggestion = "高血壓一期"
-  elif sbp >= 120 and dbp < 80:
-      suggestion = "血壓升高"
-  else:
-      suggestion = "正常"
-  print(suggestion)
-  ```
+#### 💡 實作方式二：階梯式 `if-elif-else`（推薦，由重度往輕度排除）
+使用 `elif` 必須注意先排除「高血壓二期」與「高血壓一期」等嚴重狀態，而「單純收縮期高血壓」因為條件與其他一期/二期狀態有交集，需要格外小心其優先權。
+```python
+sbp = int(input("請輸入收縮壓:"))
+dbp = int(input("請輸入舒張壓:"))
 
-* **方法三：使用 `pyinputplus` 套件進行安全輸入**
-  引入第三方套件以確保使用者輸入必定是合法的整數數字：
-  ```python
-  import pyinputplus as pyip
-  sbp = pyip.inputInt(prompt="請輸入收縮壓:")
-  dbp = pyip.inputInt(prompt="請輸入舒張壓:")
-  
-  if sbp >= 140 or dbp >= 90:
-      status = '高血壓二期'
-  elif sbp >= 130 and dbp < 80:
-      status = '單純收縮期高血壓'
-  elif sbp >= 130 or (80 <= dbp < 90):
-      status = '高血壓一期'
-  elif sbp >= 120 and dbp < 80:
-      status = '血壓升高'
-  else:
-      status = '正常'
-  print(status)
-  ```
+if sbp >= 140 or dbp >= 90:
+    suggestion = "高血壓二期"
+elif sbp >= 130 and dbp < 80:
+    suggestion = "單純收縮期高血壓"
+elif sbp >= 130 or 80 <= dbp <= 89:
+    suggestion = "高血壓一期"
+elif sbp >= 120 and dbp < 80:
+    suggestion = "血壓升高"
+else:
+    suggestion = "正常"
+print(suggestion)
+```
 
----
+#### 💡 實作方式三：使用 `pyinputplus` 套件進行安全輸入
+引入第三方套件以確保使用者輸入必定是合法的整數數字：
+```python
+import pyinputplus as pyip
+sbp = pyip.inputInt(prompt="請輸入收縮壓:")
+dbp = pyip.inputInt(prompt="請輸入舒張壓:")
 
-### 🧠 小測驗解答：
-* **Q1**：`(3)` —— `15 >= 14` 成立，`a` 減 2 變 13。
-* **Q2**：`(3)` —— `a != 12` 不成立，走 `else` 輸出 "等於 12"，隨後執行外部的 `print("執行結束")`。
-* **Q3**：`(3)` —— `11` 不滿足前兩者，走 `else` 輸出 "小於等於 12"。
-* **Q4**：`(1)` —— 14 滿足 `12 <= a < 18`，且滿足 `not 14 > 18` (即 `not False` = `True`)。
-* **Q5**：`(1)` —— 雖然 `11 >= 12` 為 False，但 `11 < 18` 為 True，使用 `or` 運算子結果為 True。
+if sbp >= 140 or dbp >= 90:
+    status = '高血壓二期'
+elif sbp >= 130 and dbp < 80:
+    status = '單純收縮期高血壓'
+elif sbp >= 130 or (80 <= dbp < 90):
+    status = '高血壓一期'
+elif sbp >= 120 and dbp < 80:
+    status = '血壓升高'
+else:
+    status = '正常'
+print(status)
+```
