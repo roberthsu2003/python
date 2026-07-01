@@ -119,6 +119,61 @@ for i in x[10:40:6]:
 	print(i)
 ```
 
+## 說明文件 (Docstrings)
+
+在 Python 中，寫在函式定義內第一行的字串，被稱為 **說明文件（Docstrings）**。其目的是為函式提供一份結構清晰的「使用手冊」，說明函式的作用、參數格式及回傳值。
+
+好的 Docstring 可以透過三個雙引號 `"""` 來撰寫多行內容，這是 Python 的最佳實踐之一。
+
+### 💡 範例：標準的 Docstring 寫法
+```python
+def calculate_triangle_area(base, height):
+    """
+    計算直角三角形的面積。
+    
+    參數:
+    base (float): 三角形的底邊長度 (公分)
+    height (float): 三角形的高 (公分)
+    
+    回傳:
+    float: 計算出的三角形面積 (平方公分)
+    """
+    return (base * height) / 2
+```
+
+### 💡 如何讀取說明文件？
+我們可以使用兩種常見的方式來查閱函式的說明文件：
+
+- **方法一：特殊屬性 `__doc__`**
+  直接在程式碼中存取並印出函式的 `__doc__` 屬性。
+  ```python
+  print(calculate_triangle_area.__doc__)
+  ```
+
+- **方法二：內建函式 `help()`**
+  在開發或互動式環境中，使用 `help()` 查詢函式的使用說明。
+  ```python
+  help(calculate_triangle_area)
+  ```
+ 
+**預期輸出：**
+  
+  ```text
+  Help on function calculate_triangle_area in module __main__:
+
+  calculate_triangle_area(base, height)
+      計算直角三角形的面積。
+      
+      參數:
+      base (float): 三角形的底邊長度 (公分)
+      height (float): 三角形的高 (公分)
+      
+      回傳:
+      float: 計算出的三角形面積 (平方公分)
+  ```
+  
+[進階範例](./practice3.md)  
+
 ## 函式的引數呼叫與參數設定
 
 當我們定義函式（宣告「參數」）並呼叫它（傳入「引數」）時，Python 提供了多種靈活的傳遞方式。學會如何閱讀函式定義的「說明書」，是寫出乾淨、好讀程式碼的關鍵。
@@ -379,54 +434,5 @@ print(f"總價: ${total3:.2f}")
 
 [進階練習](./practice2.md)
 
-### 說明文件 (Docstrings)
 
-在 Python 中，寫在函式定義內第一行的字串，被稱為 **說明文件（Docstrings）**。其目的是為函式提供一份結構清晰的「使用手冊」，說明函式的作用、參數格式及回傳值。
-
-好的 Docstring 可以透過三個雙引號 `"""` 來撰寫多行內容，這是 Python 的最佳實踐之一。
-
-#### 💡 範例：標準的 Docstring 寫法
-```python
-def calculate_triangle_area(base, height):
-    """
-    計算直角三角形的面積。
-    
-    參數:
-    base (float): 三角形的底邊長度 (公分)
-    height (float): 三角形的高 (公分)
-    
-    回傳:
-    float: 計算出的三角形面積 (平方公分)
-    """
-    return (base * height) / 2
-```
-
-#### 💡 如何讀取說明文件？
-我們可以使用兩種常見的方式來查閱函式的說明文件：
-
-- **方法一：特殊屬性 `__doc__`**
-  直接在程式碼中存取並印出函式的 `__doc__` 屬性。
-  ```python
-  print(calculate_triangle_area.__doc__)
-  ```
-
-- **方法二：內建函式 `help()`**
-  在開發或互動式環境中，使用 `help()` 查詢函式的使用說明。
-  ```python
-  help(calculate_triangle_area)
-  ```
-  *預期輸出：*
-  ```text
-  Help on function calculate_triangle_area in module __main__:
-
-  calculate_triangle_area(base, height)
-      計算直角三角形的面積。
-      
-      參數:
-      base (float): 三角形的底邊長度 (公分)
-      height (float): 三角形的高 (公分)
-      
-      回傳:
-      float: 計算出的三角形面積 (平方公分)
-  ```
 
