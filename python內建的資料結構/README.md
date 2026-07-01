@@ -307,6 +307,9 @@ unique_to_alice = alice_friends - bob_friends
 print("僅愛麗絲擁有的好友:", unique_to_alice)  # 輸出: {'小明', '小華'}
 ```
 
+
+[進階練習](practice4.md)
+
 ---
 
 ## 6. 實務應用：巢狀表格結構 (List of Dicts)
@@ -355,6 +358,7 @@ for student in students:
 卡蘿       92     88     95     91.7
 ```
 
+[進階練習](practice5.md)
 ---
 
 ## 7. 資料結構的效能比較與選擇指南
