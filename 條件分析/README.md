@@ -169,9 +169,38 @@ else:
 #### 💡 重構對比：巢狀 vs. `if-elif-else`
 以下是將學生分數換算成等級的程式，對比這兩種寫法：
 
-| 巢狀多層寫法 (可讀性差 ❌) | `if-elif-else` 平鋪重構 (清晰易懂 ✅) |
-| :--- | :--- |
-| ```python<br>score = int(input("請輸入分數:"))<br>if score >= 90:<br>    grade = '優'<br>else:<br>    if score >= 80:<br>        grade = '甲'<br>    else:<br>        if score >= 70:<br>            grade = '乙'<br>        else:<br>            if score >= 60:<br>                grade = '丙'<br>            else:<br>                grade = '丁'<br>``` | ```python<br>score = int(input("請輸入分數:"))<br>if score >= 90:<br>    grade = '優'<br>elif score >= 80:<br>    grade = '甲'<br>elif score >= 70:<br>    grade = '乙'<br>elif score >= 60:<br>    grade = '丙'<br>else:<br>    grade = '丁'<br>``` |
+##### ❌ 巢狀多層寫法 (可讀性差)
+```python
+score = int(input("請輸入分數:"))
+if score >= 90:
+    grade = '優'
+else:
+    if score >= 80:
+        grade = '甲'
+    else:
+        if score >= 70:
+            grade = '乙'
+        else:
+            if score >= 60:
+                grade = '丙'
+            else:
+                grade = '丁'
+```
+
+##### ✅ `if-elif-else` 平鋪重構 (清晰易懂)
+```python
+score = int(input("請輸入分數:"))
+if score >= 90:
+    grade = '優'
+elif score >= 80:
+    grade = '甲'
+elif score >= 70:
+    grade = '乙'
+elif score >= 60:
+    grade = '丙'
+else:
+    grade = '丁'
+```
 
 #### ⚠️ 關鍵觀念：邏輯順序與範圍重疊陷阱 (Bug 分析)
 在多向選擇中，**條件的判定是由上而下依序進行的**。一旦某個條件成立，後面的所有條件都會被直接跳過。因此，條件範圍有重疊時，必須注意擺放順序：
