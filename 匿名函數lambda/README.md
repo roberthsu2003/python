@@ -55,6 +55,39 @@ result = run_with_positional_args(sum_args, 1, 2, 3, 4)
 print(result)  # 輸出: 10
 ```
 
+### 💡 實戰生活主題範例：自動化報表產生器
+> **為什麼此場景需要「函式作為參數」？**  
+> 假設一個報表系統要先後執行「讀取資料 → 過濾資料 → 輸出結果」三個步驟。
+> 將每個步驟包裝成函式，再透過一個「流水線」函式按序呼叫，
+> 可以讓每個步驟自由抽換，不必改動主流程。
+```python
+def read_data():
+    print("[步驟1] 從資料庫讀取學生成績...")
+    return [88, 45, 92, 60, 33, 77]
+
+def filter_pass(data):
+    print("[步驟2] 過濾出及格 (≥60) 的成績...")
+    return [s for s in data if s >= 60]
+
+def output_result(data):
+    print(f"[步驟3] 最終及格名單：{data}")
+
+def run_pipeline(steps):
+    """按序執行一連串步驟，並將上一步的回傳值傳入下一步"""
+    result = steps[0]()          # 執行第一個步驟
+    for step in steps[1:]:
+        result = step(result)    # 每個步驟接收上一步的輸出
+
+# 將三個步驟以「函式物件清單」傳入，隨時可以抽換任一步驟
+run_pipeline([read_data, filter_pass, output_result])
+```
+##### 🖥️ 終端機預期輸出結果：
+```text
+[步驟1] 從資料庫讀取學生成績...
+[步驟2] 過濾出及格 (≥60) 的成績...
+[步驟3] 最終及格名單：[88, 92, 60, 77]
+```
+
 ---
 
 ## 2. 內部函式 (Inner Functions) 與 閉包 (Closures)
@@ -90,6 +123,46 @@ cat_speaker = make_intro_speaker("喵喵")
 # 呼叫閉包
 print(duck_speaker("唐老鴨"))  # 輸出: 唐老鴨 說: '呱呱'
 print(cat_speaker("哆啦A夢"))  # 輸出: 哆啦A夢 說: '喵喵'
+```
+
+### 💡 實戰生活主題範例：購物網站折扣計算器
+> **為什麼此場景需要閉包？**  
+> 電商平台針對不同的會員等級（普通會員、VIP、黑卡會員）有不同的折扣率。
+> 使用閉包，我們可以用「工廠函式」根據傳入的折扣率，
+> 動態「製造」出各自專屬的計算函式，每個函式各自「記住」自己的折扣率，
+> 而不需要每次呼叫都重複傳入折扣參數。
+```python
+def make_discount_calculator(discount_rate):
+    """折扣計算器工廠：根據折扣率，產出一個專屬的計算函式"""
+    def calculate(original_price):
+        final_price = original_price * discount_rate
+        saving = original_price - final_price
+        print(f"  原價: ${original_price:.0f}  →  折扣後: ${final_price:.0f}  (省了 ${saving:.0f})")
+        return final_price
+    return calculate
+
+# 為不同會員等級各自建立一個專屬的計算器（閉包）
+member_calc   = make_discount_calculator(1.0)   # 普通會員：無折扣
+vip_calc      = make_discount_calculator(0.9)   # VIP 會員：9 折
+blackcard_calc = make_discount_calculator(0.75) # 黑卡會員：75 折
+
+print("=== 購買一台 $12,000 的筆電 ===")
+print("普通會員：")
+member_calc(12000)
+print("VIP 會員：")
+vip_calc(12000)
+print("黑卡會員：")
+blackcard_calc(12000)
+```
+##### 🖥️ 終端機預期輸出結果：
+```text
+=== 購買一台 $12,000 的筆電 ===
+普通會員：
+  原價: $12000  →  折扣後: $12000  (省了 $0)
+VIP 會員：
+  原價: $12000  →  折扣後: $10800  (省了 $1200)
+黑卡會員：
+  原價: $12000  →  折扣後: $9000  (省了 $3000)
 ```
 
 ---
@@ -158,6 +231,46 @@ actions = {
 actions.get(level, lambda: print('不及格 (F)'))()
 ```
 
+### 💡 實戰生活主題範例：商品清單客製化排序
+> **為什麼此場景需要 Lambda？**  
+> 電商平台的商品清單需要依照不同條件排序（最低價、評分最高、CP 值）。
+> 每個排序條件只需一個簡單的取值規則，用 `def` 另外命名三個函式過於累贅。
+> 搭配 `sorted()` 的 `key` 參數，Lambda 讓排序邏輯和呼叫寫在同一行，一目了然。
+```python
+products = [
+    {"name": "藍牙耳機", "price": 1200, "rating": 4.5},
+    {"name": "手機殼",   "price":  150, "rating": 4.8},
+    {"name": "行動電源", "price":  890, "rating": 4.2},
+    {"name": "充電線",   "price":   99, "rating": 4.6},
+]
+
+# 1. 依「價格」由低到高排序
+by_price = sorted(products, key=lambda p: p["price"])
+print("依價格排序（最便宜優先）：")
+for p in by_price:
+    print(f"  {p['name']:<8} ${p['price']}")
+
+# 2. 依「評分」由高到低排序
+by_rating = sorted(products, key=lambda p: p["rating"], reverse=True)
+print("\n依評分排序（最高分優先）：")
+for p in by_rating:
+    print(f"  {p['name']:<8} ★{p['rating']}")
+```
+##### 🖥️ 終端機預期輸出結果：
+```text
+依價格排序（最便宜優先）：
+  充電線     $99
+  手機殼     $150
+  行動電源   $890
+  藍牙耳機   $1200
+
+依評分排序（最高分優先）：
+  手機殼     ★4.8
+  充電線     ★4.6
+  藍牙耳機   ★4.5
+  行動電源   ★4.2
+```
+
 ---
 
 ## 4. 高階函式應用：`map()` 與 `filter()`
@@ -222,4 +335,41 @@ dict_list = [
 python_data = list(filter(lambda x: x['name'] == 'python', dict_list))
 print("過濾出特定語系:", python_data)
 # 輸出: [{'name': 'python', 'points': 10}]
+```
+
+### 💡 實戰生活主題範例：外送平台訂單處理系統
+> **為什麼此場景需要 `map()` 與 `filter()`？**  
+> 外送平台每天處理大量訂單：先用 `filter()` 篩選出「尚未完成」的訂單，
+> 再用 `map()` 統一計算每筆訂單的「含運費總金額」。
+> 相較於 `for` 迴圈配合 `if` 判斷，兩者搭配 Lambda 使程式碼更簡潔易讀。
+```python
+orders = [
+    {"id": "A001", "item": "珍珠奶茶",   "price": 65,  "status": "completed"},
+    {"id": "A002", "item": "牛肉麵",     "price": 180, "status": "pending"},
+    {"id": "A003", "item": "雞排便當",   "price": 120, "status": "pending"},
+    {"id": "A004", "item": "水果沙拉",   "price": 90,  "status": "completed"},
+    {"id": "A005", "item": "手搖飲料組", "price": 210, "status": "pending"},
+]
+
+DELIVERY_FEE = 30  # 固定運費
+
+# 步驟一：用 filter() 篩選出「待處理」的訂單
+pending_orders = list(filter(lambda o: o["status"] == "pending", orders))
+
+# 步驟二：用 map() 為每筆待處理訂單計算含運費的總金額
+totals = list(map(
+    lambda o: {"id": o["id"], "item": o["item"], "total": o["price"] + DELIVERY_FEE},
+    pending_orders
+))
+
+print(f"待處理訂單共 {len(totals)} 筆（含 ${DELIVERY_FEE} 運費）：")
+for t in totals:
+    print(f"  [{t['id']}] {t['item']:<10} → 應付金額 ${t['total']}")
+```
+##### 🖥️ 終端機預期輸出結果：
+```text
+待處理訂單共 3 筆（含 $30 運費）：
+  [A002] 牛肉麵      → 應付金額 $210
+  [A003] 雞排便當    → 應付金額 $150
+  [A005] 手搖飲料組  → 應付金額 $240
 ```
