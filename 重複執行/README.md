@@ -186,7 +186,7 @@ print(f"1加到100偶數的加總為 {evenTotal}")
 print(f"1加到100奇數的加總為 {oddTotal}") 
 ```
 
-➡️ [進階練習 1：for 迴圈與 if 判斷整合 (奇偶數與倍數)](practice1.md)
+➡️ [進階練習：for 迴圈與 if 判斷整合 (奇偶數與倍數)](practice1.md)
 
 ---
 
@@ -264,7 +264,7 @@ while True:
 print("程式結束")
 ```
 
-➡️ [進階練習 3：猜單雙數遊戲 (while 配合 break)](practice3.md)
+➡️ [進階練習：猜單雙數遊戲 (while 配合 break)](practice3.md)
 
 #### 💡 操作範例 2：學生成績輸入防錯程式
 小美是一位教師，設計一個輸入成績的程式，如果輸入負數表示輸入結束，隨後計算總分與平均分：
@@ -305,7 +305,7 @@ while True:
 print(f"輸入的次數是{num}，所有輸入的正偶數的加總是:{total}")
 ```
 
-➡️ [進階練習 4：while 迴圈整合 continue 與 break](practice4.md)
+➡️ [進階練習：while 迴圈整合 continue 與 break](practice4.md)
 
 ---
 
@@ -378,7 +378,7 @@ for i in range(1, 10):
     print()
 ```
 
-➡️ [進階練習 2：巢狀迴圈與圖形繪製](practice2.md)
+➡️ [進階練習：巢狀迴圈與圖形繪製](practice2.md)
 
 ---
 
@@ -413,7 +413,7 @@ while(True):
         print("請輸入提示範圍內的數字")
 ```
 
-➡️ [進階練習 5：猜數字遊戲與流程邏輯](practice5.md)
+➡️ [進階練習：猜數字遊戲與流程邏輯](practice5.md)
 
 ---
 
