@@ -301,13 +301,14 @@ info = {"name": "Jack", "age": 24, "city": "台北"}
 # 使用 ** 解開字典，等同於傳入 person_info(name="Jack", age=24, city="台北")
 person_info(**info)
 
+```
 
 #### 範例1
 
 ```python
 # 目標
 # 建立python的自訂function,讓學生了解什麼是
-# 引數值呼叫 (Positional Arguments)
+# 引數位置呼叫 (Positional Arguments)
 # 引數名稱呼叫 (Keyword Arguments)  
 # 混合呼叫 (Mixed Arguments)
 
@@ -343,6 +344,8 @@ print(result3)
 print()
 ```
 
+[進階練習](./practice1.md)
+
 #### 範例2
 
 ```python
@@ -373,6 +376,9 @@ print("\n3. 混合呼叫:")
 total3 = calculate_total(120, 4, tax_rate=0.07)  # price, quantity用位置參數
 print(f"總價: ${total3:.2f}")
 ```
+
+[進階練習](./practice2.md)
+
 ### 說明文件 (Docstrings)
 
 在 Python 中，寫在函式定義內第一行的字串，被稱為 **說明文件（Docstrings）**。其目的是為函式提供一份結構清晰的「使用手冊」，說明函式的作用、參數格式及回傳值。
