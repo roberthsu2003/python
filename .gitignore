@@ -1,3 +1,4 @@
-
-上課內容/日月光/test.ipynb
-上課內容/日月光/.ipynb_checkpoints/test-checkpoint.ipynb
+.venv/
+.vscode/
+__pycache__/
+.env
