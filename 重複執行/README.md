@@ -92,8 +92,6 @@ while(deposit < 30000):
 print("恭喜! 已經存夠了，存了", months, "個月的總存款為:", deposit, "元。")
 ```
 
-➡️ [進階練習 3：猜單雙數遊戲 (while 配合基本判斷)](practice3.md)
-
 ---
 
 ## 3. `for-in` 迴圈 (定次與遍歷)
@@ -255,7 +253,20 @@ for day, fruit, drink, dessert in zip(days, fruits, drinks, desserts):
 ### 4.1 `break` 的應用 (無限迴圈)
 使用 `while True:` 配合 `if` 與 `break` 可以在未知迴圈執行次數時，進行有效的輸入流程控制。
 
-#### 💡 操作範例：學生輸入成績防錯程式
+#### 💡 操作範例 1：輸入英文字母 (按 q 離開)
+使用 `while True` 建立不確定執行次數的迴圈，當使用者輸入 'q' 時以 `break` 中斷：
+```python
+while True:
+    stuff = input("請輸入小寫英文字[按q會離開]: ")
+    if stuff == 'q':
+        break
+    print(stuff.capitalize())
+print("程式結束")
+```
+
+➡️ [進階練習 3：猜單雙數遊戲 (while 配合 break)](practice3.md)
+
+#### 💡 操作範例 2：學生成績輸入防錯程式
 小美是一位教師，設計一個輸入成績的程式，如果輸入負數表示輸入結束，隨後計算總分與平均分：
 ```python
 # while1_s.py
@@ -271,8 +282,6 @@ while(True):
 # 已經跳出 while    
 print('全班總成績為:', total, "平均分數為:", "%.2f" % (total/(num-1)) )
 ```
-
-➡️ [進階練習 3：while 迴圈配合 break](practice3.md)
 
 ---
 
