@@ -1,163 +1,242 @@
-# Python 檔案存取完整指南
+# 檔案存取 (File Access)
 
-在實際開發中，我們經常需要將程式產生的資料永久儲存於硬碟，或是讀取外部的設定檔與資料集。Python 提供了直觀且安全的檔案存取機制，本指南將由淺入深帶領您掌握文字檔、例外處理、CSV 與 JSON 的操作方法。
-
----
-
-## 1. 檔案存取特性對比
-
-在進入實作前，我們先通過這張表了解各檔案格式的存取特性與適用場景：
-
-| 檔案格式 | 適用場景 | Python 處理模組 | 讀寫主要方式 | 特性與限制 |
-| :--- | :--- | :--- | :--- | :--- |
-| **文字檔 (.txt)** | 簡單日誌、純文字備忘、設定檔 | 內建 `open()` | `read()`, `write()` | 資料無結構，僅能以字串存取 |
-| **CSV 檔 (.csv)** | 表格式資料、資料庫匯出、輕量試算表 | 內建 `csv` 模組 | `csv.reader()`, `csv.writer()` | 欄位以逗號分隔，讀出皆為字串 |
-| **JSON 檔 (.json)** | 網路 API 交換格式、複雜配置、巢狀結構 | 內建 `json` 模組 | `json.load()`, `json.dump()` | 支援鍵值對與陣列，極為通用 |
+## 課程學習重點
+1. **檔案基本讀寫與關閉**：掌握 `open()` 函數、檔案存取模式，以及最佳實踐 `with` 語句的運用。
+2. **檔案例外處理**：利用 `try...except` 結構優雅處理讀寫過程中常見的例外錯誤。
+3. **CSV 結構化資料操作**：學會使用 `csv` 模組寫入與讀取 CSV 檔案（包含 `csv.reader` 與 `csv.DictReader` 的篩選應用）。
+4. **JSON 資料處理**：掌握 Python 與 JSON 資料型態的映射，以及序列化（`dump/dumps`）與反序列化（`load/loads`）的操作。
+5. **綜合實戰**：透過 `requests` 套件從政府開放 API 下載氣象 JSON 資料，解析後轉存為 CSV 格式。
 
 ---
 
-## 2. 基礎檔案讀寫與關閉
 
-處理任何檔案的基礎三步驟為：**開啟 ➡️ 讀寫 ➡️ 關閉**。
+## 第一章：基礎檔案讀寫與關閉
 
-### 2.1 檔案存取模式對照表
+### 1. 檔案存取基本概念
+在讀取或寫入檔案之前，必須使用 Python 內建的 `open()` 函數開啟檔案。這個函數會建立一個「檔案物件」（File Object），作為程式與硬碟檔案之間的溝通橋樑。
+
+**基本語法：**
 ```python
-# 基本開啟語法
 file_object = open(file_name, access_mode, encoding='utf-8')
 ```
 > [!IMPORTANT]
-> **處理中文字元**時，務必帶上 `encoding='utf-8'`，否則在不同作業系統（如 Windows）上容易因系統預設編碼（如 ANSI/CP950）產生編碼錯誤或亂碼。
+> **中文編碼設定**：處理包含中文字元的文字檔時，務必加上 `encoding='utf-8'` 參數，否則在不同作業系統（如 Windows）上容易產生亂碼。
 
-常見模式：
-* **`r`**：唯讀模式（預設）。若檔案不存在會拋出錯誤。
-* **`w`**：覆寫模式。會清空原檔案內容；若檔案不存在則建立新檔。
-* **`a`**：附加模式（Append）。資料會附加在檔案末尾。
+### 2. 檔案存取模式對照表
 
-### 2.2 最佳實踐：使用 `with` 語句
-傳統使用 `close()` 手動關閉檔案，一旦在讀寫中途出錯，程式提前中斷，會導致檔案資源無法關閉而被鎖定。使用 `with` 語句（Context Manager）能確保不論中途是否發生錯誤，離開區塊時 Python 都會**自動且安全地關閉檔案**。
+| 存取模式 | 描述 |
+| :--- | :--- |
+| **`r`** | **唯讀模式（預設）**。僅能讀取檔案。若檔案不存在會拋出錯誤。 |
+| **`rb`** | **二進位唯讀模式**。用於讀取圖片、音訊或壓縮檔等非文字檔案。 |
+| **`r+`** | **讀寫模式**。檔案指標在檔頭，可讀可寫，若檔案不存在會拋出錯誤。 |
+| **`w`** | **覆寫模式**。僅供寫入。若檔案存在會**清空原檔案內容**；若檔案不存在則建立新檔。 |
+| **`wb`** | **二進位覆寫模式**。以二進位格式清空覆寫或建立新檔。 |
+| **`w+`** | **讀寫覆寫模式**。可讀可寫，並會清空檔案。 |
+| **`a`** | **附加模式（Append）**。僅供寫入，資料會接在檔案末尾。若檔案不存在會建立新檔。 |
+| **`ab`** | **二進位附加模式**。以二進位格式將資料附加至檔案末尾。 |
+| **`a+`** | **讀寫附加模式**。可讀可寫，寫入時資料會接在檔案末尾。 |
+
+---
+
+### 3. 手動關閉檔案的風險
+當我們以傳統方式開啟檔案時，必須手動呼叫 `close()` 關閉檔案。
 ```python
-# 推薦寫法：自動安全關閉
-with open('sample.txt', 'w', encoding='utf-8') as f:
-    f.write("使用 with 語句安全寫入")
+# 傳統方式（不推薦）
+file = open('sample1.txt', 'w', encoding='utf-8')
+file.write("寫入測試內容")
+file.close()
 ```
+> [!WARNING]
+> **手動關閉的風險**：如果在 `open()` 和 `close()` 之間發生錯誤（例外），程式會提前中斷，導致 `close()` 無法執行。這會導致檔案一直被作業系統鎖定、佔用系統資源，甚至造成緩衝區內的資料未能正確寫入硬碟中。
 
-### 2.3 檔案寫入與讀取小範例
+### 4. 最佳實踐：使用 `with` 語句（Context Manager）
+使用 `with` 語句來操作檔案是 Python 的標準最佳實踐。當程式離開 `with` 程式區塊時，Python 會**自動且安全地關閉檔案**，即使中途發生例外錯誤也一樣。
 ```python
-# 1. 寫入多行文字
-with open('sample.txt', 'w', encoding='utf-8') as f:
-    f.write("Python 程式設計\n")
-    f.write("輕鬆學會檔案存取。")
-
-# 2. 讀取整個文字檔案
-with open('sample.txt', 'r', encoding='utf-8') as f:
-    content = f.read()
-    print("【檔案內容】:\n", content)
-```
-
-### 💡 實戰生活主題範例：過濾日誌檔案
-> **為什麼此場景需要文字檔處理？**  
-> 在分析系統日誌或清洗純文字檔案時，我們常需要排除雜訊（如空行或註解行），並將篩選後的資料整理排序儲存。
-```python
-cleaned_data = []
-
-# 讀取 data1.txt，排除以 # 開頭的註解行與空行
-with open('data1.txt', 'r', encoding='utf-8') as f:
-    for line in f.readlines():
-        line = line.strip()
-        # 跳過空行與註解行
-        if not line or line.startswith('#'):
-            continue
-        cleaned_data.append(line)
-
-cleaned_data.sort()
-
-# 將結果重新寫入新檔案
-with open('result-readlines.txt', 'w', encoding='utf-8') as out_f:
-    out_f.write('\n'.join(cleaned_data))
-print("整理完成！結果已儲存至 result-readlines.txt")
+# 現代推薦寫法
+with open('sample1.txt', 'w', encoding='utf-8') as file:
+    file.write("使用 with 語句安全寫入")
+# 離開此區塊後，檔案已自動關閉
 ```
 
 ---
 
-## 3. 檔案例外處理
+### 5. 檔案寫入範例
 
-在讀寫檔案時，難免會遇到「找不到檔案」、「權限不足」等異常。為了避免程式直接崩潰當機，必須使用 `try...except` 結構進行防禦性例外處理。
+#### 範例 1：使用 `print()` 函數寫入
+`print()` 可以透過指定 `file` 參數，將輸出的內容直接寫入開啟的檔案中。
+```python
+text = """python與中文
+1. 我們來試試看中文儲存能力。
+2. 許這個字會有編碼衝突風險。
+3. 犇這個字必須是utf8編碼才有。"""
 
-### 3.1 結合 with 語句的例外處理
+# 將 print 輸出的內容導向到檔案
+with open('data.txt', 'w', encoding='utf-8') as f:
+    print(text, file=f)
+```
+
+#### 範例 2：使用 `write()` 方法寫入
+使用檔案物件的 `.write()` 方法可以精確寫入字串，它不會自動在末尾加上換行符，需要自行控制。
+```python
+text_to_write = "這是第一行。\n這是第二行。"
+
+with open('sample1.txt', 'w', encoding='utf-8') as file:
+    file.write(text_to_write)
+```
+
+---
+
+### 6. 檔案讀取方式
+
+#### 讀取方法說明：
+- **`read([size])`**：讀取指定數量的字元，若未帶參數則讀取整份檔案。
+- **`readline()`**：每次只讀取一行，記憶體佔用極小，適合處理超大型檔案。
+- **`readlines()`**：讀取整份檔案，並以每一行為元素，返回一個清單（List）。
+
+#### 常用字串清理方法：
+- `strip()`：去除字串前後的空白與換行符（`\n`）。
+- `lstrip()` / `rstrip()`：去除字串左邊 / 右邊的空白。
+- `startswith('字元')`：判斷字串是否以特定字元開頭。
+
+#### 範例：逐行讀取、清理並過濾資料
+讀取 `data1.txt`，排除註解行（以 `#` 開頭）與空白行，並將內容進行排序後另存新檔：
+```python
+result = []
+
+# 讀取並過濾
+with open('data1.txt', 'r', encoding='UTF-8') as f:
+    for line in f.readlines():
+        cleaned_line = line.strip()
+        # 如果是空行或註解行，則略過
+        if not cleaned_line or cleaned_line.startswith('#'):
+            continue 
+        result.append(cleaned_line)
+
+# 排序處理
+result.sort()
+print("整理後的檔案內容：", result)
+
+# 將結果重新寫入新檔案
+with open('result-readlines.txt', 'w', encoding='UTF-8') as out_file:
+    out_file.write('\n'.join(result))
+```
+
+[進階練習：文字檔讀取、逐行處理與篩選排序](practice1.md)
+
+---
+
+## 第二章：檔案例外處理
+
+在讀寫檔案時，難免會遇到許多不可預期的錯誤（例如：找不到檔案、沒有權限讀取、磁碟空間不足等）。為了避免程式因為這些異常而直接崩潰，必須使用 `try...except` 結構來進行例外處理。
+
+### 1. 常見檔案例外類型
+- **`FileNotFoundError`**：找不到指定的檔案。
+- **`PermissionError`**：權限不足（例如嘗試寫入唯讀檔案）。
+- **`IOError`**：通用的輸入輸出錯誤。
+
+### 2. 例外處理範例
+將 `try...except` 與 `with` 語句完美結合的範例：
 ```python
 try:
-    with open('non_exist_file.txt', 'r', encoding='utf-8') as f:
+    with open('data.txt', 'r', encoding='utf-8') as f:
         print(f.read())
 except FileNotFoundError:
-    print("【錯誤】找不到指定的檔案，請確認檔案路徑是否正確。")
+    print("【錯誤】找不到指定的檔案，請確認路徑是否正確。")
 except PermissionError:
     print("【錯誤】沒有權限存取該檔案。")
+except IOError:
+    print("【錯誤】檔案輸入輸出發生異常。")
 except Exception as e:
     print(f"【錯誤】發生未知的異常：{e}")
 ```
 
-### 💡 實戰生活主題範例：防禦性載入與建立設定檔
-```python
-# 當設定檔不存在時，自動建立並寫入預設設定，避免程式因此中斷
-default_config = "theme=dark\nfontsize=14"
-
-try:
-    with open('config.txt', 'r', encoding='utf-8') as f:
-        config_data = f.read()
-        print("讀取設定檔成功。")
-except FileNotFoundError:
-    print("找不到設定檔，正在建立預設設定檔...")
-    with open('config.txt', 'w', encoding='utf-8') as f:
-        f.write(default_config)
-    config_data = default_config
-
-print("載入的配置內容:\n", config_data)
-```
-
 ---
 
-## 4. 結構化資料 - CSV 處理
+## 第三章：結構化資料 - CSV 處理
 
-CSV（逗號分隔值）是一種簡單的表格純文字格式，欄位間以逗號區隔，常用於資料庫與試算表資料的交換。
+**CSV（Comma-Separated Values，逗號分隔值）** 是一種簡單的文字檔案格式，通常以逗號來分隔不同的欄位資料。它廣泛用於資料庫的匯入、匯出與不同軟體間的資料交換。
 
-### 4.1 寫入 CSV 檔案
-使用內建的 `csv` 模組，並在 `open()` 中設定 `newline=''` 參數，以防止在 Windows 系統上寫入時產生多餘的空白行。
+> [!NOTE]
+> **CSV 格式的限制**：
+> 1. CSV 沒有資料類型，讀取出來的資料**一律是字串**，需手動轉型。
+> 2. CSV 沒有字型、顏色或單元格寬度等外觀樣式設定。
+
+### 1. 寫入 CSV 檔案
+使用內建的 `csv` 模組可以輕鬆處理 CSV。在 `open()` 中設定 `newline=''` 能有效避免在 Windows 系統上寫入時產生多餘的空行。
+
+#### 範例：隨機生成 50 位學生的成績單並寫入 CSV
 ```python
 import csv
+import random
 
-# 寫入簡單學生成績
-with open('scores.csv', 'w', newline='', encoding='utf-8') as file:
-    writer = csv.writer(file)
-    # 寫入表頭
-    writer.writerow(['學號', '國文', '數學'])
-    # 寫入多列資料
-    writer.writerows([
-        ['S001', 95, 88],
-        ['S002', 82, 90]
-    ])
+with open('students.csv', 'w', newline='', encoding='UTF-8') as file:
+    csv_writer = csv.writer(file)
+    
+    # 寫入標頭列
+    csv_writer.writerow(['學號', '國文', '英文', '數學', '自然', '社會'])
+    
+    # 寫入 50 位學生的成績
+    for i in range(1, 51):
+        # 學號格式為 student_01, student_02 ...
+        student_id = f"student_{i:02d}"
+        scores = [random.randint(50, 100) for _ in range(5)]
+        csv_writer.writerow([student_id] + scores)
+
+print("學生資料已成功寫入 students.csv")
 ```
 
-### 4.2 讀取 CSV 檔案
-* **`csv.reader`**：將每行讀取為二維清單（List of Lists），適合簡單結構。
-* **`csv.DictReader`**：將每行讀取為 OrderedDict（字典），可以利用欄位名稱直接存取。
+### 2. 讀取 CSV 檔案
 
-### 💡 實戰生活主題範例：過濾特定區域人口密度 (使用 DictReader)
-> **為什麼此場景需要 DictReader？**  
-> 政府開放資料的 CSV 欄位極多。使用欄位名稱作為鍵值（如 `row.get('區域別')`）讀取資料，可讀性高且不易對錯欄位。
+#### 方法 A：使用 `csv.reader`（讀取為二維清單）
+讀取後利用 `next()` 跳過標頭，再將讀取到的分數轉換為整數型態以利後續計算：
 ```python
 import csv
 
-nptc_data = []
+students_list = []
 
-# 讀取各鄉鎮市區人口密度 CSV 檔 (跳過第一行非欄位說明文字)
-with open('各鄉鎮市區人口密度.csv', 'r', encoding='utf-8') as file:
-    next(file)  # 跳過第一列說明
+with open('students.csv', 'r', encoding='UTF-8') as file:
+    csv_reader = csv.reader(file)
     
+    # 跳過並取得首行的標頭列
+    header = next(csv_reader)
+    
+    # 逐行讀取並轉型
+    for row in csv_reader:
+        # row[0] 為學號（維持字串），row[1:] 為分數（轉為整數）
+        converted_row = [row[0]] + list(map(int, row[1:]))
+        students_list.append(converted_row)
+
+print("前三筆學生資料：", students_list[:3])
+
+# 成績查詢功能
+query_id = input('請輸入欲查詢的學號 (格式如 student_01): ').strip()
+found = False
+for student in students_list:
+    if student[0] == query_id:
+        print(f"查詢結果：學號 {query_id} 的成績為 {student[1:]}")
+        found = True
+        break
+if not found:
+    print("找不到該學生的資料。")
+```
+
+#### 方法 B：使用 `csv.DictReader`（讀取為字典清單）
+適合用來讀取結構複雜且含有欄位名稱的 CSV。以下示範讀取 `各鄉鎮市區人口密度.csv`，跳過第一列說明文字後，篩選出「新北市」的行政區資料：
+```python
+import csv
+
+nptc_pop_data = []
+
+with open('各鄉鎮市區人口密度.csv', 'r', encoding='UTF-8') as file:
+    # 該 CSV 首行可能是非欄位說明文字，先將其跳過
+    next(file)
+    
+    # 以第二行作為鍵（Keys）來讀取資料
     dict_reader = csv.DictReader(file)
     for row in dict_reader:
-        # 篩選「區域別」中含有「新北市」的資料列
+        # 篩選「區域別」中包含「新北市」的資料
         if '新北市' in row.get('區域別', ''):
-            nptc_data.append({
+            nptc_pop_data.append({
                 '統計年': row.get('統計年'),
                 '區域別': row.get('區域別'),
                 '年底人口數': row.get('年底人口數'),
@@ -165,37 +244,79 @@ with open('各鄉鎮市區人口密度.csv', 'r', encoding='utf-8') as file:
                 '人口密度': row.get('人口密度')
             })
 
-print("新北市前兩筆行政區人口密度:")
-for item in nptc_data[:2]:
+# 顯示前三筆篩選結果
+print(f"篩選出新北市的行政區共 {len(nptc_pop_data)} 筆：")
+for item in nptc_pop_data[:3]:
     print(item)
+```
+
+[進階練習：使用 csv.DictReader 篩選行政區人口資料](practice2.md)
+
+---
+
+## 第四章：結構化資料 - JSON 處理
+
+**JSON（JavaScript Object Notation）** 是網路上最通用的輕量級資料交換格式。在 Python 中，我們可以非常方便地將 Python 的 Dict 或 List 轉為 JSON 格式，反之亦然。
+
+### 1. Python 與 JSON 型態對照表
+
+| Python 資料型態 | JSON 資料型態 | 說明 |
+| :--- | :--- | :--- |
+| `dict` | object | `{}` 鍵值對 |
+| `list`, `tuple` | array | `[]` 陣列清單 |
+| `str` | string | `""` 字串 |
+| `int`, `float` | number | 數值 |
+| `True` | true | 布林值真 |
+| `False` | false | 布林值假 |
+| `None` | null | 空值 |
+
+---
+
+### 2. 從 Python 轉成 JSON（序列化）
+- **`json.dumps()`**：將 Python 物件轉換為 JSON 格式的**字串**。
+- **`json.dump()`**：將 Python 物件轉換並寫入 JSON **檔案**中。
+
+> [!IMPORTANT]
+> **中文處理關鍵參數**：在轉換含有中文的資料時，必須加上 `ensure_ascii=False`，否則中文會自動被轉換為 Unicode 逸出碼（如 `\u53f0\u7063`）。
+
+#### 範例：將字典儲存為 JSON 檔案
+```python
+import json
+
+country_codes = {'tw': '台灣', 'jp': '日本', 'hk': '香港', 'us': '美國'}
+
+# 1. 轉換為 JSON 格式字串（使用 indent 讓排版更易讀）
+json_string = json.dumps(country_codes, ensure_ascii=False, indent=4)
+print("產生的 JSON 字串：\n", json_string)
+
+# 2. 直接寫入成 JSON 檔案
+with open('codes.json', 'w', encoding='utf-8') as file:
+    json.dump(country_codes, file, ensure_ascii=False, indent=4)
+print("JSON 檔案 codes.json 儲存完成。")
 ```
 
 ---
 
-## 5. 結構化資料 - JSON 處理
+### 3. 從 JSON 轉回 Python（反序列化）
+- **`json.loads()`**：將 JSON 格式的**字串**載入為 Python 物件。
+- **`json.load()`**：將 JSON **檔案**載入為 Python 物件。
 
-JSON（JavaScript Object Notation）是網路上最通用的輕量級資料交換格式，支援巢狀物件與陣列。
-
-### 5.1 Python 與 JSON 轉換
-* **序列化（轉為 JSON 字串/檔案）**：`json.dumps()` / `json.dump()`。
-* **反序列化（將 JSON 載入為 Python 物件）**：`json.loads()` / `json.load()`。
-> [!IMPORTANT]
-> 處理含有中文字的 JSON 時，必須指定 `ensure_ascii=False`，否則中文會被自動轉換為 Unicode 逸出碼（如 `\u53f0\u7063`）。
-
-### 5.2 JSON 序列化與寫檔小範例
+#### 範例：讀取 JSON 檔案並解析
 ```python
 import json
 
-info = {'name': '張三', 'skills': ['Python', 'SQL']}
+# 載入 JSON 檔案並轉換為 Python 字典
+with open('codes.json', 'r', encoding='utf-8') as file:
+    loaded_data = json.load(file)
 
-# 轉換為 JSON 格式字串 (使用 indent 美化排版)
-json_str = json.dumps(info, ensure_ascii=False, indent=4)
-print(json_str)
+print("讀取出來的 Python 物件型態：", type(loaded_data))
+print("台灣的對應英文代碼值：", loaded_data.get('tw'))
 ```
 
-### 💡 實戰生活主題範例：YouBike 站點狀態查詢
-> **為什麼此場景需要 JSON？**  
-> 城市租賃系統資料多為多層嵌套結構，使用 JSON 轉換成 Python 字典後，可以非常直覺地利用鍵值（Key）來過濾出所需行政區的站點狀態。
+---
+
+### 4. JSON 實戰：新北市公共自行車租賃系統
+讀取本地的 JSON 檔案，解析後查詢並篩選出「新店區」的所有 YouBike 站點資訊：
 ```python
 import json
 
@@ -205,29 +326,36 @@ try:
         
     if bike_data.get('success'):
         records = bike_data['result']['records']
-        print("======== 新店區 YouBike 站點狀態 (前3筆) ========")
-        count = 0
+        print("======== 新店區 YouBike 站點狀態 ========")
         for record in records:
             if '新店區' in record.get('sarea', ''):
                 print(f"【站名】{record.get('sna')}")
                 print(f"【位置】{record.get('ar')}")
-                print(f"【車位】可借: {record.get('sbi')} / 可還: {record.get('bemp')}")
-                print("-" * 40)
-                count += 1
-                if count >= 3:
-                    break
+                print(f"【座標】緯度: {record.get('lat')}, 經度: {record.get('lng')}")
+                print(f"【車位數】可借: {record.get('sbi')} / 可還空位: {record.get('bemp')} (總車位: {record.get('tot')})")
+                print("-" * 50)
+    else:
+        print("資料讀取失敗：JSON 中的 success 狀態不為 True")
 except FileNotFoundError:
-    print("找不到『新北市公共自行車租賃系統.json』檔案！")
+    print("錯誤：找不到『新北市公共自行車租賃系統.json』檔案！")
 ```
+
+[進階練習：JSON 巢狀資料存取與 YouBike 站點查詢](practice3.md)
 
 ---
 
-## 6. 綜合實戰：網路 API 天氣資料下載並轉存 CSV
+## 第五章：綜合實戰：網路 API 下載 JSON 並轉存 CSV
 
-本實戰展示一個完整的資料流管道（Data Pipeline）：
+本章展示一個完整的實務應用：
 1. 使用 `requests` 模組，呼叫氣象署開放資料 API 下載「今明 36 小時天氣預報」 JSON。
-2. 解析複雜嵌套的 JSON 欄位，擷取各城市的預報起訖時間、最高溫、最低溫與舒適度感覺。
+2. 解析複雜的嵌套 JSON 欄位，萃取出各縣市的最高溫、最低溫與舒適度。
 3. 使用 `csv.DictWriter` 將處理後的乾淨資料寫入為 `目前天氣.csv`。
+
+> [!NOTE]
+> 執行此範例前，請確保已安裝 `requests` 套件：
+> ```bash
+> pip install requests
+> ```
 
 ```python
 import requests
@@ -241,8 +369,9 @@ def download_weather_raw_json():
         if response.status_code == 200:
             print("API 資料下載成功。")
             return response.json()
-        print(f"下載失敗，HTTP 狀態碼：{response.status_code}")
-        return None
+        else:
+            print(f"下載失敗，HTTP 狀態碼：{response.status_code}")
+            return None
     except requests.RequestException as e:
         print(f"連線發生錯誤：{e}")
         return None
@@ -262,8 +391,12 @@ def parse_weather_data(raw_json):
     for loc in locations:
         city_name = loc['locationName']
         elements = loc['weatherElement']
+        
         try:
-            # 擷取預報要素的第一個時間區間資料
+            # 擷取預報要素的第 0 個時間區間資料 (今明 36 小時的第一個區間)
+            # Element 1: MaxT (最高溫度)
+            # Element 2: MinT (最低溫度)
+            # Element 3: CI (舒適度感覺)
             start_time = elements[1]['time'][0]['startTime']
             end_time = elements[1]['time'][0]['endTime']
             max_temp = float(elements[1]['time'][0]['parameter']['parameterName'])
@@ -278,7 +411,8 @@ def parse_weather_data(raw_json):
                 '最低溫度': min_temp,
                 '感覺': feeling
             })
-        except (IndexError, KeyError, ValueError):
+        except (IndexError, KeyError, ValueError) as e:
+            print(f"解析 {city_name} 資料時發生異常，已跳過：{e}")
             continue
             
     return weather_list
@@ -293,7 +427,10 @@ def save_to_csv(data_list, filename='目前天氣.csv'):
     try:
         with open(filename, 'w', encoding='utf-8', newline='') as file:
             writer = csv.DictWriter(file, fieldnames=fieldnames)
+            
+            # 寫入標頭
             writer.writeheader()
+            # 寫入資料列
             writer.writerows(data_list)
         print(f"CSV 檔案儲存成功！檔案名稱：{filename}")
     except IOError as e:
@@ -305,8 +442,26 @@ def main():
     if weather_json:
         parsed_data = parse_weather_data(weather_json)
         save_to_csv(parsed_data)
-    print("下載與轉換作業結束。")
+    print("程式結束。")
 
 if __name__ == '__main__':
     main()
 ```
+
+---
+
+## 課後自我評量
+
+### 選擇題
+**關於使用 `with` 語句操作檔案的說明，下列哪一個選項是錯誤的？**
+1. 離開 `with` 區塊時，Python 會自動進行 `close()` 動作，自動關閉檔案。
+2. 即使檔案存取過程中拋出例外，`with` 語句依然能保證檔案被正確關閉。
+3. 因為使用了 `with` 語句，檔案存取時就絕對不會產生任何 `IOError` 等例外。
+
+<details>
+<summary><b>點擊查看答案與解析</b></summary>
+
+**正確答案：(3)**
+
+* **解析**：`with` 語句的功用是負責「檔案資源的生命週期管理」（確保離開區塊時自動關閉檔案），但無法防範因硬體問題、檔案不存在或權限不足引起的例外。因此，若是程式存取了不存在的檔案，依然會發生 `FileNotFoundError`，此時依然需要搭配 `try...except` 來進行例外捕捉與處理。
+</details>
