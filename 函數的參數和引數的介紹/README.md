@@ -302,7 +302,7 @@ info = {"name": "Jack", "age": 24, "city": "台北"}
 person_info(**info)
 
 
-#### 範例
+#### 範例1
 
 ```python
 # 目標
@@ -341,8 +341,11 @@ print("位置參數必須在前，關鍵字參數在後")
 result3 = introduce_person("小美", 28, hobby="旅遊")  # name, age用位置參數，hobby用關鍵字參數
 print(result3)
 print()
+```
 
-# 更多範例
+#### 範例2
+
+```python
 def calculate_total(price, quantity, discount=0, tax_rate=0.05):
     """
     計算商品總價
