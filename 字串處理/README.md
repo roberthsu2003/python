@@ -12,8 +12,8 @@
 當字串內部本身含有單引號（例如英文縮寫 `'s`）時，外層可以使用雙引號宣告；反之亦然，這能避免 Python 語法解析錯誤。
 ```python
 # 1. 外層使用雙引號，內部便可直接使用單引號
-words1 = "That is Alice's cat."
-print(words1)  # 輸出: That is Alice's cat.
+words1 = "那是愛麗絲的貓。"
+print(words1)  # 輸出: 那是愛麗絲的貓。
 
 # 2. 外層使用單引號，內部若有單引號會導致語法解析錯誤
 # words2 = 'That is Alice's cat.'  # ❌ 語法錯誤 (SyntaxError)
@@ -31,11 +31,11 @@ print(words1)  # 輸出: That is Alice's cat.
 
 #### 📝 程式碼範例：
 ```python
-print("Hello there!\nHow are you?\nI\'m doing fine.")
+print("哈囉，大家好！\n你好嗎？\n我過得很好。")
 # 輸出結果：
-# Hello there!
-# How are you?
-# I'm doing fine.
+# 哈囉，大家好！
+# 你好嗎？
+# 我過得很好。
 ```
 
 ### 1.3 原始字串 (Raw Strings)
@@ -48,22 +48,21 @@ print(r'That is Carol\'s cat.')
 ### 1.4 單行折行與多行文字
 * **單行折行**：當一行程式碼過長時，可以在行末加上反斜線 `\` 進行折行，但輸出時依然是一整行單行文字。
 ```python
-sentence = "Dear Alice, \
-Eve's cat has been arrested for catnapping, cat burglary, and \
-extortion. \
-Sincerely, \
-Bob"
+sentence = "親愛的愛麗絲，\
+伊芙的貓因為綁架貓、入室盜竊和敲詐勒索而被逮捕了。\
+Sincerely，\
+鮑伯"
 
 print(sentence)
-# 輸出結果： Dear Alice, Eve's cat has been arrested for catnapping, cat burglary, and extortion. Sincerely, Bob
+# 輸出結果： 親愛的愛麗絲，伊芙的貓因為綁架貓、入室盜竊和敲詐勒索而被逮捕了。Sincerely，鮑伯
 ```
 
 * **多行文字**：使用三個單引號（`'''`）或三個雙引號（`"""`）包覆字串，可以完整保留字串內的換行與格式。
 ```python
-multiline = '''Dear Alice,
-Eve's cat has been arrested for catnapping, cat burglary, and extortion.
-Sincerely,
-Bob'''
+multiline = '''親愛的愛麗絲，
+伊芙的貓因為綁架貓、入室盜竊和敲詐勒索而被逮捕了。
+Sincerely，
+鮑伯'''
 
 print(multiline)
 # 輸出結果會保留完整的四行格式。
@@ -73,8 +72,8 @@ print(multiline)
 ```python
 """
 這是一段多行說明註解。
-本程式是由 Robert 撰寫。
-適用於 Python 3 以上版本。
+本程式是由羅伯特撰寫，電子信箱為 robert@gmail.com。
+本程式是為 Python 3 設計，非 Python 2。
 """
 ```
 
@@ -91,18 +90,17 @@ print(len(empty))    # 輸出: 0
 ### 1.6 字串基礎運算子
 * **加號 `+` 拼接**：將兩個字串串接在一起（注意：非字串資料必須先以 `str()` 轉型）。
 ```python
-name = 'Robert'
+name = '羅伯特'
 age = 40
-info = 'Hello, my name is ' + name + '. I am ' + str(age) + ' years old.'
+info = '哈囉，我的名字是 ' + name + '。我今年 ' + str(age) + ' 歲。'
 print(info)
-# 輸出: Hello, my name is Robert. I am 40 years old.
+# 輸出: 哈囉，我的名字是 羅伯特。我今年 40 歲。
 ```
 * **`in` 與 `not in` 成員運算子**：判斷某個子字串是否存在於目標字串中，回傳布林值（`True` / `False`）。
 ```python
-print('Hello' in 'Hello, World')  # 輸出: True
-print('HELLO' in 'Hello, World')  # 輸出: False (大小寫有別)
-print('' in 'spam')               # 輸出: True (空字串永遠為真)
-print('cats' not in 'dogs')       # 輸出: True
+print('哈囉' in '哈囉，世界')  # 輸出: True
+print('哈囉' in '哈羅')      # 輸出: False (字元不同)
+print('' in '你好')          # 輸出: True (空字串永遠為真)
 ```
 
 ---
@@ -226,9 +224,9 @@ print(poem.count('that'))       # 輸出: 2
 
 ```python
 # 1. 以逗號分割
-todos = 'get gloves,get mask,give cat vitamins,call ambulance'
+todos = '買手套,買口罩,給貓吃維他命,叫救護車'
 print(todos.split(','))
-# 輸出: ['get gloves', 'get mask', 'give cat vitamins', 'call ambulance']
+# 輸出: ['買手套', '買口罩', '給貓吃維他命', '叫救護車']
 
 # 2. 以橫線分割
 str4 = "python-java-c++-ruby"
@@ -246,11 +244,11 @@ str1 = "-"
 str2 = ("a", "b", "c")
 print(str1.join(str2))  # 輸出: a-b-c
 
-# 2. 將 List 串接成段落
-crypto_list = ['Yeti', 'Bigfoot', 'Loch Ness Monster']
+# 2. 將 List 串接成段落 (繁中化範例)
+crypto_list = ['雪人', '大腳怪', '尼斯湖水怪']
 crypto_string = ', '.join(crypto_list)
-print('Found:', crypto_string)
-# 輸出: Found: Yeti, Bigfoot, Loch Ness Monster
+print('發現並簽約的神秘生物專題:', crypto_string)
+# 輸出: 發現並簽約的神秘生物專題: 雪人, 大腳怪, 尼斯湖水怪
 
 # 3. 將字串中每個字元插入冒號
 print(":".join("Python"))  # 輸出: P:y:t:h:o:n
@@ -259,12 +257,12 @@ print(":".join("Python"))  # 輸出: P:y:t:h:o:n
 ---
 
 ### 💡 實戰範例：文字接龍小遊戲
-結合字串輸入、`for` 迴圈迭代、索引取值以及 `join()` 拼接，實作一個字串接龍遊戲。若輸入的首字元與上一次接龍的尾字元不符，遊戲即結束：
+結合字串輸入、`for` 迴圈迭代、索引取值以及 `join()` 拼接，實作一個文字接龍遊戲。若輸入的首字元與上一次接龍的指定尾字元不符，遊戲即結束：
 ```python
 # wordLink.py
 print('失敗就會退出遊戲!')
 inputString = input('請輸入起始字串: ')
-sampleString = 'wordlink'
+sampleString = '接龍開始'
 
 for single in sampleString:
     print('當前累計字串:', inputString)
@@ -293,6 +291,9 @@ else:
 * `upper()` / `lower()`：字串全部轉大寫 / 全部轉小寫。
 * `swapcase()`：大小寫反轉。
 
+> [!NOTE]
+> 這些大小寫轉換方法是專為英文字母設計的。如果處理的是繁體中文字串，這些大小寫方法不會改變中文內容。因此以下我們使用英文字串進行展示：
+
 ```python
 setup = 'a duck goes into a bar...'
 
@@ -317,10 +318,12 @@ print('Hello'.center(20, '='))  # 居中對齊，寬度 20，補等號: '=======
 ```python
 def generate_picnic_report(itemsDict, leftWidth, rightWidth, filename="picnic.txt"):
     lines = []
-    header = 'PICNIC ITEMS'.center(leftWidth + rightWidth, '-')
+    # 居中對齊標題
+    header = '野餐食物清單'.center(leftWidth + rightWidth, '-')
     lines.append(header)
     
     for k, v in itemsDict.items():
+        # 以特定點符號對齊
         line = k.ljust(leftWidth, '.') + str(v).rjust(rightWidth)
         lines.append(line)
         
@@ -333,7 +336,7 @@ def generate_picnic_report(itemsDict, leftWidth, rightWidth, filename="picnic.tx
         f.write("\n".join(lines) + "\n")
     print(f"\n報告已成功儲存至 {filename}")
 
-picnicItems = {'sandwiches': 4, 'apples': 12, 'cups': 4, 'cookies': 8000}
+picnicItems = {'三明治': 4, '蘋果': 12, '杯子': 4, '餅乾': 8000}
 generate_picnic_report(picnicItems, 20, 6)
 ```
 
@@ -417,26 +420,26 @@ for email in getEmails:
 ### 6.1 多行文字格式轉換 (自動加前綴)
 將一整段多行文字的每一行首端加上 `*`（清單符號）或數字序號：
 ```python
-raw_text = """Lists of animals
-Lists of aquarium life
-Lists of robert by author abbreviation
-Lists of cultivars"""
+raw_text = """動物清單
+水族生物清單
+作者簡稱的羅伯特清單
+栽培品種清單"""
 
 # 1. 轉變為項目符號清單
 lines = raw_text.split('\n')
 bullet_lines = [f"* {line}" for line in lines]
 print('\n'.join(bullet_lines))
 # 輸出:
-# * Lists of animals
-# * Lists of aquarium life
+# * 動物清單
+# * 水族生物清單
 # ...
 
 # 2. 轉變為數字編號清單
 numbered_lines = [f"{i+1}. {line}" for i, line in enumerate(lines)]
 print('\n'.join(numbered_lines))
 # 輸出:
-# 1. Lists of animals
-# 2. Lists of aquarium life
+# 1. 動物清單
+# 2. 水族生物清單
 # ...
 ```
 
@@ -444,12 +447,14 @@ print('\n'.join(numbered_lines))
 給予一個包含多個 List 的二維矩陣，將其進行行列互換（轉置），並以右對齊格式整齊印出：
 ```python
 tableData = [
-    ['apples', 'oranges', 'cherries', 'banana'],
-    ['Alice', 'Bob', 'Carol', 'David'],
-    ['dogs', 'cats', 'moose', 'goose']
+    ['蘋果', '橘子', '櫻桃', '香蕉'],
+    ['愛麗絲', '鮑伯', '卡蘿', '大衛'],
+    ['狗狗', '貓咪', '駝鹿', '鵝']
 ]
 
 # 計算每一列（原 tableData 的每一行）的最大字元寬度
+# 注意：在包含中文字元時，由於中文是全形字元，其實際顯示寬度約為半形英文字元的兩倍。
+# 此範例採用簡單的 max() 長度計算來示範轉置邏輯：
 colWidths = [0] * len(tableData)
 for i in range(len(tableData)):
     colWidths[i] = max(len(item) for item in tableData[i])
@@ -463,10 +468,10 @@ for x in range(len(tableData[0])):
     print()
 
 # 輸出結果：
-#    apples   Alice   dogs
-#   oranges     Bob   cats
-#  cherries   Carol  moose
-#    banana   David  goose
+#    蘋果  愛麗絲    狗狗
+#    橘子    鮑伯    貓咪
+#    櫻桃    卡蘿    駝鹿
+#    香蕉    大衛      鵝
 ```
 
 ---
