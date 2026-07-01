@@ -16,16 +16,13 @@
 - [正規則表達式](./正規則表達式/README.md)
 - [Generator, Decorator](./generator_decorator/README.md)
 - [pydantic](./pydantic/README.md)
-- [excel的應用](./處理excel/README.md)
 
 - 整合應用程式
-  - [整合line使用](./line/README.md)
-  - [整合line bot](./line_bot/README.md)
-  - [整合chat gpt](./chat_gpt/README.md)
-  - [整合Gemini api](./gemini_api/README.md)
+  - [excel的應用](./處理excel/README.md)
+  - [整合line bot](./line_bot/README.md) 
   - [整合Gemini line_bot](./gemini_line_bot/README.md)
-- [同時執行](./Concurrency/README.md)
-- [小程式](./小程式/README.md)
+
+
 
 - 附註
   - [本機mini_conda](./mini_conda/README.md)
