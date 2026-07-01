@@ -823,9 +823,4 @@ class GraduateStudent(Student):
 4. **文件說明**：為類別和方法添加清晰的註解
 5. **遵循慣例**：使用Python的命名慣例和設計模式
 
-## 📚 延伸學習資源
-
-- [Python 官方文件 - Classes](https://docs.python.org/3/tutorial/classes.html)
-- [Real Python - Object-Oriented Programming](https://realpython.com/python3-object-oriented-programming/)
-- [Python 設計模式](https://refactoring.guru/design-patterns/python)
 
