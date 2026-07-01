@@ -16,16 +16,15 @@ Python 是一門**動態型別語言**。這意味著我們在宣告變數時，
 2. **靜態分析工具提前攔截錯誤**：在執行程式前，利用檢查工具（如 VS Code 內建的 Pylance）就能提前在編譯期間指出潛在的型別衝突。
 3. **資料驗證套件的根基 (如 Pydantic)**：現代 Python 熱門套件 **Pydantic**（常用於 FastAPI 等 Web 框架）高度依賴 Python 內建的 Type Hints 來做執行時期的資料驗證與自動轉型。
 
-### 🛠️ VS Code IDE 環境設定
-為了讓編輯器發揮最強大的型別檢查功能，建議在 VS Code 中開啟靜態型別檢查模式：
+### ⚙️ VS Code 智慧型提示與靜態檢查設定
+VS Code 內建的 **Pylance** 語意伺服器提供了強大的「智慧型提示」與「靜態型別檢查」功能，您只需在 VS Code 的設定中進行簡單調整，即可獲得優秀的語意檢查體驗：
 
-#### 1. 設定 'Type Checking Mode'
-開啟設定，搜尋 `type checking mode`，將其設定為 `basic` 或是 `strict`（嚴格模式）：
-![](./images/pic1.png)
-
-#### 2. 設定 'Mypy Enabled'
-您也可以搭配 Mypy 靜態分析工具進行更深度的型別檢查：
-![](./images/pic2.png)
+1. **開啟型別檢查模式 (Type Checking Mode)**：
+   - 開啟 VS Code 設定（快速鍵 `Cmd + ,` 或 `Ctrl + ,`）。
+   - 搜尋 `python.analysis.typeCheckingMode`。
+   - 將其設定為 `basic` (基礎檢查，推薦) 或 `strict` (嚴格檢查)。開啟後，一旦型別不符，編輯器會立即在變數下方顯示黃色或紅色的波浪底線。
+2. **啟用 Mypy 檢查 (選用)**：
+   - 在設定中搜尋 `Mypy Enabled` 並勾選啟用，讓編輯器載入 Mypy 靜態分析工具，進行更深度的合規性檢查。
 
 ---
 
@@ -42,8 +41,11 @@ age: int = 40
 height: float = 175.5
 is_teacher: bool = True
 ```
-如果您的 VS Code 開啟了型別檢查，當您嘗試指派一個不符合型別提示的值時，編輯器會顯示波浪底線警告：
-![](./images/pic3.png)
+
+> [!TIP]
+> **智慧型提示效果：**
+> 當您在開啟了型別檢查的編輯器中指派了不符合宣告型別的值（例如 `name: str = 123`），編輯器會立即在 `123` 下方畫上波浪警告線。當您的滑鼠懸停於其上時，會彈出提示：  
+> `Expression of type "int" cannot be assigned to declared type "str"` (無法將整數型別指派給宣告為字串的變數)，幫助您當場修正錯誤。
 
 ---
 
@@ -60,11 +62,9 @@ def get_full_name(first_name: str, last_name: str) -> str:
 print(get_full_name("john", "doe"))  # 輸出: John Doe
 ```
 
-##### 🌟 提示體驗差異：
-* **無型別提示時**：當您在呼叫變數方法（例如 `.title()`）時，VS Code 無法提供自動補齊，並會顯示參數為 `Unknown`。
-  ![](./images/pic04.png)
-* **有型別提示時**：IDE 可以完美辨識參數為 `str`，並主動提示該型別所有可用的方法。
-  ![](./images/pic05.png)
+##### 🌟 智慧型提示體驗差異：
+* **無型別提示時**：參數型別會被顯示為 `Unknown`。當您輸入 `first_name.` 時，編輯器無法確定其型別，因此**不會彈出**字串專屬的方法下拉選單（如 `title()`, `lower()`, `strip()`），這容易因為拼錯字而寫出 Bug。
+* **有型別提示時**：編輯器能完美辨識參數為 `str`。當您輸入 `first_name.` 後，會**立刻彈出智慧下拉選單**，列出所有字串方法，按 Tab 鍵即可自動補齊。
 
 ---
 
@@ -78,8 +78,11 @@ def get_name_with_age(name: str, age: int) -> str:
     name_with_age = name + " is this old: " + age
     return name_with_age
 ```
-在 VS Code 中，IDE 會在 `age` 上標記紅線警告（`TypeError`）：
-![](./images/pic06.png)
+
+> [!WARNING]
+> **編輯器的智慧型糾錯：**
+> 開啟靜態檢查後，編輯器會立刻在 `age` 上標示紅線，並跳出提示：  
+> `Operator "+" not supported for types "str" and "int"` (字串與整數之間不支援相加運算子)，提醒您必須先進行型別轉換。
 
 #####  正確程式碼：
 ```python
