@@ -1,123 +1,136 @@
 # 函數的參數和引數的介紹
 
 
-##  list 傳送與接收
-- 傳送與接收資料可以使用 list。
-- 傳送與接收都是相同的位址上的資料。
-- list 內可以更新單一資料或著調整(append、extend、insert、remove、pop、del) 資料。
-- list 若以指派方式設定為新的list:
-	- list 若以指派方式設定為新的list.
-	- 原來 list 沒有變更.
+## List 的傳送與接收（參數傳遞機制）
 
-#### 操作範例 1:請動手操作，並留意輸出結果  
+在 Python 中，將 List 作為參數傳遞給函式時，傳遞的是**物件的參照（Reference）**。這意味著函式內外指向的是同一個記憶體位址的 List。
+
+根據在函式內部的操作方式，會產生兩種不同的結果：
+1. **修改既有 List（In-place Modification）**：若使用索引修改元素，或使用 `append()`、`extend()`、`insert()`、`pop()` 等方法，會直接修改原始 List，記憶體位址不變。
+2. **重新指派（Reassignment）**：若在函式內使用 `=` 將參數指派給一個新的 List 物件，則該參數會指向新的記憶體位址，而原始的 List 則不會受到任何影響。
+
+---
+
+#### 💡 操作範例 1：修改既有元素 (In-place)
+在函式內透過索引值修改 List 的內容。
 ```python
-#fun4.py
+# fun4.py
+def changeme(mylist): 
+    print("函式內修改前 id:", id(mylist)) 
+    mylist[2] = 'a'  # 修改既有元素
+    print("函式內修改後 id:", id(mylist)) 
+    print("函式內內容:", mylist) 
+    return
 
-def changeme( mylist ): 
-	print(id(mylist)) 
-	mylist[2]='a' 
-	print(id(mylist))
-	print ("函數內: ", mylist) 
-	return( )
-	
-mylist = [10,20,30] 
-print(id(mylist))
-changeme( mylist )
-print ("執行完函數:", mylist)
- 
+mylist = [10, 20, 30] 
+print("原始 id:", id(mylist))
+changeme(mylist)
+print("執行完函式後的內容:", mylist)  # 內容已被修改，id 保持一致
 ```
 
-#### 操作範例 2:請動手操作，並留意輸出結果
+#### 💡 操作範例 2：重新指派 (Reassignment)
+在函式內使用 `=` 重新指派一個新的 List。
 ```python
-#fun4-1.py
+# fun4-1.py
+def changeme(mylist): 
+    print("函式內指派前 id:", id(mylist)) 
+    mylist = [1, 2, 3, 4]  # 重新指派新物件，mylist 變數轉向新位址
+    print("函式內指派後 id:", id(mylist)) 
+    print("函式內內容:", mylist) 
+    return
 
-def changeme( mylist ): 
-	print(id(mylist)) 
-	mylist = [1,2,3,4] 
-	print(id(mylist))
-	print ("函數內: ", mylist) 
-	return( )
-	
-mylist = [10,20,30] 
-print(id(mylist))
-changeme( mylist )
-print ("執行完函數:", mylist) 
+mylist = [10, 20, 30] 
+print("原始 id:", id(mylist))
+changeme(mylist)
+print("執行完函式後的內容:", mylist)  # 原始 List 未受影響
 ```
 
-#### 操作範例 3:請動手操作，並留意輸出結果
+#### 💡 操作範例 3：使用方法修改 (In-place)
+在函式內使用 `append()` 方法新增元素。
 ```python
-#fun4-2.py
+# fun4-2.py
+def changeme(mylist): 
+    print("函式內修改前 id:", id(mylist)) 
+    mylist.append([1, 2])  # 於尾端新增子 List
+    print("函式內修改後 id:", id(mylist)) 
+    print("函式內內容:", mylist) 
+    return
 
-def changeme( mylist ): 
-	print(id(mylist)) 
-	mylist.append([1, 2]) 
-	print(id(mylist))
-	print ("函數內: ", mylist) 
-	return( )
-
-mylist = [10,20] 
-print(id(mylist))
-changeme( mylist )
-print ("執行完函數:", mylist) 
+mylist = [10, 20] 
+print("原始 id:", id(mylist))
+changeme(mylist)
+print("執行完函式後的內容:", mylist)  # 內容已被修改，id 保持一致
 ```
 
-###  list 計算式與固定間隔取值
-- 於 list 使用上，+= 與 = 代表意義不同。
-- += 於使用上具有修改資料結構本身，而 = 是重新分配資料內容。
-- 所以 x+=1 會在*原本的位置上進行修改*，但 x=x+1 則是*分配到新的位置*。
-- List 的取值動作除了起始與結束，也可以加入第三個參數:固定間隔。
+---
 
-#### 操作範例:請動手操作，並留意輸出結果
+## List 運算子行為：`+=` 與 `+` 的差異
+
+對於可變物件（如 List）而言，`+=` 與 `+` 運算子有著本質上的不同：
+* **`+` 運算子**：會將兩個 List 合併並**建立一個全新**的 List 物件，然後重新指派。
+* **`+=` 運算子**：在 List 上相當於呼叫 `extend()` 方法，屬於**就地修改（In-place）**，不會改變原有的記憶體位址。
+
+> [!NOTE]
+> 對於 List 而言：
+> `x = x + [89, 99]` 會產生新物件（id 改變）。
+> `x += [89, 99]` 則是在原物件上追加元素（id 不變）。
+
+#### 💡 操作範例 4：使用 `+` 運算子（建立新物件）
 ```python
-#list-add1.py
+# list-add1.py
+x = y = [0, 1, 2] 
+print("初始 x, y:", x, y) 
+print("初始 id:", id(x), id(y)) 
 
-x=y=[0,1,2] 
-print(x,y) 
-print(id(x)) 
-print(id(y))
- 
-x=x+[89,99] 
-print(x,y) 
-print(id(x)) 
-print(id(y)) 
-print(x is y)
+x = x + [89, 99]  # 建立新 List 並指派給 x，此時 x 與 y 指向不同物件
+print("運算後 x, y:", x, y) 
+print("運算後 id:", id(x), id(y)) 
+print("x is y:", x is y)  # 輸出 False
 ```
 
-#### 操作範例:請動手操作，並留意輸出結果
+#### 💡 操作範例 5：使用 `+=` 運算子（就地修改）
 ```python
-#list-add2.py
+# list-add2.py
+a = b = [0, 1, 2]
+print("初始 a, b:", a, b) 
+print("初始 id:", id(a), id(b)) 
 
-a=b=[0,1,2]
-print(a,b) 
-print(id(a)) 
-print(id(b))
- 
-a+=[89,99] 
-print(a,b) 
-print(id(a)) 
-print(id(b)) 
-print(a is b)
+a += [89, 99]  # 就地修改 a 指向的 List，此時 a 與 b 仍指向同一個物件
+print("運算後 a, b:", a, b) 
+print("運算後 id:", id(a), id(b)) 
+print("a is b:", a is b)  # 輸出 True
 ```
 
-#### 操作範例:請動手操作，並留意輸出結果
+---
 
+## List 的切片取值與固定間隔 (Slicing)
+
+Python 的切片語法為 `list[start:stop:step]`，其中第三個參數 `step` 代表**固定間隔（步長）**。
+* `step` 為正數時，表示由左向右提取。
+* `step` 為負數時，表示由右向左提取（常用於反轉 List）。
+
+#### 💡 操作範例 6：多種步長切片範例
 ```python
+# list-try.py
+x = range(100)  # 產生 0 到 99 的序列
 
-#list-try.py
-
-x=range(100) 
+# 1. 反轉序列
 for i in x[::-1]:
-	print(i)
+    print(i)
 
+# 2. 每隔 2 個元素取一個 (偶數)
 for i in x[::2]:
-	print(i)
+    print(i)
 
+# 3. 每隔 3 個元素取一個
 for i in x[::3]: 
-	print(i)
+    print(i)
 	
+# 4. 指定範圍 (索引 10 到 39) 且每隔 6 個元素取一個
 for i in x[10:40:6]:
-	print(i)
+    print(i)
 ```
+
 
 ## 說明文件 (Docstrings)
 
