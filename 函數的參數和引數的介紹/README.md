@@ -330,6 +330,8 @@ print_kwargs(wine='紅酒', entree='牛排', dessert='蛋糕')
 # 關鍵字引數 Dictionary: {'wine': '紅酒', 'entree': '牛排', 'dessert': '蛋糕'}
 ```
 
+[進階練習](./practice5.md)
+
 ---
 
 ### 5. 呼叫時的引數解包 (Unpacking)
