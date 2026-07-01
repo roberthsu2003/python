@@ -1,18 +1,19 @@
 # python
-1. [python基礎與資料輸出](./python基礎與資料輸出/README.md)
 
-2. [數值計算與資料輸入](./數值計算與資料輸入/README.md)
+1. [Python基礎與數值計算](./Python基礎與數值計算/README.md)
 
-3. [條件分析](./條件分析/README.md)
+2. [條件分析](./條件分析/README.md)
 
-4. [重複執行](./重複執行/README.md)
+3. [重複執行](./重複執行/README.md)
 
-5. [字串處理](./字串處理/README.md)
+4. [字串處理](./字串處理/README.md)
 
-6. [正規則表達式](./正規則表達式/README.md)
+5. [python基本型別提示](./python型別提示/README.md)
 
-7. [python基本型別提示](python型別提示/README.md)
-  
+6. [python內建的資料結構](./python內建的資料結構/README.md)
+
+7. [正規則表達式](./正規則表達式/README.md)
+
 8. [函式和comprehension](./函式和comprehension/README.md)
 
 9. [函數的參數和引數的介紹](./函數的參數和引數的介紹/README.md)
@@ -20,8 +21,6 @@
 10. [匿名函數lambda](./匿名函數lambda/README.md)
 
 11. [Generator,Decorator](./generator_decorator/README.md)
-
-11. [python內建的資料結構](./python內建的資料結構/README.md)
 
 12. [pydantic](./pydantic/README.md)
 
@@ -60,4 +59,5 @@
   - [markdown語法練習](https://www.markdowntutorial.com/zh-tw/)
   - [github markdown](./markdown/README.md)
   - [學習prompt](./學習prompt/README.md)
+
 
