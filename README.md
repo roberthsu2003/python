@@ -26,7 +26,7 @@
   - [整合Gemini line_bot](./gemini_line_bot/README.md)
 - [同時執行](./Concurrency/README.md)
 - [小程式](./小程式/README.md)
-- [python的11道練習題](https://buzzorange.com/techorange/2021/03/02/11-projects-for-python-beginner/?fbclid=IwAR0KkjjOoAsQ4jWtU1uLZaC-peitpK0ukyB-R_O9k0q2gbwM6CdiEXJpKgk)
+
 - 附註
   - [本機mini_conda](./mini_conda/README.md)
   - [容器mini_conda開發](./使用Dock容器開發/README.md)
@@ -35,3 +35,5 @@
   - [markdown語法練習](https://www.markdowntutorial.com/zh-tw/)
   - [github markdown](./markdown/README.md)
   - [學習prompt](./學習prompt/README.md)
+
+
