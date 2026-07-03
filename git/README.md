@@ -83,7 +83,27 @@ core.logallrefupdates=true
 
 ---
 
-## 第 3 章：基本工作流程
+## 第 3 章：`git init` — 初始化本地倉庫
+
+在開始使用 Git 追蹤你的專案之前，必須先在專案目錄中建立一個 Git 本地倉庫（Repository）。
+
+請在終端機中切換至你的專案資料夾，然後執行：
+
+```bash
+git init
+```
+
+> [!NOTE]
+> 執行此指令後，Git 會在該專案目錄下建立一個隱藏的 `.git` 資料夾。這個資料夾包含了 Git 所需的所有元數據和歷史記錄。一旦建立，就代表該專案已正式由 Git 進行版本控制。
+
+##### 🖥️ 終端機輸出範例：
+```text
+Initialized empty Git repository in /Users/roberthsu2003/Documents/GitHub/python/git/.git/
+```
+
+---
+
+## 第 4 章：基本工作流程
 
 Git 的核心流程可以用以下三個步驟概括：
 
@@ -99,7 +119,7 @@ Git 的核心流程可以用以下三個步驟概括：
 
 ---
 
-## 第 4 章：`git status` — 查看目前狀態
+## 第 5 章：`git status` — 查看目前狀態
 
 在執行任何操作前，`git status` 是最重要的指令，用來查看目前工作目錄與暫存區的狀態。
 
@@ -130,7 +150,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 ---
 
-## 第 5 章：`git add` — 加入暫存區
+## 第 6 章：`git add` — 加入暫存區
 
 `git add` 指令會將指定的檔案從「工作目錄」加入「暫存區」，準備好待 commit。
 
@@ -166,7 +186,7 @@ Changes to be committed:
 
 ---
 
-## 第 6 章：`git commit` — 建立版本快照
+## 第 7 章：`git commit` — 建立版本快照
 
 `git commit` 將暫存區的所有變更，正式記錄為一個版本節點（Commit）。每次 commit 都必須附上一段說明訊息（Message）。
 
@@ -194,7 +214,32 @@ git commit -m "新增 hello.py，完成第一章練習"
 
 ---
 
-## 第 7 章：`git push` — 推送至遠端（GitHub）
+## 第 8 章：`git log` — 查看提交歷史紀錄
+
+當你建立了一些 commit 之後，可以使用 `git log` 指令來查看歷史的提交紀錄。
+
+```bash
+git log
+```
+
+### 常用的參數選項
+
+| 參數 | 說明 |
+| :--- | :--- |
+| `git log` | 顯示詳細的提交歷史（包含作者、時間、Commit ID 與完整說明） |
+| `git log --oneline` | 以「單行」簡短格式顯示提交歷史（常用） |
+| `git log -p` | 顯示歷史紀錄的同時，列出檔案具體的修改差異（Diff） |
+| `git log -n <數量>` | 限制只顯示最近的 `<數量>` 筆紀錄（例如 `git log -n 5`） |
+
+##### 🖥️ 終端機輸出範例 (`git log --oneline`)：
+```text
+e4f5g6h (HEAD -> main, origin/main) 修正：修正購物車金額計算錯誤
+a1b2c3d 新增 hello.py，完成第一章練習
+```
+
+---
+
+## 第 9 章：`git push` — 推送至遠端（GitHub）
 
 `git push` 將本地的 commit 記錄上傳至遠端倉庫（如 GitHub），讓其他人可以看到你的變更，或在另一台電腦上繼續作業。
 
@@ -219,7 +264,7 @@ To https://github.com/yourname/yourrepo.git
 
 ---
 
-## 第 8 章：完整操作流程總結
+## 第 10 章：完整操作流程總結
 
 以下是從零開始到成功推送的完整指令流程：
 
@@ -231,15 +276,72 @@ git config --global user.email "robert@example.com"
 # 2. 【查看設定】確認設定是否正確
 git config --list
 
-# 3. 【新增或修改檔案後】查看目前狀態
+# 3. 【初始化專案】在專案目錄中初始化 Git 倉庫
+git init
+
+# 4. 【新增或修改檔案後】查看目前狀態
 git status
 
-# 4. 【將變更加入暫存區】
+# 5. 【將變更加入暫存區】
 git add .
 
-# 5. 【建立 commit 版本快照】
+# 6. 【建立 commit 版本快照】
 git commit -m "完成功能 XXX 的開發"
 
-# 6. 【推送至 GitHub】
+# 7. 【查看提交歷史紀錄】
+git log --oneline
+
+# 8. 【推送至 GitHub】
 git push origin main
 ```
+
+---
+
+## 第 11 章：進階工具 — `git worktree`（適合 AI 協作 / Vibe Coding）
+
+在現代開發中（特別是使用 AI 輔助編程或 Vibe Coding 時），我們常常需要同時開發多個功能、修復緊急 Bug，或者在不同的分支間快速對照程式碼。傳統上我們需要使用 `git stash` 暫存工作進度，再執行 `git checkout` 切換分支；但使用 `git worktree` 可以讓我們**在不同的資料夾中同時開啟多個不同的分支**。
+
+### 為什麼要使用 Worktree？
+- **無需頻繁切換分支**：可以同時開好幾個編輯器視窗，每個視窗對應同一個專案的不同分支。
+- **免除 Stash 困擾**：工作目錄有寫到一半的程式碼時，不需要 `git stash` 或隨意 `git commit`，直接建立新 worktree 即可開始做新分支的事情。
+- **適合 Vibe Coding / AI Agents**：可以讓 AI Agent 在另一個 worktree 獨立進行程式碼編寫與測試，不影響你目前的開發目錄。
+
+### 11.1 建立新的工作區 (Worktree)
+
+```bash
+git worktree add <路徑> <分支名稱>
+```
+
+- 如果該分支還不存在，可以加上 `-b` 來建立新分支：
+```bash
+git worktree add ../my-feature-branch -b feature-branch
+```
+這會在目前專案上一層的 `my-feature-branch` 資料夾中，建立並檢出一個乾淨的新分支 `feature-branch`。
+
+### 11.2 查看目前所有的工作區
+
+```bash
+git worktree list
+```
+
+##### 🖥️ 終端機輸出範例：
+```text
+/Users/roberthsu2003/Documents/GitHub/python/git        a1b2c3d [main]
+/Users/roberthsu2003/Documents/GitHub/python/my-feature-branch  a1b2c3d [feature-branch]
+```
+
+### 11.3 刪除/清理工作區
+
+當你完成該分支的開發並合併（Merge）後，可以將該工作區移除：
+
+```bash
+git worktree remove <工作區資料夾路徑>
+```
+
+範例：
+```bash
+git worktree remove ../my-feature-branch
+```
+
+> [!TIP]
+> 刪除 worktree 資料夾後，可以使用 `git worktree prune` 來清理 Git 內部殘留的無效工作區記錄。
