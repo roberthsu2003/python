@@ -27,7 +27,7 @@
 - 附註
   - [git](./git/README.md)
   - [uv 開發環境](./uv/README.md)
-  - [jupyterlab安裝方式](./jupyterlab安裝方式/README.md)]
+  - [jupyterlab安裝方式](./jupyterlab安裝方式/README.md)
   - [markdown語法練習](https://www.markdowntutorial.com/zh-tw/)
   - [github markdown](./markdown/README.md)
 
