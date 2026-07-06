@@ -381,6 +381,18 @@ print(repr(p))
 Person(id_=100, first_name='John', last_name='Smith', age=42)
 ```
 
+> 💡 **為什麼這裡使用 `id_` 而不是 `id`？**
+>
+> 1. **避免遮蔽 Python 內建函式 (PEP 8 規範)**：
+>    在 Python 中，`id` 是一個內建函式（例如呼叫 `id(obj)` 可以取得物件的記憶體位址）。如果我們宣告變數或欄位為 `id`，雖然程式能正常執行，但會「遮蔽（Shadow）」掉這個內建函式，導致後續在同一個範疇中無法直接使用它。
+>    根據 PEP 8 風格指南，當變數名稱與 Python 內建關鍵字或函式衝突時，推薦在尾端加上單個底線（如 `id_`、`type_`、`class_`）來區隔。
+>
+> 2. **消除 Linter 警告 (Linter Warning)**：
+>    在開發工具（如 VS Code、PyCharm）中，若使用 `id`，靜態程式碼分析工具（Linter，如 Ruff、Pylint）會發出警示。Linter 警告（Warning）與語法錯誤（Error）不同，它不會讓程式崩潰，但代表該寫法存在潛在風險或不符合社群最佳實踐。
+>
+> 3. **Pydantic 的橋梁作用**：
+>    透過 `id_: int = Field(alias="id")`，Pydantic 在讀取外部資料時會尋找外部欄位 `"id"`，但在 Python 程式中我們可以安全、乾淨地使用 `id_`，完美解決命名衝突問題。
+
 ---
 
 💡 **學習觀念：將模型序列化 (Serializing) 為 Dict 與 JSON**
@@ -527,12 +539,13 @@ Person(first_name='John', last_name='Smith')
 > **💡 學習觀念：靜態預設值與時間點共享問題（Log 範例）**
 > 當我們直接將 `datetime.now()` 賦值為欄位的預設值時，這個時間點只會在**模組載入（或類別定義）的那一刻**被計算一次。此後所有建立的 Log 實例，其預設時間都會是同一個，無法取得當下的時間。要解決此問題，我們必須使用 `default_factory`。
 
+**錯誤示範（時間被固定在定義時）：**
 ```python
-# defautl value 可以使用method()
+# 錯誤示範：直接呼叫 datetime.now() 指定為預設值
 from datetime import datetime, timezone
 class Log(BaseModel):
     dt: datetime = datetime.now(timezone.utc)
-    message:str
+    message: str
 
 log1 = Log(message="message 1")
 print(repr(log1))
@@ -540,7 +553,28 @@ print(repr(log1))
 
 **輸出結果：**
 ```text
-Log(dt=datetime.datetime(2024, 2, 28, 5, 15, 27, 35122, tzinfo=datetime.timezone.utc), message='message 1')
+Log(dt=datetime.datetime(2026, 7, 6, 11, 7, 11, 35122, tzinfo=datetime.timezone.utc), message='message 1')
+```
+
+**正確示範（使用 `default_factory`）：**
+要解決上述問題，我們必須使用 `Field(default_factory=...)`，傳入一個可呼叫對象（Callable，例如 lambda 函式）。這樣每次建立新的模型實例時，Pydantic 都會重新執行該函式，動態取得當下的時間點。（更詳細的說明與範例，請參考下一個單元：[02. Pydantic 預設值與自訂驗證及序列化](./02_pydantic預設值與自訂驗證及序列化.md)）
+
+```python
+from datetime import datetime, timezone
+from pydantic import Field
+
+class Log(BaseModel):
+    # 使用 default_factory 傳入 lambda，動態且獨立地產生預設值
+    dt: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    message: str
+
+log1 = Log(message="message 1")
+print(repr(log1))
+```
+
+**輸出結果：**
+```text
+Log(dt=datetime.datetime(2026, 7, 6, 11, 8, 45, 123456, tzinfo=datetime.timezone.utc), message='message 1')
 ```
 
 ---
