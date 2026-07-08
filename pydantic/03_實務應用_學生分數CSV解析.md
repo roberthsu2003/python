@@ -166,3 +166,111 @@ for student in students:
 500
 500
 ```
+
+---
+
+## 2. FastAPI 實務整合與最佳設計
+
+當我們需要將此 CSV 解析邏輯整合至 FastAPI 專案中作為 API 端點時，會面臨兩個設計上的調整：
+1. **對外 API 欄位英文化**：輸入的 CSV 雖然是中文欄位（如 `科目1`），但 API 回傳的 JSON 應該是標準的英文 `snake_case`（如 `chinese`）。
+2. **自動序列化總分**：原始的 `@property` 在 FastAPI 直接回傳時**不會**被包含在 JSON 中，需要使用 Pydantic v2 的 `@computed_field`。
+
+### 💡 核心設計實踐
+* **`validation_alias`**：僅在**輸入驗證**時將中文欄位映射到英文變數，回傳 JSON 時依然輸出英文變數名稱。
+* **`ConfigDict(populate_by_name=True)`**：允許同時透過變數名（如 `chinese`）或別名（如 `科目1`）來初始化模型，提升測試彈性。
+* **`@computed_field`**：讓計算欄位（如 `total_score`）自動被序列化輸出。
+* **`UploadFile` 串流讀取**：使用 `io.StringIO` 搭配 `utf-8-sig` 解碼器，能有效防範 Excel 匯出 CSV 時常見的 BOM（Byte Order Mark）亂碼問題，且避免一次載入大檔案。
+
+### 💻 FastAPI 整合程式碼範例
+
+```python
+import csv
+import io
+from fastapi import FastAPI, File, UploadFile, HTTPException, status
+from pydantic import BaseModel, Field, computed_field, ConfigDict
+
+app = FastAPI(title="學生分數管理系統")
+
+# 定義單一學生的資料結構、驗證別名與計算屬性
+class Student(BaseModel):
+    model_config = ConfigDict(populate_by_name=True)
+
+    name: str = Field(validation_alias="姓名")
+    chinese: int = Field(validation_alias="科目1")
+    english: int = Field(validation_alias="科目2")
+    math: int = Field(validation_alias="科目3")
+    geography: int = Field(validation_alias="科目4")
+    history: int = Field(validation_alias="科目5")
+    social: int = Field(validation_alias="科目6")
+    morality: int = Field(validation_alias="科目7")
+
+    # 使用 Pydantic v2 的 @computed_field，回傳 JSON 時會自動包含此欄位
+    @computed_field
+    @property
+    def total_score(self) -> int:
+        return (
+            self.chinese
+            + self.english
+            + self.math
+            + self.geography
+            + self.history
+            + self.social
+            + self.morality
+        )
+
+# API 回傳的標準包裹格式（Container Model）
+class ScoreUploadResponse(BaseModel):
+    success: bool = True
+    count: int
+    students: list[Student]
+
+@app.post(
+    "/students/upload-csv", 
+    response_model=ScoreUploadResponse,
+    status_code=status.HTTP_201_CREATED,
+    summary="上傳學生分數 CSV 並計算總分"
+)
+async def upload_student_scores(file: UploadFile = File(...)):
+    # 檢查檔案是否為 CSV
+    if not file.filename.endswith('.csv'):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST, 
+            detail="僅支援上傳 .csv 格式的檔案。"
+        )
+    
+    try:
+        # 讀取檔案二進制內容
+        contents = await file.read()
+        
+        # utf-8-sig 能自動處理 Windows Excel 產生的 BOM
+        decoded_content = contents.decode("utf-8-sig")
+        
+        # 串流讀取 CSV
+        csv_file = io.StringIO(decoded_content)
+        reader = csv.DictReader(csv_file)
+        
+        students_list = []
+        for index, row in enumerate(reader, start=1):
+            try:
+                # 這裡 Pydantic 會自動進行型別轉換與欄位映射
+                student = Student.model_validate(row)
+                students_list.append(student)
+            except Exception as val_error:
+                raise HTTPException(
+                    status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                    detail=f"第 {index} 行學生資料驗證錯誤: {str(val_error)}"
+                )
+        
+        return ScoreUploadResponse(
+            count=len(students_list),
+            students=students_list
+        )
+
+    except HTTPException as http_ex:
+        raise http_ex
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"伺服器處理 CSV 時發生錯誤: {str(e)}"
+        )
+```
