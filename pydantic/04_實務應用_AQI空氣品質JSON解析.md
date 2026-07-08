@@ -1057,3 +1057,88 @@ for sitename in taiwanAQI.records:
 站點名稱='林口' 城市='新北市' aqi=96 品質='普通' pm25=36.0
 ```
 
+---
+
+## 2. FastAPI 實務整合與最佳設計
+
+當我們需要將此 AQI JSON 解析邏輯整合至 FastAPI 專案中，且 **JSON 檔案已預先配置於伺服器端** 時，設計上會有以下調整：
+1. **對外 API 欄位設計**：輸入的原始 JSON 欄位（如 `sitename`, `pm2.5`）可透過 `validation_alias` 映射到 PEP 8 的 Python 變數名（如 `site_name`, `pm25`），讓 API 回傳的 JSON 回應欄位保持統一的命名規範。
+2. **前置驗證與清洗**：使用 Pydantic 的 `@field_validator(..., mode='before')`，在 API 層面過濾掉因為儀器故障產生的空字串 `" "` 髒資料，避免型別轉型失敗。
+3. **避免 I/O 阻塞**：使用同步的 `def` 路由處理本地 Disk I/O，以利 FastAPI 自動透過外部執行緒池執行，防止主事件循環被阻塞。
+
+### 💻 FastAPI 整合程式碼範例
+
+```python
+import os
+from fastapi import FastAPI, HTTPException, status
+from pydantic import BaseModel, Field, field_validator, ConfigDict
+
+app = FastAPI(title="AQI 空氣品質監測系統")
+
+# 預先配置在伺服器端的 JSON 檔案路徑
+JSON_FILE_PATH = "空氣品質aqi.json"
+
+# 定義單一觀測站點的資料結構、驗證別名與資料清洗邏輯
+class SiteAQI(BaseModel):
+    model_config = ConfigDict(populate_by_name=True)
+
+    site_name: str = Field(validation_alias="sitename")
+    county: str = Field(validation_alias="county")
+    aqi: int
+    status: str = Field(validation_alias="status")
+    pm25: float = Field(validation_alias="pm2.5")
+
+    # 前置驗證器：在型別檢查前，將空字串清洗為 0.0，避免轉型 float 錯誤
+    @field_validator("pm25", mode='before')
+    @classmethod
+    def whitespace_to_zero(cls, value):
+        if value == '':
+            return '0.0'
+        return value
+
+# API 回傳的標準包裹格式（Container Model）
+class RecordsResponse(BaseModel):
+    success: bool = True
+    count: int
+    records: list[SiteAQI]
+
+# 注意：此處使用 def 而非 async def，FastAPI 會自動在個別執行緒中執行，避免 Disk I/O 阻塞主事件循環
+@app.get(
+    "/aqi/records", 
+    response_model=RecordsResponse,
+    status_code=status.HTTP_200_OK,
+    summary="讀取伺服器預置 AQI JSON 檔案"
+)
+def get_aqi_records():
+    # 檢查伺服器端檔案是否存在
+    if not os.path.exists(JSON_FILE_PATH):
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"伺服器上找不到指定的 JSON 檔案：{JSON_FILE_PATH}"
+        )
+    
+    try:
+        # 讀取 JSON 檔案內容
+        with open(JSON_FILE_PATH, mode='r', encoding='utf-8') as file:
+            json_str = file.read()
+            
+        # 定義內部的解析模型，結構對應外層 JSON {"records": [...]}
+        class RecordsParser(BaseModel):
+            records: list[SiteAQI]
+            
+        # 直接使用 model_validate_json 進行高效的 Rust 底層解析與驗證
+        parsed_data = RecordsParser.model_validate_json(json_str)
+        
+        return RecordsResponse(
+            count=len(parsed_data.records),
+            records=parsed_data.records
+        )
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"伺服器讀取或解析 JSON 時發生錯誤: {str(e)}"
+        )
+```
+
+
