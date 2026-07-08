@@ -40,8 +40,7 @@ class Student(BaseModel):
     # 自訂屬性來取得總分
     @property
     def sum(self) -> int:
-        return self.國文 + self.英文 + self.數學 + self.地理 + self.歷史 + self.社會 + self.品德
-
+        return self.total() 
 # 使用 RootModel 封裝學生列表，並擴充為可迭代與可索引
 class Students(RootModel):
     root: list[Student]
@@ -171,25 +170,29 @@ for student in students:
 
 ## 2. FastAPI 實務整合與最佳設計
 
-當我們需要將此 CSV 解析邏輯整合至 FastAPI 專案中作為 API 端點時，會面臨兩個設計上的調整：
+當我們需要將此 CSV 解析邏輯整合至 FastAPI 專案中，且 **CSV 檔案已預先配置於伺服器端** 時，設計上會有以下調整：
 1. **對外 API 欄位英文化**：輸入的 CSV 雖然是中文欄位（如 `科目1`），但 API 回傳的 JSON 應該是標準的英文 `snake_case`（如 `chinese`）。
 2. **自動序列化總分**：原始的 `@property` 在 FastAPI 直接回傳時**不會**被包含在 JSON 中，需要使用 Pydantic v2 的 `@computed_field`。
+3. **避免 I/O 阻塞**：讀取伺服器本地檔案（Disk I/O）為阻塞行為。我們應該在 FastAPI 中使用 **同步路由（使用 `def` 而非 `async def`）**，這樣 FastAPI 會自動將其分配至執行緒池（Thread Pool）中執行，避免阻塞 Event Loop。
 
 ### 💡 核心設計實踐
 * **`validation_alias`**：僅在**輸入驗證**時將中文欄位映射到英文變數，回傳 JSON 時依然輸出英文變數名稱。
 * **`ConfigDict(populate_by_name=True)`**：允許同時透過變數名（如 `chinese`）或別名（如 `科目1`）來初始化模型，提升測試彈性。
 * **`@computed_field`**：讓計算欄位（如 `total_score`）自動被序列化輸出。
-* **`UploadFile` 串流讀取**：使用 `io.StringIO` 搭配 `utf-8-sig` 解碼器，能有效防範 Excel 匯出 CSV 時常見的 BOM（Byte Order Mark）亂碼問題，且避免一次載入大檔案。
+* **`utf-8-sig` 編碼與同步讀取**：使用 `open(..., encoding='utf-8-sig')` 讀取伺服器本地的 CSV 檔案，防範 Windows Excel 產生的 BOM（Byte Order Mark）問題，並搭配標準 `def` 路由安全執行。
 
 ### 💻 FastAPI 整合程式碼範例
 
 ```python
 import csv
-import io
-from fastapi import FastAPI, File, UploadFile, HTTPException, status
+import os
+from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel, Field, computed_field, ConfigDict
 
 app = FastAPI(title="學生分數管理系統")
+
+# 預先配置在伺服器端的 CSV 檔案路徑
+CSV_FILE_PATH = "學生分數.csv"
 
 # 定義單一學生的資料結構、驗證別名與計算屬性
 class Student(BaseModel):
@@ -219,49 +222,43 @@ class Student(BaseModel):
         )
 
 # API 回傳的標準包裹格式（Container Model）
-class ScoreUploadResponse(BaseModel):
+class ScoreResponse(BaseModel):
     success: bool = True
     count: int
     students: list[Student]
 
-@app.post(
-    "/students/upload-csv", 
-    response_model=ScoreUploadResponse,
-    status_code=status.HTTP_201_CREATED,
-    summary="上傳學生分數 CSV 並計算總分"
+# 注意：此處使用 def 而非 async def，FastAPI 會自動在個別執行緒中執行，避免 Disk I/O 阻塞主事件循環
+@app.get(
+    "/students/scores", 
+    response_model=ScoreResponse,
+    status_code=status.HTTP_200_OK,
+    summary="讀取伺服器預置 CSV 並計算分數"
 )
-async def upload_student_scores(file: UploadFile = File(...)):
-    # 檢查檔案是否為 CSV
-    if not file.filename.endswith('.csv'):
+def get_student_scores():
+    # 檢查伺服器端檔案是否存在
+    if not os.path.exists(CSV_FILE_PATH):
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST, 
-            detail="僅支援上傳 .csv 格式的檔案。"
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"伺服器上找不到配置的 CSV 檔案：{CSV_FILE_PATH}"
         )
     
     try:
-        # 讀取檔案二進制內容
-        contents = await file.read()
-        
-        # utf-8-sig 能自動處理 Windows Excel 產生的 BOM
-        decoded_content = contents.decode("utf-8-sig")
-        
-        # 串流讀取 CSV
-        csv_file = io.StringIO(decoded_content)
-        reader = csv.DictReader(csv_file)
-        
         students_list = []
-        for index, row in enumerate(reader, start=1):
-            try:
-                # 這裡 Pydantic 會自動進行型別轉換與欄位映射
-                student = Student.model_validate(row)
-                students_list.append(student)
-            except Exception as val_error:
-                raise HTTPException(
-                    status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-                    detail=f"第 {index} 行學生資料驗證錯誤: {str(val_error)}"
-                )
+        # utf-8-sig 能自動處理 Excel 產生的 BOM
+        with open(CSV_FILE_PATH, encoding='utf-8-sig') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for index, row in enumerate(reader, start=1):
+                try:
+                    # Pydantic 自動進行型別轉換與欄位映射
+                    student = Student.model_validate(row)
+                    students_list.append(student)
+                except Exception as val_error:
+                    raise HTTPException(
+                        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                        detail=f"CSV 檔案第 {index} 行資料驗證錯誤: {str(val_error)}"
+                    )
         
-        return ScoreUploadResponse(
+        return ScoreResponse(
             count=len(students_list),
             students=students_list
         )
@@ -271,6 +268,7 @@ async def upload_student_scores(file: UploadFile = File(...)):
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"伺服器處理 CSV 時發生錯誤: {str(e)}"
+            detail=f"伺服器讀取或解析 CSV 時發生錯誤: {str(e)}"
         )
 ```
+
