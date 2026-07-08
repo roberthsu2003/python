@@ -695,27 +695,23 @@ print(p.model_dump_json(indent=2))
 
 ---
 
-## 8. RootModel ── 最外層為清單時的解析
+## 8. TypeAdapter ── 最外層為非 Pydantic 模型（如清單）時的解析
 
-💡 **學習觀念：RootModel 封裝與迭代**
-有時 API 回傳的 JSON 最外層是陣列 `[...]` 而不是物件 `{...}`。在 Pydantic V2 中，我們使用 `RootModel` 進行最外層的封裝，並能透過實作魔術方法 `__iter__` 與 `__getitem__` 來讓模型實例直接支援 `for...in` 迴圈與 `[index]` 的索引取值。
+💡 **學習觀念：TypeAdapter 的應用**
+有時 API 回傳的 JSON 最外層是陣列 `[...]`（例如 `['dog', 'cat']`）而不是物件 `{...}`，或者我們只想驗證標準 Python 內建型別（如 `list[str]`、`dict[str, int]`），此時不需要也無法直接繼承 `BaseModel`。
+
+在 Pydantic V2 中，官方推薦使用 **`TypeAdapter`** 來包裝非 `BaseModel` 的型別。它可以對任意型別進行驗證與型別轉換，並直接回傳標準的 Python 容器物件，而無需額外定義任何封裝類別（如已廢棄或較為繁瑣的 `RootModel` 語法），寫法更加直覺。
 
 ```python
-from typing import List
-from pydantic import RootModel
+from pydantic import TypeAdapter
 
-class Pets(RootModel):
-    root: List[str]
+# 使用 TypeAdapter 包裝我們想要驗證的 Python 型別（如 list[str]）
+pets_adapter = TypeAdapter(list[str])
 
-    # 實作迭代以支援 for-in 迴圈
-    def __iter__(self):
-        return iter(self.root)
+# 進行驗證與型別轉換，回傳的直接就是標準 Python list
+pets = pets_adapter.validate_python(['dog', 'cat'])
 
-    # 實作 subscript 支援以允許用 [index] 索引取值
-    def __getitem__(self, item):
-        return self.root[item]
-    
-pets = Pets.model_validate(['dog', 'cat'])
+# 由於 pets 是標準 list，因此直接支援索引與迭代
 print(pets[0])
 print([pet for pet in pets])
 ```

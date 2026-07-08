@@ -14,12 +14,12 @@
 💡 **學習觀念 2：在 Pydantic Model 中加入業務邏輯與屬性**
 Pydantic 模型不僅能用來驗證資料，還能當作一般的 Python 類別來使用。我們可以在模型內宣告一般方法（如 `def total(self) -> int`）或使用屬性裝飾器（`@property def sum(self)`）來計算學生的分數總和。
 
-💡 **學習觀念 3：以 RootModel 封裝外部清單**
-當 CSV 檔案內含有多行學生資料時，我們可以用 `RootModel` 封裝 `list[Student]`。藉由實作 `__iter__` 與 `__getitem__` 魔術方法，我們便可以直接對整個 `Students` 實例進行 `for` 迴圈遍歷，或使用索引值（如 `students[0]`）來存取特定學生。
+💡 **學習觀念 3：批次驗證與解析清單資料**
+當 CSV 檔案內含有多行學生資料時，我們可以直接使用清單推導式 (List Comprehension)，對讀取出的每一列 `dict` 呼叫 `Student.model_validate(row)`。這樣做的好處是語法直覺且符合標準 Python 習慣，無需額外定義 `RootModel` 封裝，即可快速取得一個包含所有驗證後學生模型實例的標準 Python `list[Student]`。
 
 ```python
 import csv
-from pydantic import RootModel, BaseModel, Field
+from pydantic import BaseModel, Field
 from pprint import pprint
 
 # 定義單一學生的資料結構與計算邏輯
@@ -41,26 +41,19 @@ class Student(BaseModel):
     @property
     def sum(self) -> int:
         return self.total() 
-# 使用 RootModel 封裝學生列表，並擴充為可迭代與可索引
-class Students(RootModel):
-    root: list[Student]
-
-    def __iter__(self):
-        return iter(self.root)
-    
-    def __getitem__(self, item):
-        return self.root[item]
 
 # 讀取 CSV 檔案並使用 Pydantic 進行解析與驗證
 with open('學生分數.csv', encoding='utf8', newline='') as csvfile:
     reader = csv.DictReader(csvfile)
-    students = Students(reader)
+    # 使用清單推導式批次驗證與轉換每一列資料
+    students = [Student.model_validate(row) for row in reader]
 
 # 遍歷所有學生並列印計算出的總分
 for student in students:
     print(student.total())
     print(student.sum)
 ```
+
 
 **輸出結果：**
 ```text
