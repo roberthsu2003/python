@@ -14,7 +14,7 @@
   - Required (必要) vs. Optional (選用) vs. Nullable (可為 None) 欄位的宣告方式。
   - 欄位別名 `Field(alias=...)` 與配置項目 `populate_by_name` 的應用。
   - 巢狀結構模型（一個 BaseModel 作為另一個 BaseModel 的欄位）。
-  - `RootModel` 適用於最外層資料結構為 `List` 或 `Dict` 的情境。
+  - `TypeAdapter` 適用於最外層資料結構為 `List` 或 `Dict` 等非 `BaseModel` 類型的資料驗證與解析。
  
 ### 02. [Pydantic 預設值與自訂驗證及序列化](./02_pydantic預設值與自訂驗證及序列化.md)
 - **單元目標**：學會如何動態產生欄位的預設值，以及在資料輸入與輸出時自訂處理邏輯。
@@ -45,9 +45,9 @@
 - **單元目標**：與單元 04 做對照，練習如何解析 CSV 版本的空氣品質資料。
 - **使用數據源**：`空氣品質aqi.csv`
 - **重點知識**：
-  - 以 `RootModel` 搭配 `list[SiteName]` 直接載入 CSV 清單。
+  - 使用清單推導式配合 `SiteName.model_validate` 批次載入並驗證 CSV 清單。
   - 搭配 `@field_validator` 解決 CSV 中缺少資料的空字串問題。
-  - 實現 `__iter__` 與 `__getitem__` 魔術方法，讓 `RootModel` 實體可以直接像標準 Python 串列一樣被迭代與索引。
+  - 利用 `TypeAdapter` 進行列表資料的序列化（`.dump_json()`、`.dump_python()`）與檔案儲存。
  
 ### 06. [實務應用四：個股日成交複雜資料清理](./06_實務應用_個股日成交複雜資料清理.md)
 - **單元目標**：掌握實務中最常見的「髒資料」清洗方法，提升資料工程實戰力。
