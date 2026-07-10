@@ -27,11 +27,11 @@
 from pydantic import BaseModel,Field,field_validator
 
 class SiteName(BaseModel):
-    站點名稱:str = Field(alias='sitename')
-    城市:str = Field(alias='county')
+    站點名稱:str = Field(validation_alias='sitename')
+    城市:str = Field(validation_alias='county')
     aqi:int
-    品質:str = Field(alias='status')
-    pm25:float =  Field(alias='pm2.5') 
+    品質:str = Field(validation_alias='status')
+    pm25:float =  Field(validation_alias='pm2.5') 
 
     #自訂的驗證
     @field_validator("pm25",mode='before') #pydantic有自已的validator和自訂的validator,如果使用它的預設是先做預設的validator,目前欄位內會有空字串'',轉成float會出錯,所以必需先讓自訂的validator先運做,mode='before'
