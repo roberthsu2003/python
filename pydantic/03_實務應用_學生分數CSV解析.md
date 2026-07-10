@@ -8,7 +8,7 @@
 
 💡 **學習觀念 1：欄位別名 (Field Alias) 的應用**
 在實務上，外部 CSV 檔案的欄位名稱經常是中文或不符合 Python 變數命名規範的字元（例如 `科目1`、`科目2`）。我們可以使用 `Field(alias='科目1')` 來進行對照。這樣做有兩個好處：
-1. **符合 PEP 8 命名規範**：Python 程式內可以使用具備明確語意的英文變數（如 `國文`、`英文`）。
+1. **符合 PEP 8 命名規範**：Python 程式內可以使用具備明確語意的英文變數（如 `name`、`chinese`）。
 2. **自動型別轉換**：CSV 讀出來的資料預設全都是字串，Pydantic 會自動將它們轉成 `int`。
 
 💡 **學習觀念 2：在 Pydantic Model 中加入業務邏輯與屬性**
@@ -24,18 +24,18 @@ from pprint import pprint
 
 # 定義單一學生的資料結構與計算邏輯
 class Student(BaseModel):
-    姓名: str
-    國文: int = Field(alias='科目1')
-    英文: int = Field(alias='科目2')
-    數學: int = Field(alias='科目3')
-    地理: int = Field(alias='科目4')
-    歷史: int = Field(alias='科目5')
-    社會: int = Field(alias='科目6')
-    品德: int = Field(alias='科目7')
+    name: str = Field(alias='姓名')
+    chinese: int = Field(alias='科目1')
+    english: int = Field(alias='科目2')
+    math: int = Field(alias='科目3')
+    geography: int = Field(alias='科目4')
+    history: int = Field(alias='科目5')
+    social: int = Field(alias='科目6')
+    morality: int = Field(alias='科目7')
 
     # 自訂計算總分的方法
     def total(self) -> int:
-        return self.國文 + self.英文 + self.數學 + self.地理 + self.歷史 + self.社會 + self.品德
+        return self.chinese + self.english + self.math + self.geography + self.history + self.social + self.morality
     
     # 自訂屬性來取得總分
     @property
@@ -63,100 +63,7 @@ for student in students:
 463
 569
 569
-534
-534
-467
-467
-476
-476
-503
-503
-515
-515
-470
-470
-512
-512
-495
-495
-490
-490
-498
-498
-486
-486
-558
-558
-478
-478
-509
-509
-475
-475
-506
-506
-499
-499
-524
-524
-510
-510
-499
-499
-527
-527
-465
-465
-527
-527
-465
-465
-519
-519
-404
-404
-531
-531
-531
-531
-490
-490
-527
-527
-475
-475
-560
-560
-434
-434
-507
-507
-512
-512
-538
-538
-533
-533
-501
-501
-515
-515
-453
-453
-534
-534
-542
-542
-475
-475
-500
-500
-491
-491
-406
-406
-500
-500
+... (以下省略)
 ```
 
 ---
