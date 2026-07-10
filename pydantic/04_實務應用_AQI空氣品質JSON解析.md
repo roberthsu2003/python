@@ -69,7 +69,7 @@ for sitename in taiwanAQI.records:
 
 當我們需要將此 AQI JSON 解析邏輯整合至 FastAPI 專案中，且 **JSON 檔案已預先配置於伺服器端** 時，設計上會有以下調整：
 1. **對外 API 欄位設計**：輸入的原始 JSON 欄位（如 `sitename`, `pm2.5`）可透過 `validation_alias` 映射到 PEP 8 的 Python 變數名（如 `site_name`, `pm25`），讓 API 回傳的 JSON 回應欄位保持統一的命名規範。
-2. **前置驗證與清洗**：使用 Pydantic 的 `@field_validator(..., mode='before')`，在 API 層面過濾掉因為儀器故障產生的空字串 `" "` 髒資料，避免型別轉型失敗。
+2. **前置驗證與清洗**：使用 Pydantic 的 `@field_validator(..., mode='before')`。因為 `pm25` 宣告為 `float`，若是使用預設的 `mode='after'`，Pydantic 會在我們自訂的驗證器執行之前，就因為無法將空字串 `""` 轉成 `float` 而直接噴出型別錯誤崩潰。因此必須使用 `mode='before'`，在 Pydantic 的型別轉換發生**之前**，攔截並將空字串清洗為 `'0.0'`。
 3. **避免 I/O 阻塞**：使用同步的 `def` 路由處理本地 Disk I/O，以利 FastAPI 自動透過外部執行緒池執行，防止主事件循環被阻塞。
 
 ### 💻 FastAPI 整合程式碼範例
