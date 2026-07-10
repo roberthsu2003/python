@@ -132,10 +132,10 @@ class ScoreResponse(BaseModel):
 
 # 注意：此處使用 def 而非 async def，FastAPI 會自動在個別執行緒中執行，避免 Disk I/O 阻塞主事件循環
 @app.get(
-    "/students/scores", 
-    response_model=ScoreResponse,
-    status_code=status.HTTP_200_OK,
-    summary="讀取伺服器預置 CSV 並計算分數"
+    "/students/scores",                  # API 的 URL 路由路徑
+    response_model=ScoreResponse,        # 指定 API 成功回傳時的 Pydantic 模型，自動進行序列化、過濾欄位與生成 API 文件
+    status_code=status.HTTP_200_OK,      # 請求成功時預設回傳的 HTTP 狀態碼 (200 OK)
+    summary="讀取伺服器預置 CSV 並計算分數"    # 顯示於 Swagger UI 自動生成文件中的 API 簡短摘要
 )
 def get_student_scores():
     # 檢查伺服器端檔案是否存在
