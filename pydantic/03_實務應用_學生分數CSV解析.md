@@ -96,8 +96,11 @@ CSV_FILE_PATH = "學生分數.csv"
 
 # 定義單一學生的資料結構、驗證別名與計算屬性
 class Student(BaseModel):
+    # 允許使用屬性名稱（如 name）與驗證別名（如 姓名）兩種方式來進行資料代入或實例化
     model_config = ConfigDict(populate_by_name=True)
 
+    # validation_alias：僅在輸入驗證（解析）時對照中文欄位，序列化輸出時仍會保留並輸出英文變數名稱。
+    # 註：alias 則是會同時變更輸入驗證與輸出序列化的欄位別名。
     name: str = Field(validation_alias="姓名")
     chinese: int = Field(validation_alias="科目1")
     english: int = Field(validation_alias="科目2")
