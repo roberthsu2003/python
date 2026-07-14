@@ -4,7 +4,12 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "matplotlib>=3.11.0",
+    "pandas>=3.0.3",
+    "seaborn>=0.13.2",
+    "wget>=3.2",
+]
 
 [dependency-groups]
 dev = [
