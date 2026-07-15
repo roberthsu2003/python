@@ -79,6 +79,13 @@ uv 0.4.10 (...)
 
 ---
 
+> [!TIP]
+> **uv 初始化與虛擬環境建立流程：**
+> 1. `uv init` 後
+> 2. 更改 `.python-version` 內的 python 版本
+> 3. 更改 `pyproject.toml` 的 python 版本
+> 4. 再執行 `uv venv`
+
 ## 第 3 章：虛擬環境管理
 
 ### 3.1 建立虛擬環境
