@@ -2,6 +2,30 @@
 
 `uv` 是由 Astral 團隊（也是 `ruff` 的開發者）以 Rust 語言打造的現代化 Python 套件管理與虛擬環境工具。它的設計目標是以「單一工具」取代 `pip`、`venv`、`conda` 等多種工具，提供極速且可重現的 Python 開發環境。
 
+## 目錄
+- [第 1 章：為什麼選擇 uv？](#第-1-章為什麼選擇-uv)
+  - [1.1 核心優勢](#11-核心優勢)
+  - [1.2 與常見工具的比較](#12-與常見工具的比較)
+- [第 2 章：安裝 uv](#第-2-章安裝-uv)
+  - [2.1 系統需求](#21-系統需求)
+  - [2.2 安裝方法](#22-安裝方法)
+  - [2.3 確認安裝成功](#23-確認安裝成功)
+- [第 3 章：專案管理與套件依賴 (推薦流程)](#第-3-章專案管理與套件依賴-推薦流程)
+  - [3.1 初始化新專案 (`uv init`)](#31-初始化新專案-uv-init)
+  - [3.2 管理專案套件 (`uv add` / `uv remove`)](#32-管理專案套件-uv-add--uv-remove)
+  - [3.3 執行腳本與程式碼 (`uv run`)](#33-執行腳本與程式碼-uv-run)
+  - [3.4 依賴鎖定與環境同步 (`uv lock` / `uv sync` / `uv.lock`)](#34-依賴鎖定與環境同步-uv-lock--uv-sync--uvlock)
+- [第 4 章：虛擬環境與 Python 版本管理 (進階控制)](#第-4-章虛擬環境與-python-版本管理-進階控制)
+  - [4.1 Python 版本管理 (`uv python`)](#41-python-版本管理-uv-python)
+  - [4.2 建立虛擬環境 (`uv venv`)](#42-建立虛擬環境-uv-venv)
+  - [4.3 啟用 / 停用虛擬環境](#43-啟用--停用虛擬環境)
+  - [4.4 虛擬環境進階指令](#44-虛擬環境進階指令)
+- [第 5 章：Pip 相容模式 (傳統相容流程)](#第-5-章pip-相容模式-傳統相容流程)
+  - [5.1 使用 `uv pip` 管理套件](#51-使用-uv-pip-管理套件)
+- [第 6 章：開發流程總結](#第-6-章開發流程總結)
+- [第 7 章：常見問題 (FAQ)](#第-7-章常見問題-faq)
+- [參考資料](#參考資料)
+
 ---
 
 ## 第 1 章：為什麼選擇 uv？
@@ -79,41 +103,129 @@ uv 0.4.10 (...)
 
 ---
 
-> [!TIP]
-> **uv 初始化與虛擬環境建立流程：**
-> 1. `uv init` 後
-> 2. 更改 `.python-version` 內的 python 版本
-> 3. 更改 `pyproject.toml` 的 python 版本
-> 4. 再執行 `uv venv`
+## 第 3 章：專案管理與套件依賴 (推薦流程)
 
-## 第 3 章：虛擬環境管理
-
-### 3.1 建立虛擬環境
+### 3.1 初始化新專案 (`uv init`)
 
 ```bash
-# 在當前目錄建立虛擬環境（預設資料夾名稱：.venv）
-uv venv
+# 建立全新專案資料夾並切換進去
+uv init my-project
+cd my-project
 
-# 指定 Python 版本
-uv venv --python 3.11
-
-# 指定自訂名稱
-uv venv --name myenv
+# 或：在現有目錄就地初始化（建立 pyproject.toml）
+uv init
 ```
 
-### 3.2 Python 版本管理
+初始化後，uv 會自動建立以下專案結構：
 
-uv 可以自動下載並管理多個 Python 版本，無需另外安裝。
+```text
+my-project/
+├── .venv/              # 虛擬環境（由 uv 自動管理）
+├── pyproject.toml      # 專案設定與依賴清單
+├── uv.lock             # 依賴鎖定檔案（請納入版本控制）
+└── src/
+    └── mypackage/
+```
+
+> [!TIP]
+> **uv 初始化與虛擬環境建立流程：**
+> 1. 執行 `uv init` 初始化專案。
+> 2. 如需指定特定 Python 版本，可修改 `.python-version` 或 `pyproject.toml` 中的 Python 版本設定。
+> 3. 當你第一次執行如 `uv add` 或 `uv run` 時，uv 會自動建立 `.venv` 並下載對應的 Python 版本，無須手動執行 `uv venv`。
+
+### 3.2 管理專案套件 (`uv add` / `uv remove`)
+
+在專案目錄下，推薦使用 `uv add` 來新增套件。此指令會自動將套件寫入 `pyproject.toml` 的依賴清單，並更新 `uv.lock` 鎖定檔。
 
 ```bash
-# 列出所有可用的 Python 版本
+# 安裝單一套件
+uv add requests
+
+# 一次安裝多個套件
+uv add numpy pandas matplotlib
+
+# 安裝指定版本範圍
+uv add "django>=4.0,<5.0"
+
+# 安裝帶有可選功能 (extras) 的套件
+uv add "fastapi[all]"
+
+# 安裝開發用套件（寫入 pyproject.toml 的 dev-dependencies，不進入生產環境）
+uv add pytest --dev
+```
+
+#### 移除套件
+
+```bash
+uv remove requests
+```
+
+### 3.3 執行腳本與程式碼 (`uv run`)
+
+使用 `uv run` 可以直接在虛擬環境中執行程式或指令，**無需手動啟用/切換虛擬環境**：
+
+```bash
+# 執行 Python 腳本
+uv run python script.py
+
+# 執行模組
+uv run -m mymodule
+
+# 執行已安裝的 CLI 工具（例如 pytest）
+uv run pytest
+```
+
+### 3.4 依賴鎖定與環境同步 (`uv lock` / `uv sync` / `uv.lock`)
+
+```bash
+# 根據 pyproject.toml 產生或更新 uv.lock 鎖定檔
+uv lock
+
+# 嚴格根據鎖定檔安裝（確保環境 100% 一致，常用於 CI/CD 或部署）
+uv sync --locked
+
+# 將所有依賴套件更新至相容的最新版本
+uv sync --upgrade
+
+# 更新特定套件
+uv add requests --upgrade
+```
+
+> [!TIP]
+> 請將 `uv.lock` 納入 Git 版本控制，以確保所有協作者和部署環境使用完全相同的套件版本。
+
+---
+
+## 第 4 章：虛擬環境與 Python 版本管理 (進階控制)
+
+在非專案目錄，或需要手動、低階管理虛擬環境與多版本 Python 的情境下，可以使用以下指令：
+
+### 4.1 Python 版本管理 (`uv python`)
+
+uv 可以自動下載並管理多個 Python 版本，無需依賴 pyenv 或手動安裝。
+
+```bash
+# 列出所有可用的 Python 版本與安裝狀態
 uv python list
 
 # 安裝特定版本的 Python
 uv python install 3.11
 ```
 
-### 3.3 啟用 / 停用虛擬環境
+### 4.2 建立虛擬環境 (`uv venv`)
+
+```bash
+# 在當前目錄建立虛擬環境（預設資料夾名稱：.venv）
+uv venv
+
+# 建立並指定 Python 版本
+uv venv --python 3.11
+
+# 指定自訂名稱
+uv venv --name myenv
+```
+
+### 4.3 啟用 / 停用虛擬環境
 
 #### 啟用
 
@@ -134,7 +246,7 @@ source .venv/bin/activate
 deactivate
 ```
 
-### 3.4 虛擬環境常用指令
+### 4.4 虛擬環境進階指令
 
 ```bash
 # 列出所有虛擬環境
@@ -143,44 +255,20 @@ uv venv list
 # 移除虛擬環境
 uv venv remove .venv
 
-# 同步環境（根據 pyproject.toml 安裝/更新套件）
+# 同步環境（根據 pyproject.toml 安裝/更新套件至當前虛擬環境）
 uv sync
 ```
 
 ---
 
-## 第 4 章：套件管理
+## 第 5 章：Pip 相容模式 (傳統相容流程)
 
-### 4.1 安裝套件（推薦方式：`uv add`）
+若您想保留傳統 `pip`、`requirements.txt` 的工作流程，`uv` 提供了 `uv pip` 子命令，操作方式與 `pip` 幾乎完全一致，但速度快上百倍。
 
-`uv add` 會將套件寫入 `pyproject.toml`，並自動更新 `uv.lock` 鎖定檔，是管理專案依賴的推薦做法。
+> [!NOTE]
+> 使用 `uv pip` 前，請確保已手動建立並啟用了虛擬環境（例如執行 `uv venv` 並 `source .venv/bin/activate`），否則 uv 會提示錯誤以避免污染系統 Python 環境。
 
-```bash
-# 安裝單一套件
-uv add requests
-
-# 一次安裝多個套件
-uv add numpy pandas matplotlib
-
-# 安裝指定版本範圍
-uv add "django>=4.0,<5.0"
-
-# 安裝帶有可選功能的套件
-uv add "fastapi[all]"
-
-# 安裝開發用套件（不進入生產環境）
-uv add pytest --dev
-```
-
-### 4.2 移除套件
-
-```bash
-uv remove requests
-```
-
-### 4.3 使用 `uv pip`（相容 pip 的操作方式）
-
-若需要相容既有的 pip 工作流程，可使用 `uv pip` 子命令：
+### 5.1 使用 `uv pip` 管理套件
 
 ```bash
 # 安裝套件
@@ -207,102 +295,45 @@ uv pip freeze > requirements.txt
 
 ---
 
-## 第 5 章：專案管理
-
-### 5.1 初始化新專案
-
-```bash
-# 建立全新專案資料夾
-uv init my-project
-cd my-project
-
-# 初始化現有目錄（就地建立 pyproject.toml）
-uv init
-```
-
-初始化後，uv 會自動建立以下專案結構：
-
-```
-my-project/
-├── .venv/              # 虛擬環境（由 uv 管理）
-├── pyproject.toml      # 專案設定與依賴清單
-├── uv.lock             # 依賴鎖定檔案（請納入版本控制）
-└── src/
-    └── mypackage/
-```
-
-### 5.2 執行腳本與模組
-
-使用 `uv run` 可在虛擬環境中直接執行程式，**無需手動啟用環境**：
-
-```bash
-# 執行 Python 腳本
-uv run python script.py
-
-# 執行模組
-uv run -m mymodule
-
-# 執行已安裝的命令（例如 pytest）
-uv run pytest
-```
-
-### 5.3 鎖定檔案管理
-
-```bash
-# 產生或更新 uv.lock 鎖定檔
-uv lock
-
-# 嚴格根據鎖定檔安裝（確保環境 100% 一致）
-uv sync --locked
-
-# 更新所有依賴至最新版本
-uv sync --upgrade
-
-# 更新特定套件
-uv add requests --upgrade
-```
-
-> [!TIP]
-> 請將 `uv.lock` 納入 Git 版本控制，以確保所有協作者和部署環境使用完全相同的套件版本。
-
----
-
 ## 第 6 章：開發流程總結
 
-以下是從建立新專案到部署的完整指令流程：
+以下是從建立新專案到部署的完整推薦指令流程：
 
 ```bash
-# 1. 建立新專案
+# 1. 建立並初始化新專案
 uv init my-project
 cd my-project
 
-# 2. 安裝所需的套件
+# 2. 安裝生產環境所需的套件（自動建立 .venv）
 uv add requests fastapi
 
-# 3. 安裝開發測試工具
+# 3. 安裝開發與測試用套件
 uv add pytest --dev
 
-# 4. 執行程式
+# 4. 執行程式（無需啟用虛擬環境）
 uv run python main.py
 
 # 5. 執行測試
 uv run pytest
 
-# 6. 部署：根據鎖定檔同步環境（不含開發工具）
+# 6. 部署：根據鎖定檔同步環境（不包含開發用套件）
 uv sync --locked --no-dev
 ```
 
 ---
 
-## 第 7 章：常見問題
+## 第 7 章：常見問題 (FAQ)
 
 ### Q：如何從現有的 `requirements.txt` 遷移？
 
 ```bash
-# 先安裝現有依賴至虛擬環境
+# 1. 初始化專案
+uv init
+
+# 2. 安裝 requirements.txt 中的依賴至虛擬環境
 uv pip install -r requirements.txt
 
-# 再將依賴寫入 pyproject.toml（逐一加入）
+# 3. 將這些依賴寫入 pyproject.toml
 uv add $(uv pip freeze | cut -d'=' -f1)
 ```
 
@@ -319,10 +350,10 @@ url = "https://pypi.company.com/simple/"
 ### Q：如何區分開發環境與生產環境的套件？
 
 ```bash
-# 安裝只在開發時使用的套件（如測試框架）
+# 安裝只在開發/測試時使用的套件
 uv add pytest --dev
 
-# 部署時同步，並排除開發用套件
+# 部署時同步環境，並排除開發用套件
 uv sync --no-dev
 ```
 
