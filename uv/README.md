@@ -113,8 +113,8 @@ uv init my-project
 cd my-project
 
 # 或：在現有目錄就地初始化（建立 pyproject.toml）
-# --bare建立最簡潔的版本
-uv init --bare
+# --no-package建立平面化的版本(建議)
+uv init --no-package
 ```
 
 初始化後，uv 會自動建立以下專案結構：
