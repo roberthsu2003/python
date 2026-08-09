@@ -130,7 +130,7 @@ my-project/
 
 > [!TIP]
 > **uv 初始化與虛擬環境建立流程：**
-> 1. 執行 `uv init` 初始化專案。
+> 1. 執行 `uv init --no-package` 初始化專案。
 > 2. 如需指定特定 Python 版本，可修改 `.python-version` 或 `pyproject.toml` 中的 Python 版本設定。
 > 3. 當你第一次執行如 `uv add` 或 `uv run` 時，uv 會自動建立 `.venv` 並下載對應的 Python 版本，無須手動執行 `uv venv`。
 
